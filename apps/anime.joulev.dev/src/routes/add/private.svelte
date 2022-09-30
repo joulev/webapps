@@ -12,7 +12,7 @@
 
   let value = "";
   let debouncedValue = "";
-  let timer: any;
+  let timer: NodeJS.Timeout;
   function debounce() {
     clearTimeout(timer);
     timer = setTimeout(() => (debouncedValue = value), 500);

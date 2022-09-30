@@ -3,7 +3,12 @@ lockfileVersion: 5.4
 importers:
 
   .:
-    specifiers: {}
+    specifiers:
+      prettier: ^2.6.2
+      prettier-plugin-svelte: ^2.7.0
+    devDependencies:
+      prettier: 2.7.1
+      prettier-plugin-svelte: 2.7.1_prettier@2.7.1
 
   apps/anime.joulev.dev:
     specifiers:
@@ -25,8 +30,6 @@ importers:
       nprogress: ^0.2.0
       postcss: ^8.4.14
       postcss-load-config: ^4.0.1
-      prettier: ^2.6.2
-      prettier-plugin-svelte: ^2.7.0
       svelte: ^3.44.0
       svelte-apollo: ^0.5.0
       svelte-check: ^2.7.1
@@ -47,7 +50,7 @@ importers:
       '@graphql-codegen/client-preset': 1.0.2_graphql@16.6.0
       '@graphql-typed-document-node/core': 3.1.1_graphql@16.6.0
       '@sveltejs/adapter-auto': 1.0.0-next.80
-      '@sveltejs/kit': 1.0.0-next.505_svelte@3.50.1+vite@3.1.4
+      '@sveltejs/kit': 1.0.0-next.506_svelte@3.50.1+vite@3.1.4
       '@types/node': 18.7.23
       '@types/nprogress': 0.2.0
       '@typescript-eslint/eslint-plugin': 5.38.1_c7qepppml3d4ahu5cnfwqe6ltq
@@ -58,8 +61,6 @@ importers:
       eslint-plugin-svelte3: 4.0.0_snydkosur25h6rjxszquwacaua
       postcss: 8.4.17
       postcss-load-config: 4.0.1_m6qswdslzu5ddi7v2thd72jv24
-      prettier: 2.7.1
-      prettier-plugin-svelte: 2.7.1_nk6d2fkgcllkkdynqbuearcure
       svelte: 3.50.1
       svelte-apollo: 0.5.0_afoaqcusgywjo7cyl4bdqg7tuy
       svelte-check: 2.9.1_ejhwqstqdwfnekvhsm3hus3z4i
@@ -1436,8 +1437,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.505_svelte@3.50.1+vite@3.1.4:
-    resolution: {integrity: sha512-vg2WvWiUB7useJZOKbdM8WOXv10WD7SVDER74IXd1t/TWb/uXHzwMQ/ZAsXZFdxQsz1cDGFub3iC76PW+j58Pg==}
+  /@sveltejs/kit/1.0.0-next.506_svelte@3.50.1+vite@3.1.4:
+    resolution: {integrity: sha512-OF5CVzXeLvqJGZz18CzscSkacTXYWdUPAGuvyiCApndowUzUX/x9jwuMbh6xfmUC4wVbC139rFwoMHQK6QZmzw==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
@@ -4285,14 +4286,13 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
-  /prettier-plugin-svelte/2.7.1_nk6d2fkgcllkkdynqbuearcure:
+  /prettier-plugin-svelte/2.7.1_prettier@2.7.1:
     resolution: {integrity: sha512-H33qjhCBZyd9Zr1A5hUAYDh7j0Mf97uvy7XcA7CP4nNSYrNcPvBUf7wI8K9NptWTIs0S41QtgTWmJIUiGlEBtw==}
     peerDependencies:
       prettier: ^1.16.4 || ^2.0.0
       svelte: ^3.2.0
     dependencies:
       prettier: 2.7.1
-      svelte: 3.50.1
     dev: true
 
   /prettier/2.7.1:

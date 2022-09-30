@@ -5,6 +5,7 @@
   export let item: ListItem;
   export let variant: CardVariant;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let Component: any;
   onMount(() => {
     auth.subscribe(async state => {
