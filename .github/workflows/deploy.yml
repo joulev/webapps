@@ -26,22 +26,18 @@ jobs:
     name: Deploy anime.joulev.dev
     needs: check-changes
     # if: needs.check-changes.outputs.anime == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/vercel.yml
-        with:
-          project-id: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
-          directory: ./apps/anime.joulev.dev
+    uses: ./.github/actions/vercel.yml
+    with:
+      directory: ./apps/anime.joulev.dev
+    secrets:
+      project-id: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
 
   deploy-website:
     name: Deploy joulev.dev
     needs: check-changes
     if: needs.check-changes.outputs.website == 'true'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: ./.github/actions/vercel.yml
-        with:
-          project-id: ${{ secrets.VERCEL_PROJECT_ID_JOULEV_DEV }}
-          directory: ./apps/joulev.dev
+    uses: ./.github/actions/vercel.yml
+    with:
+      directory: ./apps/joulev.dev
+    secrets:
+      project-id: ${{ secrets.VERCEL_PROJECT_ID_JOULEV_DEV }}
