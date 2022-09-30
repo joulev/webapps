@@ -1,9 +1,0 @@
-{
-  "name": "is-even",
-  "version": "1.0.0",
-  "description": "Test",
-  "main": "index.js",
-  "dependencies": {
-    "is-odd": "^3.0.1"
-  }
-}
