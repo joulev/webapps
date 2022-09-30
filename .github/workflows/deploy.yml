@@ -26,7 +26,7 @@ jobs:
     name: Deploy anime.joulev.dev
     needs: check-changes
     # if: needs.check-changes.outputs.anime == 'true'
-    uses: ./.github/actions/vercel.yml@main
+    uses: ./.github/workflows/vercel.yml@main
     with:
       directory: ./apps/anime.joulev.dev
     secrets:
@@ -36,7 +36,7 @@ jobs:
     name: Deploy joulev.dev
     needs: check-changes
     if: needs.check-changes.outputs.website == 'true'
-    uses: ./.github/actions/vercel.yml@main
+    uses: ./.github/workflows/vercel.yml@main
     with:
       directory: ./apps/joulev.dev
     secrets:
