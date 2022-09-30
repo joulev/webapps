@@ -5,11 +5,16 @@ on:
         type: string
         required: true
     secrets:
+      token:
+        required: true
+      org-id:
+        required: true
       project-id:
         required: true
 
 jobs:
   deploy:
+    name: "Vercel deploy"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,8 +28,8 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile]
             - args: [--global, vercel]
-      - run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - run: vercel --prod --token=${{ secrets.token }}
         working-directory: ${{ inputs.directory }}
         env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_ORG_ID: ${{ secrets.org-id }}
           VERCEL_PROJECT_ID: ${{ secrets.project-id }}
