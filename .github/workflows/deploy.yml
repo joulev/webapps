@@ -28,6 +28,7 @@ jobs:
     # if: needs.check-changes.outputs.anime == 'true'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/vercel.yml
         with:
           project-id: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
@@ -39,6 +40,7 @@ jobs:
     if: needs.check-changes.outputs.website == 'true'
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/vercel.yml
         with:
           project-id: ${{ secrets.VERCEL_PROJECT_ID_JOULEV_DEV }}
