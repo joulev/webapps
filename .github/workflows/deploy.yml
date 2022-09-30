@@ -22,5 +22,4 @@ jobs:
               args: [--frozen-lockfile]
             - args: [--global, vercel]
       - run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
-        with:
-          working-directory: ./apps/anime.joulev.dev
+        working-directory: ./apps/anime.joulev.dev
