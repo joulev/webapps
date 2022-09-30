@@ -1,7 +1,9 @@
 name: Deploy
+
 on:
   push:
     branches: [main]
+
 jobs:
   check-changes:
     name: Check changes
@@ -19,48 +21,25 @@ jobs:
               - 'apps/anime.joulev.dev/**'
             website:
               - 'apps/joulev.dev/**'
-  # How should I remove this duplication without having to create a separate repository?
+
   deploy-anime:
     name: Deploy anime.joulev.dev
     needs: check-changes
-    if: needs.check-changes.outputs.anime == 'true'
+    # if: needs.check-changes.outputs.anime == 'true'
     runs-on: ubuntu-latest
-    env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/vercel.yml
         with:
-          node-version: 16
-      - uses: pnpm/action-setup@v2.2.2
-        with:
-          version: latest
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile]
-            - args: [--global, vercel]
-      - run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./apps/anime.joulev.dev
+          project-id: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
+          directory: ./apps/anime.joulev.dev
+
   deploy-website:
     name: Deploy joulev.dev
     needs: check-changes
     if: needs.check-changes.outputs.website == 'true'
     runs-on: ubuntu-latest
-    env:
-      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID_JOULEV_DEV }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: ./.github/actions/vercel.yml
         with:
-          node-version: 16
-      - uses: pnpm/action-setup@v2.2.2
-        with:
-          version: latest
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile]
-            - args: [--global, vercel]
-      - run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
-        working-directory: ./apps/joulev.dev
+          project-id: ${{ secrets.VERCEL_PROJECT_ID_JOULEV_DEV }}
+          directory: ./apps/joulev.dev

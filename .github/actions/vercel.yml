@@ -1,0 +1,25 @@
+name: "Deploy to Vercel"
+inputs:
+  project-id:
+    required: true
+  directory:
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 16
+    - uses: pnpm/action-setup@v2.2.2
+      with:
+        version: latest
+        run_install: |
+          - recursive: true
+            args: [--frozen-lockfile]
+          - args: [--global, vercel]
+    - run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
+      working-directory: ${{ inputs.directory }}
+      env:
+        VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        VERCEL_PROJECT_ID: ${{ inputs.project-id }}
