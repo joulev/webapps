@@ -25,7 +25,7 @@ jobs:
   deploy-anime:
     name: Deploy anime.joulev.dev
     needs: check-changes
-    # if: needs.check-changes.outputs.anime == 'true'
+    if: needs.check-changes.outputs.anime == 'true'
     uses: ./.github/workflows/vercel.yml
     with:
       directory: ./apps/anime.joulev.dev
