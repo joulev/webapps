@@ -2,6 +2,7 @@ on:
   workflow_call:
     inputs:
       directory:
+        type: string
         required: true
     secrets:
       project-id:
