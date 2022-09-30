@@ -3,11 +3,12 @@ on:
   push:
     branches: [main]
 jobs:
-  pre-job:
-    name: Detect changes
+  check-changes:
+    name: Check changes
     runs-on: ubuntu-latest
     outputs:
-      changed: ${{ steps.changed.outputs }}
+      anime: ${{ steps.changed.outputs.anime }}
+      website: ${{ steps.changed.outputs.website }}
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
@@ -21,8 +22,8 @@ jobs:
   # How should I remove this duplication without having to create a separate repository?
   deploy-anime:
     name: Deploy anime.joulev.dev
-    needs: pre-job
-    if: needs.pre-job.outputs.changed.anime == 'true'
+    needs: check-changes
+    if: needs.check-changes.outputs.anime == 'true'
     runs-on: ubuntu-latest
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
@@ -43,8 +44,8 @@ jobs:
         working-directory: ./apps/anime.joulev.dev
   deploy-website:
     name: Deploy joulev.dev
-    needs: pre-job
-    if: needs.pre-job.outputs.changed.website == 'true'
+    needs: check-changes
+    if: needs.check-changes.outputs.website == 'true'
     runs-on: ubuntu-latest
     env:
       VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
