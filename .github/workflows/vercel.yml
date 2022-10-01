@@ -30,7 +30,8 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile]
             - args: [--global, vercel]
-      - run: vercel --prod --token=${{ secrets.token }}
+      - run: vercel build --prod
+      - run: vercel deploy --prebuilt --prod --token=${{ secrets.token }}
         working-directory: ${{ inputs.directory }}
         env:
           VERCEL_ORG_ID: ${{ secrets.org-id }}
