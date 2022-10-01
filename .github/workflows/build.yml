@@ -2,9 +2,7 @@ name: Build
 
 on:
   push:
-    branches:
-      - "*"
-      - "!main"
+    branches-ignore: [main]
 
 jobs:
   build-all:
@@ -22,9 +20,9 @@ jobs:
             - recursive: true
               args: [--frozen-lockfile]
             - args: [--global, vercel]
-      - run: vercel build --prod
+      - run: vercel build
         working-directory: ./apps/joulev.dev
-      - run: vercel build --prod
+      - run: vercel build
         working-directory: ./apps/anime.joulev.dev
-      - run: vercel build --prod
+      - run: vercel build
         working-directory: ./apps/tategaki.joulev.dev
