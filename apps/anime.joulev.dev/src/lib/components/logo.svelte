@@ -28,6 +28,6 @@
 
 <style lang="postcss">
   path {
-    @apply fill-c-900 dark:fill-c-100;
+    @apply fill-main-900 dark:fill-main-100;
   }
 </style>

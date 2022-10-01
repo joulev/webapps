@@ -19,16 +19,16 @@
 
 <style lang="postcss">
   .anchor {
-    background-image: linear-gradient(theme(colors.c.300), theme(colors.c.300)),
-      linear-gradient(to right, theme(colors.c.600), theme(colors.c.600));
+    background-image: linear-gradient(theme(colors.main.300), theme(colors.main.300)),
+      linear-gradient(to right, theme(colors.main.600), theme(colors.main.600));
     @apply bg-no-repeat transition-all;
     background-size: 100% 1px, 0 1px;
     background-position: 100% 100%, 0% 100%;
   }
   @media (prefers-color-scheme: dark) {
     .anchor {
-      background-image: linear-gradient(theme(colors.c.700), theme(colors.c.700)),
-        linear-gradient(to right, theme(colors.c.400), theme(colors.c.400));
+      background-image: linear-gradient(theme(colors.main.700), theme(colors.main.700)),
+        linear-gradient(to right, theme(colors.main.400), theme(colors.main.400));
     }
   }
   .anchor:hover {

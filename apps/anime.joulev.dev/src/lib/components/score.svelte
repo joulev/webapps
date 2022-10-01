@@ -28,11 +28,11 @@
     cx={center}
     cy={center}
     r={radius}
-    class="stroke-c-300 dark:stroke-c-700"
+    class="stroke-main-300 dark:stroke-main-700"
     stroke-width={width}
   />
   <path
-    class={score >= 7 ? "stroke-watching" : "stroke-paused"}
+    class={score >= 7 ? "stroke-green" : "stroke-yellow"}
     stroke-width={width}
     stroke-linecap="round"
     d="M {start[0]} {start[1]} A {radius} {radius} 0 {largeArcFlag} 1 {end[0]} {end[1]}"

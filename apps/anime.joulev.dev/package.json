@@ -23,6 +23,7 @@
     "@graphql-codegen/cli": "2.13.1",
     "@graphql-codegen/client-preset": "1.0.2",
     "@graphql-typed-document-node/core": "3.1.1",
+    "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@types/node": "18.7.23",

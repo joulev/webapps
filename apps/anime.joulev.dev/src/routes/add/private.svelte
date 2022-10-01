@@ -37,7 +37,7 @@
   placeholder="Anime title"
   class="
     bg-transparent outline-none px-4 py-2 rounded-lg placeholder:text-muted transition
-    border border-c-300 dark:border-c-700 focus:border-c-500 dark:focus:border-c-500
+    border border-main-300 dark:border-main-700 focus:border-main-500 dark:focus:border-main-500
   "
   bind:value
   on:keypress={debounce}
@@ -47,7 +47,7 @@
   {#each list as item}
     {#if item}
       <div
-        class="flex flex-col rounded-lg overflow-hidden bg-c-200 dark:bg-c-800 relative"
+        class="flex flex-col rounded-lg overflow-hidden bg-main-200 dark:bg-main-800 relative"
         transition:fade={transition}
       >
         <div class="absolute top-6 right-6 flex flex-row gap-1.5">
@@ -64,7 +64,7 @@
             />
           {:else}
             <div
-              class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 bg-c-300 dark:bg-c-700"
+              class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 bg-main-300 dark:bg-main-700"
             />
           {/if}
           <div

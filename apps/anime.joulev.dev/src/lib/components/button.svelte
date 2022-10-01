@@ -14,10 +14,12 @@
   export let animated = false;
 
   const classes: Record<Variant, string> = {
-    primary: "bg-c-900 dark:bg-c-100 text-c-100 dark:text-c-900 hover:bg-c-700 dark:hover:bg-c-300",
+    primary:
+      "bg-main-900 dark:bg-main-100 text-main-100 dark:text-main-900 hover:bg-main-700 dark:hover:bg-main-300",
     secondary:
-      "bg-c-300 dark:bg-c-700 text-c-900 dark:text-c-100 hover:bg-c-300 dark:hover:bg-c-700",
-    tertiary: "bg-transparent text-c-900 dark:text-c-100 hover:text-c-600 dark:hover:text-c-400",
+      "bg-main-300 dark:bg-main-700 text-main-900 dark:text-main-100 hover:bg-main-300 dark:hover:bg-main-700",
+    tertiary:
+      "bg-transparent text-main-900 dark:text-main-100 hover:text-main-600 dark:hover:text-main-400",
   };
 
   const sizeClasses: Record<Size, string> = {
