@@ -38,6 +38,7 @@ export function constraintScore(score: number) {
 }
 
 export const transition: TransitionConfig = { duration: 300, easing: cubicOut };
+
 export const longTransition: TransitionConfig = { duration: 600, easing: cubicOut };
 
 export function capitalise(str: string) {

@@ -29,12 +29,12 @@ jobs:
       - uses: pnpm/action-setup@v2.2.2
         with:
           version: latest
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile]
-            - args: [--global, vercel]
+          run_install: false
+      - run: pnpm install && pnpm build
+        working-directory: ./packages/theme
       - run: |
-          vercel pull --yes --token=${{ secrets.token }}
+          pnpm install
+          vercel pull --yes --prod --token=${{ secrets.token }}
           vercel build --prod
           vercel deploy --prebuilt --prod --token=${{ secrets.token }}
         working-directory: ${{ inputs.directory }}
