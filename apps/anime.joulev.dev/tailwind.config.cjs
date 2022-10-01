@@ -1,10 +1,7 @@
-const defaultTheme = require("tailwindcss/defaultTheme");
-const colors = require("tailwindcss/colors");
+const { preset } = require("@joulev/theme");
 
 /** @type {import("tailwindcss").Config} */
-const config = {
+module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
-  presets: [require("@joulev/theme").preset],
+  presets: [preset],
 };
-
-module.exports = config;

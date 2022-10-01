@@ -35,7 +35,7 @@
             {getTitle(item.media?.title)}
           </A>
         </div>
-        <div class="text-sm text-muted">
+        <div class="text-sm muted">
           {item.media?.title?.native ?? "Japanese title N/A"}
         </div>
       </div>

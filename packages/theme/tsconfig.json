@@ -3,6 +3,7 @@
     "module": "commonjs",
     "target": "esnext",
     "declaration": true,
+    "esModuleInterop": true,
     "outDir": "./dist"
   },
   "exclude": ["./node_modules", "./dist"]

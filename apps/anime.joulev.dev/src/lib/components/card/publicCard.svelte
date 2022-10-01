@@ -22,7 +22,7 @@
     on:blur={onLeave}
   >
     {#if showDetailedScore && item.score}
-      <div class="flex flex-row text-sm text-muted" in:fade={transition}>
+      <div class="flex flex-row text-sm muted" in:fade={transition}>
         {#each Object.entries(item.advancedScores) as [key, score], i}
           <div
             class="group {i > 0 && 'ml-3 border-l border-main-300 dark:border-main-700 pl-3'}"
@@ -35,7 +35,7 @@
         {/each}
       </div>
     {:else}
-      <div class="flex flex-row text-sm text-muted" in:fade={transition}>
+      <div class="flex flex-row text-sm muted" in:fade={transition}>
         <div>
           {#if item.media?.season && item.media?.seasonYear}
             {convertSeason(item.media.season)} {item.media.seasonYear}
@@ -58,7 +58,7 @@
         <div>{item.score}</div>
       </div>
     {:else}
-      <div class="text-sm text-muted">
+      <div class="text-sm muted">
         Last updated: {item.updatedAt
           ? new Date(item.updatedAt * 1000).toLocaleDateString("en-gb")
           : "N/A"}

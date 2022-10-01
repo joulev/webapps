@@ -36,7 +36,7 @@
 <input
   placeholder="Anime title"
   class="
-    bg-transparent outline-none px-4 py-2 rounded-lg placeholder:text-muted transition
+    bg-transparent outline-none px-4 py-2 rounded-lg placeholder:muted transition
     border border-main-300 dark:border-main-700 focus:border-main-500 dark:focus:border-main-500
   "
   bind:value
@@ -77,12 +77,12 @@
                   {getTitle(item.title)}
                 </A>
               </div>
-              <div class="text-sm text-muted">
+              <div class="text-sm muted">
                 {item.title?.native ?? "Japanese title N/A"}
               </div>
             </div>
             <div class="flex flex-row justify-between items-end">
-              <div class="text-sm text-muted">
+              <div class="text-sm muted">
                 {#if item.genres && item.genres.length > 0}
                   {item.genres.slice(0, 3).join(", ")}
                 {:else if item.season && item.seasonYear}

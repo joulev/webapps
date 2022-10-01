@@ -130,7 +130,7 @@
     {#if variant === "completed"}
       {#each icons as Icon, i}
         <div class="flex flex-row flex-1 gap-1.5 sm:gap-3 items-center">
-          <div class="text-muted"><Icon size="18px" /></div>
+          <div class="muted"><Icon size="18px" /></div>
           <input
             class="text-sm flex-1 outline-none bg-transparent w-full"
             class:font-semibold={safeScores[i] !== Number(item.advancedScores[keys[i]])}
@@ -145,7 +145,7 @@
       </div>
     {:else}
       {#if variant === "planning"}
-        <div class="text-sm text-muted">
+        <div class="text-sm muted">
           {#if item.media?.season && item.media?.seasonYear}
             {convertSeason(item.media.season)} {item.media.seasonYear}
           {:else}
@@ -157,7 +157,7 @@
           Episode {item.progress}/{item.media?.episodes ?? "unknown"}
         </div>
       {/if}
-      <div class="text-sm text-muted">
+      <div class="text-sm muted">
         Last updated: {item.updatedAt
           ? new Date(item.updatedAt * 1000).toLocaleDateString("en-gb")
           : "N/A"}

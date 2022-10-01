@@ -99,7 +99,7 @@
       <div class="flex flex-row justify-between items-center">
         {#key navOpen}
           <button
-            class="lg:hidden text-muted hover:text-main-900 dark:hover:text-main-100"
+            class="lg:hidden muted hover:text-main-900 dark:hover:text-main-100"
             on:click={() => (navOpen = !navOpen)}
             in:fade={transition}
           >
@@ -114,7 +114,7 @@
         <A
           href="https://github.com/joulev/anime"
           notStyled
-          class="text-muted hover:text-main-900 dark:hover:text-main-100 transition"
+          class="muted hover:text-main-900 dark:hover:text-main-100 transition"
         >
           <GitHub size="24px" />
         </A>
