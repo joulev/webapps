@@ -108,6 +108,48 @@ importers:
       tailwindcss: 3.1.8_postcss@8.4.17
       typescript: 4.8.3
 
+  apps/tategaki.joulev.dev:
+    specifiers:
+      '@sveltejs/adapter-auto': next
+      '@sveltejs/kit': next
+      '@typescript-eslint/eslint-plugin': ^5.27.0
+      '@typescript-eslint/parser': ^5.27.0
+      autoprefixer: ^10.4.7
+      eslint: ^8.16.0
+      eslint-config-prettier: ^8.3.0
+      eslint-plugin-svelte3: ^4.0.0
+      postcss: ^8.4.14
+      postcss-load-config: ^4.0.1
+      prettier: ^2.6.2
+      prettier-plugin-svelte: ^2.7.0
+      svelte: ^3.44.0
+      svelte-check: ^2.7.1
+      svelte-preprocess: ^4.10.7
+      tailwindcss: ^3.1.5
+      tslib: ^2.3.1
+      typescript: ^4.7.4
+      vite: ^3.1.0
+    devDependencies:
+      '@sveltejs/adapter-auto': 1.0.0-next.80
+      '@sveltejs/kit': 1.0.0-next.506_svelte@3.50.1+vite@3.1.4
+      '@typescript-eslint/eslint-plugin': 5.38.1_c7qepppml3d4ahu5cnfwqe6ltq
+      '@typescript-eslint/parser': 5.38.1_ypn2ylkkyfa5i233caldtndbqa
+      autoprefixer: 10.4.12_postcss@8.4.17
+      eslint: 8.24.0
+      eslint-config-prettier: 8.5.0_eslint@8.24.0
+      eslint-plugin-svelte3: 4.0.0_snydkosur25h6rjxszquwacaua
+      postcss: 8.4.17
+      postcss-load-config: 4.0.1_postcss@8.4.17
+      prettier: 2.7.1
+      prettier-plugin-svelte: 2.7.1_nk6d2fkgcllkkdynqbuearcure
+      svelte: 3.50.1
+      svelte-check: 2.9.1_ejhwqstqdwfnekvhsm3hus3z4i
+      svelte-preprocess: 4.10.7_or4gyn62tntw7ihg73nagmkdja
+      tailwindcss: 3.1.8_postcss@8.4.17
+      tslib: 2.4.0
+      typescript: 4.8.4
+      vite: 3.1.4
+
 packages:
 
   /@ampproject/remapping/2.2.0:
@@ -5218,6 +5260,23 @@ packages:
       yaml: 2.1.1
     dev: true
 
+  /postcss-load-config/4.0.1_postcss@8.4.17:
+    resolution: {integrity: sha512-vEJIc8RdiBRu3oRAI0ymerOn+7rPuMvRXslTvZUKZonDHFIczxztIyJ1urxM1x9JXEikvpWWTUUqal5j/8QgvA==}
+    engines: {node: '>= 14'}
+    peerDependencies:
+      postcss: '>=8.0.9'
+      ts-node: '>=9.0.0'
+    peerDependenciesMeta:
+      postcss:
+        optional: true
+      ts-node:
+        optional: true
+    dependencies:
+      lilconfig: 2.0.6
+      postcss: 8.4.17
+      yaml: 2.1.1
+    dev: true
+
   /postcss-nested/5.0.6_postcss@8.4.17:
     resolution: {integrity: sha512-rKqm2Fk0KbA8Vt3AdGN0FB9OBOMDVajMG6ZCf/GoHgdxUJ4sBFp0A/uMIRm+MJUdo33YXEtjqIz8u7DAp8B7DA==}
     engines: {node: '>=12.0'}
@@ -5261,6 +5320,16 @@ packages:
   /prelude-ls/1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
+    dev: true
+
+  /prettier-plugin-svelte/2.7.1_nk6d2fkgcllkkdynqbuearcure:
+    resolution: {integrity: sha512-H33qjhCBZyd9Zr1A5hUAYDh7j0Mf97uvy7XcA7CP4nNSYrNcPvBUf7wI8K9NptWTIs0S41QtgTWmJIUiGlEBtw==}
+    peerDependencies:
+      prettier: ^1.16.4 || ^2.0.0
+      svelte: ^3.2.0
+    dependencies:
+      prettier: 2.7.1
+      svelte: 3.50.1
     dev: true
 
   /prettier-plugin-svelte/2.7.1_prettier@2.7.1:
@@ -5903,7 +5972,7 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.25.9
       postcss: 8.4.17
-      postcss-load-config: 4.0.1_m6qswdslzu5ddi7v2thd72jv24
+      postcss-load-config: 4.0.1_postcss@8.4.17
       sorcery: 0.10.0
       strip-indent: 3.0.0
       svelte: 3.50.1

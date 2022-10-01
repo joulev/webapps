@@ -1,3 +1,5 @@
+name: Prod deploy to Vercel
+
 on:
   workflow_call:
     inputs:
@@ -14,7 +16,7 @@ on:
 
 jobs:
   deploy:
-    name: "Vercel deploy"
+    name: Vercel deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

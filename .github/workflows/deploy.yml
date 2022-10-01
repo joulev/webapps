@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       anime: ${{ steps.changed.outputs.anime }}
+      tategaki: ${{ steps.changed.outputs.tategaki }}
       website: ${{ steps.changed.outputs.website }}
     steps:
       - uses: actions/checkout@v3
@@ -19,6 +20,8 @@ jobs:
           filters: |
             anime:
               - 'apps/anime.joulev.dev/**'
+            tategaki:
+              - 'apps/tategaki.joulev.dev/**'
             website:
               - 'apps/joulev.dev/**'
 
@@ -33,6 +36,18 @@ jobs:
       token: ${{ secrets.VERCEL_TOKEN }}
       org-id: ${{ secrets.VERCEL_ORG_ID }}
       project-id: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
+
+  deploy-tategaki:
+    name: Deploy tategaki.joulev.dev
+    needs: check-changes
+    if: needs.check-changes.outputs.tategaki == 'true'
+    uses: ./.github/workflows/vercel.yml
+    with:
+      directory: ./apps/tategaki.joulev.dev
+    secrets:
+      token: ${{ secrets.VERCEL_TOKEN }}
+      org-id: ${{ secrets.VERCEL_ORG_ID }}
+      project-id: ${{ secrets.VERCEL_PROJECT_ID_TATEGAKI_JOULEV_DEV }}
 
   deploy-website:
     name: Deploy joulev.dev

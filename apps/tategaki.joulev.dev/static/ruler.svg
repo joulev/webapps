@@ -1,0 +1,5 @@
+<!-- Source: http://ni.siois.in. To the author of this file, thank you very much. -->
+<!-- Slightly updated to make the dimensions multiple of 24px (previously 23px) -->
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="24">
+  <path fill="none" stroke="#e5e5e5" d="M.5 24V.5h23.5V24"/>
+</svg>

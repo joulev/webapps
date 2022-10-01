@@ -26,3 +26,5 @@ jobs:
         working-directory: ./apps/joulev.dev
       - run: vercel build --prod
         working-directory: ./apps/anime.joulev.dev
+      - run: vercel build --prod
+        working-directory: ./apps/tategaki.joulev.dev
