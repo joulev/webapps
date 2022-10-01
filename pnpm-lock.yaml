@@ -12,7 +12,7 @@ importers:
 
   apps/anime.joulev.dev:
     specifiers:
-      '@apollo/client': ^3.6.9
+      '@apollo/client': 3.7.0
       '@graphql-codegen/cli': 2.12.1
       '@graphql-codegen/client-preset': 1.0.2
       '@graphql-typed-document-node/core': 3.1.1
