@@ -30,9 +30,13 @@ jobs:
         with:
           version: latest
           run_install: false
-      - run: pnpm install && pnpm build
+
+      - name: Build @joulev/theme
+        run: pnpm install && pnpm build
         working-directory: ./packages/theme
-      - run: |
+
+      - name: Build ${{ inputs.directory }}
+        run: |
           pnpm install
           vercel pull --yes --environment=production --token=${{ secrets.token }}
           vercel build --prod
