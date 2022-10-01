@@ -1,0 +1,28 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "*"
+      - "!main"
+
+jobs:
+  build-all:
+    name: Build all apps
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile]
+            - args: [--global, vercel]
+      - run: vercel build --prod
+        working-directory: ./apps/joulev.dev
+      - run: vercel build --prod
+        working-directory: ./apps/anime.joulev.dev
