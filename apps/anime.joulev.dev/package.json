@@ -14,7 +14,7 @@
     "postinstall": "svelte-kit sync && graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "^3.6.9",
+    "@apollo/client": "3.7.0",
     "graphql": "16.6.0",
     "nprogress": "0.2.0",
     "svelte-material-icons": "2.0.4"
