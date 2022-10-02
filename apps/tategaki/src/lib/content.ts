@@ -1,4 +1,4 @@
-import type { Character, RawParagraph } from "$lib/types";
+import type { Character, RawParagraph } from "$lib";
 import rawContent from "./article.md?raw";
 
 const FURIGANA_START = "<";
@@ -8,7 +8,7 @@ const [rawTitle, ...content] = rawContent.split("\n\n");
 
 export const title = rawTitle.substring(1).trim();
 
-export const rawParagraphs = content.map((p) => {
+export const rawParagraphs = content.map(p => {
   const characters: RawParagraph = [];
   for (let i = 0; i < p.length; i++) {
     const cur: Character = { char: p[i], furigana: null };
@@ -22,7 +22,7 @@ export const rawParagraphs = content.map((p) => {
   return characters;
 });
 
-export const srParagraphs = content.map((p) => {
+export const srParagraphs = content.map(p => {
   let characters = "";
   for (let i = 0; i < p.length; i++) {
     characters += p[i];

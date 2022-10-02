@@ -1,4 +1,4 @@
-import type { Line, Paragraph, RawParagraph } from "$lib/types";
+import type { Line, Paragraph, RawParagraph } from "$lib";
 
 const START_CHARS = "「『［【〔｛〈《（"; // characters that should be shifted down
 const END_CHARS = "」』］】〕｝〉》）。、"; // characters that should be shifted up

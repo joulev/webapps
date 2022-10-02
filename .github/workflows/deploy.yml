@@ -43,7 +43,7 @@ jobs:
   deploy-tategaki:
     name: Deploy tategaki.joulev.dev
     needs: check-changes
-    if: needs.check-changes.outputs.tategaki == 'true'
+    if: needs.check-changes.outputs.tategaki == 'true' || needs.check-changes.outputs.dependencies == 'true'
     uses: ./.github/workflows/vercel.yml
     with:
       directory: ./apps/tategaki

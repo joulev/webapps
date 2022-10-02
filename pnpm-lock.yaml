@@ -75,6 +75,7 @@ importers:
 
   apps/tategaki:
     specifiers:
+      '@joulev/theme': workspace:*
       '@sveltejs/adapter-auto': next
       '@sveltejs/kit': next
       '@typescript-eslint/eslint-plugin': 5.38.1
@@ -95,6 +96,7 @@ importers:
       typescript: 4.8.4
       vite: 3.1.4
     devDependencies:
+      '@joulev/theme': link:../../packages/theme
       '@sveltejs/adapter-auto': 1.0.0-next.80
       '@sveltejs/kit': 1.0.0-next.507_svelte@3.50.1+vite@3.1.4
       '@typescript-eslint/eslint-plugin': 5.38.1_c7qepppml3d4ahu5cnfwqe6ltq

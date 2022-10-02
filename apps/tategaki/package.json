@@ -13,6 +13,7 @@
     "postinstall": "svelte-kit sync"
   },
   "devDependencies": {
+    "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "5.38.1",

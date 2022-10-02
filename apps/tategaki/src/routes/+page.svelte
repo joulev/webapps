@@ -1,18 +1,20 @@
 <script lang="ts">
   import { title, rawParagraphs, srParagraphs } from "$lib/content";
   import splitLine from "$lib/split-line";
+  import Logo from "$lib/components/logo.svelte";
+  import type { Paragraph } from "$lib";
 
   const MARGIN = 48;
   const SIZE = 24;
 
   let height = 0;
-  let paragraphs: import("$lib/types").Paragraph[] = [];
+  let paragraphs: Paragraph[] = [];
 
   function main() {
     const maxHeight = window.innerHeight - MARGIN * 2;
     const countPerColumn = Math.floor(maxHeight / SIZE);
     height = countPerColumn * SIZE;
-    paragraphs = rawParagraphs.map((p) => splitLine(p, countPerColumn));
+    paragraphs = rawParagraphs.map(p => splitLine(p, countPerColumn));
   }
 
   main();
@@ -28,12 +30,13 @@
 
 <div {height} class="m-12 w-9">
   <a href="https://joulev.dev" target="_blank" rel="noopener noreferrer" class="inline-block">
-    <img src="/tategaki.joulev.svg" alt="tategaki at joulev.dev" width="36" />
+    <Logo />
   </a>
 </div>
 
-<div aria-hidden class="not-sr-only m-12 border border-neutral-200 text-base" {height}>
-  <div class="flex flex-col gap-12 -m-px" style="background: url('/ruler.svg');">
+<div aria-hidden class="not-sr-only m-12 border border-faded text-base relative" {height}>
+  <div class="absolute inset-0 bg-faded -m-px -z-10" style="mask-image: url('/ruler.svg');" />
+  <div class="flex flex-col gap-12 -m-px">
     <h1 class="flex flex-row">
       {#each title.split("") as char}
         <span class="w-18 h-12 text-h1 grid place-items-center">{char}</span>
