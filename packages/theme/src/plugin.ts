@@ -16,14 +16,17 @@ const transition = {
 export const plugin = internal(function ({ addComponents, theme }) {
   const main = theme("colors.main");
   const space = theme("space");
-  const fontSize = theme("fontSize");
-
+  const fontSize = (key: string) => {
+    const [size, { lineHeight }] = theme("fontSize")[key];
+    return lineHeight ? { fontSize: size, lineHeight } : { fontSize: size };
+  };
   const muted = (key: string) => ({ [key]: main[400], [dark]: { [key]: main[500] } });
+
   addComponents({
     ".muted": muted("color"),
     ".stroke-muted": muted("stroke"),
     ".fill-muted": muted("fill"),
-    ".help-text": { ...muted, fontSize: fontSize.sm },
+    ".help-text": { ...muted("color"), ...fontSize("sm") },
   });
 
   addComponents({
@@ -50,10 +53,10 @@ export const plugin = internal(function ({ addComponents, theme }) {
 
       "&:not(.btn-sm):not(.btn-nopadding)": {
         padding: `${space[2]} ${space[4]}`,
-        fontSize: fontSize.base,
+        ...fontSize("base"),
       },
-      "&.btn-sm": { padding: `${space[1.5]} ${space[3]}`, fontSize: fontSize.sm },
-      "&.btn-nopadding": { padding: "0", fontSize: fontSize.base },
+      "&.btn-sm": { padding: `${space[1.5]} ${space[3]}`, ...fontSize("sm") },
+      "&.btn-nopadding": { padding: "0", ...fontSize("base") },
 
       "&.btn-primary": {
         backgroundColor: main[900],
