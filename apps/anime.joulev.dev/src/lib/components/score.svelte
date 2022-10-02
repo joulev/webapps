@@ -24,13 +24,7 @@
 </script>
 
 <svg viewBox="0 0 24 24" width="24" height="24" fill="none">
-  <circle
-    cx={center}
-    cy={center}
-    r={radius}
-    class="stroke-main-300 dark:stroke-main-700"
-    stroke-width={width}
-  />
+  <circle cx={center} cy={center} r={radius} class="stroke-faded" stroke-width={width} />
   <path
     class={score >= 7 ? "stroke-green" : "stroke-yellow"}
     stroke-width={width}

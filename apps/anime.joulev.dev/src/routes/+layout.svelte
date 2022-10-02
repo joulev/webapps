@@ -99,7 +99,7 @@
       <div class="flex flex-row justify-between items-center">
         {#key navOpen}
           <button
-            class="lg:hidden muted hover:text-main-900 dark:hover:text-main-100"
+            class="lg:hidden text-muted hover:text-contrast"
             on:click={() => (navOpen = !navOpen)}
             in:fade={transition}
           >
@@ -129,9 +129,8 @@
             {#each $navItems as { content, icon: Icon, slug: href, count }}
               <a
                 {href}
-                class="flex flex-row justify-between items-center transition py-3 hover:text-main-900 dark:hover:text-main-100"
-                class:text-main-400={$page.url.pathname !== href}
-                class:dark:text-main-500={$page.url.pathname !== href}
+                class="flex flex-row justify-between items-center transition py-3 hover:text-contrast"
+                class:text-muted={$page.url.pathname !== href}
               >
                 <div class="flex flex-row gap-6 items-center">
                   <Icon size="24px" />

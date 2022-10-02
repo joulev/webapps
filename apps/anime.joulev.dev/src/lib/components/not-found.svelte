@@ -10,5 +10,5 @@
       stroke-width="0.5"
     />
   </svg>
-  <div class="muted">{text}</div>
+  <div class="text-muted">{text}</div>
 </div>

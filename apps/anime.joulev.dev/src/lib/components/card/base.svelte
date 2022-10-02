@@ -12,7 +12,7 @@
   );
 </script>
 
-<div class="flex flex-col rounded-lg overflow-hidden bg-main-200 dark:bg-main-800 relative">
+<div class="flex flex-col rounded-lg overflow-hidden bg-card relative">
   <div class="absolute top-6 right-6 flex flex-row gap-1.5">
     <slot name="top-right" />
   </div>
@@ -24,9 +24,7 @@
         class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 object-cover"
       />
     {:else}
-      <div
-        class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 bg-main-300 dark:bg-main-700"
-      />
+      <div class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 bg-faded" />
     {/if}
     <div class="flex-1 flex min-w-0 flex-col justify-between gap-6 {item.score && 'sm:gap-1.5'}">
       <div class="flex flex-col">
