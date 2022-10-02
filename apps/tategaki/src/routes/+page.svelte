@@ -36,10 +36,7 @@
 
 <div aria-hidden class="not-sr-only m-12 border border-faded text-base relative" {height}>
   <!-- mask image original version taken from http://ni.siois.in, with some modifications -->
-  <div
-    class="absolute inset-0 bg-faded -m-px -z-10"
-    style={`mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24'%3E%3Cpath fill='none' stroke='black' d='M.5 24V.5h23.5V24'/%3E%3C/svg%3E");`}
-  />
+  <div class="absolute inset-0 bg-faded -m-px -z-10 ruler" />
   <div class="flex flex-col gap-12 -m-px">
     <h1 class="flex flex-row">
       {#each title.split("") as char}
