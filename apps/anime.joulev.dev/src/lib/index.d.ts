@@ -1,4 +1,5 @@
 import type { GetAnimeQuery } from "$lib/gql/graphql";
+import type { SvelteComponent as __Component } from "svelte";
 
 // someone helps me
 export type ListItem = NonNullable<
@@ -17,3 +18,9 @@ export type CardVariant =
   | "paused"
   | "dropped"
   | "planning";
+
+// Why do I have to write this myself...
+export type SvelteComponent<P = Record<string, never>> = new (_: {
+  target: Element | ShadowRoot;
+  props?: P;
+}) => __Component<P>;

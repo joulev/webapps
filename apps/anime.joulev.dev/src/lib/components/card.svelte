@@ -1,12 +1,11 @@
 <script lang="ts">
   import { auth } from "$lib/stores/user";
   import { onMount } from "svelte";
-  import type { CardVariant, ListItem } from "$lib";
+  import type { CardVariant, ListItem, SvelteComponent } from "$lib";
   export let item: ListItem;
   export let variant: CardVariant;
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let Component: any;
+  let Component: SvelteComponent<{ item: ListItem; variant: CardVariant }>;
   onMount(() => {
     auth.subscribe(async state => {
       Component =

@@ -1,11 +1,17 @@
 <script lang="ts">
   import { auth } from "$lib/stores/user";
+  import { onMount } from "svelte";
+  import type { SvelteComponent } from "$lib";
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let Component: any;
-  $: Component = $auth.token ? import("./private.svelte") : import("./public.svelte");
+  let Component: SvelteComponent;
+  onMount(() => {
+    auth.subscribe(async state => {
+      Component =
+        state.token && state.token !== ""
+          ? (await import("./private.svelte")).default
+          : (await import("./public.svelte")).default;
+    });
+  });
 </script>
 
-{#await Component then { default: Component }}
-  <svelte:component this={Component} />
-{/await}
+<svelte:component this={Component} />
