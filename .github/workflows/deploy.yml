@@ -20,11 +20,11 @@ jobs:
         with:
           filters: |
             anime:
-              - 'apps/anime.joulev.dev/**'
+              - 'apps/anime/**'
             tategaki:
-              - 'apps/tategaki.joulev.dev/**'
+              - 'apps/tategaki/**'
             website:
-              - 'apps/joulev.dev/**'
+              - 'apps/website/**'
             dependencies:
               - 'packages/**'
 
@@ -34,7 +34,7 @@ jobs:
     if: needs.check-changes.outputs.anime == 'true' || needs.check-changes.outputs.dependencies == 'true'
     uses: ./.github/workflows/vercel.yml
     with:
-      directory: ./apps/anime.joulev.dev
+      directory: ./apps/anime
     secrets:
       token: ${{ secrets.VERCEL_TOKEN }}
       org-id: ${{ secrets.VERCEL_ORG_ID }}
@@ -46,7 +46,7 @@ jobs:
     if: needs.check-changes.outputs.tategaki == 'true'
     uses: ./.github/workflows/vercel.yml
     with:
-      directory: ./apps/tategaki.joulev.dev
+      directory: ./apps/tategaki
     secrets:
       token: ${{ secrets.VERCEL_TOKEN }}
       org-id: ${{ secrets.VERCEL_ORG_ID }}
@@ -58,7 +58,7 @@ jobs:
     if: needs.check-changes.outputs.website == 'true'
     uses: ./.github/workflows/vercel.yml
     with:
-      directory: ./apps/joulev.dev
+      directory: ./apps/website
     secrets:
       token: ${{ secrets.VERCEL_TOKEN }}
       org-id: ${{ secrets.VERCEL_ORG_ID }}

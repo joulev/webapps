@@ -112,7 +112,7 @@
         {/key}
         <A href="https://joulev.dev" notStyled><Logo /></A>
         <Button
-          href="https://github.com/joulev/webapps/tree/main/apps/anime.joulev.dev"
+          href="https://github.com/joulev/webapps/tree/main/apps/anime"
           variant="tertiary"
           class="btn-nopadding"
         >

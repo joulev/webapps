@@ -21,8 +21,8 @@ jobs:
               args: [--frozen-lockfile]
             - args: [--global, vercel]
       - run: vercel build
-        working-directory: ./apps/joulev.dev
+        working-directory: ./apps/website
       - run: vercel build
-        working-directory: ./apps/anime.joulev.dev
+        working-directory: ./apps/anime
       - run: vercel build
-        working-directory: ./apps/tategaki.joulev.dev
+        working-directory: ./apps/tategaki
