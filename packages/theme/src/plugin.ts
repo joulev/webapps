@@ -18,8 +18,13 @@ export const plugin = internal(function ({ addComponents, theme }) {
   const space = theme("space");
   const fontSize = theme("fontSize");
 
-  const muted = { color: main[400], [dark]: { color: main[500] } };
-  addComponents({ ".muted": muted, ".help-text": { ...muted, fontSize: fontSize.sm } });
+  const muted = (key: string) => ({ [key]: main[400], [dark]: { [key]: main[500] } });
+  addComponents({
+    ".muted": muted("color"),
+    ".stroke-muted": muted("stroke"),
+    ".fill-muted": muted("fill"),
+    ".help-text": { ...muted, fontSize: fontSize.sm },
+  });
 
   addComponents({
     ".anchor": {
@@ -70,10 +75,7 @@ export const plugin = internal(function ({ addComponents, theme }) {
       "&.btn-tertiary": {
         color: main[900],
         [dark]: { color: main[100] },
-        [hover]: {
-          color: main[600],
-          [dark]: { color: main[400] },
-        },
+        [hover]: { color: main[600], [dark]: { color: main[400] } },
       },
     },
   });
