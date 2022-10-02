@@ -1,7 +1,7 @@
 import internal from "tailwindcss/plugin";
+import { mergedStyles, themedStyle } from "./utils";
 
 // states
-const dark = "@media (prefers-color-scheme: dark)";
 const hover = "&:hover";
 const active = "&:active";
 
@@ -18,66 +18,61 @@ export const plugin = internal(({ addComponents, theme }) => {
     const [size, { lineHeight }] = theme("fontSize")[key];
     return lineHeight ? { fontSize: size, lineHeight } : { fontSize: size };
   };
-  const muted = (key: string) => ({ [key]: main[400], [dark]: { [key]: main[500] } });
+  const padding = (size: "sm" | "base") =>
+    size === "sm"
+      ? { padding: `${space[1.5]} ${space[3]}` }
+      : { padding: `${space[2]} ${space[4]}` };
+  const muted = (key: string) => themedStyle(key, [main[400], main[500]]);
 
   addComponents({
     ".muted": muted("color"),
     ".stroke-muted": muted("stroke"),
     ".fill-muted": muted("fill"),
-    ".help-text": { ...muted("color"), ...fontSize("sm") },
+    ".help-text": mergedStyles(muted("color"), fontSize("sm")),
   });
 
   addComponents({
-    ".anchor": {
-      ...transition,
-      backgroundImage: `linear-gradient(${main[300]}, ${main[300]}), linear-gradient(to right, ${main[600]}, ${main[600]})`,
-      backgroundSize: "100% 1px, 0 1px",
-      backgroundPosition: "100% 100%, 0% 100%",
-      backgroundRepeat: "no-repeat",
-      [dark]: {
-        backgroundImage: `linear-gradient(${main[700]}, ${main[700]}), linear-gradient(to right, ${main[400]}, ${main[400]})`,
+    ".anchor": mergedStyles(
+      transition,
+      themedStyle("background-image", [
+        `linear-gradient(${main[300]}, ${main[300]}), linear-gradient(to right, ${main[600]}, ${main[600]})`,
+        `linear-gradient(${main[700]}, ${main[700]}), linear-gradient(to right, ${main[400]}, ${main[400]})`,
+      ]),
+      {
+        backgroundPosition: "100% 100%, 0% 100%",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100% 1px, 0 1px",
+        [hover]: { backgroundSize: "0 1px, 100% 1px" },
       },
-      [hover]: { backgroundSize: "0 1px, 100% 1px" },
-    },
+    ),
   });
 
   addComponents({
-    ".btn": {
-      ...transition,
+    ".btn": mergedStyles(transition, {
       display: "inline-block",
       borderRadius: theme("borderRadius.lg"),
       textAlign: "center",
       [active]: { transform: "translateY(2px)" },
 
-      "&:not(.btn-sm):not(.btn-nopadding)": {
-        padding: `${space[2]} ${space[4]}`,
-        ...fontSize("base"),
-      },
-      "&.btn-sm": { padding: `${space[1.5]} ${space[3]}`, ...fontSize("sm") },
-      "&.btn-nopadding": { padding: "0", ...fontSize("base") },
+      "&:not(.btn-sm):not(.btn-nopadding)": mergedStyles(padding("base"), fontSize("base")),
+      "&.btn-sm": mergedStyles(padding("sm"), fontSize("sm")),
+      "&.btn-nopadding": fontSize("base"),
 
-      "&.btn-primary": {
-        backgroundColor: main[900],
-        color: main[100],
-        [hover]: { backgroundColor: main[700] },
-        [dark]: {
-          backgroundColor: main[100],
-          color: main[900],
-          [hover]: { backgroundColor: main[300] },
-        },
-      },
+      "&.btn-primary": mergedStyles(
+        themedStyle("color", [main[100], main[900]]),
+        themedStyle("background-color", [main[900], main[100]]),
+        themedStyle("background-color", [main[700], main[300]], hover),
+      ),
 
-      "&.btn-secondary": {
-        backgroundColor: main[300],
-        color: main[900],
-        [dark]: { backgroundColor: main[700], color: main[100] },
-      },
+      "&.btn-secondary": mergedStyles(
+        themedStyle("color", [main[900], main[100]]),
+        themedStyle("background-color", [main[300], main[700]]),
+      ),
 
-      "&.btn-tertiary": {
-        color: main[900],
-        [dark]: { color: main[100] },
-        [hover]: { color: main[600], [dark]: { color: main[400] } },
-      },
-    },
+      "&.btn-tertiary": mergedStyles(
+        themedStyle("color", [main[900], main[100]]),
+        themedStyle("color", [main[600], main[400]], hover),
+      ),
+    }),
   });
 });
