@@ -3,7 +3,6 @@ import internal from "tailwindcss/plugin";
 // states
 const dark = "@media (prefers-color-scheme: dark)";
 const hover = "&:hover";
-const focus = "&:focus";
 const active = "&:active";
 
 // reused tailwind classes
