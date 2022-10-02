@@ -26,6 +26,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - uses: actions/setup-python@v4
+        if: inputs.directory == './apps/website'
+        with:
+          python-version: "3.9"
+          cache: "pip"
       - uses: pnpm/action-setup@v2.2.2
         with:
           version: latest
