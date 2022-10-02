@@ -39,6 +39,20 @@ export const plugin = internal(({ addUtilities, addComponents, addBase, theme })
     "stroke",
   ];
 
+  ["Extralight", "Light", "Regular", "Medium", "Semibold", "Bold"].forEach((weight, idx) =>
+    addBase({
+      "@font-face": {
+        fontFamily: "Synonym",
+        src: `url("https://joulev.dev/fonts/Synonym-${weight}.woff2") format("woff2"),
+            url("https://joulev.dev/fonts/Synonym-${weight}.woff") format("woff"),
+            url("https://joulev.dev/fonts/Synonym-${weight}.ttf") format("truetype")`,
+        fontWeight: (200 + idx * 100).toString(),
+        fontDisplay: "swap",
+        fontStyle: "normal",
+      },
+    }),
+  );
+
   addBase({ body: mergedStyles(colour.same("backgroundColor"), colour.contrast("color")) });
 
   Object.entries(colour).forEach(([key, getColour]) => {
