@@ -12,7 +12,7 @@
   );
 </script>
 
-<div class="flex flex-col rounded-lg overflow-hidden bg-card relative">
+<div class="card flex flex-col relative">
   <div class="absolute top-6 right-6 flex flex-row gap-1.5">
     <slot name="top-right" />
   </div>
@@ -21,10 +21,10 @@
       <img
         src={item.media.coverImage.medium}
         alt="cover"
-        class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 object-cover"
+        class="hidden sm:block w-18 min-h-[96px] rounded shrink-0 object-cover"
       />
     {:else}
-      <div class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 bg-faded" />
+      <div class="hidden sm:block w-18 min-h-[96px] rounded shrink-0 bg-faded" />
     {/if}
     <div class="flex-1 flex min-w-0 flex-col justify-between gap-6 {item.score && 'sm:gap-1.5'}">
       <div class="flex flex-col">
@@ -42,7 +42,7 @@
   </div>
   {#if variant !== "planning" && variant !== "completed" && variant !== "completed-others"}
     <div
-      class="h-1 rounded-full"
+      class="h-1 rounded-r"
       class:bg-green={variant === "watching"}
       class:bg-blue={variant === "rewatching"}
       class:bg-yellow={variant === "paused"}

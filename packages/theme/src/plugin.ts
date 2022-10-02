@@ -1,16 +1,6 @@
 import internal from "tailwindcss/plugin";
 import { mergedStyles, themedStyle } from "./utils";
 
-// states
-const hover = "&:hover";
-const active = "&:active";
-
-const transition = {
-  transitionProperty: "all",
-  transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-  transitionDuration: "150ms",
-};
-
 export const plugin = internal(({ addUtilities, addComponents, addBase, theme }) => {
   const main = theme("colors.main");
   const space = theme("space");
@@ -22,6 +12,12 @@ export const plugin = internal(({ addUtilities, addComponents, addBase, theme })
     size === "sm"
       ? { padding: `${space[1.5]} ${space[3]}` }
       : { padding: `${space[2]} ${space[4]}` };
+  const transition = {
+    transitionProperty: "all",
+    transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+    transitionDuration: "150ms",
+  };
+  const rounded = { borderRadius: theme("borderRadius.DEFAULT") };
 
   // someone helps me with naming these
   const colour = {
@@ -44,8 +40,8 @@ export const plugin = internal(({ addUtilities, addComponents, addBase, theme })
       "@font-face": {
         fontFamily: "Synonym",
         src: `url("https://joulev.dev/fonts/Synonym-${weight}.woff2") format("woff2"),
-            url("https://joulev.dev/fonts/Synonym-${weight}.woff") format("woff"),
-            url("https://joulev.dev/fonts/Synonym-${weight}.ttf") format("truetype")`,
+              url("https://joulev.dev/fonts/Synonym-${weight}.woff") format("woff"),
+              url("https://joulev.dev/fonts/Synonym-${weight}.ttf") format("truetype")`,
         fontWeight: (200 + idx * 100).toString(),
         fontDisplay: "swap",
         fontStyle: "normal",
@@ -74,37 +70,49 @@ export const plugin = internal(({ addUtilities, addComponents, addBase, theme })
         backgroundPosition: "100% 100%, 0% 100%",
         backgroundRepeat: "no-repeat",
         backgroundSize: "100% 1px, 0 1px",
-        [hover]: { backgroundSize: "0 1px, 100% 1px" },
+        "&:hover": { backgroundSize: "0 1px, 100% 1px" },
       },
     ),
   });
 
   addComponents({
-    ".btn": mergedStyles(transition, {
+    ".btn": mergedStyles(transition, rounded, {
       display: "inline-block",
-      borderRadius: theme("borderRadius.lg"),
       textAlign: "center",
-      [active]: { transform: "translateY(2px)" },
+      "&:active": { transform: "translateY(2px)" },
 
       "&:not(.btn-sm):not(.btn-nopadding)": mergedStyles(padding("base"), fontSize("base")),
       "&.btn-sm": mergedStyles(padding("sm"), fontSize("sm")),
       "&.btn-nopadding": fontSize("base"),
 
       "&.btn-primary": mergedStyles(
-        themedStyle("color", [main[100], main[900]]),
-        themedStyle("background-color", [main[900], main[100]]),
-        themedStyle("background-color", [main[700], main[300]], hover),
+        colour.same("color"),
+        colour.contrast("backgroundColor"),
+        themedStyle("backgroundColor", [main[700], main[300]], "&:hover"),
       ),
 
-      "&.btn-secondary": mergedStyles(
-        themedStyle("color", [main[900], main[100]]),
-        themedStyle("background-color", [main[300], main[700]]),
-      ),
+      "&.btn-secondary": mergedStyles(colour.contrast("color"), colour.faded("backgroundColor")),
 
       "&.btn-tertiary": mergedStyles(
-        themedStyle("color", [main[900], main[100]]),
-        themedStyle("color", [main[600], main[400]], hover),
+        colour.contrast("color"),
+        themedStyle("color", [main[600], main[400]], "&:hover"),
       ),
+    }),
+  });
+
+  addComponents({
+    ".input": mergedStyles(transition, padding("base"), colour.faded("borderColor"), rounded, {
+      backgroundColor: "transparent",
+      outline: "none",
+      borderWidth: theme("borderWidth.DEFAULT"),
+      "&::placeholder": colour.muted("color"),
+      "&:focus": colour.muted("borderColor"),
+    }),
+  });
+
+  addComponents({
+    ".card": mergedStyles(transition, colour.card("backgroundColor"), rounded, {
+      overflow: "hidden",
     }),
   });
 });

@@ -4,8 +4,12 @@ import type { Config } from "tailwindcss";
 import { getColour } from "./utils";
 import { plugin } from "./plugin";
 
-export const preset: Omit<Config, "content"> = {
+export const preset: Config = {
+  content: [],
   theme: {
+    borderRadius: {
+      DEFAULT: defaultTheme.borderRadius.lg,
+    },
     colors: {
       transparent: "transparent",
       current: "currentColor",

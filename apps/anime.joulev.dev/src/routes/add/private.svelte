@@ -33,20 +33,12 @@
   }
 </script>
 
-<input
-  placeholder="Anime title"
-  class="bg-transparent outline-none px-4 py-2 rounded-lg placeholder:text-muted transition border border-faded focus:border-muted"
-  bind:value
-  on:keypress={debounce}
-/>
+<input placeholder="Anime title" class="input" bind:value on:keypress={debounce} />
 
 <div class="flex flex-col gap-6">
   {#each list as item}
     {#if item}
-      <div
-        class="flex flex-col rounded-lg overflow-hidden bg-card relative"
-        transition:fade={transition}
-      >
+      <div class="card flex flex-col relative" transition:fade={transition}>
         <div class="absolute top-6 right-6 flex flex-row gap-1.5">
           <Button size="sm" variant="secondary" on:click={() => addToList(item?.id)}>
             Add to PTW
@@ -57,10 +49,10 @@
             <img
               src={item.coverImage.medium}
               alt="cover"
-              class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 object-cover"
+              class="hidden sm:block w-18 min-h-[96px] rounded shrink-0 object-cover"
             />
           {:else}
-            <div class="hidden sm:block w-18 min-h-[96px] rounded-lg shrink-0 bg-faded" />
+            <div class="hidden sm:block w-18 min-h-[96px] rounded shrink-0 bg-faded" />
           {/if}
           <div
             class="
