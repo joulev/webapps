@@ -14,7 +14,7 @@
   import { GET_ANIME, type GetAnime } from "$lib/queries";
   import { refetchAnime, getListCount, getLoadingState } from "$lib/stores/list";
 
-  import { auth, retrieveAuth } from "$lib/stores/user";
+  import { auth, getAuth } from "$lib/stores/user";
 
   import { transition } from "$lib/utils";
 
@@ -58,7 +58,7 @@
 
   const isLoading = getLoadingState();
   const count = getListCount();
-  onMount(retrieveAuth);
+  onMount(getAuth);
 
   const navItems = derived(count, $cnt => [
     { content: "Watching", icon: PlayCircle, slug: "/watching", count: $cnt.watching },
@@ -111,7 +111,11 @@
           </button>
         {/key}
         <A href="https://joulev.dev" notStyled><Logo /></A>
-        <Button href="https://github.com/joulev/anime" variant="tertiary" class="btn-nopadding">
+        <Button
+          href="https://github.com/joulev/webapps/tree/main/apps/anime.joulev.dev"
+          variant="tertiary"
+          class="btn-nopadding"
+        >
           <GitHub size="24px" />
         </Button>
       </div>
@@ -120,7 +124,7 @@
         class="transition-all lg:!h-auto overflow-hidden"
       >
         <div class="flex flex-col gap-9 mt-9" bind:clientHeight={navHeight}>
-          {#if !$auth.loading && $auth.token === ""}
+          {#if !$auth.loading && !$auth.loggedIn}
             <Button variant="secondary" href="/auth" animated>Log in as joulev</Button>
           {:else if !$auth.loading}
             <Button variant="secondary" href="/add" animated>Add anime to PTW</Button>

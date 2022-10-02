@@ -6,10 +6,9 @@
   let Component: SvelteComponent;
   onMount(() => {
     auth.subscribe(async state => {
-      Component =
-        state.token && state.token !== ""
-          ? (await import("./private.svelte")).default
-          : (await import("./public.svelte")).default;
+      Component = state.loggedIn
+        ? (await import("./private.svelte")).default
+        : (await import("./public.svelte")).default;
     });
   });
 </script>

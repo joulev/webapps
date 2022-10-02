@@ -9,7 +9,9 @@
 
 {#if $auth.loading}
   <Loading />
-{:else if $auth.token === ""}
+{:else if $auth.loggedIn}
+  <p>You are authenticated. Hi to myself!</p>
+{:else}
   <p>
     If you are AniList user @joulev (aka me) and would like to make change to the lists using this
     interface, please log in below. You will be directed to AniList to complete the authentication
@@ -25,6 +27,4 @@
   >
     Log in with AniList
   </Button>
-{:else}
-  <p>You are authenticated. Hi to myself!</p>
 {/if}

@@ -8,10 +8,9 @@
   let Component: SvelteComponent<{ item: ListItem; variant: CardVariant }>;
   onMount(() => {
     auth.subscribe(async state => {
-      Component =
-        state.token && state.token !== ""
-          ? (await import("./card/privateCard.svelte")).default
-          : (await import("./card/publicCard.svelte")).default;
+      Component = state.loggedIn
+        ? (await import("./card/privateCard.svelte")).default
+        : (await import("./card/publicCard.svelte")).default;
     });
   });
 </script>

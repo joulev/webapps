@@ -1,7 +1,7 @@
 import { error, redirect } from "@sveltejs/kit";
 import { isCorrectUser } from "$lib/utils";
+import { auth } from "$lib/stores/user";
 import type { PageLoad } from "./$types";
-import { dangerouslySetAuth } from "$lib/stores/user";
 
 type Payload = {
   access_token: string;
@@ -19,8 +19,8 @@ export const load: PageLoad = () => {
   if (!token) throw error(400, "Access token not found.");
   if (!isCorrectUser(token)) throw error(403, "Invalid user.");
   localStorage.setItem("token", token);
-  dangerouslySetAuth(token);
-  throw redirect(302, "/completed/tv");
+  auth.set({ loggedIn: true, loading: false });
+  throw redirect(302, "/watching");
 };
 
 export const prerender = false;
