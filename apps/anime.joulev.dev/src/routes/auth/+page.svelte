@@ -1,7 +1,6 @@
 <script>
   import { dev } from "$app/environment";
   import { auth } from "$lib/stores/user";
-
   import Button from "$lib/components/button.svelte";
   import Loading from "$lib/components/loading.svelte";
 

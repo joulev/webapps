@@ -31,6 +31,10 @@ jobs:
           version: latest
           run_install: false
 
+      - name: Get first line of commit message
+        id: commit
+        run: echo ::set-output name=msg::"$(echo '${{ github.event.head_commit.message }}' | head -1)"
+
       - name: Build @joulev/theme
         run: pnpm install && pnpm build
         working-directory: ./packages/theme
@@ -39,5 +43,5 @@ jobs:
         run: |
           vercel pull --yes --environment=production --token=${{ secrets.token }}
           vercel build --prod
-          vercel deploy --prebuilt --prod --token=${{ secrets.token }} -m githubCommitSha=${{ github.sha }} -m githubCommitAuthorName=${{ github.actor }} -m githubCommitAuthorLogin=${{ github.actor }} -m githubDeployment=1 -m githubOrg=joulev -m githubRepo=webapps -m githubCommitOrg=joulev -m githubCommitRepo=webapps -m githubCommitMessage="${{ github.event.head_commit.message }}" -m githubCommitRef=${{ github.ref_name }}
+          vercel deploy --prebuilt --prod --token=${{ secrets.token }} -m githubCommitSha=${{ github.sha }} -m githubCommitAuthorName=${{ github.actor }} -m githubCommitAuthorLogin=${{ github.actor }} -m githubDeployment=1 -m githubOrg=joulev -m githubRepo=webapps -m githubCommitOrg=joulev -m githubCommitRepo=webapps -m githubCommitMessage="${{ steps.commit.outputs.msg }}" -m githubCommitRef=${{ github.ref_name }}
         working-directory: ${{ inputs.directory }}
