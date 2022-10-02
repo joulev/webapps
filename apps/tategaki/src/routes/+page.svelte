@@ -64,7 +64,7 @@
                       style:--furigana-count={furigana.length}
                     >
                       {#each furigana.split("") as fChar}
-                        <span class="text-furigana text-neutral-400">{fChar}</span>
+                        <span class="text-furigana text-muted">{fChar}</span>
                       {/each}
                     </span>
                   </span>
