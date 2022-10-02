@@ -37,7 +37,6 @@ jobs:
 
       - name: Build ${{ inputs.directory }}
         run: |
-          pnpm install
           vercel pull --yes --environment=production --token=${{ secrets.token }}
           vercel build --prod
           vercel deploy --prebuilt --prod --token=${{ secrets.token }}
