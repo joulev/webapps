@@ -5,7 +5,6 @@ const dark = "@media (prefers-color-scheme: dark)";
 const hover = "&:hover";
 const active = "&:active";
 
-// reused tailwind classes
 const transition = {
   transitionProperty: "all",
   transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
