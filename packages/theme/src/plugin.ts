@@ -13,7 +13,7 @@ const transition = {
   transitionDuration: "150ms",
 };
 
-export const plugin = internal(function ({ addComponents, theme }) {
+export const plugin = internal(({ addComponents, theme }) => {
   const main = theme("colors.main");
   const space = theme("space");
   const fontSize = (key: string) => {
