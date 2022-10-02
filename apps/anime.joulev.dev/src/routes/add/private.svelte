@@ -77,12 +77,12 @@
                   {getTitle(item.title)}
                 </A>
               </div>
-              <div class="text-sm muted">
+              <div class="help-text">
                 {item.title?.native ?? "Japanese title N/A"}
               </div>
             </div>
             <div class="flex flex-row justify-between items-end">
-              <div class="text-sm muted">
+              <div class="help-text">
                 {#if item.genres && item.genres.length > 0}
                   {item.genres.slice(0, 3).join(", ")}
                 {:else if item.season && item.seasonYear}

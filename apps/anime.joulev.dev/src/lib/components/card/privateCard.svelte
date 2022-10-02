@@ -145,7 +145,7 @@
       </div>
     {:else}
       {#if variant === "planning"}
-        <div class="text-sm muted">
+        <div class="help-text">
           {#if item.media?.season && item.media?.seasonYear}
             {convertSeason(item.media.season)} {item.media.seasonYear}
           {:else}
@@ -157,7 +157,7 @@
           Episode {item.progress}/{item.media?.episodes ?? "unknown"}
         </div>
       {/if}
-      <div class="text-sm muted">
+      <div class="help-text">
         Last updated: {item.updatedAt
           ? new Date(item.updatedAt * 1000).toLocaleDateString("en-gb")
           : "N/A"}

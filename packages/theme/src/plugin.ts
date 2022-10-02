@@ -8,11 +8,13 @@ export const plugin = internal(function ({ addComponents, theme }) {
     600: theme("colors.main.600"),
     700: theme("colors.main.700"),
   };
+  const muted = {
+    color: main[400],
+    "@media (prefers-color-scheme: dark)": { color: main[500] },
+  };
   addComponents({
-    ".muted": {
-      color: main[400],
-      "@media (prefers-color-scheme: dark)": { color: main[500] },
-    },
+    ".muted": muted,
+    ".help-text": { ...muted, fontSize: theme("fontSize.sm") },
     ".anchor": {
       backgroundImage: `linear-gradient(${main[300]}, ${main[300]}), linear-gradient(to right, ${main[600]}, ${main[600]})`,
       backgroundSize: "100% 1px, 0 1px",
