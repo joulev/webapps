@@ -5,7 +5,7 @@ import Link from "next/link";
 import animate from "~/lib/motion";
 
 const Custom404: NextPage = () => (
-  <div className="my-32">
+  <div className="my-36">
     <Head>
       <title>404 Not Found</title>
     </Head>

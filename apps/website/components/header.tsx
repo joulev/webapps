@@ -11,13 +11,11 @@ const Header: FC = () => (
       className="flex flex-col-reverse sm:flex-row justify-between items-start sm:items-end gap-6 mb-3"
       variants={animate}
     >
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3">
         <h1 className="text-3xl sm:text-4xl font-medium">Vu Van Dung</h1>
-        <p className="text-lg md:text-xl text-c-600 dark:text-c-400">
-          Sophomore Computer Engineering Undergraduate
-        </p>
+        <p className="text-lg md:text-xl">Sophomore Computer Engineering Undergraduate</p>
       </div>
-      <div className="rounded-full overflow-hidden bg-c-200 dark:bg-c-800">
+      <div className="card rounded-full">
         <Image
           src={me}
           alt="Vu Van Dung"

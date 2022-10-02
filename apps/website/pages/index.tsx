@@ -14,7 +14,7 @@ type Props = {
 const Home: NextPage<Props> = ({ updated }) => (
   <div>
     <Seo />
-    <main className="mb-24 mt-32 flex flex-col gap-24">
+    <main className="mb-24 mt-36 flex flex-col gap-24">
       <Header />
       <Skills />
       <Projects />
@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({ updated }) => (
       <Contact />
     </main>
     <Footer updated={updated} />
-    <div className="fixed top-0 inset-x-0 h-32 bg-gradient-to-b from-c-100 dark:from-c-900 to-transparent backdrop-blur-sm mask pointer-events-none" />
+    <div className="fixed top-0 inset-x-0 h-36 bg-gradient-to-b from-main-100 dark:from-main-900 to-transparent backdrop-blur-sm mask pointer-events-none" />
   </div>
 );
 

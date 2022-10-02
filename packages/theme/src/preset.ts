@@ -9,6 +9,7 @@ export const preset: Config = {
   theme: {
     borderRadius: {
       DEFAULT: defaultTheme.borderRadius.lg,
+      full: "9999px",
     },
     colors: {
       transparent: "transparent",

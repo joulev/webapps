@@ -2,77 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Synonym";
-  src: url("/fonts/Synonym-Extralight.woff2") format("woff2"),
-    url("/fonts/Synonym-Extralight.woff") format("woff"),
-    url("/fonts/Synonym-Extralight.ttf") format("truetype");
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Synonym";
-  src: url("/fonts/Synonym-Light.woff2") format("woff2"),
-    url("/fonts/Synonym-Light.woff") format("woff"),
-    url("/fonts/Synonym-Light.ttf") format("truetype");
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Synonym";
-  src: url("/fonts/Synonym-Regular.woff2") format("woff2"),
-    url("/fonts/Synonym-Regular.woff") format("woff"),
-    url("/fonts/Synonym-Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Synonym";
-  src: url("/fonts/Synonym-Medium.woff2") format("woff2"),
-    url("/fonts/Synonym-Medium.woff") format("woff"),
-    url("/fonts/Synonym-Medium.ttf") format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Synonym";
-  src: url("/fonts/Synonym-Semibold.woff2") format("woff2"),
-    url("/fonts/Synonym-Semibold.woff") format("woff"),
-    url("/fonts/Synonym-Semibold.ttf") format("truetype");
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Synonym";
-  src: url("/fonts/Synonym-Bold.woff2") format("woff2"),
-    url("/fonts/Synonym-Bold.woff") format("woff"),
-    url("/fonts/Synonym-Bold.ttf") format("truetype");
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-
 @layer utilities {
-  .gradient-underline-light {
-    background-image: linear-gradient(theme(colors.c.300), theme(colors.c.300)),
-      linear-gradient(to right, theme(colors.c.600), theme(colors.c.600));
-  }
-  .gradient-underline-dark {
-    background-image: linear-gradient(theme(colors.c.700), theme(colors.c.700)),
-      linear-gradient(to right, theme(colors.c.400), theme(colors.c.400));
-  }
   .mask {
-    mask: linear-gradient(theme(colors.c.500), transparent);
+    mask: linear-gradient(theme(colors.main.500), transparent);
   }
 }
 
@@ -81,17 +13,9 @@
   h2,
   h3,
   strong {
-    @apply text-c-900 dark:text-c-100;
+    @apply text-contrast;
   }
   h2 {
     @apply text-2xl font-semibold mb-12;
-  }
-  .a {
-    @apply gradient-underline-light dark:gradient-underline-dark bg-no-repeat transition-all;
-    background-size: 100% 1px, 0 1px;
-    background-position: 100% 100%, 0% 100%;
-  }
-  .a:hover {
-    background-size: 0 1px, 100% 1px;
   }
 }

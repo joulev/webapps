@@ -10,8 +10,8 @@ export const plugin = internal(({ addUtilities, addComponents, addBase, theme })
   };
   const padding = (size: "sm" | "base") =>
     size === "sm"
-      ? { padding: `${space[1.5]} ${space[3]}` }
-      : { padding: `${space[2]} ${space[4]}` };
+      ? { padding: `${space[1]} ${space[3]}` }
+      : { padding: `${space[1.5]} ${space[4]}` };
   const transition = {
     transitionProperty: "all",
     transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
@@ -25,6 +25,7 @@ export const plugin = internal(({ addUtilities, addComponents, addBase, theme })
     card: (key: string) => themedStyle(key, [main[200], main[800]]),
     faded: (key: string) => themedStyle(key, [main[300], main[700]]),
     muted: (key: string) => themedStyle(key, [main[400], main[500]]),
+    reduced: (key: string) => themedStyle(key, [main[600], main[400]]),
     contrast: (key: string) => themedStyle(key, [main[900], main[100]]),
   };
   const colouredStyles: ([string, string] | string)[] = [

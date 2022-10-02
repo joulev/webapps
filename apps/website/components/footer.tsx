@@ -5,7 +5,7 @@ import Link from "~/components/link";
 import { Clock, Pin, Play } from "~/components/icons";
 import animate from "~/lib/motion";
 
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url).then(res => res.json());
 type YTMusicData = {
   videoId: string;
   title: string;
@@ -22,7 +22,7 @@ const MusicData: FC = () => {
       </strong>{" "}
       by{" "}
       {data.artists
-        .filter((x) => x.id)
+        .filter(x => x.id)
         .map((artist, i, arr) => (
           <span key={artist.id}>
             {i > 0 && i < arr.length - 1 && ", "}
@@ -40,11 +40,11 @@ const Footer: FC<{ updated: string }> = ({ updated }) => {
   const date = new Date(updated);
   return (
     <motion.footer
-      className="flex flex-col text-sm border-t border-c-300 dark:border-c-700 py-8 gap-4"
+      className="flex flex-col text-sm border-t border-faded py-9 gap-3"
       variants={animate}
       custom={false}
     >
-      <div className="flex flex-row items-baseline gap-2">
+      <div className="flex flex-row items-baseline gap-3">
         <div className="relative w-6 shrink-0 pointer-events-none">
           &#x200B; {/* zero width space, to force the container to have same line height as text */}
           <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
@@ -55,12 +55,12 @@ const Footer: FC<{ updated: string }> = ({ updated }) => {
           Last played: <MusicData />
         </span>
       </div>
-      <div className="flex flex-row flex-wrap gap-x-8 gap-y-4 justify-between sm:items-center">
-        <div className="flex flex-row items-center gap-2">
+      <div className="flex flex-row flex-wrap gap-x-6 gap-y-3 justify-between sm:items-center">
+        <div className="flex flex-row items-center gap-3">
           <Pin />
           <span>Singapore</span>
         </div>
-        <div className="flex flex-row items-center gap-2">
+        <div className="flex flex-row items-center gap-3">
           <Clock hour={mounted ? date.getHours() : 4} minute={mounted ? date.getMinutes() : 0} />
           <span>
             Updated:{" "}

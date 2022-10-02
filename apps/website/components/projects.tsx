@@ -9,7 +9,7 @@ const Projects: FC = () => (
   <motion.div variants={animate}>
     <h2>Featured Project</h2>
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-y-2 sm:flex-row sm:justify-between">
+      <div className="flex flex-col gap-y-3 sm:flex-row sm:justify-between">
         <h3 className="text-lg font-medium">ezkomment &mdash; Commenting made easy.</h3>
         <div className="italic text-sm sm:text-base">Summer 2022</div>
       </div>
