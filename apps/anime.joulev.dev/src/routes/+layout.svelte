@@ -111,13 +111,9 @@
           </button>
         {/key}
         <A href="https://joulev.dev" notStyled><Logo /></A>
-        <A
-          href="https://github.com/joulev/anime"
-          notStyled
-          class="muted hover:text-main-900 dark:hover:text-main-100 transition"
-        >
+        <Button href="https://github.com/joulev/anime" variant="tertiary" class="btn-nopadding">
           <GitHub size="24px" />
-        </A>
+        </Button>
       </div>
       <div
         style="height: {navOpen ? navHeight + 'px' : '0px'};"

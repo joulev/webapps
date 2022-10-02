@@ -100,8 +100,8 @@
 <Base {item} {variant}>
   <svelte:fragment slot="top-right">
     {#if variant === "watching"}
+      <Button size="sm" animated on:click={setAsDropped} variant="tertiary">Drop</Button>
       <Button size="sm" animated on:click={setAsPaused} variant="secondary">Pause</Button>
-      <Button size="sm" animated on:click={setAsDropped} variant="secondary">Drop</Button>
       <Button size="sm" animated on:click={incrementProgress}>Next ep</Button>
     {/if}
     {#if variant === "rewatching"}
@@ -122,7 +122,7 @@
       <Button size="sm" animated on:click={setAsWatching} variant="secondary">Retry</Button>
     {/if}
     {#if variant === "planning"}
-      <Button size="sm" animated on:click={removeFromList} variant="secondary">Remove</Button>
+      <Button size="sm" animated on:click={removeFromList} variant="tertiary">Remove</Button>
       <Button size="sm" animated on:click={setAsWatching} variant="secondary">Start</Button>
     {/if}
   </svelte:fragment>
