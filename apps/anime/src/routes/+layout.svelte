@@ -111,7 +111,7 @@
             {/if}
           </button>
         {/key}
-        <A href="https://joulev.dev" notStyled><Logo /></A>
+        <A href="/watching" notStyled><Logo /></A>
         <div class="flex flex-row gap-3">
           <Button
             href="https://joulev.dev"
