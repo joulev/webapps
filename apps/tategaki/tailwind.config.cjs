@@ -1,4 +1,4 @@
-const { preset } = require("@joulev/theme");
+const { preset, plugin } = require("@joulev/theme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 /** @type {import("tailwindcss").Config} */
@@ -17,4 +17,5 @@ module.exports = {
       },
     },
   },
+  plugins: [plugin({ vertical: true })],
 };

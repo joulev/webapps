@@ -1,7 +1,8 @@
-const { preset } = require("@joulev/theme");
+const { preset, plugin } = require("@joulev/theme");
 
 /** @type {import("tailwindcss").Config} */
 module.exports = {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   presets: [preset],
+  plugins: [plugin],
 };

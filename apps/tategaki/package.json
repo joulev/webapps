@@ -12,6 +12,9 @@
     "format": "prettier --write .",
     "postinstall": "svelte-kit sync"
   },
+  "dependencies": {
+    "svelte-material-icons": "2.0.4"
+  },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-auto": "next",

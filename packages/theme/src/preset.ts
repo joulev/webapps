@@ -2,7 +2,6 @@ import defaultTheme from "tailwindcss/defaultTheme";
 import colors from "tailwindcss/colors";
 import type { Config } from "tailwindcss";
 import { getColour } from "./utils";
-import { plugin } from "./plugin";
 
 export const preset: Config = {
   content: [],
@@ -33,5 +32,4 @@ export const preset: Config = {
       },
     },
   },
-  plugins: [plugin],
 };

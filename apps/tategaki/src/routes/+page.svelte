@@ -4,16 +4,22 @@
   import Logo from "$lib/components/logo.svelte";
   import type { Paragraph } from "$lib";
 
+  import GitHub from "svelte-material-icons/Github.svelte";
+  import Home from "svelte-material-icons/Home.svelte";
+  import ExternalLink from "$lib/components/external-link.svelte";
+
   const MARGIN = 48;
   const SIZE = 24;
 
-  let height = 0;
+  let h = 0;
   let paragraphs: Paragraph[] = [];
+
+  $: height = `${h}px`;
 
   function main() {
     const maxHeight = window.innerHeight - MARGIN * 2;
     const countPerColumn = Math.floor(maxHeight / SIZE);
-    height = countPerColumn * SIZE;
+    h = countPerColumn * SIZE;
     paragraphs = rawParagraphs.map(p => splitLine(p, countPerColumn));
   }
 
@@ -28,13 +34,21 @@
   {/each}
 </div>
 
-<div class="m-12 ml-0 w-9">
-  <a href="https://joulev.dev" target="_blank" rel="noopener noreferrer" class="inline-block">
-    <Logo />
-  </a>
+<div class="m-12 ml-0 w-9 flex flex-row justify-between items-center" style:height>
+  <a href="/"><Logo /></a>
+  <div class="flex flex-row items-center gap-6">
+    <ExternalLink href="https://joulev.dev">
+      <Home size="24px" />
+      <span>joulev.dev</span>
+    </ExternalLink>
+    <ExternalLink href="https://github.com/joulev/webapps/tree/main/apps/tategaki">
+      <GitHub size="24px" />
+      <span>GitHub</span>
+    </ExternalLink>
+  </div>
 </div>
 
-<div aria-hidden class="m-12 border border-faded text-base relative inline-block" {height}>
+<div aria-hidden class="m-12 border border-faded text-base relative" style:height>
   <!-- mask image original version taken from http://ni.siois.in, with some modifications -->
   <div class="absolute inset-0 bg-faded -m-px -z-10 ruler" />
   <div class="flex flex-col gap-12 -m-px">

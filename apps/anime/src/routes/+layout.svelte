@@ -27,6 +27,7 @@
   import CloseCircle from "svelte-material-icons/CloseCircleOutline.svelte";
   import Calendar from "svelte-material-icons/Calendar.svelte";
   import GitHub from "svelte-material-icons/Github.svelte";
+  import Home from "svelte-material-icons/Home.svelte";
   import Menu from "svelte-material-icons/Menu.svelte";
   import Close from "svelte-material-icons/Close.svelte";
 
@@ -111,13 +112,22 @@
           </button>
         {/key}
         <A href="https://joulev.dev" notStyled><Logo /></A>
-        <Button
-          href="https://github.com/joulev/webapps/tree/main/apps/anime"
-          variant="tertiary"
-          class="btn-nopadding"
-        >
-          <GitHub size="24px" />
-        </Button>
+        <div class="flex flex-row gap-3">
+          <Button
+            href="https://joulev.dev"
+            variant="tertiary"
+            class="btn-nopadding hidden lg:block"
+          >
+            <Home size="24px" />
+          </Button>
+          <Button
+            href="https://github.com/joulev/webapps/tree/main/apps/anime"
+            variant="tertiary"
+            class="btn-nopadding"
+          >
+            <GitHub size="24px" />
+          </Button>
+        </div>
       </div>
       <div
         style="height: {navOpen ? navHeight + 'px' : '0px'};"
