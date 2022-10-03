@@ -68,8 +68,8 @@ export const plugin = internal.withOptions<Option>(
         ".anchor": mergedStyles(
           transition,
           themedStyle("background-image", [
-            `linear-gradient(${main[300]}, ${main[300]}), linear-gradient(to right, ${main[600]}, ${main[600]})`,
-            `linear-gradient(${main[700]}, ${main[700]}), linear-gradient(to right, ${main[400]}, ${main[400]})`,
+            `linear-gradient(${main[400]}, ${main[400]}), linear-gradient(to right, ${main[700]}, ${main[700]})`,
+            `linear-gradient(${main[500]}, ${main[500]}), linear-gradient(to right, ${main[300]}, ${main[300]})`,
           ]),
           {
             backgroundPosition: "100% 100%, 0% 100%",
