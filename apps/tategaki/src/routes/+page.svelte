@@ -28,13 +28,13 @@
   {/each}
 </div>
 
-<div {height} class="m-12 w-9">
+<div class="m-12 ml-0 w-9">
   <a href="https://joulev.dev" target="_blank" rel="noopener noreferrer" class="inline-block">
     <Logo />
   </a>
 </div>
 
-<div aria-hidden class="not-sr-only m-12 border border-faded text-base relative" {height}>
+<div aria-hidden class="m-12 border border-faded text-base relative inline-block" {height}>
   <!-- mask image original version taken from http://ni.siois.in, with some modifications -->
   <div class="absolute inset-0 bg-faded -m-px -z-10 ruler" />
   <div class="flex flex-col gap-12 -m-px">
