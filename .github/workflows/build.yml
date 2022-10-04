@@ -10,19 +10,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
       - uses: pnpm/action-setup@v2.2.2
         with:
           version: latest
-          run_install: |
-            - recursive: true
-              args: [--frozen-lockfile]
-            - args: [--global, vercel]
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "pnpm"
+      - uses: actions/setup-python@v4
+        if: inputs.directory == './apps/website'
+        with:
+          python-version: "3.9"
+          cache: "pip"
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm add --global vercel
+      - run: pnpm build
+        working-directory: ./packages/theme
       - run: vercel build
         working-directory: ./apps/website
       - run: vercel build
         working-directory: ./apps/anime
+      - run: vercel build
+        working-directory: ./apps/link
       - run: vercel build
         working-directory: ./apps/tategaki

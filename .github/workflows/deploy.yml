@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       anime: ${{ steps.changed.outputs.anime }}
+      link: ${{ steps.changed.outputs.link }}
       tategaki: ${{ steps.changed.outputs.tategaki }}
       website: ${{ steps.changed.outputs.website }}
       dependencies: ${{ steps.changed.outputs.dependencies }}
@@ -21,6 +22,8 @@ jobs:
           filters: |
             anime:
               - 'apps/anime/**'
+            link:
+              - 'apps/link/**'
             tategaki:
               - 'apps/tategaki/**'
             website:
@@ -39,6 +42,18 @@ jobs:
       token: ${{ secrets.VERCEL_TOKEN }}
       org-id: ${{ secrets.VERCEL_ORG_ID }}
       project-id: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
+
+  deploy-link:
+    name: Deploy link.joulev.dev
+    needs: check-changes
+    if: needs.check-changes.outputs.link == 'true' || needs.check-changes.outputs.dependencies == 'true'
+    uses: ./.github/workflows/vercel.yml
+    with:
+      directory: ./apps/link
+    secrets:
+      token: ${{ secrets.VERCEL_TOKEN }}
+      org-id: ${{ secrets.VERCEL_ORG_ID }}
+      project-id: ${{ secrets.VERCEL_PROJECT_ID_LINK_JOULEV_DEV }}
 
   deploy-tategaki:
     name: Deploy tategaki.joulev.dev
