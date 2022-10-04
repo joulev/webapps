@@ -23,25 +23,26 @@ jobs:
       VERCEL_PROJECT_ID: ${{ secrets.project-id }}
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: latest
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+          cache: "pnpm"
       - uses: actions/setup-python@v4
         if: inputs.directory == './apps/website'
         with:
           python-version: "3.9"
           cache: "pip"
-      - uses: pnpm/action-setup@v2.2.2
-        with:
-          version: latest
-          run_install: false
+      - run: pnpm install --frozen-lockfile
 
       - name: Get first line of commit message
         id: commit
         run: echo ${{ toJSON(github.event.head_commit.message) }} | node ./.github/actions/get-commit-message.js
 
       - name: Build @joulev/theme
-        run: pnpm install && pnpm build
+        run: pnpm build
         working-directory: ./packages/theme
 
       - name: Build ${{ inputs.directory }}
