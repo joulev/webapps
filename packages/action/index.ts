@@ -23,7 +23,7 @@ async function main() {
   core.setSecret(projectId);
   const config = {
     cwd: `apps/${projectName}`,
-    env: { VERCEL_ORG_ID: orgId, VERCEL_PROJECT_ID: projectId },
+    env: { ...process.env, VERCEL_ORG_ID: orgId, VERCEL_PROJECT_ID: projectId },
   };
   const commitInfo = {
     sha: context.sha,
