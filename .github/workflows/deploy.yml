@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: 16
           cache: "pnpm"
+      - uses: actions/setup-python@v4
+        if: matrix.app == 'website'
+        with:
+          python-version: "3.9"
+          cache: "pip"
       - run: pnpm install --frozen-lockfile
       - uses: ./packages/action
         with:
