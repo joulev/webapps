@@ -2,19 +2,7 @@ import * as core from "@actions/core";
 import { exec } from "@actions/exec";
 import { context } from "@actions/github";
 import axios from "axios";
-import { execSync } from "child_process";
 import { PushEvent } from "@octokit/webhooks-types";
-
-function shouldSkip(projectName: string) {
-  const changedFiles = execSync("git diff --name-only HEAD HEAD~1").toString().trim().split("\n");
-  const relevantFiles = changedFiles.filter(
-    file =>
-      file.startsWith(projectName) || // obvious
-      file.startsWith("packages") || // dependencies
-      file.startsWith(".github"), // build settings
-  );
-  return relevantFiles.length === 0;
-}
 
 async function getProjectIds(projectName: string, token: string) {
   const { data } = await axios.get(`https://api.vercel.com/v9/projects/${projectName}`, {
@@ -27,12 +15,8 @@ async function getProjectIds(projectName: string, token: string) {
 
 async function main() {
   const projectName = core.getInput("project");
-  if (shouldSkip(projectName)) {
-    core.notice(`No changes in ${projectName}, skipping`);
-    return;
-  }
-
   const token = core.getInput("vercel-token");
+
   const { orgId, projectId } = await getProjectIds(projectName, token);
   core.setSecret(token);
   core.setSecret(orgId);

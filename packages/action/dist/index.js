@@ -4,14 +4,6 @@ const core = require("@actions/core");
 const exec_1 = require("@actions/exec");
 const github_1 = require("@actions/github");
 const axios_1 = require("axios");
-const child_process_1 = require("child_process");
-function shouldSkip(projectName) {
-    const changedFiles = (0, child_process_1.execSync)("git diff --name-only HEAD HEAD~1").toString().trim().split("\n");
-    const relevantFiles = changedFiles.filter(file => file.startsWith(projectName) || // obvious
-        file.startsWith("packages") || // dependencies
-        file.startsWith(".github"));
-    return relevantFiles.length === 0;
-}
 async function getProjectIds(projectName, token) {
     const { data } = await axios_1.default.get(`https://api.vercel.com/v9/projects/${projectName}`, {
         headers: { Authorization: `Bearer ${token}` },
@@ -22,10 +14,6 @@ async function getProjectIds(projectName, token) {
 }
 async function main() {
     const projectName = core.getInput("project");
-    if (shouldSkip(projectName)) {
-        core.notice(`No changes in ${projectName}, skipping`);
-        return;
-    }
     const token = core.getInput("vercel-token");
     const { orgId, projectId } = await getProjectIds(projectName, token);
     core.setSecret(token);
