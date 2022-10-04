@@ -59,22 +59,10 @@ async function main() {
     await (0, exec_1.exec)("vercel", ["pull", "--yes", "--environment=production", `--token=${token}`], config);
     await (0, exec_1.exec)("vercel", ["build", "--prod"], config);
     let output = "unknown";
-    await (0, exec_1.exec)("vercel", [
-        "deploy",
-        "--prod",
-        "--prebuilt",
-        `--token=${token}`,
-        `-m githubCommitSha=${commitInfo.sha}`,
-        `-m githubCommitAuthorName=${commitInfo.actor}`,
-        `-m githubCommitAuthorLogin=${commitInfo.actor}`,
-        "-m githubDeployment=1",
-        "-m githubOrg=joulev",
-        "-m githubCommitOrg=joulev",
-        "-m githubRepo=webapps",
-        "-m githubCommitRepo=webapps",
-        `-m githubCommitMessage=${commitInfo.message}`,
-        `-m githubCommitRef=${commitInfo.ref}`,
-    ], { ...config, listeners: { stdout: data => (output += data.toString()) } });
+    await (0, exec_1.exec)("vercel", ["deploy", "--prebuilt", "--prod", `--token=${token}`], {
+        ...config,
+        listeners: { stdout: data => (output += data.toString()) },
+    });
     core.notice(`Deployed successfully to ${output}`);
 }
 try {
