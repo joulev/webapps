@@ -5,76 +5,22 @@ on:
     branches: [main]
 
 jobs:
-  check-changes:
-    name: Check changes
+  deploy:
     runs-on: ubuntu-latest
-    outputs:
-      anime: ${{ steps.changed.outputs.anime }}
-      link: ${{ steps.changed.outputs.link }}
-      tategaki: ${{ steps.changed.outputs.tategaki }}
-      website: ${{ steps.changed.outputs.website }}
-      dependencies: ${{ steps.changed.outputs.dependencies }}
+    strategy:
+      matrix:
+        app: [anime, link, tategaki, website]
     steps:
       - uses: actions/checkout@v3
-      - uses: dorny/paths-filter@v2
-        id: changed
+      - uses: pnpm/action-setup@v2.2.2
         with:
-          filters: |
-            anime:
-              - 'apps/anime/**'
-            link:
-              - 'apps/link/**'
-            tategaki:
-              - 'apps/tategaki/**'
-            website:
-              - 'apps/website/**'
-            dependencies:
-              - 'packages/**'
-
-  deploy-anime:
-    name: Deploy anime.joulev.dev
-    needs: check-changes
-    if: needs.check-changes.outputs.anime == 'true' || needs.check-changes.outputs.dependencies == 'true'
-    uses: ./.github/workflows/vercel.yml
-    with:
-      directory: ./apps/anime
-    secrets:
-      token: ${{ secrets.VERCEL_TOKEN }}
-      org-id: ${{ secrets.VERCEL_ORG_ID }}
-      project-id: ${{ secrets.VERCEL_PROJECT_ID_ANIME_JOULEV_DEV }}
-
-  deploy-link:
-    name: Deploy link.joulev.dev
-    needs: check-changes
-    if: needs.check-changes.outputs.link == 'true' || needs.check-changes.outputs.dependencies == 'true'
-    uses: ./.github/workflows/vercel.yml
-    with:
-      directory: ./apps/link
-    secrets:
-      token: ${{ secrets.VERCEL_TOKEN }}
-      org-id: ${{ secrets.VERCEL_ORG_ID }}
-      project-id: ${{ secrets.VERCEL_PROJECT_ID_LINK_JOULEV_DEV }}
-
-  deploy-tategaki:
-    name: Deploy tategaki.joulev.dev
-    needs: check-changes
-    if: needs.check-changes.outputs.tategaki == 'true' || needs.check-changes.outputs.dependencies == 'true'
-    uses: ./.github/workflows/vercel.yml
-    with:
-      directory: ./apps/tategaki
-    secrets:
-      token: ${{ secrets.VERCEL_TOKEN }}
-      org-id: ${{ secrets.VERCEL_ORG_ID }}
-      project-id: ${{ secrets.VERCEL_PROJECT_ID_TATEGAKI_JOULEV_DEV }}
-
-  deploy-website:
-    name: Deploy joulev.dev
-    needs: check-changes
-    if: needs.check-changes.outputs.website == 'true' || needs.check-changes.outputs.dependencies == 'true'
-    uses: ./.github/workflows/vercel.yml
-    with:
-      directory: ./apps/website
-    secrets:
-      token: ${{ secrets.VERCEL_TOKEN }}
-      org-id: ${{ secrets.VERCEL_ORG_ID }}
-      project-id: ${{ secrets.VERCEL_PROJECT_ID_JOULEV_DEV }}
+          version: latest
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          cache: "pnpm"
+      - run: pnpm install --frozen-lockfile
+      - uses: ./packages/action
+        with:
+          project: ${{ matrix.app }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}

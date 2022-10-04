@@ -1,0 +1,9 @@
+name: "Deploy project to Vercel"
+inputs:
+  project:
+    required: true
+  vercel-token:
+    required: true
+runs:
+  using: "node16"
+  main: "dist/index.js"

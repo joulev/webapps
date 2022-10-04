@@ -1,0 +1,21 @@
+{
+  "name": "@joulev/action",
+  "version": "0.0.1",
+  "description": "Internal GitHub Actions to handle building apps in joulev/webapps ONLY",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/exec": "^1.1.1",
+    "@actions/github": "^5.1.1",
+    "axios": "^1.0.0"
+  },
+  "devDependencies": {
+    "@octokit/webhooks-types": "^6.4.0",
+    "@types/node": "^18.8.2",
+    "typescript": "4.8.4"
+  }
+}
