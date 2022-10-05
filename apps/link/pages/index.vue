@@ -1,3 +1,3 @@
 <template>
-  <div class="text-red">Hello world in red</div>
+  <div class="text-red">Test tailwindcss in nuxt3</div>
 </template>
