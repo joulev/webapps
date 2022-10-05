@@ -49,21 +49,31 @@ async function main() {
         cwd: `apps/${projectName}`,
         env: { ...process.env, VERCEL_ORG_ID: orgId, VERCEL_PROJECT_ID: projectId },
     };
-    const commitInfo = {
-        sha: github_1.context.sha,
-        actor: github_1.context.actor,
-        ref: github_1.context.ref.replace(/^refs\/heads\//, ""),
-        message: JSON.stringify((github_1.context.payload.head_commit?.message ?? "").split("\n")[0]),
-    };
+    const commitMessage = JSON.stringify((github_1.context.payload.head_commit?.message ?? "").split("\n")[0]);
     await (0, exec_1.exec)("pnpm", ["build"], { cwd: "packages/theme" });
     await (0, exec_1.exec)("vercel", ["pull", "--yes", "--environment=production", `--token=${token}`], config);
     await (0, exec_1.exec)("vercel", ["build", "--prod"], config);
-    let output = "unknown";
-    await (0, exec_1.exec)("vercel", ["deploy", "--prebuilt", "--prod", `--token=${token}`], {
+    let output = "";
+    await (0, exec_1.exec)("vercel", [
+        "deploy",
+        "--prebuilt",
+        "--prod",
+        `--token=${token}`,
+        ...["-m", `githubCommitSha=${github_1.context.sha}`],
+        ...["-m", `githubCommitAuthorName=${github_1.context.actor}`],
+        ...["-m", `githubCommitAuthorLogin=${github_1.context.actor}`],
+        ...["-m", `githubDeployment=1`],
+        ...["-m", `githubOrg=${github_1.context.repo.owner}`],
+        ...["-m", `githubRepo=${github_1.context.repo.repo}`],
+        ...["-m", `githubCommitOrg=${github_1.context.repo.owner}`],
+        ...["-m", `githubCommitRepo=${github_1.context.repo.repo}`],
+        ...["-m", `githubCommitMessage=${commitMessage}`],
+        ...["-m", `githubCommitRef=${github_1.context.ref.replace("refs/heads/", "")}`],
+    ], {
         ...config,
         listeners: { stdout: data => (output += data.toString()) },
     });
-    core.notice(`Deployed successfully to ${output}`);
+    core.notice(`Deployed successfully to ${output === "" ? "unknwon" : output}`);
 }
 try {
     main();
