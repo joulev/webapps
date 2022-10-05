@@ -5,9 +5,11 @@ on:
     branches-ignore: [main]
 
 jobs:
-  build-all:
-    name: Build all apps
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        app: [anime, link, tategaki, website]
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.2
@@ -18,7 +20,7 @@ jobs:
           node-version: 16
           cache: "pnpm"
       - uses: actions/setup-python@v4
-        if: inputs.directory == './apps/website'
+        if: matrix.app == 'website'
         with:
           python-version: "3.9"
           cache: "pip"
@@ -27,10 +29,4 @@ jobs:
       - run: pnpm build
         working-directory: ./packages/theme
       - run: vercel build
-        working-directory: ./apps/website
-      - run: vercel build
-        working-directory: ./apps/anime
-      - run: vercel build
-        working-directory: ./apps/link
-      - run: vercel build
-        working-directory: ./apps/tategaki
+        working-directory: ./apps/${{ matrix.app }}
