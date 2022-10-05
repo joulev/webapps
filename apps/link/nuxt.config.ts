@@ -11,4 +11,8 @@ export default defineNuxtConfig({
       },
     },
   },
+  typescript: {
+    typeCheck: "build",
+    strict: true,
+  },
 });
