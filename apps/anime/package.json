@@ -4,9 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite dev --open --host & graphql-codegen --config codegen.yml --watch",
+    "dev": "graphql-codegen --config codegen.yml --watch & vite dev --port 3003",
     "build": "vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --port 3003",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
