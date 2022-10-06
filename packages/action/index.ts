@@ -25,9 +25,7 @@ async function main() {
     cwd: `apps/${projectName}`,
     env: { ...process.env, VERCEL_ORG_ID: orgId, VERCEL_PROJECT_ID: projectId },
   };
-  const commitMessage = JSON.stringify(
-    ((context.payload as PushEvent).head_commit?.message ?? "").split("\n")[0],
-  );
+  const commitMessage = ((context.payload as PushEvent).head_commit?.message ?? "").split("\n")[0];
 
   await exec("pnpm", ["build"], { cwd: "packages/theme" });
   await exec("vercel", ["pull", "--yes", "--environment=production", `--token=${token}`], config);

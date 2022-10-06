@@ -49,7 +49,7 @@ async function main() {
         cwd: `apps/${projectName}`,
         env: { ...process.env, VERCEL_ORG_ID: orgId, VERCEL_PROJECT_ID: projectId },
     };
-    const commitMessage = JSON.stringify((github_1.context.payload.head_commit?.message ?? "").split("\n")[0]);
+    const commitMessage = (github_1.context.payload.head_commit?.message ?? "").split("\n")[0];
     await (0, exec_1.exec)("pnpm", ["build"], { cwd: "packages/theme" });
     await (0, exec_1.exec)("vercel", ["pull", "--yes", "--environment=production", `--token=${token}`], config);
     await (0, exec_1.exec)("vercel", ["build", "--prod"], config);
