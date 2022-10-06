@@ -1,9 +1,10 @@
 <script lang="ts" setup>
+import { WithId } from "mongodb";
 import DeleteOutline from "vue-material-design-icons/DeleteOutline.vue";
 import PencilOutline from "vue-material-design-icons/PencilOutline.vue";
 import { LinkDocument } from "~/types";
 
-type FetchRes = { error: string; entries?: undefined } | { entries: LinkDocument[] };
+type FetchRes = { error: string; entries?: undefined } | { entries: WithId<LinkDocument>[] };
 const { data, error } = await useFetch<FetchRes>("/api/joulev-link", {
   server: false,
   method: "get",

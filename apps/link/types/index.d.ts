@@ -4,6 +4,10 @@ type __JoulevLink = {
   slug: string;
   url: string;
 };
+type __PublicLink = {
+  slug?: string;
+  url: string;
+};
 
 type ServerBody<T> = {
   post: T;
@@ -12,10 +16,9 @@ type ServerBody<T> = {
 };
 
 export type JoulevLink = ServerBody<__JoulevLink>;
+export type PublicLink = Omit<ServerBody<__PublicLink>, "put" | "delete">;
 
-export type LinkDocument = WithId<
-  JoulevLink["post"] & {
-    updated: number;
-    isJoulev: boolean;
-  }
->;
+export type LinkDocument = JoulevLink["post"] & {
+  updated: number;
+  isJoulev: boolean;
+};
