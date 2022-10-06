@@ -1,6 +1,7 @@
 import { hash } from "~/server/lib/utils";
 
 export default defineEventHandler(async event => {
+  if (event.context.isJoulev) return { success: true };
   const basicAuth = event.req.headers.authorization;
   if (basicAuth) {
     const authValue = basicAuth.split(" ")[1];

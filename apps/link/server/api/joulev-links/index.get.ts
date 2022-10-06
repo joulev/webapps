@@ -1,16 +1,12 @@
 import { client } from "~/server/lib/mongo";
-import { hash } from "~/server/lib/utils";
-
 import { LinkDocument } from "~/types";
 
 export default defineEventHandler(async event => {
+  if (!event.context.isJoulev) {
+    event.res.statusCode = 401;
+    return { error: "Unauthorized" };
+  }
   try {
-    const token = getCookie(event, "token") || "";
-    if (token !== hash(process.env.JOULEV_PASSWORD ?? "")) {
-      event.res.statusCode = 401;
-      return { error: "Unauthorized" };
-    }
-
     const collection = client.db("link").collection<LinkDocument>("links");
     const entries = await collection.find({ isJoulev: true }).toArray();
     return { entries };
