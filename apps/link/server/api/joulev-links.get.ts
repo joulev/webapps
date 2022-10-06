@@ -11,8 +11,8 @@ export default defineEventHandler(async event => {
       return { error: "Unauthorized" };
     }
 
-    const collection = client.db("link").collection<LinkDocument>("joulevLinks");
-    const entries = await collection.find().toArray();
+    const collection = client.db("link").collection<LinkDocument>("links");
+    const entries = await collection.find({ isJoulev: true }).toArray();
     return { entries };
   } catch (err: any) {
     event.res.statusCode = 500;
