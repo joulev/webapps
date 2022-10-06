@@ -18,7 +18,7 @@ export default defineEventHandler(async event => {
     await collection.deleteOne({ _id });
     return { success: true };
   } catch (err: any) {
-    event.res.statusCode = err.code ?? 500;
+    event.res.statusCode = 500;
     return { error: String(err.message) };
   }
 });

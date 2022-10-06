@@ -19,7 +19,7 @@ export default defineEventHandler(async event => {
     await collection.updateOne({ _id }, { $set: { ...body, updated: Date.now() } });
     return { success: true };
   } catch (err: any) {
-    event.res.statusCode = err.code ?? 500;
+    event.res.statusCode = 500;
     return { error: String(err.message) };
   }
 });

@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "mongodb": "^4.10.0",
+    "nanoid": "^4.0.0",
     "vue-material-design-icons": "^5.1.2"
   }
 }
