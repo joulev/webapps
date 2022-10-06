@@ -1,8 +1,13 @@
 <script lang="ts" setup>
 import DeleteOutline from "vue-material-design-icons/DeleteOutline.vue";
 import PencilOutline from "vue-material-design-icons/PencilOutline.vue";
+import { LinkDocument } from "~/types";
 
-const { data, error } = await useFetch("/api/joulev-links", { server: false });
+type FetchRes = { error: string; entries?: undefined } | { entries: LinkDocument[] };
+const { data, error } = await useFetch<FetchRes>("/api/joulev-link", {
+  server: false,
+  method: "get",
+});
 </script>
 
 <template>

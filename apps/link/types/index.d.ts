@@ -13,7 +13,9 @@ type ServerBody<T> = {
 
 export type JoulevLink = ServerBody<__JoulevLink>;
 
-export type LinkDocument = JoulevLinkPostBody & {
-  updated: number;
-  isJoulev: boolean;
-};
+export type LinkDocument = WithId<
+  JoulevLink["post"] & {
+    updated: number;
+    isJoulev: boolean;
+  }
+>;
