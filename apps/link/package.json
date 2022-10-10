@@ -9,15 +9,15 @@
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@nuxtjs/tailwindcss": "^5.3.3",
-    "autoprefixer": "^10.4.12",
+    "@nuxtjs/tailwindcss": "5.3.5",
+    "autoprefixer": "10.4.12",
     "nuxt": "3.0.0-rc.11",
     "typescript": "4.8.4",
-    "vue-tsc": "^0.40.13"
+    "vue-tsc": "0.40.13"
   },
   "dependencies": {
-    "mongodb": "^4.10.0",
-    "nanoid": "^4.0.0",
-    "vue-material-design-icons": "^5.1.2"
+    "mongodb": "4.10.0",
+    "nanoid": "4.0.0",
+    "vue-material-design-icons": "5.1.2"
   }
 }
