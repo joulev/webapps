@@ -25,8 +25,9 @@ jobs:
           python-version: "3.9"
           cache: "pip"
       - run: pnpm install --frozen-lockfile
-      - run: pnpm add --global vercel
-      - run: pnpm build
+      - name: Build @joulev/theme
+        run: pnpm build
         working-directory: ./packages/theme
-      - run: vercel build
+      - name: Build ${{ matrix.app }}
+        run: pnpm build
         working-directory: ./apps/${{ matrix.app }}
