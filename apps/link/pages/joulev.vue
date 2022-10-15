@@ -24,7 +24,7 @@ const { data, error } = await useFetch<FetchRes>("/api/joulev-link", {
             <tr
               v-for="link in data!.entries"
               :key="String(link._id)"
-              class="odd:bg-card rounded-full border [&_td]:pl-6 [&_td]:last:pr-6 [&_td]:py-3 md:[&_td]:py-6"
+              class="odd:bg-daw-main-200 rounded-full border [&_td]:pl-6 [&_td]:last:pr-6 [&_td]:py-3 md:[&_td]:py-6"
             >
               <td class="w-1/12 lg:rounded-l">/{{ link.slug }}</td>
               <td class="w-full">
@@ -32,7 +32,7 @@ const { data, error } = await useFetch<FetchRes>("/api/joulev-link", {
                   {{ link.url }}
                 </a>
               </td>
-              <td class="text-muted text-sm hidden md:table-cell">
+              <td class="text-daw-main-500 text-sm hidden md:table-cell">
                 {{
                   new Date(link.updated).toLocaleDateString("en-sg", { timeZone: "Asia/Singapore" })
                 }}

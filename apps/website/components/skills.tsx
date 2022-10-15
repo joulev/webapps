@@ -40,8 +40,8 @@ const Skills: FC = () => (
           <span
             className={clsx(
               "relative after:absolute after:content-['Yes,_they_are_Google_and_StackOverflow!'] after:text-xs",
-              "after:right-0 after:bottom-full after:w-fit after:bg-same",
-              "after:p-2 after:border after:rounded after:border-faded",
+              "after:right-0 after:bottom-full after:w-fit after:bg-daw-main-100",
+              "after:p-2 after:border after:rounded after:border-daw-main-300",
               "after:opacity-0 hover:after:opacity-100 peer-hover:after:opacity-100 after:transition",
             )}
           >

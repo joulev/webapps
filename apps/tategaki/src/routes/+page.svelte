@@ -59,9 +59,9 @@
   </div>
 </div>
 
-<div aria-hidden class="m-12 border border-faded text-base relative" style:height>
+<div aria-hidden class="m-12 border border-daw-main-300 text-base relative" style:height>
   <!-- mask image original version taken from http://ni.siois.in, with some modifications -->
-  <div class="absolute inset-0 bg-faded -m-px -z-10 ruler" />
+  <div class="absolute inset-0 bg-daw-main-300 -m-px -z-10 ruler" />
   <div class="flex flex-col gap-12 -m-px">
     <h1 class="flex flex-row flex-wrap">
       {#each title.split("") as char}
@@ -86,7 +86,7 @@
                       style:--furigana-count={furigana.length}
                     >
                       {#each furigana.split("") as fChar}
-                        <span class="text-furigana text-muted">{fChar}</span>
+                        <span class="text-furigana text-daw-main-500">{fChar}</span>
                       {/each}
                     </span>
                   </span>

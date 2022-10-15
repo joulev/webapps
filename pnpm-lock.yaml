@@ -38,6 +38,7 @@ importers:
       svelte-check: 2.9.1
       svelte-material-icons: 2.0.4
       svelte-preprocess: 4.10.7
+      tailwind-dark-aware: 0.2.0
       tailwindcss: 3.1.8
       ts-node: 10.9.1
       tslib: 2.4.0
@@ -53,8 +54,8 @@ importers:
       '@graphql-codegen/client-preset': 1.0.5_graphql@16.6.0
       '@graphql-typed-document-node/core': 3.1.1_graphql@16.6.0
       '@joulev/theme': link:../../packages/theme
-      '@sveltejs/adapter-auto': 1.0.0-next.80
-      '@sveltejs/kit': 1.0.0-next.511_svelte@3.50.1+vite@3.1.6
+      '@sveltejs/adapter-auto': 1.0.0-next.83
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.50.1+vite@3.1.6
       '@types/node': 18.7.23
       '@types/nprogress': 0.2.0
       '@typescript-eslint/eslint-plugin': 5.39.0_cfd7h3iktziq6hcwahu2qxhjhy
@@ -69,6 +70,7 @@ importers:
       svelte-apollo: 0.5.0_afoaqcusgywjo7cyl4bdqg7tuy
       svelte-check: 2.9.1_ejhwqstqdwfnekvhsm3hus3z4i
       svelte-preprocess: 4.10.7_or4gyn62tntw7ihg73nagmkdja
+      tailwind-dark-aware: 0.2.0_tailwindcss@3.1.8
       tailwindcss: 3.1.8_m6qswdslzu5ddi7v2thd72jv24
       ts-node: 10.9.1_gbhfbbeqrol7fxixnzbkbuanxe
       tslib: 2.4.0
@@ -83,6 +85,7 @@ importers:
       mongodb: 4.10.0
       nanoid: 4.0.0
       nuxt: 3.0.0-rc.11
+      tailwind-dark-aware: 0.2.0
       typescript: 4.8.4
       vue-material-design-icons: 5.1.2
       vue-tsc: 1.0.3
@@ -95,6 +98,7 @@ importers:
       '@nuxtjs/tailwindcss': 5.3.5
       autoprefixer: 10.4.12
       nuxt: 3.0.0-rc.11_typescript@4.8.4
+      tailwind-dark-aware: 0.2.0
       typescript: 4.8.4
       vue-tsc: 1.0.3_typescript@4.8.4
 
@@ -117,6 +121,7 @@ importers:
       svelte-check: 2.9.1
       svelte-material-icons: 2.0.4
       svelte-preprocess: 4.10.7
+      tailwind-dark-aware: 0.2.0
       tailwindcss: 3.1.8
       tslib: 2.4.0
       typescript: 4.8.4
@@ -125,8 +130,8 @@ importers:
       svelte-material-icons: 2.0.4_svelte@3.50.1
     devDependencies:
       '@joulev/theme': link:../../packages/theme
-      '@sveltejs/adapter-auto': 1.0.0-next.80
-      '@sveltejs/kit': 1.0.0-next.511_svelte@3.50.1+vite@3.1.6
+      '@sveltejs/adapter-auto': 1.0.0-next.83
+      '@sveltejs/kit': 1.0.0-next.516_svelte@3.50.1+vite@3.1.6
       '@typescript-eslint/eslint-plugin': 5.39.0_cfd7h3iktziq6hcwahu2qxhjhy
       '@typescript-eslint/parser': 5.39.0_z4bbprzjrhnsfa24uvmcbu7f5q
       autoprefixer: 10.4.12_postcss@8.4.17
@@ -140,6 +145,7 @@ importers:
       svelte: 3.50.1
       svelte-check: 2.9.1_ejhwqstqdwfnekvhsm3hus3z4i
       svelte-preprocess: 4.10.7_or4gyn62tntw7ihg73nagmkdja
+      tailwind-dark-aware: 0.2.0_tailwindcss@3.1.8
       tailwindcss: 3.1.8_postcss@8.4.17
       tslib: 2.4.0
       typescript: 4.8.4
@@ -162,6 +168,7 @@ importers:
       react: 18.2.0
       react-dom: 18.2.0
       swr: 1.3.0
+      tailwind-dark-aware: 0.2.0
       tailwindcss: 3.1.8
       typescript: 4.8.4
     dependencies:
@@ -181,6 +188,7 @@ importers:
       eslint: 8.25.0
       eslint-config-next: 12.3.1_z4bbprzjrhnsfa24uvmcbu7f5q
       postcss: 8.4.17
+      tailwind-dark-aware: 0.2.0_tailwindcss@3.1.8
       tailwindcss: 3.1.8_postcss@8.4.17
       typescript: 4.8.4
 
@@ -2208,35 +2216,35 @@ packages:
     resolution: {integrity: sha512-sXo/qW2/pAcmT43VoRKOJbDOfV3cYpq3szSVfIThQXNt+E4DfKj361vaAt3c88U5tPUxzEswam7GW48PJqtKAg==}
     dev: true
 
-  /@sveltejs/adapter-auto/1.0.0-next.80:
-    resolution: {integrity: sha512-352WoZr9fQgxJqgNENvxRr2gsA+wTF6V9AVaQaaatDYd3RVEBaXTYOOalFaRLSa25mRUJaLYP2aaliqczMl23g==}
+  /@sveltejs/adapter-auto/1.0.0-next.83:
+    resolution: {integrity: sha512-6Km4x792PjHaN0H0odsy7JOj3jdDZqN1tA58B1b96xWUUUj87tw6XYC7VWRBjwo2wZqWkRat94IegrtAAhYVaA==}
     dependencies:
-      '@sveltejs/adapter-cloudflare': 1.0.0-next.38
-      '@sveltejs/adapter-netlify': 1.0.0-next.78
-      '@sveltejs/adapter-vercel': 1.0.0-next.77
+      '@sveltejs/adapter-cloudflare': 1.0.0-next.39
+      '@sveltejs/adapter-netlify': 1.0.0-next.81
+      '@sveltejs/adapter-vercel': 1.0.0-next.79
     transitivePeerDependencies:
       - encoding
       - supports-color
     dev: true
 
-  /@sveltejs/adapter-cloudflare/1.0.0-next.38:
-    resolution: {integrity: sha512-N6jdTomRZkdKlcNoguwYD7lpdXSt0beIyUJsp0MS/YLm/4gI83y698zFYInFKJ9t5e6DAnuEBSAXcg568z2oFA==}
+  /@sveltejs/adapter-cloudflare/1.0.0-next.39:
+    resolution: {integrity: sha512-95iRY3+mFVqEp4BqTJQGAyga7gSovIsm4SvhqsfBE/IQLkb2MnwLq2usRkXm9R6nby4w/jzEwgQM2ohsZD2HHA==}
     dependencies:
       '@cloudflare/workers-types': 3.16.0
       esbuild: 0.15.10
       worktop: 0.8.0-next.14
     dev: true
 
-  /@sveltejs/adapter-netlify/1.0.0-next.78:
-    resolution: {integrity: sha512-Yyn/j/0QcLK3Db442ducLUZmyvkO74j7Gdcwu9xN0fQN3kBlCJP9Itx5o4SySrPFGc4Q8cLJ5ELNg+mWduLBAA==}
+  /@sveltejs/adapter-netlify/1.0.0-next.81:
+    resolution: {integrity: sha512-jWZHw2uqUMJk8lFPzRm0xxmBZoDc430tbeCU9EtYhG+ypze2B6pJAlNTtcN3/J7wapHq19TgEK5oNt4LqORfNg==}
     dependencies:
       '@iarna/toml': 2.2.5
       esbuild: 0.15.10
       set-cookie-parser: 2.5.1
     dev: true
 
-  /@sveltejs/adapter-vercel/1.0.0-next.77:
-    resolution: {integrity: sha512-r4MqtP+lzx83HfcvI8PU0Yxzmxt6WQq9nzZETLboJouJzhSBUFIN5RmNZfEn6nNIlUwZbGQUEK/FxsRnnxI/Ig==}
+  /@sveltejs/adapter-vercel/1.0.0-next.79:
+    resolution: {integrity: sha512-Mitw34vS+wR/qxZm6qOUltf910N8gcekYZHaEVxO6HaE/9LyEZ/O03e9rRKwo4LAWrHXOkHMdUxvv1VcS9BqmQ==}
     dependencies:
       '@vercel/nft': 0.22.1
       esbuild: 0.15.10
@@ -2245,8 +2253,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit/1.0.0-next.511_svelte@3.50.1+vite@3.1.6:
-    resolution: {integrity: sha512-A/fxd4qHWDD07Mjo6qEEEfsBEkoj5C4/dPSzx6xPUoWmPvRPhU8t+P0oMc8BOn5YHOhPDq3coH8bmafbh73zKg==}
+  /@sveltejs/kit/1.0.0-next.516_svelte@3.50.1+vite@3.1.6:
+    resolution: {integrity: sha512-n0oGcv7xpgJ81ld1oER5HVREP4TdeDUJ8S64XNDcl3Y2xfQLKk8C4SLYQw2D6V+DxUm8V3aRrj7N7/tm4CQm6A==}
     engines: {node: '>=16.14'}
     hasBin: true
     requiresBuild: true
@@ -3642,9 +3650,24 @@ packages:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
     dev: true
 
+  /color-string/1.9.1:
+    resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
+    dependencies:
+      color-name: 1.1.4
+      simple-swizzle: 0.2.2
+    dev: true
+
   /color-support/1.1.3:
     resolution: {integrity: sha512-qiBjkpbMLO/HL68y+lh4q0/O1MZFj2RX6X/KmMa3+gJD3z+WwI1ZzDHysvqHGS3mP6mznPckpXmw1nI9cJjyRg==}
     hasBin: true
+    dev: true
+
+  /color/4.2.3:
+    resolution: {integrity: sha512-1rXeuUUiGGrykh+CeBdu5Ie7OJwinCgQY0bc7GCRxy5xVHy+moaqkpL/jqQq0MtQOeYcrqEz4abc5f0KtU7W4A==}
+    engines: {node: '>=12.5.0'}
+    dependencies:
+      color-convert: 2.0.1
+      color-string: 1.9.1
     dev: true
 
   /colord/2.9.3:
@@ -5810,6 +5833,10 @@ packages:
 
   /is-arrayish/0.2.1:
     resolution: {integrity: sha512-zz06S8t0ozoDXMG+ube26zeCTNXcKIPJZJi8hBrF4idCLms4CG9QtK7qBl1boi5ODzFpjswb5JPmHCbMpjaYzg==}
+    dev: true
+
+  /is-arrayish/0.3.2:
+    resolution: {integrity: sha512-eVRqCvVlZbuw3GrM63ovNSNAeA1K16kaR/LRY/92w0zxQ5/1YzwblUX652i4Xs9RwAGjW9d9y6X88t8OaAJfWQ==}
     dev: true
 
   /is-bigint/1.0.4:
@@ -8601,6 +8628,12 @@ packages:
     resolution: {integrity: sha512-6+eerH9fEnNmi/hyM1DXcRK3pWdoMQtlkQ+ns0ntzunjKqp5i3sKCc80ym8Fib3iaYhdJUOPdhlJWj1tvge2Ww==}
     dev: true
 
+  /simple-swizzle/0.2.2:
+    resolution: {integrity: sha512-JA//kQgZtbuY83m+xT+tXJkmJncGMTFT+C+g2h2R9uxkYIrE2yy9sgmcLhCnw57/WSD+Eh3J97FPEDFnbXnDUg==}
+    dependencies:
+      is-arrayish: 0.3.2
+    dev: true
+
   /sirv/2.0.2:
     resolution: {integrity: sha512-4Qog6aE29nIjAOKe/wowFTxOdmbEZKb+3tsLljaBRzJwtqto0BChD2zzH0LhgCSXiI+V7X+Y45v14wBZQ1TK3w==}
     engines: {node: '>= 10'}
@@ -9060,6 +9093,23 @@ packages:
       tailwindcss: 3.1.8_postcss@8.4.17
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /tailwind-dark-aware/0.2.0:
+    resolution: {integrity: sha512-40QU6UWv8bMJParzqJfLfPZD+CR64pa6TIpkbRGP1H9LiceI+KQpPMJ9vFupgpcipwQKD9kW9dV1tGJgQUWlqA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      color: 4.2.3
+    dev: true
+
+  /tailwind-dark-aware/0.2.0_tailwindcss@3.1.8:
+    resolution: {integrity: sha512-40QU6UWv8bMJParzqJfLfPZD+CR64pa6TIpkbRGP1H9LiceI+KQpPMJ9vFupgpcipwQKD9kW9dV1tGJgQUWlqA==}
+    peerDependencies:
+      tailwindcss: '>=3.0.0 || insiders'
+    dependencies:
+      color: 4.2.3
+      tailwindcss: 3.1.8_postcss@8.4.17
     dev: true
 
   /tailwindcss/3.1.8_m6qswdslzu5ddi7v2thd72jv24:

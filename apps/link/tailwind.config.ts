@@ -3,5 +3,5 @@ import { preset, plugin } from "@joulev/theme";
 
 export default <Config>{
   presets: [preset],
-  plugins: [plugin],
+  plugins: [plugin, require("tailwind-dark-aware")],
 };

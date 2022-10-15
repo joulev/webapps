@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({ updated }) => (
       <Contact />
     </main>
     <Footer updated={updated} />
-    <div className="fixed top-0 inset-x-0 h-36 bg-gradient-to-b from-main-100 dark:from-main-900 to-transparent backdrop-blur-sm mask pointer-events-none" />
+    <div className="fixed top-0 inset-x-0 h-36 bg-gradient-to-b from-daw-main-100 to-transparent backdrop-blur-sm mask pointer-events-none" />
   </div>
 );
 

@@ -52,7 +52,7 @@
               class="hidden sm:block w-18 min-h-[96px] rounded shrink-0 object-cover"
             />
           {:else}
-            <div class="hidden sm:block w-18 min-h-[96px] rounded shrink-0 bg-faded" />
+            <div class="hidden sm:block w-18 min-h-[96px] rounded shrink-0 bg-daw-main-300" />
           {/if}
           <div
             class="

@@ -17,5 +17,5 @@ module.exports = {
       },
     },
   },
-  plugins: [plugin({ vertical: true })],
+  plugins: [plugin({ vertical: true }), require("tailwind-dark-aware")],
 };

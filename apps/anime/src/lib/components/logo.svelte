@@ -28,6 +28,6 @@
 
 <style lang="postcss">
   path {
-    @apply fill-contrast;
+    @apply fill-daw-main-900;
   }
 </style>

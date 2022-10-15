@@ -5,7 +5,7 @@ type Option = { vertical?: boolean };
 const defaultOption: Option = { vertical: false };
 export const plugin = internal.withOptions<Option>(
   ({ vertical } = defaultOption) =>
-    ({ addUtilities, addComponents, addBase, theme }) => {
+    ({ addComponents, addBase, theme }) => {
       const main = theme("colors.main");
       const space = theme("space");
       const fontSize = (key: string) => {
@@ -28,17 +28,10 @@ export const plugin = internal.withOptions<Option>(
         same: (key: string) => themedStyle(key, [main[100], main[900]]),
         card: (key: string) => themedStyle(key, [main[200], main[800]]),
         faded: (key: string) => themedStyle(key, [main[300], main[700]]),
-        muted: (key: string) => themedStyle(key, [main[400], main[500]]),
+        muted: (key: string) => themedStyle(key, [main[500], main[500]]),
         reduced: (key: string) => themedStyle(key, [main[600], main[400]]),
         contrast: (key: string) => themedStyle(key, [main[900], main[100]]),
       };
-      const colouredStyles: ([string, string] | string)[] = [
-        ["backgroundColor", "bg"],
-        ["color", "text"],
-        ["borderColor", "border"],
-        "fill",
-        "stroke",
-      ];
 
       ["Extralight", "Light", "Regular", "Medium", "Semibold", "Bold"].forEach((weight, idx) =>
         addBase({
@@ -56,19 +49,13 @@ export const plugin = internal.withOptions<Option>(
 
       addBase({ body: mergedStyles(colour.same("backgroundColor"), colour.contrast("color")) });
 
-      Object.entries(colour).forEach(([key, getColour]) => {
-        colouredStyles.forEach(style => {
-          if (typeof style === "string") addUtilities({ [`.${style}-${key}`]: getColour(style) });
-          else addUtilities({ [`.${style[1]}-${key}`]: getColour(style[0]) });
-        });
-      });
       addComponents({ ".help-text": mergedStyles(colour.muted("color"), fontSize("sm")) });
 
       addComponents({
         ".anchor": mergedStyles(
           transition,
           themedStyle("background-image", [
-            `linear-gradient(${main[400]}, ${main[400]}), linear-gradient(to right, ${main[700]}, ${main[700]})`,
+            `linear-gradient(${main[500]}, ${main[500]}), linear-gradient(to right, ${main[700]}, ${main[700]})`,
             `linear-gradient(${main[500]}, ${main[500]}), linear-gradient(to right, ${main[300]}, ${main[300]})`,
           ]),
           {

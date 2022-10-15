@@ -40,7 +40,7 @@ const Footer: FC<{ updated: string }> = ({ updated }) => {
   const date = new Date(updated);
   return (
     <motion.footer
-      className="flex flex-col text-sm border-t border-faded py-9 gap-3"
+      className="flex flex-col text-sm border-t border-daw-main-300 py-9 gap-3"
       variants={animate}
       custom={false}
     >

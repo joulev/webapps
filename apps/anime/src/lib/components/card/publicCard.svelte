@@ -24,7 +24,7 @@
     {#if showDetailedScore && item.score}
       <div class="flex flex-row help-text" in:fade={transition}>
         {#each Object.entries(item.advancedScores) as [key, score], i}
-          <div class="group {i > 0 && 'ml-3 border-l border-faded pl-3'}">
+          <div class="group {i > 0 && 'ml-3 border-l border-daw-main-300 pl-3'}">
             <div title="{key}: {score}/10">
               <span class="hidden md:inline-block lg:hidden xl:inline-block">{key}</span>
               <span class="hidden lg:inline-block xl:hidden">{key.substring(0, 3)}</span>
@@ -43,7 +43,7 @@
           {/if}
         </div>
         {#if item.repeat}
-          <div class="ml-3 border-l border-faded pl-3">
+          <div class="ml-3 border-l border-daw-main-300 pl-3">
             &times;{item.repeat + 1}
           </div>
         {/if}

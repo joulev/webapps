@@ -4,5 +4,5 @@ const { preset, plugin } = require("@joulev/theme");
 module.exports = {
   content: ["./{pages,components}/**/*.{js,jsx,ts,tsx}"],
   presets: [preset],
-  plugins: [plugin],
+  plugins: [plugin, require("tailwind-dark-aware")],
 };
