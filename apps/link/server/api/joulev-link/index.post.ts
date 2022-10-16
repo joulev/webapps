@@ -1,4 +1,5 @@
 import { client } from "~/server/lib/mongo";
+import { isSlug, isURL } from "~~/server/lib/validator";
 import { JoulevLink, LinkDocument } from "~/types";
 
 export default defineEventHandler(async event => {
@@ -8,6 +9,10 @@ export default defineEventHandler(async event => {
   }
   try {
     const { slug, url } = await useBody<JoulevLink["post"]>(event);
+    if (!isSlug(slug) || !isURL(url)) {
+      event.res.statusCode = 400;
+      return { error: "Invalid slug or URL" };
+    }
     const collection = client.db("link").collection<LinkDocument>("links");
     const link = await collection.findOne({ slug });
     if (link) {

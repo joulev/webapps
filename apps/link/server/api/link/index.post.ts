@@ -1,10 +1,15 @@
 import { nanoid } from "nanoid";
 import { client } from "~/server/lib/mongo";
+import { isSlug, isURL } from "~/server/lib/validator";
 import { PublicLink, LinkDocument } from "~/types";
 
 export default defineEventHandler(async event => {
   try {
     const { slug: rawSlug, url } = await useBody<PublicLink["post"]>(event);
+    if (rawSlug === "" || (rawSlug && !isSlug(rawSlug)) || !isURL(url)) {
+      event.res.statusCode = 400;
+      return { error: "Invalid slug or URL" };
+    }
     const collection = client.db("link").collection<LinkDocument>("links");
     if (rawSlug && (await collection.findOne({ slug: rawSlug }))) {
       event.res.statusCode = 409;

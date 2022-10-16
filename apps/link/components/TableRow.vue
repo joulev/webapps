@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { WithId } from "mongodb";
+import { isSlug, isURL } from "~/server/lib/validator";
 import { LinkDocument, JoulevLink } from "~/types";
 import Close from "vue-material-design-icons/Close.vue";
 import ContentSaveOutline from "vue-material-design-icons/ContentSaveOutline.vue";
@@ -15,7 +16,9 @@ const slug = ref(link?.slug ?? "");
 const url = ref(link?.url ?? "");
 
 const slugUpdating = computed(() => !link || link.slug !== slug.value);
+const slugIsValid = computed(() => isSlug(slug.value));
 const urlUpdating = computed(() => !link || link.url !== url.value);
+const urlIsValid = computed(() => isURL(url.value));
 const updating = computed(() => slugUpdating.value || urlUpdating.value);
 
 function clear() {
@@ -25,7 +28,7 @@ function clear() {
 }
 
 async function save() {
-  if (!updating.value) return;
+  if (!updating.value || !slugIsValid.value || !urlIsValid.value) return;
   if (!link) {
     const body: JoulevLink["post"] = { slug: slug.value, url: url.value };
     await fetch("/api/joulev-link", {
@@ -60,12 +63,12 @@ async function remove() {
   <div class="odd:bg-daw-main-200 lg:rounded flex flex-row items-center gap-6 px-6 py-6">
     <input
       class="w-24 md:w-36 focus:outline-none bg-transparent"
-      :class="{ 'font-semibold': slugUpdating }"
+      :class="{ 'font-semibold': slugUpdating, 'text-red': !slugIsValid }"
       v-model="slug"
     />
     <input
       class="w-full focus:outline-none bg-transparent"
-      :class="{ 'font-semibold': urlUpdating }"
+      :class="{ 'font-semibold': urlUpdating, 'text-red': !urlIsValid }"
       v-model="url"
     />
     <div v-if="!updating" class="text-daw-main-500 text-sm hidden md:table-cell">
@@ -78,7 +81,7 @@ async function remove() {
           <Close :size="18" />
         </button>
       </div>
-      <div v-if="updating">
+      <div v-if="updating && urlIsValid && slugIsValid">
         <button class="hidden md:block btn btn-sm btn-primary" @click="save">Save</button>
         <button aria-hidden class="md:hidden btn btn-primary btn-nopadding p-1.5" @click="save">
           <ContentSaveOutline :size="18" />
