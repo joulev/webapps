@@ -2,6 +2,18 @@
 import { WithId } from "mongodb";
 import { LinkDocument } from "~/types";
 
+useHead({
+  title: "All joulev's links | link at joulev.dev",
+  link: [{ rel: "canonical", href: "https://link.joulev.dev/joulev" }],
+  meta: [
+    { name: "description", content: "A list of all link shortened owned by @joulev" },
+    { property: "og:title", content: "All joulev's links | link at joulev.dev" },
+    { property: "og:description", content: "A list of all link shortened owned by @joulev" },
+    { property: "og:url", content: "https://link.joulev.dev/joulev" },
+    { property: "og:image:alt", content: "All joulev's links | link at joulev.dev" },
+  ],
+});
+
 type FetchRes = { error: string; entries?: undefined } | { entries: WithId<LinkDocument>[] };
 const { data, error, refresh } = await useFetch<FetchRes>("/api/joulev-link", { server: false });
 
