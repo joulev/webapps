@@ -6,6 +6,7 @@ useHead({
   title: "All joulev's links | link at joulev.dev",
   link: [{ rel: "canonical", href: "https://link.joulev.dev/joulev" }],
   meta: [
+    { name: "robots", content: "noindex" },
     { name: "description", content: "A list of all link shortened owned by @joulev" },
     { property: "og:title", content: "All joulev's links | link at joulev.dev" },
     { property: "og:description", content: "A list of all link shortened owned by @joulev" },

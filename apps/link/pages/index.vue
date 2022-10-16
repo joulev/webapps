@@ -3,6 +3,7 @@ useHead({
   title: "link at joulev.dev",
   link: [{ rel: "canonical", href: "https://link.joulev.dev" }],
   meta: [
+    { name: "robots", content: "index,follow" },
     { name: "description", content: "@joulev's URL shortener" },
     { property: "og:title", content: "link at joulev.dev" },
     { property: "og:description", content: "@joulev's URL shortener" },
