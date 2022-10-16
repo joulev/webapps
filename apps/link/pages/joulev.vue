@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { WithId } from "mongodb";
+import NProgress from "nprogress";
 import { LinkDocument } from "~/types";
 
 useHead({
@@ -21,6 +22,13 @@ const { data, error, refresh } = await useFetch<FetchRes>("/api/joulev-link", { 
 const newRow = ref(false);
 const entries = computed(() => data?.value?.entries ?? []);
 const rows = computed(() => (newRow.value ? [...entries.value, null] : entries.value));
+
+const refreshData = async () => {
+  NProgress.start();
+  await refresh();
+  newRow.value = false;
+  NProgress.done();
+};
 </script>
 
 <template>
@@ -36,7 +44,7 @@ const rows = computed(() => (newRow.value ? [...entries.value, null] : entries.v
           :key="JSON.stringify(link)"
           :link="link"
           @clear="newRow = false"
-          @refresh="refresh().then(() => (newRow = false))"
+          @refresh="refreshData"
         />
       </div>
       <button class="mt-6 btn btn-primary" v-if="!newRow" @click="newRow = true">
