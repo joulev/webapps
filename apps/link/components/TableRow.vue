@@ -10,7 +10,11 @@ const displayDate = (date: Date) =>
   date.toLocaleDateString("en-sg", { timeZone: "Asia/Singapore" });
 
 const { link } = defineProps<{ link: WithId<LinkDocument> | null }>();
-const emit = defineEmits(["refresh", "clear"]);
+const emit = defineEmits<{
+  (e: "clear"): void;
+  (e: "refresh"): void;
+  (e: "error", error: string | null): void;
+}>();
 
 const slug = ref(link?.slug ?? "");
 const url = ref(link?.url ?? "");
@@ -22,40 +26,47 @@ const urlIsValid = computed(() => isURL(url.value));
 const updating = computed(() => slugUpdating.value || urlUpdating.value);
 
 function clear() {
+  emit("error", null);
   if (!link) emit("clear");
   slug.value = link?.slug ?? "";
   url.value = link?.url ?? "";
 }
 
 async function save() {
+  emit("error", null);
   if (!updating.value || !slugIsValid.value || !urlIsValid.value) return;
   if (!link) {
     const body: JoulevLink["post"] = { slug: slug.value, url: url.value };
-    await fetch("/api/joulev-link", {
+    const res = await fetch("/api/joulev-link", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
+    if (res.ok) emit("refresh");
+    else emit("error", (await res.json()).error);
   } else {
     const body: JoulevLink["put"] = { _id: link._id, slug: slug.value, url: url.value };
-    await fetch("/api/joulev-link", {
+    const res = await fetch("/api/joulev-link", {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(body),
     });
+    if (res.ok) emit("refresh");
+    else emit("error", (await res.json()).error);
   }
-  emit("refresh");
 }
 
 async function remove() {
+  emit("error", null);
   if (!link) return; // should not happen
   const body: JoulevLink["delete"] = { _id: link._id };
-  await fetch("/api/joulev-link", {
+  const res = await fetch("/api/joulev-link", {
     method: "DELETE",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
-  emit("refresh");
+  if (res.ok) emit("refresh");
+  else emit("error", (await res.json()).error);
 }
 </script>
 

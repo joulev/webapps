@@ -23,6 +23,8 @@ const newRow = ref(false);
 const entries = computed(() => data?.value?.entries ?? []);
 const rows = computed(() => (newRow.value ? [...entries.value, null] : entries.value));
 
+const fetchError = ref<string | null>(null);
+
 const refreshData = async () => {
   NProgress.start();
   await refresh();
@@ -32,11 +34,14 @@ const refreshData = async () => {
 </script>
 
 <template>
-  <div>
+  <div class="container max-w-screen-lg py-18">
     <h1 class="text-3xl mb-12">All joulev's links</h1>
-    <div v-if="!data && !error">Loading&hellip;</div>
-    <div v-else-if="error" class="text-red">Error: {{ error }}</div>
-    <div v-else-if="!data" class="text-red">Error: Data is empty. This should not happen 😳.</div>
+    <div v-if="fetchError" class="text-red mb-6">Error: {{ fetchError }}</div>
+    <div v-if="!data && !error" class="mb-6">Loading&hellip;</div>
+    <div v-else-if="error" class="text-red mb-6">Error: {{ error }}</div>
+    <div v-else-if="!data" class="text-red mb-6">
+      Error: Data is empty. This should not happen 😳.
+    </div>
     <div v-else>
       <div class="-mx-6 overflow-x-auto flex flex-col">
         <TableRow
@@ -44,6 +49,7 @@ const refreshData = async () => {
           :key="JSON.stringify(link)"
           :link="link"
           @clear="newRow = false"
+          @error="e => (fetchError = e)"
           @refresh="refreshData"
         />
       </div>
