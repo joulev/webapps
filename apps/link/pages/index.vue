@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { isSlug, isURL } from "~/lib/validator";
+import Home from "vue-material-design-icons/Home.vue";
 
 useHead({
   title: "link at joulev.dev",
@@ -25,13 +26,13 @@ const urlIsValid = computed(() => isURL(url.value));
     <div class="flex flex-row justify-between items-center">
       <Logo />
       <div class="flex flex-row gap-3">
-        <NuxtLink href="https://joulev.dev" target="_blank" class="btn btn-secondary btn-sm">
-          Home
+        <NuxtLink href="https://joulev.dev" target="_blank" class="btn btn-tertiary btn-nopadding">
+          <Home :size="24" />
         </NuxtLink>
         <NuxtLink
           href="https://github.com/joulev/webapps/tree/main/apps/link"
           target="_blank"
-          class="btn btn-secondary btn-sm"
+          class="btn btn-tertiary btn-nopadding"
         >
           GitHub
         </NuxtLink>
