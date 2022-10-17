@@ -16,8 +16,14 @@ useHead({
   ],
 });
 
+const notJoulev = ref(false);
 type FetchRes = { error: string; entries?: undefined } | { entries: WithId<LinkDocument>[] };
-const { data, error, refresh } = await useFetch<FetchRes>("/api/joulev-link", { server: false });
+const { data, error, refresh } = await useFetch<FetchRes>("/api/joulev-link", {
+  server: false,
+  onResponseError: async err => {
+    notJoulev.value = err.response.status === 401;
+  },
+});
 
 const newRow = ref(false);
 const entries = computed(() => data?.value?.entries ?? []);
@@ -41,11 +47,14 @@ const refreshData = async () => {
       </NuxtLink>
       <div class="text-xl border-l border-daw-main-300 pl-6">All joulev's links</div>
     </div>
-    <div v-if="fetchError" class="text-red">Error: {{ fetchError }}</div>
-    <div v-if="!data && !error">Loading&hellip;</div>
-    <div v-else-if="error" class="text-red">Error: {{ error }}</div>
-    <div v-else-if="!data" class="text-red">Error: Data is empty. This should not happen 😳.</div>
-    <div v-else>
+    <div v-if="notJoulev">You are not authorised to see this page.</div>
+    <div v-if="!notJoulev && fetchError" class="text-red">Error: {{ fetchError }}</div>
+    <div v-if="!notJoulev && !data && !error">Loading&hellip;</div>
+    <div v-else-if="!notJoulev && error" class="text-red">Error: {{ error }}</div>
+    <div v-else-if="!notJoulev && !data" class="text-red">
+      Error: Data is empty. This should not happen 😳.
+    </div>
+    <div v-else-if="!notJoulev">
       <div class="-mx-6 overflow-x-auto flex flex-col">
         <TableRow
           v-for="link in rows"
