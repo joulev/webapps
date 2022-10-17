@@ -33,7 +33,7 @@
 - **Deployment:** https://tategaki.joulev.dev
 - **Source:** [apps/tategaki](/apps/tategaki)
 
-## link (not completed)
+## link
 
 ![](https://img.shields.io/badge/nuxt.js-00C58E?style=for-the-badge&logo=nuxtdotjs&logoColor=white) ![](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D) ![](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
 
