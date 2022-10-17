@@ -25,6 +25,19 @@ const urlUpdating = computed(() => !link || link.url !== url.value);
 const urlIsValid = computed(() => isURL(url.value));
 const updating = computed(() => slugUpdating.value || urlUpdating.value);
 
+async function mutate(method: "post", data: JoulevLink["post"]): Promise<void>;
+async function mutate(method: "put", data: JoulevLink["put"]): Promise<void>;
+async function mutate(method: "delete", data: JoulevLink["delete"]): Promise<void>;
+async function mutate(method: "post" | "put" | "delete", data: any): Promise<void> {
+  const res = await fetch("/api/joulev-link", {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (res.ok) emit("refresh");
+  else emit("error", (await res.json()).error);
+}
+
 function clear() {
   emit("error", null);
   if (!link) emit("clear");
@@ -32,41 +45,17 @@ function clear() {
   url.value = link?.url ?? "";
 }
 
-async function save() {
+function save() {
   emit("error", null);
   if (!updating.value || !slugIsValid.value || !urlIsValid.value) return;
-  if (!link) {
-    const body: JoulevLink["post"] = { slug: slug.value, url: url.value };
-    const res = await fetch("/api/joulev-link", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (res.ok) emit("refresh");
-    else emit("error", (await res.json()).error);
-  } else {
-    const body: JoulevLink["put"] = { _id: link._id, slug: slug.value, url: url.value };
-    const res = await fetch("/api/joulev-link", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
-    });
-    if (res.ok) emit("refresh");
-    else emit("error", (await res.json()).error);
-  }
+  if (!link) mutate("post", { slug: slug.value, url: url.value });
+  else mutate("put", { _id: link._id, slug: slug.value, url: url.value });
 }
 
-async function remove() {
+function remove() {
   emit("error", null);
   if (!link) return; // should not happen
-  const body: JoulevLink["delete"] = { _id: link._id };
-  const res = await fetch("/api/joulev-link", {
-    method: "DELETE",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  });
-  if (res.ok) emit("refresh");
-  else emit("error", (await res.json()).error);
+  mutate("delete", { _id: link._id });
 }
 </script>
 
