@@ -12,7 +12,7 @@ const Custom404: NextPage = () => (
     <motion.h2 variants={animate}>Not found</motion.h2>
     <motion.div variants={animate}>
       <Link href="/">
-        <a className="a">Return to homepage</a>
+        <a className="anchor">Return to homepage</a>
       </Link>
     </motion.div>
   </div>
