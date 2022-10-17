@@ -21,6 +21,13 @@ export default defineNuxtConfig({
           href: "https://joulev.dev/apple-touch-icon.png",
           sizes: "180x180",
         },
+        {
+          rel: "preload",
+          href: "https://joulev.dev/fonts/Synonym-Variable.woff",
+          as: "font",
+          type: "font/woff",
+          crossorigin: "anonymous",
+        },
       ],
     },
   },
