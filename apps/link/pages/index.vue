@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import { isSlug, isURL } from "~/lib/validator";
 import Home from "vue-material-design-icons/Home.vue";
 import GitHub from "vue-material-design-icons/Github.vue";
 
@@ -16,10 +15,9 @@ useHead({
   ],
 });
 
+const error = ref<string | null>(null);
 const slug = ref("");
-const slugIsValid = computed(() => isSlug(slug.value));
-const url = ref("");
-const urlIsValid = computed(() => isURL(url.value));
+const showForm = ref(true);
 </script>
 
 <template>
@@ -39,24 +37,12 @@ const urlIsValid = computed(() => isURL(url.value));
         </NuxtLink>
       </div>
     </div>
-    <form class="flex flex-col gap-6" @submit.prevent="() => {}">
-      <div class="flex flex-row gap-3 items-center">
-        <span class="hidden sm:block">https://link.joulev.dev/l/</span>
-        <input
-          class="input flex-1 min-w-0"
-          :class="{ 'text-red': !slugIsValid }"
-          placeholder="Slug (optional)"
-          v-model="slug"
-        />
-      </div>
-      <input
-        class="input"
-        :class="{ 'text-red': !urlIsValid }"
-        placeholder="URL to shorten"
-        required
-        v-model="url"
-      />
-      <button class="btn btn-primary">Shorten URL (doesn't do anything yet)</button>
-    </form>
+    <div v-if="error" class="text-red">Error: {{ error }}</div>
+    <Form
+      v-if="showForm"
+      @error="e => (error = e)"
+      @link-created="s => ((slug = s), (showForm = false))"
+    />
+    <Success v-else :slug="slug" @new-link="showForm = true" />
   </div>
 </template>
