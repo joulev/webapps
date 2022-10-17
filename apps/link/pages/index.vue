@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import { isSlug, isURL } from "~/lib/validator";
 import Home from "vue-material-design-icons/Home.vue";
+import GitHub from "vue-material-design-icons/Github.vue";
 
 useHead({
   title: "link at joulev.dev",
@@ -34,7 +35,7 @@ const urlIsValid = computed(() => isURL(url.value));
           target="_blank"
           class="btn btn-tertiary btn-nopadding"
         >
-          GitHub
+          <GitHub :size="24" />
         </NuxtLink>
       </div>
     </div>
