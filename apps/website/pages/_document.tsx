@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <link
           rel="preload"
-          href="/fonts/Synonym-Variable.woff"
+          href="https://joulev.dev/fonts/Synonym-Variable.woff"
           as="font"
           type="font/woff"
           crossOrigin="anonymous"
