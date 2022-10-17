@@ -23,7 +23,7 @@ const showForm = ref(true);
 <template>
   <div class="container max-w-xl py-18 flex flex-col gap-12">
     <div class="flex flex-row justify-between items-center">
-      <Logo />
+      <Logo class="cursor-pointer" @click="showForm = true" />
       <div class="flex flex-row gap-3">
         <NuxtLink href="https://joulev.dev" target="_blank" class="btn btn-tertiary btn-nopadding">
           <Home :size="24" />
@@ -37,12 +37,25 @@ const showForm = ref(true);
         </NuxtLink>
       </div>
     </div>
-    <div v-if="error" class="text-red">Error: {{ error }}</div>
-    <Form
-      v-if="showForm"
-      @error="e => (error = e)"
-      @link-created="s => ((slug = s), (showForm = false))"
-    />
-    <Success v-else :slug="slug" @new-link="showForm = true" />
+    <div v-if="error" class="text-red transition">Error: {{ error }}</div>
+    <Transition appear>
+      <Form
+        v-if="showForm"
+        @error="e => (error = e)"
+        @link-created="s => ((slug = s), (showForm = false))"
+      />
+      <Success v-else :slug="slug" @new-link="showForm = true" />
+    </Transition>
   </div>
 </template>
+
+<style lang="postcss" scoped>
+.v-enter-active {
+  @apply transition;
+}
+
+.v-enter-from,
+.v-leave-to {
+  @apply opacity-0;
+}
+</style>
