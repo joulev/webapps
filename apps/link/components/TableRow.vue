@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { WithId } from "mongodb";
-import { isSlug, isURL } from "~/server/lib/validator";
+import { isSlug, isURL } from "~/lib/validator";
 import { LinkDocument, JoulevLink } from "~/types";
 import Close from "vue-material-design-icons/Close.vue";
 import ContentSaveOutline from "vue-material-design-icons/ContentSaveOutline.vue";

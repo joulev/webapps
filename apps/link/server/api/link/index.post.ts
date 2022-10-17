@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { client } from "~/server/lib/mongo";
-import { isSlug, isURL } from "~/server/lib/validator";
+import { isSlug, isURL } from "~/lib/validator";
 import { PublicLink, LinkDocument } from "~/types";
 
 export default defineEventHandler(async event => {

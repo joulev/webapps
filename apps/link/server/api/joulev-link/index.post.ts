@@ -1,5 +1,5 @@
 import { client } from "~/server/lib/mongo";
-import { isSlug, isURL } from "~~/server/lib/validator";
+import { isSlug, isURL } from "~/lib/validator";
 import { JoulevLink, LinkDocument } from "~/types";
 
 export default defineEventHandler(async event => {
