@@ -33,19 +33,17 @@ export const plugin = internal.withOptions<Option>(
         contrast: (key: string) => themedStyle(key, [main[900], main[100]]),
       };
 
-      ["Extralight", "Light", "Regular", "Medium", "Semibold", "Bold"].forEach((weight, idx) =>
-        addBase({
-          "@font-face": {
-            fontFamily: "Synonym",
-            src: `url("https://joulev.dev/fonts/Synonym-${weight}.woff2") format("woff2"),
-              url("https://joulev.dev/fonts/Synonym-${weight}.woff") format("woff"),
-              url("https://joulev.dev/fonts/Synonym-${weight}.ttf") format("truetype")`,
-            fontWeight: (200 + idx * 100).toString(),
-            fontDisplay: "swap",
-            fontStyle: "normal",
-          },
-        }),
-      );
+      addBase({
+        "@font-face": {
+          fontFamily: "Synonym",
+          src: `url("https://joulev.dev/fonts/Synonym-Variable.woff2") format("woff2"),
+                url("https://joulev.dev/fonts/Synonym-Variable.woff") format("woff"),
+                url("https://joulev.dev/fonts/Synonym-Variable.ttf") format("truetype")`,
+          fontWeight: "200 700",
+          fontDisplay: "swap",
+          fontStyle: "normal",
+        },
+      });
 
       addBase({ body: mergedStyles(colour.same("backgroundColor"), colour.contrast("color")) });
 
