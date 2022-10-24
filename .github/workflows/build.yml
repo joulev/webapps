@@ -23,7 +23,6 @@ jobs:
         if: matrix.app == 'website'
         with:
           python-version: "3.9"
-          cache: "pip"
       - run: pnpm install --frozen-lockfile
       - name: Build @joulev/theme
         run: pnpm build
