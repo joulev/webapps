@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@nuxtjs/tailwindcss": "5.3.5",
+    "@nuxtjs/tailwindcss": "6.1.0",
     "@types/nprogress": "0.2.0",
     "@types/validator": "13.7.8",
     "autoprefixer": "10.4.12",
