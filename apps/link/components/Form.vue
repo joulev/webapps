@@ -4,7 +4,7 @@ import { isSlug, isURL } from "~/lib/validator";
 import { PublicLink } from "~/types";
 
 const emit = defineEmits<{
-  (e: "linkCreated", slug: string): void;
+  (e: "link-created", slug: string): void;
   (e: "error", error: string | null): void;
 }>();
 
@@ -26,7 +26,7 @@ async function submit() {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(payload),
   });
-  if (res.ok) emit("linkCreated", (await res.json()).slug);
+  if (res.ok) emit("link-created", (await res.json()).slug);
   else emit("error", (await res.json()).error);
   NProgress.done();
 }

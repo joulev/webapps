@@ -61,7 +61,7 @@ const refreshData = async () => {
           :key="JSON.stringify(link)"
           :link="link"
           @clear="newRow = false"
-          @error="e => (fetchError = e)"
+          @error="(e: string | null) => (fetchError = e)"
           @refresh="refreshData"
         />
       </div>
