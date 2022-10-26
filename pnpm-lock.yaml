@@ -162,11 +162,11 @@ importers:
   apps/website:
     specifiers:
       '@joulev/theme': workspace:*
-      '@next/font': ^13.0.0
+      '@next/font': 13.0.0
       '@types/node': 18.11.5
       '@types/react': 18.0.23
       '@types/react-dom': 18.0.7
-      '@vercel/analytics': ^0.1.1
+      '@vercel/analytics': 0.1.1
       autoprefixer: 10.4.12
       clsx: 1.2.1
       eslint: 8.26.0
@@ -204,12 +204,12 @@ importers:
 
   packages/action:
     specifiers:
-      '@actions/core': ^1.10.0
-      '@actions/exec': ^1.1.1
-      '@actions/github': ^5.1.1
+      '@actions/core': 1.10.0
+      '@actions/exec': 1.1.1
+      '@actions/github': 5.1.1
       '@octokit/webhooks-types': 6.6.0
       '@types/node': 18.8.3
-      axios: ^1.0.0
+      axios: 1.0.0
       typescript: 4.8.4
     dependencies:
       '@actions/core': 1.10.0
