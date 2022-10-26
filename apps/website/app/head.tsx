@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-const Head: FC<{}> = () => {
+export default function Head() {
   const title = "Vu Van Dung";
   const description =
     "Burning enthusiasm for web development and web design. " +
@@ -28,6 +26,4 @@ const Head: FC<{}> = () => {
       <link rel="apple-touch-icon" href="https://joulev.dev/apple-touch-icon.png" sizes="180x180" />
     </>
   );
-};
-
-export default Head;
+}

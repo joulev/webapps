@@ -1,6 +1,4 @@
-import { FC } from "react";
-
-export const Code: FC = () => (
+export const Code = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -11,7 +9,7 @@ export const Code: FC = () => (
   </svg>
 );
 
-export const Terminal: FC = () => (
+export const Terminal = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -22,7 +20,7 @@ export const Terminal: FC = () => (
   </svg>
 );
 
-export const Graph: FC = () => (
+export const Graph = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -33,7 +31,7 @@ export const Graph: FC = () => (
   </svg>
 );
 
-export const Globe: FC = () => (
+export const Globe = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4M12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4M12 20C12 20 8.99452 16.9884 8.99998 12C8.99998 7 12 4 12 4M12 20C12 20 14.9945 16.9884 15 12C15 7 12 4 12 4M5 9.25H19M5 14.75H19"
@@ -43,7 +41,7 @@ export const Globe: FC = () => (
   </svg>
 );
 
-export const GitHub: FC = () => (
+export const GitHub = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M9.60493 19.9816C10.1241 20.0778 10.2923 19.7554 10.2923 19.4815V17.5451M10.2923 17.5451C7.39895 18.1743 7.24484 16.9291 6.79653 16.3177C5.94238 15.1527 4.51428 15.1527 4.51428 15.1527M10.2923 17.5451L10.3339 16.1001C10.4266 15.4284 10.6962 14.969 10.9944 14.7098C8.6844 14.4454 6.25565 13.5535 6.25565 9.56886C6.25565 8.43249 6.66218 7.50503 7.32701 6.77693C7.21952 6.51429 6.86327 5.45594 7.42842 4.024C7.42842 4.024 8.30214 3.7449 10.2897 5.09015C11.1192 4.85959 12.0085 4.74431 12.8927 4.73997C13.7768 4.74431 14.667 4.85959 15.4982 5.09015C17.484 3.7449 18.356 4.024 18.356 4.024C18.922 5.45681 18.5658 6.51516 18.4583 6.77693C19.1257 7.50503 19.5288 8.43336 19.5288 9.56886C19.5288 13.5639 17.0957 14.4437 14.7797 14.7011C15.1524 15.0236 15.493 15.6563 15.493 16.6271V19.4815C15.493 19.758 15.6595 20.083 16.1873 19.9807"
@@ -55,7 +53,7 @@ export const GitHub: FC = () => (
   </svg>
 );
 
-export const LinkedIn: FC = () => (
+export const LinkedIn = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -78,7 +76,7 @@ export const LinkedIn: FC = () => (
   </svg>
 );
 
-export const Email: FC = () => (
+export const Email = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -89,7 +87,7 @@ export const Email: FC = () => (
   </svg>
 );
 
-export const Pin: FC = () => (
+export const Pin = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       fillRule="evenodd"
@@ -106,7 +104,8 @@ export const Pin: FC = () => (
   </svg>
 );
 
-export const Clock: FC<{ hour?: number; minute?: number }> = ({ hour = 4, minute = 0 }) => {
+type ClockProps = { hour?: number; minute?: number };
+export const Clock = ({ hour = 4, minute = 0 }: ClockProps) => {
   const hourAngle = (hour % 12) * 30 + minute * 0.5;
   const minuteAngle = minute * 6;
   const hourHandLength = 4;
@@ -128,7 +127,7 @@ export const Clock: FC<{ hour?: number; minute?: number }> = ({ hour = 4, minute
   );
 };
 
-export const Play: FC = () => (
+export const Play = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M9.19336 14.7338V9.26619C9.19336 8.4889 10.0413 8.00879 10.7079 8.4087L15.2642 11.1425C15.9115 11.5309 15.9115 12.4691 15.2642 12.8575L10.7079 15.5913C10.0413 15.9912 9.19336 15.5111 9.19336 14.7338Z"
@@ -138,7 +137,7 @@ export const Play: FC = () => (
   </svg>
 );
 
-export const Star: FC = () => (
+export const Star = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M9.97689 9.01699L12 4.63091L14.0231 9.01699C14.2052 9.41175 14.5793 9.68355 15.011 9.73473L19.8076 10.3034L16.2613 13.5829C15.9422 13.8781 15.7993 14.3178 15.884 14.7442L16.8253 19.4818L12.6105 17.1225C12.2312 16.9102 11.7688 16.9102 11.3894 17.1225L7.17465 19.4818L8.11599 14.7442C8.20072 14.3178 8.05782 13.8781 7.73865 13.5829L4.19242 10.3034L8.989 9.73473C9.4207 9.68355 9.79481 9.41174 9.97689 9.01699Z"

@@ -1,9 +1,6 @@
-import { FC } from "react";
-import ClientHome from "./page-client";
+import PageClient from "./page-client";
 
-const Home: FC<{}> = () => {
+export default function Home() {
   const updated = new Date().toISOString();
-  return <ClientHome updated={updated} />;
-};
-
-export default Home;
+  return <PageClient updated={updated} />;
+}

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FC, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 import Link from "~/components/link";
 import { Clock, Pin, Play } from "~/components/icons";
@@ -11,8 +11,7 @@ type YTMusicData = {
   title: string;
   artists: { name: string; id: string | null }[];
 };
-
-const MusicData: FC = () => {
+function MusicData() {
   const { data } = useSWR<YTMusicData>("/api/ytmusic", fetcher);
   if (!data) return <>loading&hellip;</>;
   return (
@@ -32,9 +31,10 @@ const MusicData: FC = () => {
         ))}
     </>
   );
-};
+}
 
-const Footer: FC<{ updated: string }> = ({ updated }) => {
+type Props = { updated: string };
+export default function Footer({ updated }: Props) {
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
   const date = new Date(updated);
@@ -70,6 +70,4 @@ const Footer: FC<{ updated: string }> = ({ updated }) => {
       </div>
     </motion.footer>
   );
-};
-
-export default Footer;
+}
