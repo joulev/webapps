@@ -37,9 +37,9 @@ export const plugin = internal.withOptions<Option>(
         addBase({
           "@font-face": {
             fontFamily: '"__Synonym__"',
-            src: `url("https://joulev.dev/fonts/Synonym-Variable.woff2") format("woff2"),
-                url("https://joulev.dev/fonts/Synonym-Variable.woff") format("woff"),
-                url("https://joulev.dev/fonts/Synonym-Variable.ttf") format("truetype")`,
+            src: `url("https://static.joulev.dev/fonts/Synonym-Variable.woff2") format("woff2"),
+                url("https://static.joulev.dev/fonts/Synonym-Variable.woff") format("woff"),
+                url("https://static.joulev.dev/fonts/Synonym-Variable.ttf") format("truetype")`,
             fontWeight: "200 700",
             fontDisplay: "swap",
             fontStyle: "normal",
