@@ -110,31 +110,6 @@ importers:
       typescript: 4.8.4
       vue-tsc: 1.0.9_typescript@4.8.4
 
-  apps/my-app:
-    specifiers:
-      '@types/node': 18.11.5
-      '@types/react': 18.0.23
-      '@types/react-dom': 18.0.7
-      eslint: 8.26.0
-      eslint-config-next: 13.0.0
-      next: 13.0.0
-      next-seo: 5.8.0
-      react: 18.2.0
-      react-dom: 18.2.0
-      typescript: 4.8.4
-    dependencies:
-      next: 13.0.0_biqbaboplfbrettd7655fr4n2y
-      next-seo: 5.8.0_r5sq4deac3rmm2d5onhwvomqve
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    devDependencies:
-      '@types/node': 18.11.5
-      '@types/react': 18.0.23
-      '@types/react-dom': 18.0.7
-      eslint: 8.26.0
-      eslint-config-next: 13.0.0_wyqvi574yv7oiwfeinomdzmc3m
-      typescript: 4.8.4
-
   apps/tategaki:
     specifiers:
       '@joulev/theme': workspace:*
@@ -191,6 +166,7 @@ importers:
       '@types/node': 18.11.5
       '@types/react': 18.0.23
       '@types/react-dom': 18.0.7
+      '@vercel/analytics': ^0.1.1
       autoprefixer: 10.4.12
       clsx: 1.2.1
       eslint: 8.26.0
@@ -206,6 +182,7 @@ importers:
       typescript: 4.8.4
     dependencies:
       '@next/font': 13.0.0
+      '@vercel/analytics': 0.1.1_react@18.2.0
       clsx: 1.2.1
       framer-motion: 7.6.1_biqbaboplfbrettd7655fr4n2y
       next: 13.0.0_biqbaboplfbrettd7655fr4n2y
@@ -3409,6 +3386,14 @@ packages:
       '@typescript-eslint/types': 5.40.1
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.1_react@18.2.0:
+    resolution: {integrity: sha512-34on7YtVt/yT8+QX7c5K2bcKYXnax06sQiK2PUdlQ1ABg5699mPdLGOSpS1gF//kR1s9oig4MCJ+N9nOjpaS6g==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@vercel/nft/0.22.1:
     resolution: {integrity: sha512-lYYZIoxRurqDOSoVIdBicGnpUIpfyaS5qVjdPq+EfI285WqtZK3NK/dyCkiyBul+X2U2OEhRyeMdXPCHGJbohw==}
@@ -7898,18 +7883,6 @@ packages:
     engines: {node: '>= 0.6'}
     dev: true
 
-  /next-seo/5.8.0_r5sq4deac3rmm2d5onhwvomqve:
-    resolution: {integrity: sha512-V5W/JwqdoX6/0zG4S7m5g8zNajYffytWigkPo2hrbHhLD18yGFBU9607OPhvbI9zX3QjWQFMBSmlUY456xt9cA==}
-    peerDependencies:
-      next: ^8.1.1-canary.54 || >=9.0.0
-      react: '>=16.0.0'
-      react-dom: '>=16.0.0'
-    dependencies:
-      next: 13.0.0_biqbaboplfbrettd7655fr4n2y
-      react: 18.2.0
-      react-dom: 18.2.0_react@18.2.0
-    dev: false
-
   /next/13.0.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-puH1WGM6rGeFOoFdXXYfUxN9Sgi4LMytCV5HkQJvVUOhHfC1DoVqOfvzaEteyp6P04IW+gbtK2Q9pInVSrltPA==}
     engines: {node: '>=14.6.0'}
@@ -10110,7 +10083,7 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.25.9
       postcss: 8.4.18
-      postcss-load-config: 4.0.1_neo3lunb2qpadwxplzw7r2isgm
+      postcss-load-config: 4.0.1_postcss@8.4.18
       sorcery: 0.10.0
       strip-indent: 3.0.0
       svelte: 3.52.0
