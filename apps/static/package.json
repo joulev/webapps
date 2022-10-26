@@ -1,0 +1,11 @@
+{
+  "name": "@joulev/static",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "serve public -l 3005"
+  },
+  "devDependencies": {
+    "serve": "14.0.1"
+  }
+}
