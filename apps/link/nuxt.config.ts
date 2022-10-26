@@ -23,9 +23,9 @@ export default defineNuxtConfig({
         },
         {
           rel: "preload",
-          href: "https://joulev.dev/fonts/Synonym-Variable.woff",
+          href: "https://joulev.dev/fonts/Synonym-Variable.woff2",
           as: "font",
-          type: "font/woff",
+          type: "font/woff2",
           crossorigin: "anonymous",
         },
       ],

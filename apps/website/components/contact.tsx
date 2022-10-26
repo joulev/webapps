@@ -5,7 +5,7 @@ import Link from "~/components/link";
 import animate from "~/lib/motion";
 
 const Contact: FC = () => (
-  <motion.div variants={animate}>
+  <motion.section variants={animate}>
     <h2>Contact</h2>
     <div className="flex flex-col gap-3">
       <div className="flex flex-row gap-3">
@@ -21,7 +21,7 @@ const Contact: FC = () => (
         <Link href="http://linkedin.com/in/joulev/">/in/joulev</Link>
       </div>
     </div>
-  </motion.div>
+  </motion.section>
 );
 
 export default Contact;

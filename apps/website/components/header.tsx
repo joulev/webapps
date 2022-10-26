@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import Image from "next/future/image";
+import Image from "next/image";
 import { FC } from "react";
 import Button from "~/components/button";
 import animate from "~/lib/motion";

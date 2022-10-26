@@ -4,7 +4,7 @@ import Link from "~/components/link";
 import animate from "~/lib/motion";
 
 const Now: FC = () => (
-  <motion.div variants={animate}>
+  <motion.section variants={animate}>
     <h2>What I Do Now</h2>
     <div className="flex flex-col gap-6">
       <p>
@@ -25,7 +25,7 @@ const Now: FC = () => (
         masterpieces or movie soundtracks to catchy Japanese popular music.
       </p>
     </div>
-  </motion.div>
+  </motion.section>
 );
 
 export default Now;

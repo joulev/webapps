@@ -1,19 +1,15 @@
-import { GetStaticProps, NextPage } from "next";
+"use client";
+
+import { FC } from "react";
 import Contact from "~/components/contact";
 import Footer from "~/components/footer";
 import Header from "~/components/header";
 import Now from "~/components/now";
 import Projects from "~/components/projects";
-import Seo from "~/components/seo";
 import Skills from "~/components/skills";
 
-type Props = {
-  updated: string;
-};
-
-const Home: NextPage<Props> = ({ updated }) => (
+const ClientHome: FC<{ updated: string }> = ({ updated }) => (
   <div>
-    <Seo />
     <main className="mb-24 mt-36 flex flex-col gap-24">
       <Header />
       <Skills />
@@ -26,8 +22,4 @@ const Home: NextPage<Props> = ({ updated }) => (
   </div>
 );
 
-export const getStaticProps: GetStaticProps<Props> = () => ({
-  props: { updated: new Date().toISOString() },
-});
-
-export default Home;
+export default ClientHome;

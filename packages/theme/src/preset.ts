@@ -24,7 +24,7 @@ export const preset: Config = {
       padding: "1.5rem",
     },
     fontFamily: {
-      sans: ["Synonym", ...defaultTheme.fontFamily.sans],
+      sans: ['"__Synonym__"', ...defaultTheme.fontFamily.sans],
     },
     extend: {
       spacing: {

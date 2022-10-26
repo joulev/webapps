@@ -1,10 +1,10 @@
 import internal from "tailwindcss/plugin";
 import { mergedStyles, themedStyle } from "./utils";
 
-type Option = { vertical?: boolean };
-const defaultOption: Option = { vertical: false };
+type Option = { vertical?: boolean; withFont?: boolean };
+const defaultOption: Option = { vertical: false, withFont: true };
 export const plugin = internal.withOptions<Option>(
-  ({ vertical } = defaultOption) =>
+  ({ vertical, withFont } = defaultOption) =>
     ({ addComponents, addBase, theme }) => {
       const main = theme("colors.main");
       const space = theme("space");
@@ -33,17 +33,19 @@ export const plugin = internal.withOptions<Option>(
         contrast: (key: string) => themedStyle(key, [main[900], main[100]]),
       };
 
-      addBase({
-        "@font-face": {
-          fontFamily: "Synonym",
-          src: `url("https://joulev.dev/fonts/Synonym-Variable.woff2") format("woff2"),
+      if (withFont) {
+        addBase({
+          "@font-face": {
+            fontFamily: '"__Synonym__"',
+            src: `url("https://joulev.dev/fonts/Synonym-Variable.woff2") format("woff2"),
                 url("https://joulev.dev/fonts/Synonym-Variable.woff") format("woff"),
                 url("https://joulev.dev/fonts/Synonym-Variable.ttf") format("truetype")`,
-          fontWeight: "200 700",
-          fontDisplay: "swap",
-          fontStyle: "normal",
-        },
-      });
+            fontWeight: "200 700",
+            fontDisplay: "swap",
+            fontStyle: "normal",
+          },
+        });
+      }
 
       addBase({ body: mergedStyles(colour.same("backgroundColor"), colour.contrast("color")) });
 

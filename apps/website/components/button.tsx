@@ -1,7 +1,7 @@
 import clsx from "clsx";
-import { FC, ReactNode } from "react";
+import { FC, PropsWithChildren } from "react";
 
-const Button: FC<{ href: string; primary?: boolean; children: ReactNode }> = ({
+const Button: FC<PropsWithChildren<{ href: string; primary?: boolean }>> = ({
   href,
   primary,
   children,

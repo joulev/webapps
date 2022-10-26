@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { FC, ReactNode } from "react";
+import { FC, PropsWithChildren } from "react";
 import { Code, Terminal, Graph, Globe } from "~/components/icons";
 import Link from "~/components/link";
 import animate from "~/lib/motion";
 
-const Card: FC<{ title: string; icon: FC; children: ReactNode }> = ({
+const Card: FC<PropsWithChildren<{ title: string; icon: FC }>> = ({
   title,
   icon: Icon,
   children,
@@ -20,7 +20,7 @@ const Card: FC<{ title: string; icon: FC; children: ReactNode }> = ({
 );
 
 const Skills: FC = () => (
-  <motion.div variants={animate}>
+  <motion.section variants={animate}>
     <h2>Skills</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
       <Card title="Web development" icon={Code}>
@@ -71,7 +71,7 @@ const Skills: FC = () => (
         </p>
       </Card>
     </div>
-  </motion.div>
+  </motion.section>
 );
 
 export default Skills;

@@ -1,17 +1,18 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { FC, ReactNode } from "react";
+import { FC, PropsWithChildren } from "react";
 import Button from "~/components/button";
 import Link from "~/components/link";
 import animate from "~/lib/motion";
 import { Star } from "./icons";
 
-const Card: FC<{
-  featured?: boolean;
-  title: string;
-  children: ReactNode;
-  buttons: { href: string; content: string }[];
-}> = ({ featured, title, children, buttons }) => (
+const Card: FC<
+  PropsWithChildren<{
+    featured?: boolean;
+    title: string;
+    buttons: { href: string; content: string }[];
+  }>
+> = ({ featured, title, children, buttons }) => (
   <div
     className={clsx(featured && "col-span-full", "flex flex-col gap-6 p-6 bg-daw-main-200 rounded")}
   >
@@ -34,7 +35,7 @@ const Card: FC<{
 );
 
 const Projects: FC = () => (
-  <motion.div variants={animate}>
+  <motion.section variants={animate}>
     <h2>Projects</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
       <Card
@@ -100,7 +101,7 @@ const Projects: FC = () => (
         An alternative interface for AniList that I built for my own use.
       </Card>
     </div>
-  </motion.div>
+  </motion.section>
 );
 
 export default Projects;
