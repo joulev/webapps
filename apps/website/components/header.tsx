@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "~/components/button";
 import animate from "~/lib/motion";
-import me from "~/public/joulev.png";
+import me from "~/assets/joulev.png";
 
 export default function Header() {
   return (
