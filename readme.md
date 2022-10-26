@@ -1,7 +1,7 @@
 <div align="center">
   <br>
-  <img src="/.github/assets/webapps/light.svg#gh-light-mode-only" alt="Logo" height="60px">
-  <img src="/.github/assets/webapps/dark.svg#gh-dark-mode-only" alt="Logo" height="60px">
+  <img src="/apps/static/public/images/gh-asset/webapps/light.svg#gh-light-mode-only" alt="Logo" height="60px">
+  <img src="/apps/static/public/images/gh-asset/webapps/dark.svg#gh-dark-mode-only" alt="Logo" height="60px">
   <br>
   <br>
   <p>A collection of all my personal web development "free-time" projects</p>

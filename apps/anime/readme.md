@@ -1,5 +1,5 @@
-<img src="/.github/assets/anime/light.svg#gh-light-mode-only" alt="Logo" height="48px">
-<img src="/.github/assets/anime/dark.svg#gh-dark-mode-only" alt="Logo" height="48px">
+<img src="/apps/static/public/images/gh-asset/anime/light.svg#gh-light-mode-only" alt="Logo" height="48px">
+<img src="/apps/static/public/images/gh-asset/anime/dark.svg#gh-dark-mode-only" alt="Logo" height="48px">
 
 [https://anime.joulev.dev](https://anime.joulev.dev)&emsp;•&emsp;Svelte, Svelte Kit, GraphQL
 
