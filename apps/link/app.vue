@@ -1,3 +1,8 @@
+<script lang="ts" setup>
+import { inject } from "@vercel/analytics";
+onMounted(inject);
+</script>
+
 <template>
   <div>
     <NuxtPage />

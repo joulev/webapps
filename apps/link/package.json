@@ -19,6 +19,7 @@
     "vue-tsc": "1.0.9"
   },
   "dependencies": {
+    "@vercel/analytics": "0.1.1",
     "mongodb": "4.11.0",
     "nanoid": "4.0.0",
     "nprogress": "0.2.0",
