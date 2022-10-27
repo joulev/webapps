@@ -2,14 +2,15 @@ name: Build
 
 on:
   push:
-    branches-ignore: [main]
+    branches: ["main"]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
   build:
+    timeout-minutes: 15
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        app: [anime, link, static, tategaki, website]
+
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
@@ -24,9 +25,7 @@ jobs:
         with:
           python-version: "3.9"
       - run: pnpm install --frozen-lockfile
-      - name: Build @joulev/theme
-        run: pnpm build
-        working-directory: ./packages/theme
-      - name: Build ${{ matrix.app }}
-        run: pnpm build
-        working-directory: ./apps/${{ matrix.app }}
+      - run: pnpm build
+        env:
+          TURBO_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          TURBO_TEAM: joulev
