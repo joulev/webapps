@@ -5,9 +5,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   rewrites: async () => [
-    { source: "/cv", destination: process.env.RESUME_URL ?? "" },
-    { source: "/cv.pdf", destination: process.env.RESUME_URL ?? "" },
-    { source: "/resume", destination: process.env.RESUME_URL ?? "" },
+    { source: "/cv", destination: process.env.RESUME_URL ?? "https://example.com" },
+    { source: "/cv.pdf", destination: process.env.RESUME_URL ?? "https://example.com" },
+    { source: "/resume", destination: process.env.RESUME_URL ?? "https://example.com" },
   ],
   experimental: { appDir: true },
 };
