@@ -1,3 +1,5 @@
+// @ts-check
+
 const { preset, plugin } = require("@joulev/theme");
 
 /** @type {import("tailwindcss").Config} */

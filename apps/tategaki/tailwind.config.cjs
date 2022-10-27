@@ -1,3 +1,5 @@
+// @ts-check
+
 const { preset, plugin } = require("@joulev/theme");
 const defaultTheme = require("tailwindcss/defaultTheme");
 
