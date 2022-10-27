@@ -6,5 +6,5 @@ const { preset, plugin } = require("@joulev/theme");
 module.exports = {
   content: ["./{app,components}/**/*.{js,jsx,ts,tsx}"],
   presets: [preset],
-  plugins: [plugin, require("tailwind-dark-aware")({ withDark: false })],
+  plugins: [plugin({ withFont: false }), require("tailwind-dark-aware")({ withDark: false })],
 };
