@@ -33,7 +33,7 @@ export const plugin = internal.withOptions<Option>(
         contrast: (key: string) => themedStyle(key, [main[900], main[100]]),
       };
 
-      if (withFont) {
+      if (withFont)
         addBase({
           "@font-face": {
             fontFamily: '"__Synonym__"',
@@ -43,7 +43,6 @@ export const plugin = internal.withOptions<Option>(
             fontStyle: "normal",
           },
         });
-      }
 
       addBase({ body: mergedStyles(colour.same("backgroundColor"), colour.contrast("color")) });
 
