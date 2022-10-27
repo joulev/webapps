@@ -2,9 +2,9 @@ name: Build
 
 on:
   push:
-    branches: [main]
-  pull_request:
-    types: [opened, synchronize]
+    branches-ignore:
+      - main
+      - with-turbo
 
 jobs:
   build:
