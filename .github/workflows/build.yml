@@ -2,7 +2,7 @@ name: Build
 
 on:
   push:
-    branches: ["main"]
+    branches: [main]
   pull_request:
     types: [opened, synchronize]
 
@@ -10,7 +10,6 @@ jobs:
   build:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2.2.4
