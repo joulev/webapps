@@ -1,4 +1,7 @@
+"use client";
+
 import clsx from "clsx";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Button from "~/components/button";
 import Link from "~/components/link";
@@ -11,28 +14,40 @@ type CardProps = React.PropsWithChildren<{
   buttons: { href: string; content: string }[];
 }>;
 function Card({ featured, title, children, buttons }: CardProps) {
+  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   return (
     <div
-      className={clsx(
-        featured && "col-span-full",
-        "flex flex-col gap-6 p-6 bg-daw-main-200 rounded",
-      )}
+      className={clsx(featured && "col-span-full", "bg-daw-main-200 rounded relative group")}
+      style={{ "--left": `${mouse.x}px`, "--top": `${mouse.y}px` } as any}
+      onMouseMove={e => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+      }}
     >
-      {featured && (
-        <div className="flex flex-row items-center gap-1.5 text-daw-green-700 text-sm font-medium">
-          <Star />
-          <span>Featured</span>
+      <div className="flex flex-col gap-6 p-6 relative z-10">
+        {featured && (
+          <div className="flex flex-row items-center gap-1.5 text-daw-green-700 text-sm font-medium">
+            <Star />
+            <span>Featured</span>
+          </div>
+        )}
+        <h3 className="text-lg font-medium">{title}</h3>
+        <p>{children}</p>
+        <div className="flex flex-row flex-wrap gap-x-3 sm:gap-x-6 gap-y-3">
+          {buttons.map(({ href, content }, index) => (
+            <Button href={href} key={index}>
+              {content}
+            </Button>
+          ))}
         </div>
-      )}
-      <h3 className="text-lg font-medium">{title}</h3>
-      <p>{children}</p>
-      <div className="flex flex-row flex-wrap gap-x-3 sm:gap-x-6 gap-y-3">
-        {buttons.map(({ href, content }, index) => (
-          <Button href={href} key={index}>
-            {content}
-          </Button>
-        ))}
       </div>
+      <div
+        className="absolute rounded inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-600"
+        style={{
+          backgroundImage:
+            "radial-gradient(600px circle at var(--left) var(--top), rgba(16, 185, 129, 0.05), transparent 40%)",
+        }}
+      />
     </div>
   );
 }
