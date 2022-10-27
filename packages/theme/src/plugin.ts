@@ -2,7 +2,9 @@ import internal from "tailwindcss/plugin";
 import { mergedStyles, themedStyle } from "./utils";
 
 type Option = { vertical?: boolean; withFont?: boolean };
+
 const defaultOption: Option = { vertical: false, withFont: true };
+
 export const plugin = internal.withOptions<Option>(
   ({ vertical, withFont } = defaultOption) =>
     ({ addComponents, addBase, theme }) => {
