@@ -20,10 +20,6 @@ jobs:
         with:
           node-version: 16
           cache: "pnpm"
-      - uses: actions/setup-python@v4
-        if: matrix.app == 'website'
-        with:
-          python-version: "3.9"
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
         env:
