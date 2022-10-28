@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 3006",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview --port 3006",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@joulev/theme": "workspace:*",
+    "@nuxtjs/tailwindcss": "6.1.1",
+    "nuxt": "3.0.0-rc.12",
+    "tailwind-dark-aware": "0.2.1"
+  }
+}

@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        app: [anime, link, static, tategaki, website]
+        app: [anime, link, present, static, tategaki, website]
     steps:
       - uses: actions/checkout@v3
       - uses: dorny/paths-filter@v2
