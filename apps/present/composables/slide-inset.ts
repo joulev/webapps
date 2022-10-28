@@ -32,5 +32,5 @@ export const useSlideInset = () => {
   const x = computed(() => `${xInset.value}px`);
   const y = computed(() => `${yInset.value}px`);
 
-  return { x, y, gap };
+  return { x, y, xNum: xInset, yNum: yInset, gap };
 };

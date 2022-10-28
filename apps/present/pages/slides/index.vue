@@ -1,13 +1,22 @@
 <script lang="ts" setup>
-const { x, y, gap } = useSlideInset();
+const { x, y, xNum, gap } = useSlideInset();
 const space = computed(() => new Array(6).fill(0).map((_, i) => `${gap.value * i}px`));
 
 const current = ref(0);
 const maxSlide = 6; // have to update this manually
+const increment = () => (current.value = Math.min(current.value + 1, maxSlide));
+const decrement = () => (current.value = Math.max(current.value - 1, 0));
+
 onMounted(() => {
   window.addEventListener("keydown", e => {
-    if (e.key === "ArrowRight") current.value = Math.min(current.value + 1, maxSlide);
-    else if (e.key === "ArrowLeft") current.value = Math.max(current.value - 1, 0);
+    if (e.key === "ArrowRight") increment();
+    else if (e.key === "ArrowLeft") decrement();
+  });
+  window.addEventListener("touchstart", e => {
+    const { clientX } = e.touches[0];
+    const threshold = xNum.value + gap.value * 5;
+    if (clientX < threshold) decrement();
+    else if (clientX > window.document.documentElement.clientWidth - threshold) increment();
   });
 });
 
