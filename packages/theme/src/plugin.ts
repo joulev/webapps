@@ -1,14 +1,14 @@
 import internal from "tailwindcss/plugin";
 import { mergedStyles, themedStyle } from "./utils";
 
-type Option = { vertical: boolean; withFont: boolean };
+type Option = { vertical: boolean; withFont: boolean; styleBody: boolean };
 
-const defaultOption: Option = { vertical: false, withFont: true };
+const defaultOption: Option = { vertical: false, withFont: true, styleBody: true };
 
 export const plugin = internal.withOptions<Partial<Option>>(
   (userOptions = {}) =>
     ({ addComponents, addBase, theme }) => {
-      const { vertical, withFont } = { ...defaultOption, ...userOptions };
+      const { vertical, withFont, styleBody } = { ...defaultOption, ...userOptions };
 
       const main = theme("colors.main");
       const space = theme("space");
@@ -48,7 +48,8 @@ export const plugin = internal.withOptions<Partial<Option>>(
           },
         });
 
-      addBase({ body: mergedStyles(colour.same("backgroundColor"), colour.contrast("color")) });
+      if (styleBody)
+        addBase({ body: mergedStyles(colour.same("backgroundColor"), colour.contrast("color")) });
 
       addComponents({ ".help-text": mergedStyles(colour.muted("color"), fontSize("sm")) });
 

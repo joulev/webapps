@@ -119,12 +119,10 @@ importers:
       '@joulev/theme': workspace:*
       '@nuxtjs/tailwindcss': 6.1.1
       nuxt: 3.0.0-rc.12
-      tailwind-dark-aware: 0.2.1
     devDependencies:
       '@joulev/theme': link:../../packages/theme
       '@nuxtjs/tailwindcss': 6.1.1
       nuxt: 3.0.0-rc.12
-      tailwind-dark-aware: 0.2.1
 
   apps/static:
     specifiers:
