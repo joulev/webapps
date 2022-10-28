@@ -1,13 +1,15 @@
 import internal from "tailwindcss/plugin";
 import { mergedStyles, themedStyle } from "./utils";
 
-type Option = { vertical?: boolean; withFont?: boolean };
+type Option = { vertical: boolean; withFont: boolean };
 
 const defaultOption: Option = { vertical: false, withFont: true };
 
-export const plugin = internal.withOptions<Option>(
-  ({ vertical, withFont } = defaultOption) =>
+export const plugin = internal.withOptions<Partial<Option>>(
+  (userOptions = {}) =>
     ({ addComponents, addBase, theme }) => {
+      const { vertical, withFont } = { ...defaultOption, ...userOptions };
+
       const main = theme("colors.main");
       const space = theme("space");
       const fontSize = (key: string) => {
