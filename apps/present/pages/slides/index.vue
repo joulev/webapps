@@ -43,7 +43,7 @@ provide("current", current);
         </li>
       </ul>
     </Slide>
-    <Slide :slide="2" title="Hello, world! 2"> 3 </Slide>
+    <Slide :slide="2" title="Custom reactive component"><CustomComponent /></Slide>
     <Slide :slide="3" title="Hello, world! 2"> 4 </Slide>
     <Slide :slide="4" title="Hello, world! 2"> 5 </Slide>
     <Slide :slide="5" title="Hello, world! 2"> 6 </Slide>
