@@ -44,10 +44,10 @@ provide("current", current);
       </ul>
     </Slide>
     <Slide :slide="2" title="Custom reactive component"><CustomComponent /></Slide>
-    <Slide :slide="3" title="Hello, world! 2"> 4 </Slide>
-    <Slide :slide="4" title="Hello, world! 2"> 5 </Slide>
-    <Slide :slide="5" title="Hello, world! 2"> 6 </Slide>
-    <Slide :slide="6" title="Hello, world! 2"> 7 </Slide>
+    <Slide :slide="3"> This slide does not have a title. </Slide>
+    <Slide :slide="4" title="Slide number 5"> 5 </Slide>
+    <Slide :slide="5" title="Slide number 6"> 6 </Slide>
+    <Slide :slide="6" title="Slide number 7"> 7 </Slide>
   </div>
 </template>
 
