@@ -17,12 +17,7 @@ provide("current", current);
 </script>
 
 <template>
-  <div class="relative w-screen h-screen bg-[black] text-main-100">
-    <div
-      class="absolute bg-main-900"
-      style="box-shadow: 0px 0px 120px 0px rgba(120, 113, 108, 0.5)"
-      :style="{ inset: `${y} ${x}` }"
-    />
+  <div class="relative w-screen h-screen">
     <Slide :slide="0" title="Hello, world!">
       <ul class="list-disc">
         <li>This is the first slide.</li>

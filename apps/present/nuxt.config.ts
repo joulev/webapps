@@ -38,6 +38,9 @@ export default defineNuxtConfig({
           crossorigin: "anonymous",
         },
       ],
+      bodyAttrs: {
+        class: "bg-main-900 text-main-100",
+      },
     },
   },
 });
