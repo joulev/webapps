@@ -4,7 +4,10 @@ const count = ref(0);
 
 <template>
   <div class="p">
-    <button class="btn btn-primary !slide-text-base !slide-px-8 !slide-py-4" v-on:click="count++">
+    <button
+      class="btn btn-primary !slide-text-base !slide-py-[1.5] !slide-px-4 !slide-rounded"
+      v-on:click="count++"
+    >
       Click me
     </button>
   </div>

@@ -1,65 +1,69 @@
 import plugin from "tailwindcss/plugin";
 
-export default plugin(({ matchUtilities }) => {
-  const values = Object.fromEntries(
-    new Array(10)
-      .fill(null)
-      .map((_, i) => [i + 1, `calc(${(i + 1) * 0.25} * var(--base-space))`] as const),
-  );
-  // Should I write a helper function to reduce code repetition? Probably yes. But GitHub Copilot is faster...
+export default plugin(({ matchUtilities, addUtilities }) => {
+  const values = Object.fromEntries(new Array(10).fill(null).map((_, i) => [i + 1, i + 1]));
+  const getCSSValueFromNumber = (value: number) => `calc(${value * 0.25} * var(--base-space))`;
+  const getCSSValue = (value: number | string) => getCSSValueFromNumber(Number(value));
+
+  const createUtilities = (
+    name: string,
+    props: string[],
+    withNegative = false,
+    transform = (_: string) => _,
+  ) =>
+    matchUtilities(
+      { [name]: value => Object.fromEntries(props.map(p => [p, transform(getCSSValue(value))])) },
+      { values, supportsNegativeValues: withNegative },
+    );
+
+  createUtilities("slide-p", ["padding"]);
+  createUtilities("slide-px", ["padding-left", "padding-right"]);
+  createUtilities("slide-py", ["padding-top", "padding-bottom"]);
+  createUtilities("slide-pt", ["padding-top"]);
+  createUtilities("slide-pr", ["padding-right"]);
+  createUtilities("slide-pb", ["padding-bottom"]);
+  createUtilities("slide-pl", ["padding-left"]);
+
+  createUtilities("slide-m", ["margin"], true);
+  createUtilities("slide-mx", ["margin-left", "margin-right"], true);
+  createUtilities("slide-my", ["margin-top", "margin-bottom"], true);
+  createUtilities("slide-mt", ["margin-top"], true);
+  createUtilities("slide-mr", ["margin-right"], true);
+  createUtilities("slide-mb", ["margin-bottom"], true);
+  createUtilities("slide-ml", ["margin-left"], true);
+
+  createUtilities("slide-w", ["width"]);
+  createUtilities("slide-min-w", ["min-width"]);
+  createUtilities("slide-max-w", ["max-width"]);
+
+  createUtilities("slide-h", ["height"]);
+  createUtilities("slide-min-h", ["min-height"]);
+  createUtilities("slide-max-h", ["max-height"]);
+
+  createUtilities("slide-gap", ["gap"]);
+  createUtilities("slide-gap-x", ["column-gap"]);
+  createUtilities("slide-gap-y", ["row-gap"]);
+
+  createUtilities("slide-top", ["top"], true);
+  createUtilities("slide-right", ["right"], true);
+  createUtilities("slide-bottom", ["bottom"], true);
+  createUtilities("slide-left", ["left"], true);
+  createUtilities("slide-inset", ["top", "right", "bottom", "left"], true);
+  createUtilities("slide-inset-x", ["left", "right"], true);
+  createUtilities("slide-inset-y", ["top", "bottom"], true);
+
+  createUtilities("slide-translate-x", ["transform"], true, value => `translateX(${value})`);
+  createUtilities("slide-translate-y", ["transform"], true, value => `translateY(${value})`);
+
   matchUtilities(
     {
-      "slide-p": value => ({ padding: value }),
-      "slide-px": value => ({ paddingLeft: value, paddingRight: value }),
-      "slide-py": value => ({ paddingTop: value, paddingBottom: value }),
-      "slide-pt": value => ({ paddingTop: value }),
-      "slide-pr": value => ({ paddingRight: value }),
-      "slide-pb": value => ({ paddingBottom: value }),
-      "slide-pl": value => ({ paddingLeft: value }),
-
-      "slide-w": value => ({ width: value }),
-      "slide-min-w": value => ({ minWidth: value }),
-      "slide-max-w": value => ({ maxWidth: value }),
-      "slide-h": value => ({ height: value }),
-      "slide-min-h": value => ({ minHeight: value }),
-      "slide-max-h": value => ({ maxHeight: value }),
-
-      "slide-gap": value => ({ gap: value }),
-      "slide-gap-x": value => ({ columnGap: value }),
-      "slide-gap-y": value => ({ rowGap: value }),
+      "slide-text": value =>
+        typeof value === "number"
+          ? { fontSize: getCSSValue(value), lineHeight: getCSSValue(value * 1.5) }
+          : { fontSize: value, lineHeight: null },
     },
-    { values },
-  );
-  matchUtilities(
-    {
-      "slide-m": value => ({ margin: value }),
-      "slide-mx": value => ({ marginLeft: value, marginRight: value }),
-      "slide-my": value => ({ marginTop: value, marginBottom: value }),
-      "slide-mt": value => ({ marginTop: value }),
-      "slide-mr": value => ({ marginRight: value }),
-      "slide-mb": value => ({ marginBottom: value }),
-      "slide-ml": value => ({ marginLeft: value }),
-
-      "slide-top": value => ({ top: value }),
-      "slide-right": value => ({ right: value }),
-      "slide-bottom": value => ({ bottom: value }),
-      "slide-left": value => ({ left: value }),
-      "slide-inset": value => ({ inset: value }),
-      "slide-inset-x": value => ({ insetInline: value }),
-      "slide-inset-y": value => ({ insetBlock: value }),
-
-      "slide-translate-x": value => ({ transform: `translateX(${value})` }),
-      "slide-translate-y": value => ({ transform: `translateY(${value})` }),
-    },
-    { values, supportsNegativeValues: true },
+    { values: { small: 3, base: 4, large: 6, title: 8 } },
   );
 
-  matchUtilities(
-    {
-      "slide-text": value => ({
-        fontSize: typeof value === "number" ? `calc(${value} * var(--base-space))` : value,
-      }),
-    },
-    { values: { small: 0.75, base: 1, large: 1.5, title: 2 } },
-  );
+  addUtilities({ ".slide-rounded": { borderRadius: getCSSValue(2) } });
 });
