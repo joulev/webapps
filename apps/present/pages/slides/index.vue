@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 const { x, y, xNum, gap } = useSlideInset();
-const space = computed(() => new Array(6).fill(0).map((_, i) => `${gap.value * i}px`));
 
 const current = ref(0);
 const maxSlide = 6; // have to update this manually
@@ -20,15 +19,14 @@ onMounted(() => {
   });
 });
 
-provide("space", space);
 provide("inset", { x, y });
 provide("current", current);
 </script>
 
 <template>
-  <div class="relative w-screen h-screen">
+  <div class="relative w-screen h-screen" :style="{ '--base-space': `${gap}px` }">
     <Slide :slide="0" title="Hello, world!">
-      <ul class="list-disc">
+      <ul>
         <li>This is the first slide.</li>
         <li>It has a title.</li>
         <li>It has a list.</li>
@@ -39,7 +37,7 @@ provide("current", current);
       </ul>
     </Slide>
     <Slide :slide="1" title="Hello, world! 2">
-      <ul class="list-disc">
+      <ul>
         <li>This is the second slide.</li>
         <li>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores perferendis et minus,
@@ -55,11 +53,8 @@ provide("current", current);
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 ul {
-  margin-left: v-bind(space[2]);
-  display: flex;
-  flex-direction: column;
-  gap: v-bind(space[1]);
+  @apply flex flex-col slide-gap-4 slide-ml-8 list-disc;
 }
 </style>

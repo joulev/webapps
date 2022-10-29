@@ -1,16 +1,10 @@
 <script lang="ts" setup>
 const count = ref(0);
-
-const space = inject<string[]>("space")!;
 </script>
 
 <template>
   <div class="p">
-    <button
-      class="btn btn-primary"
-      :style="{ fontSize: space[1], padding: `${space[1]} ${space[2]}` }"
-      v-on:click="count++"
-    >
+    <button class="btn btn-primary !slide-text-base !slide-px-8 !slide-py-4" v-on:click="count++">
       Click me
     </button>
   </div>
@@ -18,8 +12,8 @@ const space = inject<string[]>("space")!;
   <p class="p">This will rerender after navigating back.</p>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .p {
-  margin-bottom: v-bind(space[1]);
+  @apply slide-mb-4;
 }
 </style>
