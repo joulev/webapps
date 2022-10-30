@@ -14,23 +14,23 @@
     "postinstall": "svelte-kit sync && graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "3.7.0",
+    "@apollo/client": "3.7.1",
     "graphql": "16.6.0",
     "nprogress": "0.2.0",
     "svelte-material-icons": "2.0.4"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "2.13.7",
-    "@graphql-codegen/client-preset": "1.1.0",
+    "@graphql-codegen/cli": "2.13.8",
+    "@graphql-codegen/client-preset": "1.1.1",
     "@graphql-typed-document-node/core": "3.1.1",
     "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
-    "@types/node": "18.7.23",
+    "@types/node": "18.11.7",
     "@types/nprogress": "0.2.0",
-    "@typescript-eslint/eslint-plugin": "5.40.1",
-    "@typescript-eslint/parser": "5.40.1",
-    "autoprefixer": "10.4.12",
+    "@typescript-eslint/eslint-plugin": "5.41.0",
+    "@typescript-eslint/parser": "5.41.0",
+    "autoprefixer": "10.4.13",
     "eslint": "8.26.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-svelte3": "4.0.0",
@@ -45,6 +45,6 @@
     "ts-node": "10.9.1",
     "tslib": "2.4.0",
     "typescript": "4.8.4",
-    "vite": "3.1.8"
+    "vite": "3.2.1"
   }
 }
