@@ -133,7 +133,7 @@
         style="height: {navOpen ? navHeight + 'px' : '0px'};"
         class="transition-all lg:!h-auto overflow-hidden"
       >
-        <div class="flex flex-col gap-9 mt-9" bind:clientHeight={navHeight}>
+        <div class="flex flex-col gap-9 pt-9" bind:clientHeight={navHeight}>
           {#if !$auth.loading && !$auth.loggedIn}
             <Button variant="secondary" href="/auth" animated>Log in as joulev</Button>
           {:else if !$auth.loading}
