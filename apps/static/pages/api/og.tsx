@@ -50,8 +50,8 @@ function Circle({ radius, opacity, angle, isDark }: CircleProps) {
   return (
     <div tw="absolute inset-0 flex flex-col items-center justify-center">
       <svg width={size} height={size} viewBox={viewBox}>
-        <circle opacity={opacity} r={radius} stroke="#78716c" strokeWidth="1" fill="none" />
-        <circle cx={x} cy={y} r={smallR - 1} stroke="#78716c" strokeWidth="1" fill={fillColour} />
+        <circle opacity={opacity} r={radius} stroke="#78716c" strokeWidth="2" fill="none" />
+        <circle cx={x} cy={y} r={smallR - 2} stroke="#78716c" strokeWidth="2" fill={fillColour} />
       </svg>
     </div>
   );
