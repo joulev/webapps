@@ -42,10 +42,10 @@ function Card({ featured, title, children, buttons }: CardProps) {
         </div>
       </div>
       <div
-        className="absolute rounded inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-600"
+        className="absolute rounded inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300"
         style={{
           backgroundImage:
-            "radial-gradient(600px circle at var(--left) var(--top), rgba(16, 185, 129, 0.08), transparent 40%)",
+            "radial-gradient(900px circle at var(--left) var(--top), rgba(120, 113, 108, 0.12), transparent 30%)",
         }}
       />
     </div>
