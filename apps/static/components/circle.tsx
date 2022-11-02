@@ -3,13 +3,16 @@ const angles = Array.from({ length: 8 }, () => Math.floor(Math.random() * 360));
 
 const smallR = 12;
 
-function Circle({ radius, opacity, angle }: { radius: number; opacity: number; angle: number }) {
+function Circle({ index, opacity }: { index: number; opacity: number }) {
+  const radius = radii[index];
+  const angle = angles[index];
+
   const rad = (angle / 180) * Math.PI;
   const x = radius * Math.cos(rad);
   const y = -radius * Math.sin(rad);
 
   return (
-    <g>
+    <g className="animate-fadein" style={{ animationDelay: `${index * 75}ms` }}>
       <circle opacity={opacity} r={radius} className="stroke-main-500 stroke-1 fill-none" />
       <circle cx={x} cy={y} r={smallR - 1} className="stroke-main-500 stroke-1 fill-daw-main-100">
         <animateTransform
@@ -30,8 +33,8 @@ export default function Circles() {
   const viewBox = `${-size / 2} ${-size / 2} ${size} ${size}`;
   return (
     <svg width={size} height={size} viewBox={viewBox}>
-      {radii.map((radius, i) => (
-        <Circle key={i} radius={radius} opacity={2 / (i + 2)} angle={angles[i]} />
+      {radii.map((_, i) => (
+        <Circle key={i} index={i} opacity={2 / (i + 2)} />
       ))}
     </svg>
   );
