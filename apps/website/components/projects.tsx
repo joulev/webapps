@@ -27,7 +27,7 @@ function Card({ featured, title, children, buttons }: CardProps) {
       <div className="flex flex-col gap-6 p-6 relative z-10">
         {featured && (
           <div className="flex flex-row items-center gap-1.5 text-daw-green-700 text-sm font-medium">
-            <Star size={18} />
+            <Star size={18} strokeWidth={4 / 3} />
             <span>Featured</span>
           </div>
         )}

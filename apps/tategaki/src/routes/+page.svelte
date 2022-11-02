@@ -45,18 +45,18 @@
       href="https://www3.nhk.or.jp/news/easy/k10013820001000/k10013820001000.html"
       title="Original version"
     >
-      <Newspaper size={18} />
+      <Newspaper strokeWidth={4 / 3} />
       <span>原版</span>
     </ExternalLink>
     <ExternalLink href="https://joulev.dev" title="My website">
-      <Home size={18} />
+      <Home strokeWidth={4 / 3} />
       <span>個人サイト</span>
     </ExternalLink>
     <ExternalLink
       href="https://github.com/joulev/webapps/tree/main/apps/tategaki"
       title="Source code"
     >
-      <Github size={18} />
+      <Github strokeWidth={4 / 3} />
       <span>ソースコード</span>
     </ExternalLink>
   </div>

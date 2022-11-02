@@ -9,7 +9,7 @@ function Card({ title, icon: Icon, children }: CardProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-row gap-3 items-center">
-        <Icon size={18} />
+        <Icon strokeWidth={1} />
         <h3 className="text-lg font-medium">{title}</h3>
       </div>
       {children}

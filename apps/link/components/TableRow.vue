@@ -77,19 +77,19 @@ function remove() {
       <div v-if="updating">
         <button class="hidden md:block btn btn-sm btn-secondary" @click="clear">Clear</button>
         <button aria-hidden class="md:hidden btn btn-secondary btn-nopadding p-1.5" @click="clear">
-          <X :size="18" />
+          <X :size="18" :stroke-width="4 / 3" />
         </button>
       </div>
       <div v-if="updating && urlIsValid && slugIsValid">
         <button class="hidden md:block btn btn-sm btn-primary" @click="save">Save</button>
         <button aria-hidden class="md:hidden btn btn-primary btn-nopadding p-1.5" @click="save">
-          <Save :size="18" />
+          <Save :size="18" :stroke-width="4 / 3" />
         </button>
       </div>
       <div v-if="!updating">
         <button class="hidden md:block btn btn-sm btn-secondary" @click="remove">Delete</button>
         <button aria-hidden class="md:hidden btn btn-secondary btn-nopadding p-1.5" @click="remove">
-          <Trash2 :size="18" />
+          <Trash2 :size="18" :stroke-width="4 / 3" />
         </button>
       </div>
     </div>

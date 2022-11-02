@@ -133,7 +133,7 @@
     {#if variant === "completed"}
       {#each icons as Icon, i}
         <div class="flex flex-row flex-1 gap-1.5 sm:gap-3 items-center">
-          <div class="text-daw-main-500"><Icon size={18} /></div>
+          <div class="text-daw-main-500"><Icon size={18} strokeWidth={4 / 3} /></div>
           <input
             class="text-sm flex-1 outline-none bg-transparent w-full"
             class:font-semibold={safeScores[i] !== Number(item.advancedScores[keys[i]])}

@@ -9,15 +9,15 @@ export default function Contact() {
       <h2>Contact</h2>
       <div className="flex flex-col gap-3">
         <div className="flex flex-row gap-3 items-center">
-          <Mail size={18} width={24} />
+          <Mail size={18} width={24} strokeWidth={4 / 3} />
           <Link href="mailto:me@joulev.dev">me@joulev.dev</Link>
         </div>
         <div className="flex flex-row gap-3 items-center">
-          <Github size={18} width={24} />
+          <Github size={18} width={24} strokeWidth={4 / 3} />
           <Link href="https://github.com/joulev">@joulev</Link>
         </div>
         <div className="flex flex-row gap-3 items-center">
-          <Linkedin size={18} width={24} />
+          <Linkedin size={18} width={24} strokeWidth={4 / 3} />
           <Link href="http://linkedin.com/in/joulev/">/in/joulev</Link>
         </div>
       </div>

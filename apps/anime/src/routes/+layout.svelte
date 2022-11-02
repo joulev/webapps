@@ -111,9 +111,9 @@
             in:fade={transition}
           >
             {#if navOpen}
-              <X />
+              <X strokeWidth={1} />
             {:else}
-              <Menu />
+              <Menu strokeWidth={1} />
             {/if}
           </button>
         {/key}
@@ -124,14 +124,14 @@
             variant="tertiary"
             class="btn-nopadding hidden lg:block"
           >
-            <Home />
+            <Home strokeWidth={1} />
           </Button>
           <Button
             href="https://github.com/joulev/webapps/tree/main/apps/anime"
             variant="tertiary"
             class="btn-nopadding"
           >
-            <Github />
+            <Github strokeWidth={1} />
           </Button>
         </div>
       </div>
@@ -153,7 +153,7 @@
                 class:text-daw-main-500={$page.url.pathname !== href}
               >
                 <div class="flex flex-row gap-6 items-center">
-                  <Icon />
+                  <Icon strokeWidth={1} />
                   {content}
                 </div>
                 {#if !$isLoading}

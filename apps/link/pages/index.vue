@@ -25,14 +25,14 @@ const showForm = ref(true);
       <Logo class="cursor-pointer" @click="showForm = true" />
       <div class="flex flex-row gap-6">
         <NuxtLink href="https://joulev.dev" target="_blank" class="btn btn-tertiary btn-nopadding">
-          <Home />
+          <Home :stroke-width="1" />
         </NuxtLink>
         <NuxtLink
           href="https://github.com/joulev/webapps/tree/main/apps/link"
           target="_blank"
           class="btn btn-tertiary btn-nopadding"
         >
-          <Github />
+          <Github :stroke-width="1" />
         </NuxtLink>
       </div>
     </div>

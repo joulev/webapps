@@ -15,10 +15,10 @@ export default function Page() {
         style={{ animationDelay: "1s", animationDuration: "0.3s" }}
       >
         <A href="https://joulev.dev">
-          <Home />
+          <Home strokeWidth={1} />
         </A>
         <A href="https://github.com/joulev/webapps/tree/main/apps/static">
-          <Github />
+          <Github strokeWidth={1} />
         </A>
       </div>
       <div className="absolute left-1/2 -translate-x-1/2 -z-10">

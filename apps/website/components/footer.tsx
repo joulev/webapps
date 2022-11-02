@@ -51,7 +51,7 @@ export default function Footer({ updated }: Props) {
         <div className="relative w-6 shrink-0 pointer-events-none">
           &#x200B; {/* zero width space, to force the container to have same line height as text */}
           <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-            <PlayCircle size={18} width={24} />
+            <PlayCircle size={18} width={24} strokeWidth={4 / 3} />
           </div>
         </div>
         <span>
@@ -60,7 +60,7 @@ export default function Footer({ updated }: Props) {
       </div>
       <div className="flex flex-row flex-wrap gap-x-6 gap-y-3 justify-between sm:items-center">
         <div className="flex flex-row items-center gap-3">
-          <MapPin size={18} width={24} />
+          <MapPin size={18} width={24} strokeWidth={4 / 3} />
           <span>Singapore</span>
         </div>
         <div className="flex flex-row items-center gap-3">
