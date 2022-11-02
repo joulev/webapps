@@ -6,9 +6,8 @@
   import Logo from "$lib/components/logo.svelte";
   import type { Paragraph } from "$lib";
 
-  import News from "svelte-material-icons/Newspaper.svelte";
-  import GitHub from "svelte-material-icons/Github.svelte";
-  import Home from "svelte-material-icons/Home.svelte";
+  import { Github, Home, Newspaper } from "lucide-svelte";
+
   import ExternalLink from "$lib/components/external-link.svelte";
 
   const MARGIN = 48;
@@ -46,18 +45,18 @@
       href="https://www3.nhk.or.jp/news/easy/k10013820001000/k10013820001000.html"
       title="Original version"
     >
-      <News size="24px" />
+      <Newspaper size={18} />
       <span>原版</span>
     </ExternalLink>
     <ExternalLink href="https://joulev.dev" title="My website">
-      <Home size="24px" />
+      <Home size={18} />
       <span>個人サイト</span>
     </ExternalLink>
     <ExternalLink
       href="https://github.com/joulev/webapps/tree/main/apps/tategaki"
       title="Source code"
     >
-      <GitHub size="24px" />
+      <Github size={18} />
       <span>ソースコード</span>
     </ExternalLink>
   </div>
