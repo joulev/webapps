@@ -47,4 +47,4 @@
 
 - **Description:** A Nuxt **playground** for me to experiment with making interactive presentation slides.
 - **Deployment:** https://presentation.joulev.dev
-- **Source:** [apps/link](/apps/presentation)
+- **Source:** [apps/presentation](/apps/presentation)
