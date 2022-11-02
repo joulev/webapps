@@ -6,6 +6,8 @@
 
   import NProgress from "nprogress";
 
+  import { inject } from "@vercel/analytics";
+
   import { derived } from "svelte/store";
   import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client/core";
   import { setContext } from "@apollo/client/link/context";
@@ -92,6 +94,8 @@
   let navOpen = false;
   page.subscribe(() => (navOpen = false));
   let navHeight: number;
+
+  onMount(inject);
 </script>
 
 <div class="container flex flex-col lg:flex-row gap-x-18 gap-y-12 pb-18 pt-6 lg:pt-18">
