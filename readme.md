@@ -40,3 +40,11 @@
 - **Description:** A URL shortener, although mainly for my own use it can be used publicly.
 - **Deployment:** https://link.joulev.dev
 - **Source:** [apps/link](/apps/link)
+
+## presentation (unfinished)
+
+![](https://img.shields.io/badge/nuxt.js-00C58E?style=for-the-badge&logo=nuxtdotjs&logoColor=white) ![](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
+
+- **Description:** A Nuxt **playground** for me to experiment with making interactive presentation slides.
+- **Deployment:** https://presentation.joulev.dev
+- **Source:** [apps/link](/apps/presentation)
