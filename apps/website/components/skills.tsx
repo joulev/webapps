@@ -1,15 +1,15 @@
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import { Code, Terminal, Graph, Globe } from "~/components/icons";
+import { Code, Terminal, Network, Globe } from "lucide-react";
 import Link from "~/components/link";
 import animate from "~/lib/motion";
 
-type CardProps = React.PropsWithChildren<{ title: string; icon: React.FC }>;
+type CardProps = React.PropsWithChildren<{ title: string; icon: typeof Code }>;
 function Card({ title, icon: Icon, children }: CardProps) {
   return (
     <div className="flex flex-col gap-6">
       <div className="flex flex-row gap-3 items-center">
-        <Icon />
+        <Icon size={18} />
         <h3 className="text-lg font-medium">{title}</h3>
       </div>
       {children}
@@ -49,7 +49,7 @@ export default function Skills() {
             to enhance productivity.
           </p>
         </Card>
-        <Card title="Theoretical knowledge" icon={Graph}>
+        <Card title="Theoretical knowledge" icon={Network}>
           <p>
             Have a good understanding of{" "}
             <Link href="https://www.comp.nus.edu.sg/~stevenha/cs2040c.html">

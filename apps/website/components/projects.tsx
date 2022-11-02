@@ -3,10 +3,10 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 import Button from "~/components/button";
 import Link from "~/components/link";
 import animate from "~/lib/motion";
-import { Star } from "./icons";
 
 type CardProps = React.PropsWithChildren<{
   featured?: boolean;
@@ -27,7 +27,7 @@ function Card({ featured, title, children, buttons }: CardProps) {
       <div className="flex flex-col gap-6 p-6 relative z-10">
         {featured && (
           <div className="flex flex-row items-center gap-1.5 text-daw-green-700 text-sm font-medium">
-            <Star />
+            <Star size={18} />
             <span>Featured</span>
           </div>
         )}

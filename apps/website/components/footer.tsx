@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import useSWR from "swr";
+import { PlayCircle, MapPin } from "lucide-react";
 import Link from "~/components/link";
-import { Clock, Pin, Play } from "~/components/icons";
+import Clock from "~/components/clock";
 import animate from "~/lib/motion";
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
@@ -50,7 +51,7 @@ export default function Footer({ updated }: Props) {
         <div className="relative w-6 shrink-0 pointer-events-none">
           &#x200B; {/* zero width space, to force the container to have same line height as text */}
           <div className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2">
-            <Play />
+            <PlayCircle size={18} width={24} />
           </div>
         </div>
         <span>
@@ -59,7 +60,7 @@ export default function Footer({ updated }: Props) {
       </div>
       <div className="flex flex-row flex-wrap gap-x-6 gap-y-3 justify-between sm:items-center">
         <div className="flex flex-row items-center gap-3">
-          <Pin />
+          <MapPin size={18} width={24} />
           <span>Singapore</span>
         </div>
         <div className="flex flex-row items-center gap-3">
