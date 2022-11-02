@@ -1,8 +1,8 @@
-<script>
-  import Loading from "svelte-material-icons/Loading.svelte";
-</script>
-
 <div class="flex flex-col items-center gap-6">
-  <div class="animate-spin"><Loading size="48px" /></div>
+  <div class="animate-spin">
+    <svg class="w-12 h-12" viewBox="-12 -12 24 24">
+      <path d="M 11 0 A 11 11 0 0 1 -5 10" class="stroke-daw-main-900 fill-none" />
+    </svg>
+  </div>
   <div>Loading...</div>
 </div>

@@ -1,9 +1,12 @@
 <script lang="ts">
-  import Enjoyment from "svelte-material-icons/EmoticonHappyOutline.svelte";
-  import Story from "svelte-material-icons/TextLong.svelte";
-  import Character from "svelte-material-icons/AccountMultipleOutline.svelte";
-  import Animation from "svelte-material-icons/AnimationOutline.svelte";
-  import Music from "svelte-material-icons/MusicNoteOutline.svelte";
+  import {
+    Smile as Enjoyment,
+    AlignJustify as Story,
+    User as Character,
+    Move3d as Animation,
+    Music,
+  } from "lucide-svelte";
+
   import Base from "./base.svelte";
   import Score from "$lib/components/score.svelte";
   import Button from "$lib/components/button.svelte";
@@ -130,7 +133,7 @@
     {#if variant === "completed"}
       {#each icons as Icon, i}
         <div class="flex flex-row flex-1 gap-1.5 sm:gap-3 items-center">
-          <div class="text-daw-main-500"><Icon size="18px" /></div>
+          <div class="text-daw-main-500"><Icon size={18} /></div>
           <input
             class="text-sm flex-1 outline-none bg-transparent w-full"
             class:font-semibold={safeScores[i] !== Number(item.advancedScores[keys[i]])}

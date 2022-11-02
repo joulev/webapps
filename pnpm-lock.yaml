@@ -33,13 +33,13 @@ importers:
       eslint-config-prettier: 8.5.0
       eslint-plugin-svelte3: 4.0.0
       graphql: 16.6.0
+      lucide-svelte: 0.97.0
       nprogress: 0.2.0
       postcss: 8.4.18
       postcss-load-config: 4.0.1
       svelte: 3.52.0
       svelte-apollo: 0.5.0
       svelte-check: 2.9.2
-      svelte-material-icons: 2.0.4
       svelte-preprocess: 4.10.7
       tailwind-dark-aware: 0.2.1
       tailwindcss: 3.2.1
@@ -51,8 +51,8 @@ importers:
       '@apollo/client': 3.7.1_graphql@16.6.0
       '@vercel/analytics': 0.1.3
       graphql: 16.6.0
+      lucide-svelte: 0.97.0_svelte@3.52.0
       nprogress: 0.2.0
-      svelte-material-icons: 2.0.4_svelte@3.52.0
     devDependencies:
       '@graphql-codegen/cli': 2.13.8_yphvitncqnamqkli3dcukmeey4
       '@graphql-codegen/client-preset': 1.1.1_graphql@16.6.0
@@ -7511,6 +7511,15 @@ packages:
       react: 18.2.0
     dev: false
 
+  /lucide-svelte/0.97.0_svelte@3.52.0:
+    resolution: {integrity: sha512-m5cWkIQmmL5s4MX7lSPzPmTHQVCEHysTa+2Rm2m9EelKfw2Y7ZhoFuPckVk0OWyJ7z37+qAFNSgyCzl9PRux0A==}
+    peerDependencies:
+      svelte: ^3.49.0
+      svelte2tsx: ^0.4.12
+    dependencies:
+      svelte: 3.52.0
+    dev: false
+
   /magic-string/0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
     dependencies:
@@ -10048,7 +10057,7 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.25.9
       postcss: 8.4.18
-      postcss-load-config: 4.0.1_postcss@8.4.18
+      postcss-load-config: 4.0.1_neo3lunb2qpadwxplzw7r2isgm
       sorcery: 0.10.0
       strip-indent: 3.0.0
       svelte: 3.52.0

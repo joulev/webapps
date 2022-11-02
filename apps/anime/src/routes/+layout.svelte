@@ -20,18 +20,20 @@
 
   import { transition } from "$lib/utils";
 
-  import PlayCircle from "svelte-material-icons/PlayCircleOutline.svelte";
-  import Refresh from "svelte-material-icons/Refresh.svelte";
-  import TelevisionPlay from "svelte-material-icons/TelevisionPlay.svelte";
-  import MovieCheck from "svelte-material-icons/MovieCheckOutline.svelte";
-  import CheckCircle from "svelte-material-icons/CheckCircleOutline.svelte";
-  import PauseCircle from "svelte-material-icons/PauseCircleOutline.svelte";
-  import CloseCircle from "svelte-material-icons/CloseCircleOutline.svelte";
-  import Calendar from "svelte-material-icons/Calendar.svelte";
-  import GitHub from "svelte-material-icons/Github.svelte";
-  import Home from "svelte-material-icons/Home.svelte";
-  import Menu from "svelte-material-icons/Menu.svelte";
-  import Close from "svelte-material-icons/Close.svelte";
+  import {
+    Home,
+    Github,
+    Menu,
+    X,
+    PlayCircle,
+    Repeat,
+    Tv2,
+    Film,
+    CheckCircle,
+    PauseCircle,
+    XCircle,
+    Calendar,
+  } from "lucide-svelte";
 
   import A from "$lib/components/a.svelte";
   import Button from "$lib/components/button.svelte";
@@ -65,16 +67,16 @@
 
   const navItems = derived(count, $cnt => [
     { content: "Watching", icon: PlayCircle, slug: "/watching", count: $cnt.watching },
-    { content: "Rewatching", icon: Refresh, slug: "/rewatching", count: $cnt.rewatching },
+    { content: "Rewatching", icon: Repeat, slug: "/rewatching", count: $cnt.rewatching },
     {
       content: "Completed TV",
-      icon: TelevisionPlay,
+      icon: Tv2,
       slug: "/completed/tv",
       count: $cnt.completedTV,
     },
     {
       content: "Completed Movies",
-      icon: MovieCheck,
+      icon: Film,
       slug: "/completed/movies",
       count: $cnt.completedMovies,
     },
@@ -85,7 +87,7 @@
       count: $cnt.completedOthers,
     },
     { content: "Paused", icon: PauseCircle, slug: "/paused", count: $cnt.paused },
-    { content: "Dropped", icon: CloseCircle, slug: "/dropped", count: $cnt.dropped },
+    { content: "Dropped", icon: XCircle, slug: "/dropped", count: $cnt.dropped },
     { content: "Planning", icon: Calendar, slug: "/planning", count: $cnt.planning },
   ]);
 
@@ -109,9 +111,9 @@
             in:fade={transition}
           >
             {#if navOpen}
-              <Close size="24px" />
+              <X />
             {:else}
-              <Menu size="24px" />
+              <Menu />
             {/if}
           </button>
         {/key}
@@ -122,14 +124,14 @@
             variant="tertiary"
             class="btn-nopadding hidden lg:block"
           >
-            <Home size="24px" />
+            <Home />
           </Button>
           <Button
             href="https://github.com/joulev/webapps/tree/main/apps/anime"
             variant="tertiary"
             class="btn-nopadding"
           >
-            <GitHub size="24px" />
+            <Github />
           </Button>
         </div>
       </div>
@@ -151,7 +153,7 @@
                 class:text-daw-main-500={$page.url.pathname !== href}
               >
                 <div class="flex flex-row gap-6 items-center">
-                  <Icon size="24px" />
+                  <Icon />
                   {content}
                 </div>
                 {#if !$isLoading}
