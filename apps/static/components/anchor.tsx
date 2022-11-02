@@ -2,7 +2,7 @@ export default function A({ href, children }: React.PropsWithChildren<{ href: st
   return (
     <a
       href={href}
-      className="btn btn-tertiary btn-nopadding text-daw-main-900 hover:text-daw-main-600 transition"
+      className="btn btn-tertiary btn-nopadding"
       target="_blank"
       rel="noopener noreferrer"
     >

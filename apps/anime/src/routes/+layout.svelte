@@ -118,7 +118,7 @@
           </button>
         {/key}
         <A href="/watching" notStyled><Logo /></A>
-        <div class="flex flex-row gap-3">
+        <div class="flex flex-row gap-6">
           <Button
             href="https://joulev.dev"
             variant="tertiary"
