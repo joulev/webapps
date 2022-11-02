@@ -1,11 +1,27 @@
 {
-  "name": "@joulev/static",
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "serve public -l 3005"
+    "dev": "next dev -p 3005",
+    "build": "next build",
+    "start": "next start -p 3005",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vercel/og": "0.0.20",
+    "next": "13.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwind-dark-aware": "0.2.1"
   },
   "devDependencies": {
-    "serve": "14.0.1"
+    "@joulev/theme": "workspace:*",
+    "@types/node": "18.11.7",
+    "@types/react": "18.0.24",
+    "@types/react-dom": "18.0.8",
+    "autoprefixer": "10.4.13",
+    "postcss": "8.4.18",
+    "tailwindcss": "3.2.1",
+    "typescript": "4.8.4"
   }
 }
