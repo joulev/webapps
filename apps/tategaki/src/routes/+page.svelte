@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { inject } from "@vercel/analytics";
+
   import { title, rawParagraphs, srParagraphs } from "$lib/content";
   import splitLine from "$lib/split-line";
   import Logo from "$lib/components/logo.svelte";
@@ -26,6 +28,8 @@
 
   main();
   window.addEventListener("resize", main);
+
+  inject();
 </script>
 
 <div class="sr-only">
