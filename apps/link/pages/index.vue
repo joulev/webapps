@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import Home from "vue-material-design-icons/Home.vue";
-import GitHub from "vue-material-design-icons/Github.vue";
+import { Home, Github } from "lucide-vue-next";
 
 useHead({
   title: "link at joulev.dev",
@@ -24,16 +23,16 @@ const showForm = ref(true);
   <div class="container max-w-xl py-18 flex flex-col gap-12">
     <div class="flex flex-row justify-between items-center">
       <Logo class="cursor-pointer" @click="showForm = true" />
-      <div class="flex flex-row gap-3">
+      <div class="flex flex-row gap-6">
         <NuxtLink href="https://joulev.dev" target="_blank" class="btn btn-tertiary btn-nopadding">
-          <Home :size="24" />
+          <Home />
         </NuxtLink>
         <NuxtLink
           href="https://github.com/joulev/webapps/tree/main/apps/link"
           target="_blank"
           class="btn btn-tertiary btn-nopadding"
         >
-          <GitHub :size="24" />
+          <Github />
         </NuxtLink>
       </div>
     </div>

@@ -2,9 +2,8 @@
 import { WithId } from "mongodb";
 import { isSlug, isURL } from "~/lib/validator";
 import { LinkDocument, JoulevLink } from "~/types";
-import Close from "vue-material-design-icons/Close.vue";
-import ContentSaveOutline from "vue-material-design-icons/ContentSaveOutline.vue";
-import DeleteOutline from "vue-material-design-icons/DeleteOutline.vue";
+
+import { X, Save, Trash2 } from "lucide-vue-next";
 
 const displayDate = (date: Date) =>
   date.toLocaleDateString("en-sg", { timeZone: "Asia/Singapore" });
@@ -78,19 +77,19 @@ function remove() {
       <div v-if="updating">
         <button class="hidden md:block btn btn-sm btn-secondary" @click="clear">Clear</button>
         <button aria-hidden class="md:hidden btn btn-secondary btn-nopadding p-1.5" @click="clear">
-          <Close :size="18" />
+          <X :size="18" />
         </button>
       </div>
       <div v-if="updating && urlIsValid && slugIsValid">
         <button class="hidden md:block btn btn-sm btn-primary" @click="save">Save</button>
         <button aria-hidden class="md:hidden btn btn-primary btn-nopadding p-1.5" @click="save">
-          <ContentSaveOutline :size="18" />
+          <Save :size="18" />
         </button>
       </div>
       <div v-if="!updating">
         <button class="hidden md:block btn btn-sm btn-secondary" @click="remove">Delete</button>
         <button aria-hidden class="md:hidden btn btn-secondary btn-nopadding p-1.5" @click="remove">
-          <DeleteOutline :size="18" />
+          <Trash2 :size="18" />
         </button>
       </div>
     </div>

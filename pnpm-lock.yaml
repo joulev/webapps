@@ -89,6 +89,7 @@ importers:
       '@types/validator': 13.7.10
       '@vercel/analytics': 0.1.3
       autoprefixer: 10.4.13
+      lucide-vue-next: 0.98.0
       mongodb: 4.11.0
       nanoid: 4.0.0
       nprogress: 0.2.0
@@ -96,15 +97,14 @@ importers:
       tailwind-dark-aware: 0.2.1
       typescript: 4.8.4
       validator: 13.7.0
-      vue-material-design-icons: 5.1.2
       vue-tsc: 1.0.9
     dependencies:
       '@vercel/analytics': 0.1.3
+      lucide-vue-next: 0.98.0
       mongodb: 4.11.0
       nanoid: 4.0.0
       nprogress: 0.2.0
       validator: 13.7.0
-      vue-material-design-icons: 5.1.2
     devDependencies:
       '@joulev/theme': link:../../packages/theme
       '@nuxtjs/tailwindcss': 6.1.2
@@ -7520,6 +7520,12 @@ packages:
       svelte: 3.52.0
     dev: false
 
+  /lucide-vue-next/0.98.0:
+    resolution: {integrity: sha512-la6QMDltAUgVVxaBYhaSqLUZQpy/nqILRVePwOMxdMo27HdTSH54bqpjbAizzzkqtDUmPfZTPtDiza89MfP20w==}
+    peerDependencies:
+      vue: '>=3.0.1'
+    dev: false
+
   /magic-string/0.25.9:
     resolution: {integrity: sha512-RmF0AsMzgt25qzqqLc1+MbHmhdx0ojF2Fvs4XnOqz2ZOBXzzkEwc/dJQZCYHAn7v1jbVOjAZfK8msRn4BxO4VQ==}
     dependencies:
@@ -10057,7 +10063,7 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.25.9
       postcss: 8.4.18
-      postcss-load-config: 4.0.1_neo3lunb2qpadwxplzw7r2isgm
+      postcss-load-config: 4.0.1_postcss@8.4.18
       sorcery: 0.10.0
       strip-indent: 3.0.0
       svelte: 3.52.0
@@ -10914,10 +10920,6 @@ packages:
   /vue-devtools-stub/0.1.0:
     resolution: {integrity: sha512-RutnB7X8c5hjq39NceArgXg28WZtZpGc3+J16ljMiYnFhKvd8hITxSWQSQ5bvldxMDU6gG5mkxl1MTQLXckVSQ==}
     dev: true
-
-  /vue-material-design-icons/5.1.2:
-    resolution: {integrity: sha512-nD1qFM2qAkMlVoe23EfNKIeMfYl6YjHZjSty9q0mwc2gXmPmvEhixywJQhM+VF5KVBI1zAkVTNLoUEERPY10pA==}
-    dev: false
 
   /vue-router/4.1.5_vue@3.2.41:
     resolution: {integrity: sha512-IsvoF5D2GQ/EGTs/Th4NQms9gd2NSqV+yylxIyp/OYp8xOwxmU8Kj/74E9DTSYAyH5LX7idVUngN3JSj1X4xcQ==}
