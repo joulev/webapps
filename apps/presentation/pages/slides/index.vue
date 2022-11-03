@@ -24,7 +24,11 @@ provide("current", current);
 </script>
 
 <template>
-  <div class="relative w-screen h-screen" :style="{ '--base-space': `${gap}px` }">
+  <div
+    class="relative w-screen h-screen"
+    style="width: 100dvw; height: 100dvh"
+    :style="{ '--base-space': `${gap}px` }"
+  >
     <Slide :slide="0" title="Hello, world!">
       <ul>
         <li>This is the first slide.</li>
