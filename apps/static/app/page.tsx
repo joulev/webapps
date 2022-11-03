@@ -6,7 +6,10 @@ import Logo from "~/components/logo";
 
 export default function Page() {
   return (
-    <main className="w-screen h-screen grid place-items-center relative overflow-hidden">
+    <main
+      className="w-screen h-screen grid place-items-center relative overflow-hidden"
+      style={{ width: "100dvw", height: "100dvh" }} // works even if browser doesn't support dv*
+    >
       <a href="https://joulev.dev" className="[&_path]:!fill-daw-main-900 animate-fadein-fast">
         <Logo />
       </a>
