@@ -11,7 +11,7 @@ export default function Page() {
         <Logo />
       </a>
       <div
-        className="absolute top-6 left-1/2 -translate-x-1/2 flex flex-row gap-6 animate-fadein-fast"
+        className="fixed top-6 left-1/2 -translate-x-1/2 flex flex-row gap-6 animate-fadein-fast"
         style={{ animationDelay: "1s", animationDuration: "0.3s" }}
       >
         <A href="https://joulev.dev">
