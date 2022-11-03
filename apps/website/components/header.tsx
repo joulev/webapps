@@ -34,7 +34,7 @@ export default function Header() {
         beauty. A fast-learner who is passionate in cutting-edge technologies.
       </motion.p>
       <motion.div variants={animate}>
-        <Button href="/cv" primary>
+        <Button href="/cv" primary isExternal>
           View résumé
         </Button>
       </motion.div>

@@ -1,15 +1,20 @@
 import clsx from "clsx";
+import Link from "./link";
 
-type Props = React.PropsWithChildren<{ href: string; primary?: boolean; className?: string }>;
-export default function Button({ href, primary, className, children }: Props) {
+type Props = React.PropsWithChildren<{
+  href: string;
+  primary?: boolean;
+  className?: string;
+  isExternal?: boolean;
+}>;
+export default function Button({ href, primary, className, isExternal, children }: Props) {
   return (
-    <a
+    <Link
       href={href}
       className={clsx("btn", primary ? "btn-primary" : "btn-secondary", className)}
-      target="_blank"
-      rel="noopener noreferrer"
+      isExternal={isExternal}
     >
       {children}
-    </a>
+    </Link>
   );
 }

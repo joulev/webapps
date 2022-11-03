@@ -18,7 +18,7 @@ export default function Contact() {
         </div>
         <div className="flex flex-row gap-3 items-center">
           <Linkedin size={18} width={24} strokeWidth={4 / 3} />
-          <Link href="http://linkedin.com/in/joulev/">/in/joulev</Link>
+          <Link href="https://linkedin.com/in/joulev/">/in/joulev</Link>
         </div>
       </div>
     </motion.section>
