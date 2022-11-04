@@ -213,7 +213,6 @@ importers:
   apps/website:
     specifiers:
       '@joulev/theme': workspace:*
-      '@next/font': 13.0.0
       '@types/node': 18.11.7
       '@types/react': 18.0.24
       '@types/react-dom': 18.0.8
@@ -233,7 +232,6 @@ importers:
       tailwindcss: 3.2.1
       typescript: 4.8.4
     dependencies:
-      '@next/font': 13.0.0
       '@vercel/analytics': 0.1.3_react@18.2.0
       clsx: 1.2.1
       framer-motion: 7.6.2_biqbaboplfbrettd7655fr4n2y
@@ -2497,10 +2495,6 @@ packages:
     dependencies:
       glob: 7.1.7
     dev: true
-
-  /@next/font/13.0.0:
-    resolution: {integrity: sha512-r5dYkgMD1Qmoip1OhJSrqCSQdZ4eshkQPfe1hhQiKbZoXIbViJksPRLC6GVOgEQE6W4+CXuAXR6IYBy5M6Rixg==}
-    dev: false
 
   /@next/swc-android-arm-eabi/13.0.0:
     resolution: {integrity: sha512-+DUQkYF93gxFjWY+CYWE1QDX6gTgnUiWf+W4UqZjM1Jcef8U97fS6xYh+i+8rH4MM0AXHm7OSakvfOMzmjU6VA==}

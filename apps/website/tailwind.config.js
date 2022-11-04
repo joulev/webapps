@@ -11,5 +11,5 @@ module.exports = {
       transitionDuration: { 600: "600ms" },
     },
   },
-  plugins: [plugin({ withFont: false }), require("tailwind-dark-aware")({ withDark: false })],
+  plugins: [plugin, require("tailwind-dark-aware")({ withDark: false })],
 };

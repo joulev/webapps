@@ -37,6 +37,13 @@ export default function Head() {
         href="https://static.joulev.dev/images/apple-touch-icon.png"
         sizes="180x180"
       />
+      <link
+        rel="preload"
+        href="https://static.joulev.dev/fonts/Synonym-Variable.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
     </>
   );
 }
