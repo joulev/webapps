@@ -1,12 +1,22 @@
 import type { DefaultColors } from "tailwindcss/types/generated/colors";
 
+export type Mode = "system" | "dark" | "light";
+
 export const getColour = (colorObject: Record<keyof DefaultColors["amber"], string>) => ({
   DEFAULT: colorObject[500],
   ...colorObject,
 });
 
-export const themedStyle = (style: string, [light, dark]: [string, string], state?: string) => {
-  const cssObj = { [style]: light, "@media (prefers-color-scheme: dark)": { [style]: dark } };
+export const themedStyle = (
+  mode: Mode,
+  style: string,
+  [light, dark]: [string, string],
+  state?: string,
+) => {
+  const cssObj =
+    mode === "system"
+      ? { [style]: light, "@media (prefers-color-scheme: dark)": { [style]: dark } }
+      : { [style]: mode === "light" ? light : dark };
   return state ? { [state]: cssObj } : cssObj;
 };
 
