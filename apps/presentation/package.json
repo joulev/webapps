@@ -10,6 +10,6 @@
   "devDependencies": {
     "@joulev/theme": "workspace:*",
     "@nuxtjs/tailwindcss": "6.1.3",
-    "nuxt": "3.0.0-rc.13"
+    "nuxt": "3.0.0"
   }
 }
