@@ -8,7 +8,7 @@ export default defineEventHandler(async event => {
     return { error: "Unauthorized" };
   }
   try {
-    const _id = await useBody<JoulevLink["delete"]>(event).then(({ _id }) => new ObjectId(_id));
+    const _id = await readBody<JoulevLink["delete"]>(event).then(({ _id }) => new ObjectId(_id));
     const collection = client.db("link").collection<LinkDocument>("links");
     const link = await collection.findOne({ _id });
     if (!link) {

@@ -8,7 +8,7 @@ export default defineEventHandler(async event => {
     return { error: "Unauthorized" };
   }
   try {
-    const { slug, url } = await useBody<JoulevLink["post"]>(event);
+    const { slug, url } = await readBody<JoulevLink["post"]>(event);
     if (!isSlug(slug) || !isURL(url)) {
       event.res.statusCode = 400;
       return { error: "Invalid slug or URL" };

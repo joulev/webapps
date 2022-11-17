@@ -5,7 +5,7 @@ import { PublicLink, LinkDocument } from "~/types";
 
 export default defineEventHandler(async event => {
   try {
-    const { slug: rawSlug, url } = await useBody<PublicLink["post"]>(event);
+    const { slug: rawSlug, url } = await readBody<PublicLink["post"]>(event);
     if (rawSlug === "" || (rawSlug && !isSlug(rawSlug)) || !isURL(url)) {
       event.res.statusCode = 400;
       return { error: "Invalid slug or URL" };

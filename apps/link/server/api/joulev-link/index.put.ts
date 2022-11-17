@@ -9,7 +9,7 @@ export default defineEventHandler(async event => {
     return { error: "Unauthorized" };
   }
   try {
-    const { _id: id, ...body } = await useBody<JoulevLink["put"]>(event);
+    const { _id: id, ...body } = await readBody<JoulevLink["put"]>(event);
     if (
       body.slug === "" ||
       body.url === "" ||
