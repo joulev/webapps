@@ -1,4 +1,5 @@
 {
+  "name": "@joulev/apps-tategaki",
   "private": true,
   "scripts": {
     "dev": "vite dev --port 3002",

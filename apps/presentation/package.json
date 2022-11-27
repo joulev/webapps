@@ -1,4 +1,5 @@
 {
+  "name": "@joulev/apps-presentation",
   "private": true,
   "scripts": {
     "build": "nuxt build",

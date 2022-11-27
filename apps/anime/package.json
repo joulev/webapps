@@ -1,4 +1,5 @@
 {
+  "name": "@joulev/apps-anime",
   "private": true,
   "type": "module",
   "scripts": {

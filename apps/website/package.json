@@ -1,4 +1,5 @@
 {
+  "name": "@joulev/apps-website",
   "private": true,
   "scripts": {
     "dev": "next dev --port 3001",
