@@ -13,28 +13,29 @@ export const plugin = internal.withOptions<Partial<Option>>(
       const main = theme("colors.main");
       const space = theme("space");
       const fontSize = (key: string) => {
-        const [size, { lineHeight }] = theme("fontSize")[key];
-        return lineHeight ? { fontSize: size, lineHeight } : { fontSize: size };
+        const [size, { lineHeight }] = theme("fontSize")![key];
+        // return lineHeight ? { fontSize: size, lineHeight } : { fontSize: size };
+        return { fontSize: size, lineHeight };
       };
       const padding = (size: "sm" | "base") =>
         size === "sm"
-          ? { padding: vertical ? `${space[3]} ${space[1]}` : `${space[1]} ${space[3]}` }
-          : { padding: vertical ? `${space[4]} ${space[1.5]}` : `${space[1.5]} ${space[4]}` };
+          ? { padding: vertical ? `${space![3]} ${space![1]}` : `${space![1]} ${space![3]}` }
+          : { padding: vertical ? `${space![4]} ${space![1.5]}` : `${space![1.5]} ${space![4]}` };
       const transition = {
         transitionProperty: "all",
         transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
         transitionDuration: "150ms",
       };
-      const rounded = { borderRadius: theme("borderRadius.DEFAULT") };
+      const rounded = { borderRadius: theme("borderRadius.DEFAULT")! };
 
       // someone helps me with naming these
       const colour = {
-        same: (key: string) => themedStyle(mode, key, [main[100], main[900]]),
-        card: (key: string) => themedStyle(mode, key, [main[200], main[800]]),
-        faded: (key: string) => themedStyle(mode, key, [main[300], main[700]]),
-        muted: (key: string) => themedStyle(mode, key, [main[500], main[500]]),
-        reduced: (key: string) => themedStyle(mode, key, [main[600], main[400]]),
-        contrast: (key: string) => themedStyle(mode, key, [main[900], main[100]]),
+        same: (key: string) => themedStyle(mode, key, [main![100], main![900]]),
+        card: (key: string) => themedStyle(mode, key, [main![200], main![800]]),
+        faded: (key: string) => themedStyle(mode, key, [main![300], main![700]]),
+        muted: (key: string) => themedStyle(mode, key, [main![500], main![500]]),
+        reduced: (key: string) => themedStyle(mode, key, [main![600], main![400]]),
+        contrast: (key: string) => themedStyle(mode, key, [main![900], main![100]]),
       };
 
       if (withFont)
@@ -57,8 +58,12 @@ export const plugin = internal.withOptions<Partial<Option>>(
         ".anchor": mergedStyles(
           transition,
           themedStyle(mode, "background-image", [
-            `linear-gradient(${main[300]}, ${main[300]}), linear-gradient(to right, ${main[500]}, ${main[500]})`,
-            `linear-gradient(${main[700]}, ${main[700]}), linear-gradient(to right, ${main[500]}, ${main[500]})`,
+            `linear-gradient(${main![300]}, ${main![300]}), linear-gradient(to right, ${
+              main![500]
+            }, ${main![500]})`,
+            `linear-gradient(${main![700]}, ${main![700]}), linear-gradient(to right, ${
+              main![500]
+            }, ${main![500]})`,
           ]),
           {
             backgroundPosition: "100% 100%, 0% 100%",
@@ -82,7 +87,7 @@ export const plugin = internal.withOptions<Partial<Option>>(
           "&.btn-primary": mergedStyles(
             colour.same("color"),
             colour.contrast("backgroundColor"),
-            themedStyle(mode, "backgroundColor", [main[700], main[300]], "&:hover"),
+            themedStyle(mode, "backgroundColor", [main![700], main![300]], "&:hover"),
           ),
 
           "&.btn-secondary": mergedStyles(
@@ -92,7 +97,7 @@ export const plugin = internal.withOptions<Partial<Option>>(
 
           "&.btn-tertiary": mergedStyles(
             colour.contrast("color"),
-            themedStyle(mode, "color", [main[600], main[400]], "&:hover"),
+            themedStyle(mode, "color", [main![600], main![400]], "&:hover"),
           ),
         }),
       });
