@@ -8,12 +8,12 @@ export default function Header() {
   return (
     <div className="flex flex-col gap-9">
       <motion.header
-        className="flex flex-col-reverse sm:flex-row justify-between items-start sm:items-end gap-6 mb-3"
+        className="flex flex-col-reverse sm:flex-row justify-between items-start sm:items-end gap-6 mb-3 opacity-50"
         variants={animate}
       >
         <div className="flex flex-col gap-3">
           <h1 className="text-3xl sm:text-4xl font-medium">Vu Van Dung</h1>
-          <p className="text-lg md:text-xl">Sophomore Computer Engineering Undergraduate</p>
+          <p className="text-lg md:text-xl">Full-stack Web Developer</p>
         </div>
         <div className="card rounded-full">
           <Image
