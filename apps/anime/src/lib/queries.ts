@@ -1,4 +1,4 @@
-import { graphql } from "$lib/gql";
+import { graphql } from "$lib/gql/gql";
 export type {
   GetAnimeQuery as GetAnime,
   SearchAnimeQuery as SearchAnime,

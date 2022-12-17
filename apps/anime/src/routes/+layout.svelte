@@ -7,6 +7,7 @@
   import NProgress from "nprogress";
 
   import { inject } from "@vercel/analytics";
+  import { browser, dev } from "$app/environment";
 
   import { derived } from "svelte/store";
   import { ApolloClient, createHttpLink, InMemoryCache } from "@apollo/client/core";
@@ -51,7 +52,7 @@
   const client = new ApolloClient({ link: authLink.concat(httpLink), cache: new InMemoryCache() });
   setClient(client);
 
-  // Glboal fetching
+  // Global fetching
   const store = query<GetAnime>(GET_ANIME);
   function refetch() {
     NProgress.start();
@@ -97,7 +98,7 @@
   page.subscribe(() => (navOpen = false));
   let navHeight: number;
 
-  onMount(inject);
+  onMount(() => inject({ mode: dev ? "development" : "production" }));
 </script>
 
 <div class="container flex flex-col lg:flex-row gap-x-18 gap-y-12 pb-18 pt-6 lg:pt-18">
