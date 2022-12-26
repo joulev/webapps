@@ -11,6 +11,8 @@
   "devDependencies": {
     "@joulev/theme": "workspace:*",
     "@nuxtjs/tailwindcss": "6.2.0",
-    "nuxt": "3.0.0"
+    "nuxt": "3.0.0",
+    "vite-plugin-checker": "0.5.2",
+    "vue-tsc": "1.0.13"
   }
 }
