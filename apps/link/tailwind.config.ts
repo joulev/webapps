@@ -1,5 +1,5 @@
 import { Config } from "tailwindcss";
-import { preset, plugin } from "@joulev/theme/src";
+import { preset, plugin } from "@joulev/theme";
 
 export default <Config>{
   presets: [preset],
