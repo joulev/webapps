@@ -12,7 +12,11 @@ class handler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.send_header('Content-type', 'application/json')
         self.end_headers()
-        first_history = ytmusic.get_history()[0]
+        # We do not get the currently played song, only the last played song
+        # I found it to reflect what I *actually* play more accurately
+        # as I sometimes just stop playing after a few seconds of the next song
+        # due to whatever reasons.
+        first_history = ytmusic.get_history()[1]
         message = {
             'videoId': first_history['videoId'],
             'title': first_history['title'],
