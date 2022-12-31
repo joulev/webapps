@@ -13,7 +13,7 @@ const current = inject<number>("current")!;
       v-if="current === slide"
     >
       <h1 v-if="title" class="font-semibold slide-text-title">{{ title }}</h1>
-      <div class="slide-text-base"><slot /></div>
+      <div class="slide-text-base flex-1"><slot /></div>
     </div>
   </Transition>
 </template>
