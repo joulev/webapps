@@ -1,5 +1,26 @@
 <script lang="ts" setup>
 import { Home, Github } from "lucide-vue-next";
+
+useHead({
+  title: "presentation at joulev.dev",
+  link: [{ rel: "canonical", href: "https://presentation.joulev.dev" }],
+  meta: [
+    { name: "robots", content: "index,follow" },
+    {
+      name: "description",
+      content:
+        "An app where I make (interactive) presentation slides with code and web technologies.",
+    },
+    { property: "og:title", content: "presentation at joulev.dev" },
+    {
+      property: "og:description",
+      content:
+        "An app where I make (interactive) presentation slides with code and web technologies.",
+    },
+    { property: "og:url", content: "https://presentation.joulev.dev" },
+    { property: "og:image:alt", content: "presentation at joulev.dev" },
+  ],
+});
 </script>
 
 <template>

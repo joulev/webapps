@@ -41,10 +41,10 @@
 - **Deployment:** https://link.joulev.dev
 - **Source:** [apps/link](/apps/link)
 
-## presentation (unfinished)
+## presentation
 
 ![](https://img.shields.io/badge/nuxt.js-00C58E?style=for-the-badge&logo=nuxtdotjs&logoColor=white) ![](https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D)
 
-- **Description:** A Nuxt **playground** for me to experiment with making interactive presentation slides.
+- **Description:** An app where I make (interactive) presentation slides with code and web technologies.
 - **Deployment:** https://presentation.joulev.dev
 - **Source:** [apps/presentation](/apps/presentation)

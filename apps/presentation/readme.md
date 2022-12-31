@@ -5,4 +5,4 @@
 
 ---
 
-An app where I try to make (interactive) presentation slides with code and web technologies. Currently only a playground.
+An app where I make (interactive) presentation slides with code and web technologies.
