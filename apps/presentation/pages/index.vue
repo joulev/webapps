@@ -41,7 +41,7 @@ useHead({
       </div>
     </header>
     <main class="flex flex-col gap-6">
-      <p>Hi there. Welcome to my app that I (plan to) use for my presentations, where</p>
+      <p>Welcome to my app that I (plan to) use for my presentations, where</p>
       <ul class="list-disc [&_li]:ml-6 flex flex-col gap-6">
         <li>
           it can be viewed and navigated in all screen viewports (except oddities like Apple
