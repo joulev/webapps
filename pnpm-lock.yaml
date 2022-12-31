@@ -123,10 +123,13 @@ importers:
       '@joulev/theme': workspace:*
       '@nuxt/content': 2.3.0
       '@nuxtjs/tailwindcss': 6.2.0
+      lucide-vue-next: 0.104.0
       nuxt: 3.0.0
       typescript: 4.9.4
       vite-plugin-checker: 0.5.3
       vue-tsc: 1.0.17
+    dependencies:
+      lucide-vue-next: 0.104.0
     devDependencies:
       '@joulev/theme': link:../../packages/theme
       '@nuxt/content': 2.3.0
@@ -2779,7 +2782,7 @@ packages:
       '@motionone/types': 10.15.1
       '@motionone/utils': 10.15.1
       hey-listen: 1.0.8
-      tslib: 2.4.0
+      tslib: 2.4.1
     dev: false
 
   /@motionone/easing/10.15.1:

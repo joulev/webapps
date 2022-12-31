@@ -3,7 +3,7 @@ title: Slide title
 description: Some description on the slides
 ---
 
-## Hello, world!
+# Hello, world!
 
 - This is the first slide.
 - It has a title.
@@ -13,7 +13,7 @@ description: Some description on the slides
 
 :break
 
-## Hello, world! 2
+# Hello, world! 2
 
 - This is the second slide.
 - Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores perferendis et minus,
@@ -21,7 +21,7 @@ description: Some description on the slides
 
 :break
 
-## Custom reactive component
+# Custom reactive component
 
 :CustomComponent
 
@@ -31,18 +31,18 @@ This slide does not have a title.
 
 :break
 
-## Slide number 5
+# Slide number 5
 
 5
 
 :break
 
-## Slide number 6
+# Slide number 6
 
 6
 
 :break
 
-## Slide number 7
+# Slide number 7
 
 7

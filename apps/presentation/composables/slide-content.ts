@@ -1,6 +1,5 @@
 export const useSlideContent = async (path: string) => {
   const { title, description, body, excerpt, ...meta } = await queryContent(path).findOne();
-
   if (!title || !description) throw new Error("Missing title or description");
 
   // any way to do this more declaratively?
@@ -8,7 +7,7 @@ export const useSlideContent = async (path: string) => {
     currentSlide: any[] = [],
     slideTitles: string[] = [];
   for (const child of body.children) {
-    if (child.tag === "h2") {
+    if (child.tag === "h1") {
       slideTitles.push(child.children[0].value);
       continue;
     }
