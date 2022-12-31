@@ -2,7 +2,6 @@
 export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss", "@nuxt/content"],
   typescript: { typeCheck: "build", strict: true },
-  nitro: { preset: "vercel" },
   app: {
     head: {
       meta: [
