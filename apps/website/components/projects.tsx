@@ -119,6 +119,21 @@ export default function Projects() {
         >
           An alternative interface for AniList that I built for my own use.
         </Card>
+        <Card
+          title="presentation at joulev.dev"
+          buttons={[
+            { href: "https://presentation.joulev.dev", content: "Deployment" },
+            {
+              href: "https://github.com/joulev/webapps/tree/main/apps/presentation",
+              content: "Source",
+            },
+          ]}
+        >
+          An app where I make (interactive) presentation slides with code and web technologies.
+        </Card>
+        <div className="hidden sm:grid rounded border border-daw-main-200 place-items-center text-daw-main-400">
+          and more to come &hellip;
+        </div>
       </div>
     </motion.section>
   );
