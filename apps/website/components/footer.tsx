@@ -61,7 +61,7 @@ export default function Footer({ updated }: Props) {
       <div className="flex flex-row flex-wrap gap-x-6 gap-y-3 justify-between sm:items-center">
         <div className="flex flex-row items-center gap-3">
           <MapPin size={18} width={24} strokeWidth={4 / 3} />
-          <span>Vietnam (back to Singapore in Jan 2023)</span>
+          <span>Singapore</span>
         </div>
         <div className="flex flex-row items-center gap-3">
           <Clock hour={mounted ? date.getHours() : 4} minute={mounted ? date.getMinutes() : 0} />
