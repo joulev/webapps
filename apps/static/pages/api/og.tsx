@@ -3,7 +3,7 @@ import { NextRequest } from "next/server";
 
 import Logo from "~/components/logo";
 
-export const config = { runtime: "experimental-edge" };
+export const config = { runtime: "edge" };
 
 async function fetchFont() {
   const getURL = (w: "Light" | "Medium") => `https://static.joulev.dev/fonts/Sunflower-${w}.woff`;
