@@ -81,6 +81,45 @@ importers:
       typescript: 4.9.4
       vite: 4.0.4_@types+node@18.11.18
 
+  apps/img2vid:
+    specifiers:
+      '@ffmpeg/core': 0.11.0
+      '@ffmpeg/ffmpeg': 0.11.6
+      '@joulev/theme': workspace:*
+      '@types/node': 18.11.18
+      '@types/react': 18.0.26
+      '@types/react-dom': 18.0.10
+      autoprefixer: 10.4.13
+      eslint: 8.31.0
+      eslint-config-next: canary
+      next: canary
+      postcss: 8.4.21
+      react: 18.2.0
+      react-dom: 18.2.0
+      tailwind-dark-aware: 0.2.1
+      tailwindcss: 3.2.4
+      typescript: 4.9.4
+      ytdl-core: 4.11.2
+    dependencies:
+      '@ffmpeg/core': 0.11.0
+      '@ffmpeg/ffmpeg': 0.11.6
+      next: 13.1.2-canary.6_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      ytdl-core: 4.11.2
+    devDependencies:
+      '@joulev/theme': link:../../packages/theme
+      '@types/node': 18.11.18
+      '@types/react': 18.0.26
+      '@types/react-dom': 18.0.10
+      autoprefixer: 10.4.13_postcss@8.4.21
+      eslint: 8.31.0
+      eslint-config-next: 13.1.2-canary.6_iukboom6ndih5an6iafl45j2fe
+      postcss: 8.4.21
+      tailwind-dark-aware: 0.2.1_tailwindcss@3.2.4
+      tailwindcss: 3.2.4_postcss@8.4.21
+      typescript: 4.9.4
+
   apps/link:
     specifiers:
       '@joulev/theme': workspace:*
@@ -2048,6 +2087,22 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /@ffmpeg/core/0.11.0:
+    resolution: {integrity: sha512-9Tt/+2PMpkGPXUK8n6He9G8Y+qR6qmCPSCw9iEKZxHHOvJ9BE/r0Fccj+YgDZTlyu6rXxc9x6EqCaFBIt7qzjA==}
+    dev: false
+
+  /@ffmpeg/ffmpeg/0.11.6:
+    resolution: {integrity: sha512-uN8J8KDjADEavPhNva6tYO9Fj0lWs9z82swF3YXnTxWMBoFLGq3LZ6FLlIldRKEzhOBKnkVfA8UnFJuvGvNxcA==}
+    engines: {node: '>=12.16.1'}
+    dependencies:
+      is-url: 1.2.4
+      node-fetch: 2.6.7
+      regenerator-runtime: 0.13.11
+      resolve-url: 0.2.1
+    transitivePeerDependencies:
+      - encoding
+    dev: false
 
   /@graphql-codegen/add/3.2.3_graphql@16.6.0:
     resolution: {integrity: sha512-sQOnWpMko4JLeykwyjFTxnhqjd/3NOG2OyMuvK76Wnnwh8DRrNf2VEs2kmSvLl7MndMlOj7Kh5U154dVcvhmKQ==}
@@ -7539,6 +7594,10 @@ packages:
       tslib: 2.4.1
     dev: true
 
+  /is-url/1.2.4:
+    resolution: {integrity: sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww==}
+    dev: false
+
   /is-weakref/1.0.2:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
     dependencies:
@@ -8029,6 +8088,14 @@ packages:
     resolution: {integrity: sha512-HFgsRvdn165jNv5/xtkjn7DGy0RMofJgQ4ZF9BzCTvRfn3RyaunvmIBhhIxOhuqV/S6icCwiaXP4VqyrUb1mTw==}
     peerDependencies:
       vue: '>=3.0.1'
+    dev: false
+
+  /m3u8stream/0.8.6:
+    resolution: {integrity: sha512-LZj8kIVf9KCphiHmH7sbFQTVe4tOemb202fWwvJwR9W5ENW/1hxJN6ksAWGhQgSBSa3jyWhnjKU1Fw1GaOdbyA==}
+    engines: {node: '>=12'}
+    dependencies:
+      miniget: 4.2.2
+      sax: 1.2.4
     dev: false
 
   /magic-string/0.25.9:
@@ -8546,6 +8613,11 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
+  /miniget/4.2.2:
+    resolution: {integrity: sha512-a7voNL1N5lDMxvTMExOkg+Fq89jM2vY8pAi9ZEWzZtfNmdfP6RXkvUtFnCAXoCv2T9k1v/fUJVaAEuepGcvLYA==}
+    engines: {node: '>=12'}
+    dev: false
+
   /minimatch/3.0.8:
     resolution: {integrity: sha512-6FsRAQsxQ61mw+qP1ZzbL9Bc78x2p5OqNgNpnoAFLTrX8n5Kxph0CsnhmKKNXTWjXqU5L0pGPR7hYk+XWZr60Q==}
     dependencies:
@@ -8849,7 +8921,6 @@ packages:
         optional: true
     dependencies:
       whatwg-url: 5.0.0
-    dev: true
 
   /node-fetch/3.3.0:
     resolution: {integrity: sha512-BKwRP/O0UvoMKp7GNdwPlObhYGB5DQqwhEDQlNKuoqwVYSxkSZCSbHjnFFmUEtwSKRPU4kNK8PbDYYitwaE3QA==}
@@ -10108,7 +10179,6 @@ packages:
 
   /regenerator-runtime/0.13.11:
     resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
-    dev: true
 
   /regexp.prototype.flags/1.4.3:
     resolution: {integrity: sha512-fjggEOO3slI6Wvgjwflkc4NFRCTZAu5CnNfBd5qOMYhWdn67nJBBu34/TkD++eeFmd8C9r9jfXJ27+nSiRkSUA==}
@@ -10303,6 +10373,11 @@ packages:
       path-is-absolute: 1.0.1
     dev: true
 
+  /resolve-url/0.2.1:
+    resolution: {integrity: sha512-ZuF55hVUQaaczgOIwqWzkEcEidmlD/xl44x1UZnhOXcYuFN2S6+rcxpG+C1N3So0wvNI3DmJICUFfu2SxhBmvg==}
+    deprecated: https://github.com/lydell/resolve-url#deprecated
+    dev: false
+
   /resolve/1.22.1:
     resolution: {integrity: sha512-nBpuuYuY5jFsli/JIs1oldw6fOQCBioohqWZg/2hiaOybXOft4lonv85uDOKXdf8rhyK159cxU5cDcK/NKk8zw==}
     hasBin: true
@@ -10479,6 +10554,10 @@ packages:
       emoji-regex: 10.2.1
       postcss-value-parser: 4.2.0
       yoga-wasm-web: 0.3.0
+    dev: false
+
+  /sax/1.2.4:
+    resolution: {integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==}
     dev: false
 
   /scheduler/0.23.0:
@@ -11321,7 +11400,6 @@ packages:
 
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
-    dev: true
 
   /tr46/3.0.0:
     resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
@@ -12172,7 +12250,6 @@ packages:
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
-    dev: true
 
   /webidl-conversions/7.0.0:
     resolution: {integrity: sha512-VwddBukDzu71offAQR975unBIGqfKZpM+8ZX6ySk8nYhVoo5CYaZyzt3YBvYtRtO+aoGlqxPg/B87NGVZ/fu6g==}
@@ -12205,7 +12282,6 @@ packages:
     dependencies:
       tr46: 0.0.3
       webidl-conversions: 3.0.1
-    dev: true
 
   /which-boxed-primitive/1.0.2:
     resolution: {integrity: sha512-bwZdv0AKLpplFY2KZRX6TvyuN7ojjr7lwkg6ml0roIy9YeuSr7JS372qlNW18UQYzgYK9ziGcerWqZOmEn9VNg==}
@@ -12402,6 +12478,15 @@ packages:
 
   /yoga-wasm-web/0.3.0:
     resolution: {integrity: sha512-rD3L4jyMlO1m+RWU60lNwZQK5zmzglCV5fI1gTRikmpv3YzmNIZQbjyfE6cMNb9Xaly/C1SwemYGbsiOekMvnQ==}
+    dev: false
+
+  /ytdl-core/4.11.2:
+    resolution: {integrity: sha512-D939t9b4ZzP3v0zDvehR2q+KgG97UTgrTKju3pOPGQcXtl4W6W5z0EpznzcJFu+OOpl7S7Ge8hv8zU65QnxYug==}
+    engines: {node: '>=12'}
+    dependencies:
+      m3u8stream: 0.8.6
+      miniget: 4.2.2
+      sax: 1.2.4
     dev: false
 
   /zen-observable-ts/1.2.5:
