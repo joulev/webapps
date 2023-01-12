@@ -8,9 +8,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/analytics": "0.1.6",
+    "@vercel/analytics": "0.1.7",
     "clsx": "1.2.1",
-    "framer-motion": "8.2.4",
+    "framer-motion": "8.4.2",
     "lucide-react": "0.104.1",
     "next": "canary",
     "react": "18.2.0",
