@@ -13,8 +13,8 @@
     "postinstall": "svelte-kit sync && graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "3.7.3",
-    "@vercel/analytics": "0.1.7",
+    "@apollo/client": "3.7.4",
+    "@vercel/analytics": "0.1.8",
     "graphql": "16.6.0",
     "lucide-svelte": "0.104.0",
     "nprogress": "0.2.0"
@@ -24,14 +24,14 @@
     "@graphql-codegen/client-preset": "1.2.6",
     "@graphql-typed-document-node/core": "3.1.1",
     "@joulev/theme": "workspace:*",
-    "@sveltejs/adapter-vercel": "1.0.1",
-    "@sveltejs/kit": "1.0.11",
+    "@sveltejs/adapter-vercel": "1.0.4",
+    "@sveltejs/kit": "1.1.1",
     "@types/node": "18.11.18",
     "@types/nprogress": "0.2.0",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
     "autoprefixer": "10.4.13",
-    "eslint": "8.31.0",
+    "eslint": "8.32.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-svelte3": "4.0.0",
     "postcss": "8.4.21",
