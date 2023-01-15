@@ -12,22 +12,22 @@
     "postinstall": "svelte-kit sync"
   },
   "dependencies": {
-    "@vercel/analytics": "0.1.7",
+    "@vercel/analytics": "0.1.8",
     "lucide-svelte": "0.104.0"
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@sveltejs/adapter-vercel": "1.0.1",
-    "@sveltejs/kit": "1.0.11",
+    "@sveltejs/adapter-vercel": "1.0.4",
+    "@sveltejs/kit": "1.1.1",
     "@typescript-eslint/eslint-plugin": "5.48.1",
     "@typescript-eslint/parser": "5.48.1",
     "autoprefixer": "10.4.13",
-    "eslint": "8.31.0",
+    "eslint": "8.32.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-svelte3": "4.0.0",
     "postcss": "8.4.21",
     "postcss-load-config": "4.0.1",
-    "prettier": "2.8.2",
+    "prettier": "2.8.3",
     "prettier-plugin-svelte": "2.9.0",
     "svelte": "3.55.1",
     "svelte-check": "3.0.2",

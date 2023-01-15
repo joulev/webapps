@@ -8,7 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/og": "0.0.26",
+    "@vercel/og": "0.0.27",
     "lucide-react": "0.104.1",
     "next": "canary",
     "react": "18.2.0",
