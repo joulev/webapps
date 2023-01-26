@@ -4,5 +4,5 @@
       <path d="M 11 0 A 11 11 0 0 1 -5 10" class="stroke-daw-main-900 fill-none" />
     </svg>
   </div>
-  <div>Loading...</div>
+  <div>Loading data from AniList&hellip;</div>
 </div>
