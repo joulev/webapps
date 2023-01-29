@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@vercel/og": "0.0.27",
-    "lucide-react": "0.105.0",
+    "lucide-react": "0.108.0",
     "next": "canary",
     "react": "18.2.0",
     "react-dom": "18.2.0",
