@@ -13,7 +13,7 @@ export const preset: Config = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-      main: colors.stone,
+      main: colors.zinc,
       red: getColour(colors.red),
       yellow: getColour(colors.yellow),
       green: getColour(colors.emerald),

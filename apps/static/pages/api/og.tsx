@@ -22,11 +22,11 @@ function Main({ base, title, subtitle, isDark }: MainProps) {
           <div tw="flex flex-col h-full justify-between" style={{ marginLeft: (base * 18) / 48 }}>
             <div
               style={{ fontWeight: 500, fontSize: (base * 5) / 8 }}
-              tw={isDark ? "text-stone-100" : "text-stone-900"}
+              tw={isDark ? "text-zinc-100" : "text-zinc-900"}
             >
               {title}
             </div>
-            <div style={{ fontWeight: 300, fontSize: (base * 3) / 8 }} tw="text-stone-500">
+            <div style={{ fontWeight: 300, fontSize: (base * 3) / 8 }} tw="text-zinc-500">
               {subtitle}
             </div>
           </div>
@@ -78,7 +78,7 @@ export default async function handler(req: NextRequest) {
   return new ImageResponse(
     (
       <div
-        tw={`h-full w-full flex relative ${isLight ? "bg-stone-100" : "bg-stone-900"}`}
+        tw={`h-full w-full flex relative ${isLight ? "bg-zinc-100" : "bg-zinc-900"}`}
         style={{ fontFamily: "Sunflower", lineHeight: 1 }}
       >
         <Circle isDark={!isLight} radius={180} opacity={1} angle={-130} />

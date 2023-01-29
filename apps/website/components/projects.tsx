@@ -44,8 +44,9 @@ function Card({ featured, title, children, buttons }: CardProps) {
       <div
         className="absolute rounded inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300"
         style={{
+          // zinc-500 = rgb(113, 113, 122)
           backgroundImage:
-            "radial-gradient(900px circle at var(--left) var(--top), rgba(120, 113, 108, 0.12), transparent 30%)",
+            "radial-gradient(900px circle at var(--left) var(--top), rgba(113, 113, 122, 0.12), transparent 30%)",
         }}
       />
     </div>
