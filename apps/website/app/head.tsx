@@ -19,7 +19,7 @@ export default function Head() {
       <meta property="og:type" content="website" />
       <meta
         property="og:image"
-        content="https://static.joulev.dev/api/og?title=Vu+Van+Dung&subtitle=Frontend+developer"
+        content="https://static.joulev.dev/api/og?title=Vu+Van+Dung&subtitle=Full+stack+developer"
       />
       <meta property="og:image:alt" content={title} />
       <meta property="og:image:width" content="1200" />
