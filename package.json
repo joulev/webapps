@@ -4,7 +4,7 @@
     "prettier": "2.8.3",
     "prettier-plugin-svelte": "2.9.0",
     "svelte": "3.55.1",
-    "turbo": "1.7.0"
+    "turbo": "1.7.3"
   },
   "scripts": {
     "build": "turbo run build"
