@@ -10,7 +10,7 @@
   "dependencies": {
     "@vercel/analytics": "0.1.8",
     "clsx": "1.2.1",
-    "framer-motion": "8.5.4",
+    "framer-motion": "9.0.1",
     "lucide-react": "0.108.0",
     "next": "canary",
     "react": "18.2.0",
