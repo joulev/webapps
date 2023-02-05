@@ -11,7 +11,7 @@
   "dependencies": {
     "@vercel/analytics": "0.1.8",
     "lucide-vue-next": "0.109.0",
-    "mongodb": "4.13.0",
+    "mongodb": "5.0.0",
     "nanoid": "4.0.1",
     "nprogress": "0.2.0",
     "validator": "13.9.0"
