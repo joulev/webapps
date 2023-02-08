@@ -30,3 +30,38 @@ export default function Page() {
     </main>
   );
 }
+
+export async function generateMetadata() {
+  const title = "static at joulev.dev";
+  const description = "Static files used by all joulev.dev applications.";
+  const url = "https://static.joulev.dev";
+  return {
+    title,
+    description,
+    robots: { index: false },
+    twitter: { card: "summary_large_image", creator: "@joulev_3" },
+    openGraph: {
+      title,
+      description,
+      url,
+      siteName: title,
+      images: [
+        {
+          url: "https://static.joulev.dev/api/og?title=static",
+          alt: title,
+          width: 1200,
+          height: 630,
+        },
+      ],
+      type: "website",
+    },
+    alternates: { canonical: url },
+    icons: {
+      icon: [
+        { url: "https://static.joulev.dev/images/favicon.svg", type: "image/svg+xml" },
+        { url: "https://static.joulev.dev/favicon.ico", type: "image/x-icon", sizes: "any" },
+      ],
+      apple: [{ url: "https://static.joulev.dev/images/apple-touch-icon.png", sizes: "180x180" }],
+    },
+  };
+}
