@@ -23,15 +23,17 @@ function MusicData() {
         <Link href={`https://music.youtube.com/watch?v=${data.videoId}`}>{data.title}</Link>
       </strong>{" "}
       by{" "}
-      {data.artists
-        .filter(x => x.id)
-        .map((artist, i, arr) => (
-          <span key={artist.id}>
-            {i > 0 && i < arr.length - 1 && ", "}
-            {i > 0 && i === arr.length - 1 && " & "}
+      {data.artists.map((artist, i, arr) => (
+        <span key={artist.id}>
+          {i > 0 && i < arr.length - 1 && ", "}
+          {i > 0 && i === arr.length - 1 && " & "}
+          {artist.id ? (
             <Link href={`https://music.youtube.com/channel/${artist.id}`}>{artist.name}</Link>
-          </span>
-        ))}
+          ) : (
+            artist.name
+          )}
+        </span>
+      ))}
     </>
   );
 }
