@@ -31,7 +31,7 @@ export default function Header() {
           Burning enthusiasm for web development and web design.
         </strong>{" "}
         Crafting interfaces and applications with highest focus on user experience and artistic
-        beauty. A fast-learner who is passionate in cutting-edge technologies.
+        beauty. A fast-learner passionate in cutting-edge technologies.
       </motion.p>
       <motion.div variants={animate}>
         <Button href="/cv" primary isExternal>
