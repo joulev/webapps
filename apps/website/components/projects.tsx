@@ -60,10 +60,10 @@ export default function Projects() {
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <Card
           featured
-          title="ezkomment — Commenting made easy."
+          title="ezkomment"
           buttons={[
-            { href: "https://ezkomment.joulev.dev", content: "Visit the app" },
-            { href: "https://github.com/joulev/ezkomment", content: "Source code" },
+            { href: "https://ezkomment.joulev.dev", content: "Visit" },
+            { href: "https://github.com/joulev/ezkomment", content: "Source" },
             {
               href: "https://credentials.nus.edu.sg/8d536e9a-86ba-4e36-9e30-e17b8dc21bd3",
               content: "Certificate",
