@@ -10,7 +10,7 @@ export async function generateMetadata() {
   const description =
     "Burning enthusiasm for web development and web design. " +
     "Crafting interfaces and applications with highest focus on user experience and artistic beauty. " +
-    "A fast-learner who is passionate in cutting-edge technologies.";
+    "A fast-learner passionate in cutting-edge technologies.";
   const url = "https://joulev.dev";
   return {
     title,
