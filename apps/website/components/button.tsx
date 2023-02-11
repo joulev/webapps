@@ -13,6 +13,7 @@ export default function Button({ href, primary, className, isExternal, children 
       href={href}
       className={clsx("btn", primary ? "btn-primary" : "btn-secondary", className)}
       isExternal={isExternal}
+      isButton
     >
       {children}
     </Link>
