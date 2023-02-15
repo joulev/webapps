@@ -1,8 +1,14 @@
 import { hash } from "~/server/lib/utils";
 
 export default defineEventHandler(async event => {
-  if (event.context.isJoulev) return { success: true };
-  const basicAuth = event.req.headers.authorization;
+  function redirectOnSuccess() {
+    event.node.res.statusCode = 302;
+    event.node.res.setHeader("Location", "/joulev");
+    event.node.res.end();
+  }
+
+  if (event.context.isJoulev) return redirectOnSuccess();
+  const basicAuth = event.node.req.headers.authorization;
   if (basicAuth) {
     const authValue = basicAuth.split(" ")[1];
     const pwd = atob(authValue).split(":")[1];
@@ -13,10 +19,10 @@ export default defineEventHandler(async event => {
         secure: process.env.NODE_ENV === "production",
         sameSite: "strict",
       });
-      return { success: true };
+      return redirectOnSuccess();
     }
   }
-  event.res.statusCode = 401;
-  event.res.setHeader("WWW-Authenticate", 'Basic realm="Secure Area"');
+  event.node.res.statusCode = 401;
+  event.node.res.setHeader("WWW-Authenticate", 'Basic realm="Secure Area"');
   return { error: "Unauthorized" };
 });
