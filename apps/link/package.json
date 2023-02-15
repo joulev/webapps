@@ -10,19 +10,19 @@
   },
   "dependencies": {
     "@vercel/analytics": "0.1.8",
-    "lucide-vue-next": "0.109.0",
-    "mongodb": "5.0.0",
+    "lucide-vue-next": "0.114.0",
+    "mongodb": "5.0.1",
     "nanoid": "4.0.1",
     "nprogress": "0.2.0",
     "validator": "13.9.0"
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@nuxtjs/tailwindcss": "6.3.1",
+    "@nuxtjs/tailwindcss": "6.4.0",
     "@types/nprogress": "0.2.0",
     "@types/validator": "13.7.12",
     "autoprefixer": "10.4.13",
-    "nuxt": "3.1.2",
+    "nuxt": "3.2.0",
     "tailwind-dark-aware": "0.2.1",
     "typescript": "4.9.5",
     "vite-plugin-checker": "0.5.5",
