@@ -5,8 +5,13 @@ export type TweetWithPhoto = Tweet & {
 };
 
 export type Photo = {
-  tweet: TweetWithPhoto;
   url: string;
   width: number;
   height: number;
+  tweetUrl: string;
+  author: {
+    name: string;
+    handle: string;
+  };
+  dateAgo: string;
 };
