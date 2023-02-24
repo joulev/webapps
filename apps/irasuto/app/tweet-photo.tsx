@@ -14,7 +14,7 @@ export default function TweetPhoto({ url, width, height, tweetUrl, author, dateA
         <div className="flex flex-row justify-between items-end">
           <div className="flex flex-col">
             <div>{author.name}</div>
-            <div className="text-daw-main-500">@{author.handle}</div>
+            <div className="help-text">@{author.handle}</div>
           </div>
           <div className="help-text">{dateAgo}</div>
         </div>
