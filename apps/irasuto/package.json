@@ -1,0 +1,28 @@
+{
+  "name": "@joulev/apps-irasuto",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "canary",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@joulev/theme": "workspace:*",
+    "@types/node": "18.14.0",
+    "@types/react": "18.0.28",
+    "@types/react-dom": "18.0.11",
+    "autoprefixer": "10.4.13",
+    "eslint": "8.34.0",
+    "eslint-config-next": "canary",
+    "postcss": "8.4.21",
+    "tailwind-dark-aware": "0.2.1",
+    "tailwindcss": "3.2.7",
+    "typescript": "4.9.5"
+  }
+}
