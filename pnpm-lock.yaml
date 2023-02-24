@@ -128,6 +128,7 @@ importers:
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
       autoprefixer: 10.4.13
+      clsx: 1.2.1
       date-fns: 2.29.3
       eslint: 8.34.0
       eslint-config-next: canary
@@ -142,6 +143,7 @@ importers:
       typescript: 4.9.5
     dependencies:
       '@prisma/client': 4.10.1_prisma@4.10.1
+      clsx: 1.2.1
       date-fns: 2.29.3
       next: 13.2.1-canary.0_biqbaboplfbrettd7655fr4n2y
       next-tweet: 0.4.0_avkzbs57los6fogzead7rr4u74

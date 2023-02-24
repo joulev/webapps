@@ -1,4 +1,5 @@
 "use client";
+import clsx from "clsx";
 import { useState, useEffect as useEffectOriginal, useLayoutEffect, useMemo } from "react";
 import TweetPhoto from "./tweet-photo";
 import { Photo } from "~/types";
@@ -42,9 +43,13 @@ function useOrganisedPhotos(photos: Photo[], columnCount: number | null) {
 export default function Collage({ photos }: { photos: Photo[] }) {
   const count = useColumnCount();
   const columns = useOrganisedPhotos(photos, count);
-  if (count === null) return null;
   return (
-    <>
+    <div
+      className={clsx(
+        "p-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 transition duration-500",
+        count === null ? "opacity-0" : "opacity-100",
+      )}
+    >
       {columns.map((column, i) => (
         <div key={i} className="flex flex-col gap-3">
           {column.map(photo => (
@@ -52,6 +57,6 @@ export default function Collage({ photos }: { photos: Photo[] }) {
           ))}
         </div>
       ))}
-    </>
+    </div>
   );
 }

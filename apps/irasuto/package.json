@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@prisma/client": "4.10.1",
+    "clsx": "1.2.1",
     "date-fns": "2.29.3",
     "next": "canary",
     "next-tweet": "0.4.0",
