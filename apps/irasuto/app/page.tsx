@@ -1,4 +1,5 @@
 import { formatDistanceToNowStrict } from "date-fns";
+import About from "./about";
 import Collage from "./collage";
 import { prisma } from "~/lib/db";
 import { getTweet } from "~/lib/utils";
@@ -28,5 +29,10 @@ async function getPhotos(): Promise<Photo[]> {
 
 export default async function Page() {
   const photos = await getPhotos();
-  return <Collage photos={photos} />;
+  return (
+    <>
+      <Collage photos={photos} />
+      <About />
+    </>
+  );
 }

@@ -132,6 +132,7 @@ importers:
       date-fns: 2.29.3
       eslint: 8.34.0
       eslint-config-next: canary
+      lucide-react: 0.115.0
       next: canary
       next-tweet: 0.4.0
       postcss: 8.4.21
@@ -145,6 +146,7 @@ importers:
       '@prisma/client': 4.10.1_prisma@4.10.1
       clsx: 1.2.1
       date-fns: 2.29.3
+      lucide-react: 0.115.0_react@18.2.0
       next: 13.2.1-canary.0_biqbaboplfbrettd7655fr4n2y
       next-tweet: 0.4.0_avkzbs57los6fogzead7rr4u74
       react: 18.2.0
