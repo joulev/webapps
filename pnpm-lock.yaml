@@ -123,6 +123,7 @@ importers:
   apps/irasuto:
     specifiers:
       '@joulev/theme': workspace:*
+      '@prisma/client': 4.10.1
       '@types/node': 18.14.0
       '@types/react': 18.0.28
       '@types/react-dom': 18.0.11
@@ -131,12 +132,14 @@ importers:
       eslint-config-next: canary
       next: canary
       postcss: 8.4.21
+      prisma: 4.10.1
       react: 18.2.0
       react-dom: 18.2.0
       tailwind-dark-aware: 0.2.1
       tailwindcss: 3.2.7
       typescript: 4.9.5
     dependencies:
+      '@prisma/client': 4.10.1_prisma@4.10.1
       next: 13.2.1-canary.0_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -149,6 +152,7 @@ importers:
       eslint: 8.34.0
       eslint-config-next: 13.2.1-canary.0_7kw3g6rralp5ps6mg3uyzz6azm
       postcss: 8.4.21
+      prisma: 4.10.1
       tailwind-dark-aware: 0.2.1_tailwindcss@3.2.7
       tailwindcss: 3.2.7_postcss@8.4.21
       typescript: 4.9.5
@@ -2892,6 +2896,28 @@ packages:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
     dev: true
 
+  /@prisma/client/4.10.1_prisma@4.10.1:
+    resolution: {integrity: sha512-VonXLJZybdt8e5XZH5vnIGCRNnIh6OMX1FS3H/yzMGLT3STj5TJ/OkMcednrvELgk8PK89Vo3aSh51MWNO0axA==}
+    engines: {node: '>=14.17'}
+    requiresBuild: true
+    peerDependencies:
+      prisma: '*'
+    peerDependenciesMeta:
+      prisma:
+        optional: true
+    dependencies:
+      '@prisma/engines-version': 4.10.1-2.aead147aa326ccb985dcfed5b065b4fdabd44b19
+      prisma: 4.10.1
+    dev: false
+
+  /@prisma/engines-version/4.10.1-2.aead147aa326ccb985dcfed5b065b4fdabd44b19:
+    resolution: {integrity: sha512-tsjTho7laDhf9EJ9EnDxAPEf7yrigSMDhniXeU4YoWc7azHAs4GPxRi2P9LTFonmHkJLMOLjR77J1oIP8Ife1w==}
+    dev: false
+
+  /@prisma/engines/4.10.1:
+    resolution: {integrity: sha512-B3tcTxjx196nuAu1GOTKO9cGPUgTFHYRdkPkTS4m5ptb2cejyBlH9X7GOfSt3xlI7p4zAJDshJP4JJivCg9ouA==}
+    requiresBuild: true
+
   /@repeaterjs/repeater/3.0.4:
     resolution: {integrity: sha512-AW8PKd6iX3vAZ0vA43nOUOnbq/X5ihgU+mSXXqunMkeQADGiqw/PY0JNeYtD5sr0PAy51YPgAPbDoeapv9r8WA==}
     dev: true
@@ -3109,7 +3135,7 @@ packages:
       svelte: 3.55.1
       tiny-glob: 0.2.9
       undici: 5.19.1
-      vite: 4.1.2_@types+node@18.14.0
+      vite: 4.1.2
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3127,7 +3153,7 @@ packages:
       magic-string: 0.27.0
       svelte: 3.55.1
       svelte-hmr: 0.15.1_svelte@3.55.1
-      vite: 4.1.2_@types+node@18.14.0
+      vite: 4.1.2
       vitefu: 0.2.4_vite@4.1.2
     transitivePeerDependencies:
       - supports-color
@@ -9498,6 +9524,14 @@ packages:
     engines: {node: ^14.13.1 || >=16.0.0}
     dev: true
 
+  /prisma/4.10.1:
+    resolution: {integrity: sha512-0jDxgg+DruB1kHVNlcspXQB9au62IFfVg9drkhzXudszHNUAQn0lVuu+T8np0uC2z1nKD5S3qPeCyR8u5YFLnA==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@prisma/engines': 4.10.1
+
   /process-nextick-args/2.0.1:
     resolution: {integrity: sha512-3ouUOpQhtgrbOa17J7+uxOTpITYWaGP7/AhoR3+A+/1e9skrzelGi/dXzEYyvbxubEF6Wn2ypscTKiKJFFn1ag==}
     dev: true
@@ -10593,7 +10627,7 @@ packages:
       detect-indent: 6.1.0
       magic-string: 0.27.0
       postcss: 8.4.21
-      postcss-load-config: 4.0.1_aesdjsunmf4wiehhujt67my7tu
+      postcss-load-config: 4.0.1_postcss@8.4.21
       sorcery: 0.11.0
       strip-indent: 3.0.0
       svelte: 3.55.1
@@ -11583,7 +11617,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.1.2_@types+node@18.14.0
+      vite: 4.1.2
     dev: true
 
   /vscode-jsonrpc/6.0.0:
