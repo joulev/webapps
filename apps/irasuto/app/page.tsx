@@ -36,3 +36,5 @@ export default async function Page() {
     </>
   );
 }
+
+export const revalidate = 86400; // 24 hours
