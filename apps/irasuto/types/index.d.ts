@@ -4,7 +4,7 @@ export type TweetWithPhoto = Tweet & {
   photos: NonNullable<Tweet["photos"]>;
 };
 
-export type TweetPhotoProps = {
+export type Photo = {
   tweet: TweetWithPhoto;
   url: string;
   width: number;

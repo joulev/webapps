@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { TweetPhotoProps } from "~/types";
+import { Photo } from "~/types";
 
-export default function TweetPhoto({ url, width, height, tweet }: TweetPhotoProps) {
+export default function TweetPhoto({ url, width, height, tweet }: Photo) {
   return <Image src={url} alt={`Illustration at ${url}`} width={width} height={height} />;
 }

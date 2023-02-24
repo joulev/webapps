@@ -1,12 +1,12 @@
+import Collage from "./collage";
 import { prisma } from "~/lib/db";
 import { getTweet } from "~/lib/utils";
-import { TweetPhotoProps } from "~/types";
-import TweetPhoto from "./tweet-photo";
+import { Photo } from "~/types";
 
-async function getPhotos(): Promise<TweetPhotoProps[]> {
+async function getPhotos(): Promise<Photo[]> {
   const illustrations = await prisma.illustration.findMany();
   const tweets = await Promise.all(illustrations.map(getTweet));
-  const photos: TweetPhotoProps[] = tweets
+  const photos: Photo[] = tweets
     .map(tweet => tweet.photos.map(({ url, width, height }) => ({ tweet, url, width, height })))
     .flat()
     // https://stackoverflow.com/a/46545530, nice
@@ -19,10 +19,8 @@ async function getPhotos(): Promise<TweetPhotoProps[]> {
 export default async function Page() {
   const photos = await getPhotos();
   return (
-    <div>
-      {photos.map(photo => (
-        <TweetPhoto key={photo.url} {...photo} />
-      ))}
+    <div className="p-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      <Collage photos={photos} />
     </div>
   );
 }
