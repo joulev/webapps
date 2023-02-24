@@ -6,7 +6,6 @@ import { Photo } from "~/types";
 const useEffect = typeof window === "undefined" ? useEffectOriginal : useLayoutEffect;
 
 const BREAKPOINTS = [640, 1024]; // [1] 640 [2] 1024 [3], all are min-width
-const GAP = 12;
 
 function useColumnCount() {
   const [columnCount, setColumnCount] = useState<number | null>(null);
@@ -33,7 +32,7 @@ function useOrganisedPhotos(photos: Photo[], columnCount: number | null) {
     for (const photo of photos) {
       const lowestColumn = columns.slice().sort((a, b) => a.height - b.height)[0];
       columns[lowestColumn.index].photos.push(photo);
-      columns[lowestColumn.index].height += photo.height + GAP;
+      columns[lowestColumn.index].height += photo.height / photo.width;
     }
     return columns.map(column => column.photos);
   }, [photos, columnCount]);
@@ -47,7 +46,7 @@ export default function Collage({ photos }: { photos: Photo[] }) {
   return (
     <>
       {columns.map((column, i) => (
-        <div key={i} className="flex flex-col" style={{ gap: GAP }}>
+        <div key={i} className="flex flex-col gap-3">
           {column.map(photo => (
             <TweetPhoto key={photo.url} {...photo} />
           ))}
