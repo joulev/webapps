@@ -48,3 +48,11 @@
 - **Description:** An app where I make (interactive) presentation slides with code and web technologies.
 - **Deployment:** https://presentation.joulev.dev
 - **Source:** [apps/presentation](/apps/presentation)
+
+## irasuto
+
+![](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white) ![](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+
+- **Description:** My collection of some of the most gorgeous Japanese illustrations that I've found on Twitter.
+- **Deployment:** https://irasuto.joulev.dev
+- **Source:** [apps/irasuto](/apps/irasuto)

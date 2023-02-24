@@ -6,7 +6,7 @@
 ---
 
 This is where I store my collection of some of the most gorgeous illustrations related to Japanese
-popular culture that I&rsquo;ve found on Twitter.
+popular culture that I've found on Twitter.
 
 Then whenever I come across one, I can always send a request to the `/add` route (with necessary
 credentials) to update the database.

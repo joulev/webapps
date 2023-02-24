@@ -132,9 +132,22 @@ export default function Projects() {
         >
           An app where I make (interactive) presentation slides with code and web technologies.
         </Card>
-        <div className="hidden sm:grid rounded border border-daw-main-200 place-items-center text-daw-main-400">
+        <Card
+          title="irasuto at joulev.dev"
+          buttons={[
+            { href: "https://irasuto.joulev.dev", content: "Deployment" },
+            {
+              href: "https://github.com/joulev/webapps/tree/main/apps/irasuto",
+              content: "Source",
+            },
+          ]}
+        >
+          My collection of some of the most gorgeous Japanese illustrations that I&rsquo;ve found on
+          Twitter.
+        </Card>
+        {/* <div className="hidden sm:grid rounded border border-daw-main-200 place-items-center text-daw-main-400">
           and more to come &hellip;
-        </div>
+        </div> */}
       </div>
     </motion.section>
   );
