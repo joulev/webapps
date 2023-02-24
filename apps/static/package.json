@@ -2,9 +2,9 @@
   "name": "@joulev/apps-static",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3005",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start --port 3005",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {

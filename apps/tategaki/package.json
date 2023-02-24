@@ -2,9 +2,9 @@
   "name": "@joulev/apps-tategaki",
   "private": true,
   "scripts": {
-    "dev": "vite dev --port 3002",
+    "dev": "vite dev",
     "build": "vite build",
-    "preview": "vite preview --port 3002",
+    "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check",
     "check:watch": "svelte-kit sync && svelte-check --watch",
     "lint": "prettier --check . && eslint .",

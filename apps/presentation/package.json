@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port 3006",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview --port 3006",
+    "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {

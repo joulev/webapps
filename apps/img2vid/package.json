@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "postinstall": "cp -r node_modules/@ffmpeg/core/dist public",
-    "dev": "next dev --port 3007",
+    "dev": "next dev",
     "build": "next build",
-    "start": "next start --port 3007",
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
