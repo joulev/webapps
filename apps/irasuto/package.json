@@ -12,6 +12,7 @@
   "dependencies": {
     "@prisma/client": "4.10.1",
     "next": "canary",
+    "next-tweet": "0.4.0",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
