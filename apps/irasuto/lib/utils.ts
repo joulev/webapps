@@ -1,5 +1,5 @@
 import { Illustration } from "@prisma/client";
-import { getTweet as _getTweet } from "next-tweet/api/get-tweet";
+import { getTweet as _getTweet } from "next-tweet/api";
 import { TweetWithPhoto } from "~/types";
 
 export async function getTweet(illustration: Illustration): Promise<TweetWithPhoto> {
