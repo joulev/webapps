@@ -6,3 +6,5 @@ documents:
 generates:
   ./src/lib/gql/:
     preset: client-preset
+    config:
+      useTypeImports: true
