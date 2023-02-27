@@ -10,7 +10,7 @@
   "dependencies": {
     "@vercel/analytics": "0.1.10",
     "clsx": "1.2.1",
-    "framer-motion": "10.0.0",
+    "framer-motion": "10.0.1",
     "lucide-react": "0.115.0",
     "next": "canary",
     "react": "18.2.0",
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@types/node": "18.14.1",
+    "@types/node": "18.14.2",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "autoprefixer": "10.4.13",
