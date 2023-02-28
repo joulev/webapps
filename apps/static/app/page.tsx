@@ -46,7 +46,7 @@ export const metadata = {
     siteName: title,
     images: [
       {
-        url: "https://static.joulev.dev/api/og?title=static",
+        url: "https://static.joulev.dev/og?title=static",
         alt: title,
         width: 1200,
         height: 630,

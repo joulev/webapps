@@ -3,8 +3,6 @@ import { NextRequest } from "next/server";
 
 import Logo from "~/components/logo";
 
-export const config = { runtime: "edge" };
-
 async function fetchFont() {
   const getURL = (w: "Light" | "Medium") => `https://static.joulev.dev/fonts/Sunflower-${w}.woff`;
   const getFont = (w: "Light" | "Medium") => fetch(getURL(w)).then(res => res.arrayBuffer());
@@ -57,7 +55,7 @@ function Circle({ radius, opacity, angle, isDark }: CircleProps) {
   );
 }
 
-export default async function handler(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const searchParams = new URL(req.url).searchParams;
   const title = searchParams.get("title");
   const subtitle = searchParams.get("subtitle");
@@ -90,3 +88,5 @@ export default async function handler(req: NextRequest) {
     options,
   );
 }
+
+export const runtime = "experimental-edge";

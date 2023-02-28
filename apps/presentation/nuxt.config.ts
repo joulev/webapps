@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:creator", content: "@joulev_3" },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: "https://static.joulev.dev/api/og?title=presentation" },
+        { property: "og:image", content: "https://static.joulev.dev/og?title=presentation" },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
       ],

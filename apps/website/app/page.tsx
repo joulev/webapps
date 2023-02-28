@@ -23,7 +23,7 @@ export const metadata = {
     siteName: title,
     images: [
       {
-        url: "https://static.joulev.dev/api/og?title=Vu+Van+Dung&subtitle=Full+stack+developer",
+        url: "https://static.joulev.dev/og?title=Vu+Van+Dung&subtitle=Full+stack+developer",
         alt: title,
         width: 1200,
         height: 630,
