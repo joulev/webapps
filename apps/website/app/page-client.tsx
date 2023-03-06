@@ -1,6 +1,5 @@
 "use client";
 
-import Contact from "~/components/contact";
 import Footer from "~/components/footer";
 import Header from "~/components/header";
 import Now from "~/components/now";
@@ -15,7 +14,6 @@ export default function PageClient({ updated }: { updated: string }) {
         <Skills />
         <Projects />
         <Now />
-        <Contact />
       </main>
       <Footer updated={updated} />
       <div className="fixed top-0 inset-x-0 h-36 bg-gradient-to-b from-daw-main-100 to-transparent backdrop-blur-sm mask pointer-events-none z-20" />

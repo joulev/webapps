@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Mail, Github } from "lucide-react";
 import Image from "next/image";
 import Button from "~/components/button";
 import animate from "~/lib/motion";
@@ -33,9 +34,15 @@ export default function Header() {
         Crafting interfaces and applications with highest focus on user experience and artistic
         beauty. A fast-learner passionate in cutting-edge technologies.
       </motion.p>
-      <motion.div variants={animate}>
+      <motion.div className="flex flex-row gap-3" variants={animate}>
         <Button href="/cv" primary isExternal disablePrefetch>
           View résumé
+        </Button>
+        <Button href="mailto:me@joulev.dev" className="btn-nopadding p-1.5">
+          <Mail size={24} width={24} strokeWidth={1} />
+        </Button>
+        <Button href="https://github.com/joulev" className="btn-nopadding p-1.5">
+          <Github size={24} width={24} strokeWidth={1} />
         </Button>
       </motion.div>
     </div>
