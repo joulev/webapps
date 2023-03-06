@@ -4,6 +4,9 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", ".nuxt/**", ".svelte-kit/**", "dist/**", ".vercel/output/**"]
+    },
+    "dev": {
+      "cache": false
     }
   }
 }
