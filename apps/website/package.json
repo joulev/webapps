@@ -10,20 +10,20 @@
   "dependencies": {
     "@vercel/analytics": "0.1.11",
     "clsx": "1.2.1",
-    "framer-motion": "10.0.2",
-    "lucide-react": "0.123.0",
+    "framer-motion": "10.2.4",
+    "lucide-react": "0.125.0",
     "next": "canary",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "swr": "2.0.4"
+    "swr": "2.1.0"
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@types/node": "18.14.6",
+    "@types/node": "18.15.0",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
-    "autoprefixer": "10.4.13",
-    "eslint": "8.35.0",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.36.0",
     "eslint-config-next": "canary",
     "postcss": "8.4.21",
     "tailwind-dark-aware": "0.2.1",

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "0.1.11",
-    "lucide-vue-next": "0.123.0",
+    "lucide-vue-next": "0.125.0",
     "mongodb": "5.1.0",
     "nanoid": "4.0.1",
     "nprogress": "0.2.0",
@@ -21,7 +21,7 @@
     "@nuxtjs/tailwindcss": "6.4.1",
     "@types/nprogress": "0.2.0",
     "@types/validator": "13.7.13",
-    "autoprefixer": "10.4.13",
+    "autoprefixer": "10.4.14",
     "nuxt": "3.2.3",
     "tailwind-dark-aware": "0.2.1",
     "typescript": "4.9.5",
