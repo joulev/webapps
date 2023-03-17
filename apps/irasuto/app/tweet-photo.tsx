@@ -1,6 +1,44 @@
-import Image from "next/image";
+import clsx from "clsx";
+import { useEffect, useMemo, useState } from "react";
+import { useInView } from "react-intersection-observer";
 import A from "./anchor";
 import { Photo } from "~/types";
+
+function Image(props: React.ComponentProps<"img">) {
+  const { ref, inView } = useInView();
+  const [arrayBuffer, setArrayBuffer] = useState<ArrayBuffer | null>(null);
+
+  const dataUrl = useMemo(() => {
+    if (!arrayBuffer) return null;
+    const blob = new Blob([arrayBuffer]);
+    return URL.createObjectURL(blob);
+  }, [arrayBuffer]);
+
+  useEffect(() => {
+    // This is *not* run twice in dev+strict mode whenever inView changes. Guess why?
+    if (!inView || !props.src || dataUrl) return;
+    const controller = new AbortController();
+    fetch(props.src, { signal: controller.signal })
+      .then(res => res.arrayBuffer())
+      .then(setArrayBuffer)
+      .catch(err => (err.name === "AbortError" ? null : console.error(err)));
+    return () => controller.abort();
+  }, [inView]);
+
+  return (
+    <div ref={ref}>
+      <img
+        src={dataUrl || undefined}
+        {...props}
+        className={clsx(
+          "duration-500 transition",
+          dataUrl ? "opacity-100" : "opacity-0",
+          props.className,
+        )}
+      />
+    </div>
+  );
+}
 
 export default function TweetPhoto({ url, width, height, tweetUrl, author, dateAgo }: Photo) {
   return (
