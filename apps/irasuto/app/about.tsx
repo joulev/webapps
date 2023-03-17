@@ -18,7 +18,7 @@ export default function About() {
               <Home strokeWidth={1} />
             </A>
             <A
-              href="https://github.com/joulev/webapps/tree/main/apps/static"
+              href="https://github.com/joulev/webapps/tree/main/apps/irasuto"
               className="btn btn-tertiary btn-nopadding"
             >
               <Github strokeWidth={1} />
