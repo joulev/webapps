@@ -10,7 +10,7 @@
   "dependencies": {
     "@vercel/og": "0.4.0",
     "lucide-react": "0.125.0",
-    "next": "canary",
+    "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "tailwind-dark-aware": "0.2.1"
