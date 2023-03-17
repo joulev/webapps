@@ -1,3 +1,4 @@
+"use client";
 import clsx from "clsx";
 import { useEffect, useMemo, useState } from "react";
 import { useInView } from "react-intersection-observer";
@@ -23,10 +24,11 @@ function Image(props: React.ComponentProps<"img">) {
       .then(setArrayBuffer)
       .catch(err => (err.name === "AbortError" ? null : console.error(err)));
     return () => controller.abort();
-  }, [inView]);
+  }, [inView, props.src, dataUrl]);
 
   return (
     <div ref={ref}>
+      {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
       <img
         src={dataUrl || undefined}
         {...props}
