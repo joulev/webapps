@@ -5,7 +5,7 @@ import { useInView } from "react-intersection-observer";
 import A from "./anchor";
 import { Photo } from "~/types";
 
-function Image(props: React.ComponentProps<"img">) {
+function Image({ src, className, ...props }: React.ComponentProps<"img">) {
   const { ref, inView } = useInView();
   const [arrayBuffer, setArrayBuffer] = useState<ArrayBuffer | null>(null);
 
@@ -17,17 +17,24 @@ function Image(props: React.ComponentProps<"img">) {
 
   useEffect(() => {
     // This is *not* run twice in dev+strict mode whenever inView changes. Guess why?
-    if (!inView || !props.src || dataUrl) return;
+    if (!inView || !src || dataUrl) return;
     const controller = new AbortController();
-    fetch(props.src, { signal: controller.signal })
-      .then(res => res.arrayBuffer())
-      .then(setArrayBuffer)
-      .catch(err => (err.name === "AbortError" ? null : console.error(err)));
-    return () => controller.abort();
-  }, [inView, props.src, dataUrl]);
+    const timeout = setTimeout(
+      () =>
+        fetch(src, { signal: controller.signal })
+          .then(res => res.arrayBuffer())
+          .then(setArrayBuffer)
+          .catch(err => (err.name === "AbortError" ? null : console.error(err))),
+      100,
+    );
+    return () => {
+      controller.abort();
+      clearTimeout(timeout);
+    };
+  }, [inView, src, dataUrl]);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className="bg-main-300">
       {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
       <img
         src={dataUrl || undefined}
@@ -35,7 +42,7 @@ function Image(props: React.ComponentProps<"img">) {
         className={clsx(
           "duration-500 transition",
           dataUrl ? "opacity-100" : "opacity-0",
-          props.className,
+          className,
         )}
       />
     </div>
