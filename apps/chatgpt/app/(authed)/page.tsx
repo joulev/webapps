@@ -97,29 +97,35 @@ export default function Page() {
   );
 
   return (
-    <div className="flex flex-col gap-6">
-      {messages.map((message, i) =>
-        message.role === "user" ? (
-          <UserMessage key={i} content={message.content} />
-        ) : (
-          <ResponseMessage key={i} content={message.content} />
-        ),
-      )}
-      <div className="flex flex-col gap-3">
-        <textarea
-          className="w-full input h-24"
-          value={prompt}
-          onKeyDown={onKeyDown}
-          onChange={e => setPrompt(e.target.value)}
-          disabled={isLoading}
-        />
-        <div className="flex flex-row justify-end gap-3">
-          <button className="btn btn-secondary" onClick={() => setPrompt("")} disabled={isLoading}>
-            Cancel
-          </button>
-          <button className="btn btn-primary" onClick={submit} disabled={isLoading}>
-            Submit
-          </button>
+    <div className="container max-w-screen-md py-12">
+      <div className="flex flex-col gap-6">
+        {messages.map((message, i) =>
+          message.role === "user" ? (
+            <UserMessage key={i} content={message.content} />
+          ) : (
+            <ResponseMessage key={i} content={message.content} />
+          ),
+        )}
+        <div className="flex flex-col gap-3">
+          <textarea
+            className="w-full input h-24"
+            value={prompt}
+            onKeyDown={onKeyDown}
+            onChange={e => setPrompt(e.target.value)}
+            disabled={isLoading}
+          />
+          <div className="flex flex-row justify-end gap-3">
+            <button
+              className="btn btn-secondary"
+              onClick={() => setPrompt("")}
+              disabled={isLoading}
+            >
+              Cancel
+            </button>
+            <button className="btn btn-primary" onClick={submit} disabled={isLoading}>
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </div>

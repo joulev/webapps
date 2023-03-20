@@ -1,3 +1,4 @@
+import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { Configuration, OpenAIApi } from "openai-edge";
 import { z } from "zod";
@@ -13,6 +14,10 @@ const inputSchema = z.object({
 });
 
 export async function POST(request: Request) {
+  const secret = cookies().get("secret")?.value;
+  if (!secret || secret !== process.env.JOULEV_PASSWORD)
+    return NextResponse.json({}, { status: 401 });
+
   const result = inputSchema.safeParse(await request.json());
   if (!result.success) return NextResponse.json({}, { status: 400 });
   const { prompt, previousMessages } = result.data;
