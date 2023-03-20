@@ -84,7 +84,7 @@ export default function Page() {
 
   const onKeyDown = useCallback(
     async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-      if (e.key === "Enter" && !e.shiftKey && !isLoading) {
+      if (e.key === "Enter" && e.shiftKey && !isLoading) {
         e.preventDefault();
         await submit();
       }
@@ -101,13 +101,23 @@ export default function Page() {
           <ResponseMessage key={i} content={message.content} />
         ),
       )}
-      <textarea
-        className="w-full input h-24"
-        value={prompt}
-        onKeyDown={onKeyDown}
-        onChange={e => setPrompt(e.target.value)}
-        disabled={isLoading}
-      />
+      <div className="flex flex-col gap-3">
+        <textarea
+          className="w-full input h-24"
+          value={prompt}
+          onKeyDown={onKeyDown}
+          onChange={e => setPrompt(e.target.value)}
+          disabled={isLoading}
+        />
+        <div className="flex flex-row justify-end gap-3">
+          <button className="btn btn-secondary" onClick={() => setPrompt("")} disabled={isLoading}>
+            Cancel
+          </button>
+          <button className="btn btn-primary" onClick={submit} disabled={isLoading}>
+            Submit
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

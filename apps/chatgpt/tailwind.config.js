@@ -11,6 +11,7 @@ module.exports = {
     extend: {
       transitionDuration: { 600: "600ms" },
       fontFamily: { mono: defaultTheme.fontFamily.mono },
+      fontSize: { base: ["0.875rem", { lineHeight: "1.25rem" }] },
     },
   },
   plugins: [plugin({ withFont: false }), require("tailwind-dark-aware")({ withDark: false })],
