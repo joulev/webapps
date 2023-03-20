@@ -70,7 +70,11 @@ export default function Page() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt, previousMessages: messages }),
     });
-    if (!res.ok || !res.body) return console.error("Something went wrong");
+    if (!res.ok || !res.body) {
+      setIsLoading(false);
+      alert("Something went wrong.");
+      return;
+    }
     setMessages(messages => [...messages, { role: "user", content: prompt }]);
     setPrompt("");
     const reader = res.body.getReader();
