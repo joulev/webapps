@@ -38,7 +38,7 @@ function Image({
   }, [inView, src, dataUrl]);
 
   return (
-    <div ref={ref} className="bg-main-300">
+    <div ref={ref} className="bg-daw-main-300">
       {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
       <img
         src={
