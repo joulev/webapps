@@ -41,4 +41,4 @@ export async function POST(request: Request) {
   }
 }
 
-export const runtime = "experimental-edge";
+// export const runtime = "experimental-edge";
