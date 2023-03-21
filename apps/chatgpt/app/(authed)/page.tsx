@@ -72,7 +72,7 @@ export default function Page() {
     });
     if (!res.ok || !res.body) {
       setIsLoading(false);
-      alert("Something went wrong.");
+      alert(`Something went wrong (status: ${res.status})`);
       return;
     }
     setMessages(messages => [...messages, { role: "user", content: prompt }]);
