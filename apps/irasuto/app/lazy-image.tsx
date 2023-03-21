@@ -21,7 +21,7 @@ export default function LazyImage({
           .then(res => res.arrayBuffer())
           .then(arrayBuffer => setDataUrl(URL.createObjectURL(new Blob([arrayBuffer]))))
           .catch(err => (err.name === "AbortError" ? null : console.error(err))),
-      100,
+      300,
     );
     return () => {
       controller.abort();
