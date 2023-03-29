@@ -13,7 +13,7 @@
   h2,
   h3,
   strong {
-    @apply text-daw-main-900;
+    @apply text-daw-main-950;
   }
   h2 {
     @apply text-2xl font-semibold mb-12;

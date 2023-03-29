@@ -30,12 +30,12 @@ export const plugin = internal.withOptions<Partial<Option>>(
 
       // someone helps me with naming these
       const colour = {
-        same: (key: string) => themedStyle(mode, key, [main![100], main![900]]),
-        card: (key: string) => themedStyle(mode, key, [main![200], main![800]]),
-        faded: (key: string) => themedStyle(mode, key, [main![300], main![700]]),
+        same: (key: string) => themedStyle(mode, key, [main![50], main![950]]),
+        card: (key: string) => themedStyle(mode, key, [main![100], main![900]]),
+        faded: (key: string) => themedStyle(mode, key, [main![200], main![800]]),
+        reduced: (key: string) => themedStyle(mode, key, [main![300], main![700]]),
         muted: (key: string) => themedStyle(mode, key, [main![500], main![500]]),
-        reduced: (key: string) => themedStyle(mode, key, [main![600], main![400]]),
-        contrast: (key: string) => themedStyle(mode, key, [main![900], main![100]]),
+        contrast: (key: string) => themedStyle(mode, key, [main![950], main![50]]),
       };
 
       if (withFont)
@@ -103,13 +103,19 @@ export const plugin = internal.withOptions<Partial<Option>>(
       });
 
       addComponents({
-        ".input": mergedStyles(transition, padding("base"), colour.faded("borderColor"), rounded, {
-          backgroundColor: "transparent",
-          outline: "none",
-          borderWidth: theme("borderWidth.DEFAULT"),
-          "&::placeholder": colour.muted("color"),
-          "&:focus": colour.muted("borderColor"),
-        }),
+        ".input": mergedStyles(
+          transition,
+          padding("base"),
+          colour.reduced("borderColor"),
+          rounded,
+          {
+            backgroundColor: "transparent",
+            outline: "none",
+            borderWidth: theme("borderWidth.DEFAULT"),
+            "&::placeholder": colour.muted("color"),
+            "&:focus": colour.muted("borderColor"),
+          },
+        ),
       });
 
       addComponents({

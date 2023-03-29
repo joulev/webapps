@@ -59,7 +59,7 @@ function remove() {
 </script>
 
 <template>
-  <div class="odd:bg-daw-main-200 lg:rounded flex flex-row items-center gap-6 px-6 py-6">
+  <div class="odd:bg-daw-main-100 lg:rounded flex flex-row items-center gap-6 px-6 py-6">
     <input
       class="w-24 md:w-36 focus:outline-none bg-transparent"
       :class="{ 'font-semibold': slugUpdating, 'text-red': !slugIsValid }"

@@ -16,7 +16,7 @@ export default function PageClient({ updated }: { updated: string }) {
         <Now />
       </main>
       <Footer updated={updated} />
-      <div className="fixed top-0 inset-x-0 h-36 bg-gradient-to-b from-daw-main-100 to-transparent backdrop-blur-sm mask pointer-events-none z-20" />
+      <div className="fixed top-0 inset-x-0 h-36 bg-gradient-to-b from-daw-main-50 to-transparent backdrop-blur-sm mask pointer-events-none z-20" />
     </div>
   );
 }

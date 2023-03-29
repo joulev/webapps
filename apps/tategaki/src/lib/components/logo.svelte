@@ -22,6 +22,6 @@
 
 <style lang="postcss">
   path {
-    @apply fill-daw-main-900;
+    @apply fill-daw-main-950;
   }
 </style>
