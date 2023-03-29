@@ -1,6 +1,6 @@
 import { Config } from "tailwindcss";
 import defaultTheme from "tailwindcss/defaultTheme";
-import { preset, plugin } from "@joulev/theme/src";
+import { preset, plugin } from "@joulev/theme";
 import tailwindDarkAware from "tailwind-dark-aware";
 
 export default {
