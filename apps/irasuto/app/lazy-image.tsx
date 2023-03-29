@@ -30,7 +30,7 @@ export default function LazyImage({
   }, [inView, src, dataUrl]);
 
   return (
-    <div ref={ref} className="bg-daw-main-300">
+    <div ref={ref} className="bg-daw-main-100">
       {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/alt-text */}
       <img
         src={
