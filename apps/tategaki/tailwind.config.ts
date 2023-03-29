@@ -1,10 +1,9 @@
-// @ts-check
+import { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
+import { preset, plugin } from "@joulev/theme/src";
+import tailwindDarkAware from "tailwind-dark-aware";
 
-const { preset, plugin } = require("@joulev/theme");
-const defaultTheme = require("tailwindcss/defaultTheme");
-
-/** @type {import("tailwindcss").Config} */
-module.exports = {
+export default {
   content: ["./src/**/*.{html,js,svelte,ts}"],
   presets: [preset],
   theme: {
@@ -19,5 +18,5 @@ module.exports = {
       },
     },
   },
-  plugins: [plugin({ vertical: true }), require("tailwind-dark-aware")],
-};
+  plugins: [plugin({ vertical: true }), tailwindDarkAware],
+} satisfies Config;

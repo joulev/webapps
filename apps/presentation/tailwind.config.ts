@@ -1,5 +1,5 @@
 import { Config } from "tailwindcss";
-import { preset, plugin } from "@joulev/theme";
+import { preset, plugin } from "@joulev/theme/src";
 import customTailwindSpacing from "./utils/custom-tailwind-spacing"; // cannot use absolute path here
 
 export default <Config>{

@@ -17,7 +17,7 @@ function Card({ featured, title, children, buttons }: CardProps) {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
   return (
     <div
-      className={clsx(featured && "col-span-full", "bg-daw-main-200 rounded relative group")}
+      className={clsx(featured && "col-span-full", "card relative group")}
       style={{ "--left": `${mouse.x}px`, "--top": `${mouse.y}px` } as any}
       onMouseMove={e => {
         const rect = e.currentTarget.getBoundingClientRect();
@@ -145,7 +145,7 @@ export default function Projects() {
           My collection of some of the most gorgeous Japanese illustrations that I&rsquo;ve found on
           Twitter.
         </Card>
-        {/* <div className="hidden sm:grid rounded border border-daw-main-200 place-items-center text-daw-main-400">
+        {/* <div className="hidden sm:grid rounded border border-daw-main-100 place-items-center text-daw-main-400">
           and more to come &hellip;
         </div> */}
       </div>

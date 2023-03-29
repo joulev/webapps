@@ -38,7 +38,7 @@ export default function About() {
           <div
             className={clsx(
               "overflow-hidden transition-opacity duration-600",
-              expanded ? "opacity-100 text-daw-main-900" : "opacity-0 text-daw-main-200",
+              expanded ? "opacity-100 text-daw-main-950" : "opacity-0 text-daw-main-200",
             )}
           >
             <p className="mb-6">

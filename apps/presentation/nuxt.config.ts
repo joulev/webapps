@@ -38,7 +38,7 @@ export default defineNuxtConfig({
         },
       ],
       bodyAttrs: {
-        class: "bg-main-900 text-main-100",
+        class: "bg-main-950 text-main-50",
       },
     },
   },

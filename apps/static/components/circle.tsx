@@ -14,7 +14,7 @@ function Circle({ index, opacity }: { index: number; opacity: number }) {
   return (
     <g className="animate-fadein" style={{ animationDelay: `${index * 75}ms` }}>
       <circle opacity={opacity} r={radius} className="stroke-main-500 stroke-1 fill-none" />
-      <circle cx={x} cy={y} r={smallR - 1} className="stroke-main-500 stroke-1 fill-daw-main-100">
+      <circle cx={x} cy={y} r={smallR - 1} className="stroke-main-500 stroke-1 fill-daw-main-50">
         <animateTransform
           attributeName="transform"
           type="rotate"

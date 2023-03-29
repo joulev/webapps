@@ -10,7 +10,7 @@ export default function Page() {
       className="w-screen h-screen grid place-items-center relative overflow-hidden"
       style={{ width: "100dvw", height: "100dvh" }} // works even if browser doesn't support dv*
     >
-      <a href="https://joulev.dev" className="[&_path]:!fill-daw-main-900 animate-fadein-fast">
+      <a href="https://joulev.dev" className="[&_path]:!fill-daw-main-950 animate-fadein-fast">
         <Logo />
       </a>
       <div

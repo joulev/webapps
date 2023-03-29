@@ -44,12 +44,12 @@ function Circle({ radius, opacity, angle, isDark }: CircleProps) {
   const x = radius * Math.cos(rad);
   const y = -radius * Math.sin(rad);
 
-  const fillColour = isDark ? "#1c1917" : "#fafaf9";
+  const fillColour = isDark ? "#18181b" : "#f4f4f5";
   return (
     <div tw="absolute inset-0 flex flex-col items-center justify-center">
       <svg width={size} height={size} viewBox={viewBox}>
-        <circle opacity={opacity} r={radius} stroke="#78716c" strokeWidth="2" fill="none" />
-        <circle cx={x} cy={y} r={smallR - 2} stroke="#78716c" strokeWidth="2" fill={fillColour} />
+        <circle opacity={opacity} r={radius} stroke="#71717a" strokeWidth="2" fill="none" />
+        <circle cx={x} cy={y} r={smallR - 2} stroke="#71717a" strokeWidth="2" fill={fillColour} />
       </svg>
     </div>
   );
