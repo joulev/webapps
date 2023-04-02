@@ -164,9 +164,6 @@ importers:
 
   apps/img2vid:
     dependencies:
-      '@ffmpeg/core':
-        specifier: 0.11.0
-        version: 0.11.0
       '@ffmpeg/ffmpeg':
         specifier: 0.11.6
         version: 0.11.6
@@ -1730,10 +1727,6 @@ packages:
     resolution: {integrity: sha512-x5vzdtOOGgFVDCUs81QRB2+liax8rFg3+7hqM+QhBG0/G3F1ZsoYl97UrqgHgQ9KKT7G6c4V+aTUCgu/n22v1A==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
-
-  /@ffmpeg/core@0.11.0:
-    resolution: {integrity: sha512-9Tt/+2PMpkGPXUK8n6He9G8Y+qR6qmCPSCw9iEKZxHHOvJ9BE/r0Fccj+YgDZTlyu6rXxc9x6EqCaFBIt7qzjA==}
-    dev: false
 
   /@ffmpeg/ffmpeg@0.11.6:
     resolution: {integrity: sha512-uN8J8KDjADEavPhNva6tYO9Fj0lWs9z82swF3YXnTxWMBoFLGq3LZ6FLlIldRKEzhOBKnkVfA8UnFJuvGvNxcA==}

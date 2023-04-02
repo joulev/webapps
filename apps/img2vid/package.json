@@ -2,14 +2,12 @@
   "name": "@joulev/apps-img2vid",
   "private": true,
   "scripts": {
-    "postinstall": "cp -r node_modules/@ffmpeg/core/dist public",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@ffmpeg/core": "0.11.0",
     "@ffmpeg/ffmpeg": "0.11.6",
     "next": "13.2.4",
     "react": "18.2.0",
