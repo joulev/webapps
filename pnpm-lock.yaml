@@ -49,10 +49,10 @@ importers:
         version: link:../../packages/theme
       '@sveltejs/adapter-vercel':
         specifier: 2.4.1
-        version: 2.4.1(@sveltejs/kit@1.15.0)
+        version: 2.4.1(@sveltejs/kit@1.15.1)
       '@sveltejs/kit':
-        specifier: 1.15.0
-        version: 1.15.0(svelte@3.58.0)(vite@4.2.1)
+        specifier: 1.15.1
+        version: 1.15.1(svelte@3.58.0)(vite@4.2.1)
       '@types/node':
         specifier: 18.15.11
         version: 18.15.11
@@ -424,10 +424,10 @@ importers:
         version: link:../../packages/theme
       '@sveltejs/adapter-vercel':
         specifier: 2.4.1
-        version: 2.4.1(@sveltejs/kit@1.15.0)
+        version: 2.4.1(@sveltejs/kit@1.15.1)
       '@sveltejs/kit':
-        specifier: 1.15.0
-        version: 1.15.0(svelte@3.58.0)(vite@4.2.1)
+        specifier: 1.15.1
+        version: 1.15.1(svelte@3.58.0)(vite@4.2.1)
       '@typescript-eslint/eslint-plugin':
         specifier: 5.57.0
         version: 5.57.0(@typescript-eslint/parser@5.57.0)(eslint@8.37.0)(typescript@5.0.3)
@@ -3359,12 +3359,12 @@ packages:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
 
-  /@sveltejs/adapter-vercel@2.4.1(@sveltejs/kit@1.15.0):
+  /@sveltejs/adapter-vercel@2.4.1(@sveltejs/kit@1.15.1):
     resolution: {integrity: sha512-7YOHBq8onxqD5ZshQhveuSzJg9ZOicKoNZQtOnAj++0MJmPElxQ5Mjqp6aQfIhHAHl8tn5UbacCpvR39mPejgw==}
     peerDependencies:
       '@sveltejs/kit': ^1.5.0
     dependencies:
-      '@sveltejs/kit': 1.15.0(svelte@3.58.0)(vite@4.2.1)
+      '@sveltejs/kit': 1.15.1(svelte@3.58.0)(vite@4.2.1)
       '@vercel/nft': 0.22.6
       esbuild: 0.16.17
     transitivePeerDependencies:
@@ -3372,8 +3372,8 @@ packages:
       - supports-color
     dev: true
 
-  /@sveltejs/kit@1.15.0(svelte@3.58.0)(vite@4.2.1):
-    resolution: {integrity: sha512-fvDsW9msxWjDU/j9wwLlxEZ6cpXQYcmcQHq7neJMqibMEl39gI1ztVymGnYqM8KLqZXwNmhKtLu8EPheukKtXQ==}
+  /@sveltejs/kit@1.15.1(svelte@3.58.0)(vite@4.2.1):
+    resolution: {integrity: sha512-Wexy3N+COoClTuRawVJRbLoH5HFxNrXG3uoHt/Yd5IGx8WAcJM9Nj/CcBLw/tjCR9uDDYMnx27HxuPy3YIYQUA==}
     engines: {node: ^16.14 || >=18}
     hasBin: true
     requiresBuild: true
@@ -3394,7 +3394,7 @@ packages:
       sirv: 2.0.2
       svelte: 3.58.0
       tiny-glob: 0.2.9
-      undici: 5.21.0
+      undici: 5.20.0
       vite: 4.2.1(@types/node@18.15.11)
     transitivePeerDependencies:
       - supports-color
@@ -11719,8 +11719,8 @@ packages:
       unplugin: 1.3.1
     dev: true
 
-  /undici@5.21.0:
-    resolution: {integrity: sha512-HOjK8l6a57b2ZGXOcUsI5NLfoTrfmbOl90ixJDl0AEFG4wgHNDQxtZy15/ZQp7HhjkpaGlp/eneMgtsu1dIlUA==}
+  /undici@5.20.0:
+    resolution: {integrity: sha512-J3j60dYzuo6Eevbawwp1sdg16k5Tf768bxYK4TUJRH7cBM4kFCbf3mOnM/0E3vQYXvpxITbbWmBafaDbxLDz3g==}
     engines: {node: '>=12.18'}
     dependencies:
       busboy: 1.6.0
