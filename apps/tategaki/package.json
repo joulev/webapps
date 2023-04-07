@@ -18,7 +18,7 @@
   "devDependencies": {
     "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-vercel": "2.4.1",
-    "@sveltejs/kit": "1.15.1",
+    "@sveltejs/kit": "1.15.2",
     "@typescript-eslint/eslint-plugin": "5.57.0",
     "@typescript-eslint/parser": "5.57.0",
     "autoprefixer": "10.4.14",
