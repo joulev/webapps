@@ -1,12 +1,9 @@
-"use client";
-
 import clsx from "clsx";
-import { useState } from "react";
-import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import Button from "~/components/button";
 import Link from "~/components/link";
-import animate from "~/lib/motion";
+import Motion from "~/components/motion";
+import ProjectCard from "~/components/project-card";
 
 type CardProps = React.PropsWithChildren<{
   featured?: boolean;
@@ -14,48 +11,30 @@ type CardProps = React.PropsWithChildren<{
   buttons: { href: string; content: string }[];
 }>;
 function Card({ featured, title, children, buttons }: CardProps) {
-  const [mouse, setMouse] = useState({ x: 0, y: 0 });
   return (
-    <div
-      className={clsx(featured && "col-span-full", "card relative group")}
-      style={{ "--left": `${mouse.x}px`, "--top": `${mouse.y}px` } as any}
-      onMouseMove={e => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        setMouse({ x: e.clientX - rect.left, y: e.clientY - rect.top });
-      }}
-    >
-      <div className="flex flex-col gap-6 p-6 relative z-10">
-        {featured && (
-          <div className="flex flex-row items-center gap-1.5 text-daw-green-700 text-sm font-medium">
-            <Star size={18} strokeWidth={4 / 3} />
-            <span>Featured</span>
-          </div>
-        )}
-        <h3 className="text-lg font-medium">{title}</h3>
-        <p>{children}</p>
-        <div className="flex flex-row flex-wrap gap-x-3 sm:gap-x-6 gap-y-3">
-          {buttons.map(({ href, content }, index) => (
-            <Button href={href} key={index}>
-              {content}
-            </Button>
-          ))}
+    <ProjectCard className={clsx(featured && "col-span-full", "card relative group")}>
+      {featured && (
+        <div className="flex flex-row items-center gap-1.5 text-daw-green-700 text-sm font-medium">
+          <Star size={18} strokeWidth={4 / 3} />
+          <span>Featured</span>
         </div>
+      )}
+      <h3 className="text-lg font-medium">{title}</h3>
+      <p>{children}</p>
+      <div className="flex flex-row flex-wrap gap-x-3 sm:gap-x-6 gap-y-3">
+        {buttons.map(({ href, content }, index) => (
+          <Button href={href} key={index}>
+            {content}
+          </Button>
+        ))}
       </div>
-      <div
-        className="absolute rounded inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition duration-300"
-        style={{
-          // zinc-500 = rgb(113, 113, 122)
-          backgroundImage:
-            "radial-gradient(900px circle at var(--left) var(--top), rgba(113, 113, 122, 0.12), transparent 30%)",
-        }}
-      />
-    </div>
+    </ProjectCard>
   );
 }
 
 export default function Projects() {
   return (
-    <motion.section variants={animate}>
+    <Motion as="section">
       <h2>Projects</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <Card
@@ -149,6 +128,6 @@ export default function Projects() {
           and more to come &hellip;
         </div> */}
       </div>
-    </motion.section>
+    </Motion>
   );
 }

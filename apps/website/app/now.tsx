@@ -1,10 +1,9 @@
-import { motion } from "framer-motion";
+import Motion from "~/components/motion";
 import Link from "~/components/link";
-import animate from "~/lib/motion";
 
 export default function Now() {
   return (
-    <motion.section variants={animate}>
+    <Motion as="section">
       <h2>What I Do Now</h2>
       <div className="flex flex-col gap-6">
         <p>
@@ -25,6 +24,6 @@ export default function Now() {
           masterpieces or movie soundtracks to catchy Japanese popular music.
         </p>
       </div>
-    </motion.section>
+    </Motion>
   );
 }

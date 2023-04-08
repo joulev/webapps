@@ -1,16 +1,15 @@
-import { motion } from "framer-motion";
 import { Mail, Github } from "lucide-react";
 import Image from "next/image";
 import Button from "~/components/button";
-import animate from "~/lib/motion";
 import me from "~/assets/joulev.png";
+import Motion from "~/components/motion";
 
 export default function Header() {
   return (
     <div className="flex flex-col gap-9">
-      <motion.header
+      <Motion
+        as="header"
         className="flex flex-col-reverse sm:flex-row justify-between items-start sm:items-end gap-6 mb-3 opacity-50"
-        variants={animate}
       >
         <div className="flex flex-col gap-3">
           <h1 className="text-3xl sm:text-4xl font-medium">Vu Van Dung</h1>
@@ -26,15 +25,15 @@ export default function Header() {
             priority
           />
         </div>
-      </motion.header>
-      <motion.p className="text-lg" variants={animate}>
+      </Motion>
+      <Motion as="p" className="text-lg">
         <strong className="font-medium">
           Burning enthusiasm for web development and web design.
         </strong>{" "}
         Crafting interfaces and applications with highest focus on user experience and artistic
         beauty. A fast-learner passionate in cutting-edge technologies.
-      </motion.p>
-      <motion.div className="flex flex-row gap-3" variants={animate}>
+      </Motion>
+      <Motion as="div" className="flex flex-row gap-3">
         <Button href="/cv" primary isExternal disablePrefetch>
           View résumé
         </Button>
@@ -44,7 +43,7 @@ export default function Header() {
         <Button href="https://github.com/joulev" className="btn-nopadding p-1.5">
           <Github size={24} width={24} strokeWidth={1} />
         </Button>
-      </motion.div>
+      </Motion>
     </div>
   );
 }

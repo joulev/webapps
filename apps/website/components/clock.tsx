@@ -1,5 +1,3 @@
-"use client";
-
 export default function Clock({ hour = 4, minute = 0 }: { hour?: number; minute?: number }) {
   const hourAngle = (hour % 12) * 30 + minute * 0.5;
   const minuteAngle = minute * 6;

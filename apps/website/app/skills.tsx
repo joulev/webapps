@@ -1,8 +1,7 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import { Code, Terminal, Network, Globe } from "lucide-react";
 import Link from "~/components/link";
-import animate from "~/lib/motion";
+import Motion from "~/components/motion";
 
 type CardProps = React.PropsWithChildren<{ title: string; icon: typeof Code }>;
 function Card({ title, icon: Icon, children }: CardProps) {
@@ -19,7 +18,7 @@ function Card({ title, icon: Icon, children }: CardProps) {
 
 export default function Skills() {
   return (
-    <motion.section variants={animate}>
+    <Motion as="section">
       <h2>Skills</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-12">
         <Card title="Web development" icon={Code}>
@@ -70,6 +69,6 @@ export default function Skills() {
           </p>
         </Card>
       </div>
-    </motion.section>
+    </Motion>
   );
 }
