@@ -25,7 +25,7 @@
     "@graphql-typed-document-node/core": "3.2.0",
     "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-vercel": "2.4.1",
-    "@sveltejs/kit": "1.15.1",
+    "@sveltejs/kit": "1.15.2",
     "@types/node": "18.15.11",
     "@types/nprogress": "0.2.0",
     "@typescript-eslint/eslint-plugin": "5.57.0",
