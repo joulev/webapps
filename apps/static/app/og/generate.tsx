@@ -1,5 +1,4 @@
-import { ImageResponse } from "@vercel/og";
-import { NextRequest } from "next/server";
+import { ImageResponse } from "next/server";
 
 import Logo from "~/components/logo";
 
@@ -55,12 +54,13 @@ function Circle({ radius, opacity, angle, isDark }: CircleProps) {
   );
 }
 
-export async function GET(req: NextRequest) {
-  const searchParams = new URL(req.url).searchParams;
-  const title = searchParams.get("title");
-  const subtitle = searchParams.get("subtitle");
-  const isLight = searchParams.get("light") === "1";
-
+// This could be kept inside route.ts(x), but we will implement /og/[app] when generateStaticParams
+// is implemented for route handlers, so I decide to move the generation logic here.
+export default async function generateImage(
+  title: string | null,
+  subtitle: string | null,
+  isLight: boolean,
+) {
   const { lightFont, mediumFont } = await fetchFont();
   const options: ConstructorParameters<typeof ImageResponse>[1] = {
     width: 1200,
@@ -88,5 +88,3 @@ export async function GET(req: NextRequest) {
     options,
   );
 }
-
-export const runtime = "experimental-edge";

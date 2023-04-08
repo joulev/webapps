@@ -14,7 +14,8 @@ export async function POST(request: Request) {
     if (url.hostname !== "twitter.com") throw e;
     const id = url.pathname.split("/").at(-1);
     if (!id) throw e;
-    await getTweet({ id: "", tweetId: id }); // should throw if tweet is not satisfactory
+    const tweetInfo = await getTweet({ id: "", tweetId: id });
+    if (!tweetInfo) throw new Error();
     await prisma.illustration.create({ data: { tweetId: id } });
     return new Response("Ok!");
   } catch {

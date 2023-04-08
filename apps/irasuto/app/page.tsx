@@ -9,6 +9,7 @@ async function getPhotos(): Promise<Photo[]> {
   const illustrations = await prisma.illustration.findMany();
   const tweets = await Promise.all(illustrations.map(getTweet));
   const photos: Photo[] = tweets
+    .filter((tweet): tweet is NonNullable<typeof tweet> => tweet !== null)
     .map(tweet =>
       tweet.photos.map(({ url, width, height }) => ({
         url,
