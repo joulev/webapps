@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@graphql-codegen/cli": "3.3.0",
-    "@graphql-codegen/client-preset": "2.1.1",
+    "@graphql-codegen/client-preset": "3.0.0",
     "@graphql-typed-document-node/core": "3.2.0",
     "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-vercel": "2.4.1",
