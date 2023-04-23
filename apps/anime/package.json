@@ -16,25 +16,25 @@
     "@apollo/client": "3.7.12",
     "@vercel/analytics": "1.0.0",
     "graphql": "16.6.0",
-    "lucide-svelte": "0.162.0",
+    "lucide-svelte": "0.176.0",
     "nprogress": "0.2.0"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "3.3.0",
-    "@graphql-codegen/client-preset": "3.0.0",
+    "@graphql-codegen/cli": "3.3.1",
+    "@graphql-codegen/client-preset": "3.0.1",
     "@graphql-typed-document-node/core": "3.2.0",
     "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-vercel": "2.4.2",
     "@sveltejs/kit": "1.15.7",
-    "@types/node": "18.15.11",
+    "@types/node": "18.16.0",
     "@types/nprogress": "0.2.0",
     "@typescript-eslint/eslint-plugin": "5.59.0",
     "@typescript-eslint/parser": "5.59.0",
     "autoprefixer": "10.4.14",
-    "eslint": "8.38.0",
+    "eslint": "8.39.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-svelte3": "4.0.0",
-    "postcss": "8.4.22",
+    "postcss": "8.4.23",
     "postcss-load-config": "4.0.1",
     "svelte": "3.58.0",
     "svelte-apollo": "0.5.0",
@@ -45,6 +45,6 @@
     "ts-node": "10.9.1",
     "tslib": "2.5.0",
     "typescript": "5.0.4",
-    "vite": "4.2.2"
+    "vite": "4.3.1"
   }
 }
