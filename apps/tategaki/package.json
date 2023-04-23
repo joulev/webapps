@@ -12,7 +12,7 @@
     "postinstall": "svelte-kit sync"
   },
   "dependencies": {
-    "@vercel/analytics": "0.1.11",
+    "@vercel/analytics": "1.0.0",
     "lucide-svelte": "0.162.0"
   },
   "devDependencies": {
