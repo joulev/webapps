@@ -13,5 +13,6 @@ export type Photo = {
     name: string;
     handle: string;
   };
+  date: Date;
   dateAgo: string;
 };

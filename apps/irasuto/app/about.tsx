@@ -2,11 +2,15 @@
 
 import clsx from "clsx";
 import { Home, Github, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import A from "./anchor";
 import Logo from "./logo";
 
 export default function About() {
+  const pathname = usePathname();
+  const isRandomised = pathname === "/";
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="w-screen max-w-md fixed bottom-0 left-1/2 -translate-x-1/2 p-3">
@@ -50,6 +54,9 @@ export default function About() {
               click on the GitHub icon above to see the source code, including how the illustrations
               are rendered and how I can add new illustrations from my phone.
             </p>
+            <Link href={isRandomised ? "/newest" : "/"} className="btn btn-primary w-full mb-6">
+              {isRandomised ? "See newest first" : "See randomised"}
+            </Link>
           </div>
         </div>
       </div>
