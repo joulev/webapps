@@ -54,7 +54,7 @@ export default function About() {
               click on the GitHub icon above to see the source code, including how the illustrations
               are rendered and how I can add new illustrations from my phone.
             </p>
-            <Link href={isRandomised ? "/newest" : "/"} className="btn btn-primary w-full mb-6">
+            <Link href={isRandomised ? "/newest" : "/"} className="btn btn-secondary w-full mb-6">
               {isRandomised ? "See newest first" : "See randomised"}
             </Link>
           </div>
