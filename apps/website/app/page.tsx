@@ -26,6 +26,9 @@ const description =
   "A fast-learner passionate in cutting-edge technologies.";
 const url = "https://joulev.dev";
 export const metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://joulev.dev",
+  ),
   title,
   description,
   robots: { index: true, follow: true },
