@@ -2,6 +2,7 @@ import { Tweet } from "next-tweet/api/index";
 
 export type TweetWithPhoto = Tweet & {
   photos: NonNullable<Tweet["photos"]>;
+  addedDate: Date;
 };
 
 export type Photo = {
@@ -13,6 +14,6 @@ export type Photo = {
     name: string;
     handle: string;
   };
-  date: Date;
+  addedDate: Date;
   dateAgo: string;
 };
