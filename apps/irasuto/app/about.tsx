@@ -5,8 +5,8 @@ import { Home, Github, ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import A from "./anchor";
-import Logo from "./logo";
+import A from "~/app/anchor";
+import Logo from "~/app/logo";
 
 export default function About() {
   const pathname = usePathname();

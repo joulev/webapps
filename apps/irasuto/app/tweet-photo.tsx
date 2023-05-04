@@ -1,4 +1,5 @@
 "use client";
+
 import A from "~/app/anchor";
 import LazyImage from "~/app/lazy-image";
 import { Photo } from "~/types";

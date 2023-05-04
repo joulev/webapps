@@ -1,3 +1,4 @@
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 import { prisma } from "~/lib/db";
 import { getTweet } from "~/lib/utils";
@@ -17,6 +18,8 @@ export async function POST(request: Request) {
     const tweetInfo = await getTweet({ id: "", tweetId: id });
     if (!tweetInfo) throw new Error();
     await prisma.illustration.create({ data: { tweetId: id } });
+    revalidatePath("/");
+    revalidatePath("/newest");
     return new Response("Ok!");
   } catch {
     return new Response("Invalid request", { status: 400 });

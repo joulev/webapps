@@ -1,7 +1,8 @@
 "use client";
+
 import clsx from "clsx";
 import { useState, useEffect as useEffectOriginal, useLayoutEffect, useMemo } from "react";
-import TweetPhoto from "./tweet-photo";
+import TweetPhoto from "~/app/tweet-photo";
 import { Photo } from "~/types";
 
 const useEffect = typeof window === "undefined" ? useEffectOriginal : useLayoutEffect;

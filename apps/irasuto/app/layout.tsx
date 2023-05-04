@@ -1,6 +1,7 @@
+import { Metadata } from "next";
 import { Preload } from "~/app/preload";
-import About from "./about";
-import "./styles.css";
+import About from "~/app/about";
+import "~/app/styles.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -18,7 +19,10 @@ const title = "irasuto at joulev.dev";
 const description =
   "This is where I store my collection of some of the most gorgeous illustrations related to Japanese popular culture that I've found on Twitter.";
 const url = "https://irasuto.joulev.dev";
-export const metadata = {
+export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://irasuto.joulev.dev",
+  ),
   title,
   description,
   robots: { index: false },
