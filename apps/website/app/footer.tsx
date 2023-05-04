@@ -20,7 +20,7 @@ export default function Footer({ updated }: { updated: Date }) {
       <div className="flex flex-row flex-wrap gap-x-6 gap-y-3 justify-between sm:items-center">
         <div className="flex flex-row items-center gap-3">
           <MapPin size={18} width={24} strokeWidth={4 / 3} />
-          <span>Singapore</span>
+          <span>Vietnam</span>
         </div>
         <LastUpdated updated={updated.toISOString()} />
       </div>
