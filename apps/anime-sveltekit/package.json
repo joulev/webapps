@@ -1,5 +1,5 @@
 {
-  "name": "@joulev/apps-anime",
+  "name": "@joulev/apps-anime-sveltekit",
   "private": true,
   "type": "module",
   "scripts": {
