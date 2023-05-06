@@ -1,4 +1,5 @@
 import { getLists } from "~/lib/get-lists";
+import EmptyState from "~/app/[...status]/empty-state";
 
 type Params = {
   status:
@@ -31,11 +32,14 @@ async function getList(status: Params["status"]) {
       return lists.dropped;
     case "planning":
       return lists.planning;
+    default:
+      throw new Error("invariant: getList in [...status]/page.tsx");
   }
 }
 
 export default async function Page({ params }: { params: Params }) {
   const list = await getList(params.status);
+  if (list.length === 0) return <EmptyState />;
   return <pre>{JSON.stringify(list, null, 2)}</pre>;
 }
 
