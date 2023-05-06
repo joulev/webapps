@@ -1,6 +1,7 @@
 import { Item, getLists } from "~/lib/get-lists";
 import Card, { CardVariant } from "~/app/_card/card";
-import EmptyState from "~/app/[...status]/empty-state";
+
+import EmptyState from "./empty-state";
 
 type Params = {
   status:

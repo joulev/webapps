@@ -8,6 +8,7 @@ import { convertSeason } from "~/lib/utils";
 
 import Base from "./base";
 import { CardVariant } from "./card";
+import Score from "./score";
 
 function BottomRightInfo({ item, variant }: { item: Item; variant: CardVariant }) {
   if ((variant === "watching" || variant === "rewatching") && item.progress)
@@ -20,7 +21,7 @@ function BottomRightInfo({ item, variant }: { item: Item; variant: CardVariant }
   if (item.score)
     return (
       <div className="flex flex-row gap-3 items-center">
-        {/* <Score score={item.score} /> */}Score
+        <Score score={item.score} />
         <div>{item.score}</div>
       </div>
     );
