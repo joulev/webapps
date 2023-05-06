@@ -17,6 +17,49 @@ importers:
         specifier: 1.9.3
         version: 1.9.3
 
+  apps/anime:
+    dependencies:
+      next:
+        specifier: 13.4.0
+        version: 13.4.0(react-dom@18.2.0)(react@18.2.0)
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+    devDependencies:
+      '@joulev/theme':
+        specifier: workspace:*
+        version: link:../../packages/theme
+      '@types/node':
+        specifier: 18.16.3
+        version: 18.16.3
+      '@types/react':
+        specifier: 18.2.0
+        version: 18.2.0
+      '@types/react-dom':
+        specifier: 18.2.1
+        version: 18.2.1
+      autoprefixer:
+        specifier: 10.4.14
+        version: 10.4.14(postcss@8.4.23)
+      eslint:
+        specifier: 8.39.0
+        version: 8.39.0
+      eslint-config-next:
+        specifier: 13.4.0
+        version: 13.4.0(eslint@8.39.0)(typescript@5.0.4)
+      postcss:
+        specifier: 8.4.23
+        version: 8.4.23
+      tailwindcss:
+        specifier: 3.3.2
+        version: 3.3.2(ts-node@10.9.1)
+      typescript:
+        specifier: 5.0.4
+        version: 5.0.4
+
   apps/anime-sveltekit:
     dependencies:
       '@apollo/client':
