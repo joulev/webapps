@@ -1,11 +1,5 @@
-import { getClient } from "~/lib/apollo";
-import { GET_ANIME, MediaListStatus } from "~/lib/queries";
+import { redirect } from "next/navigation";
 
-export default async function Page() {
-  const client = getClient();
-  const { data } = await client.query({
-    query: GET_ANIME,
-    variables: { status: MediaListStatus.Completed },
-  });
-  return <pre>{JSON.stringify(data, null, 2)}</pre>;
+export default function Page() {
+  redirect("/watching");
 }
