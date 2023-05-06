@@ -15,38 +15,26 @@ import NavbarLink from "./navbar-link";
 import NavbarStructure from "./navbar-structure";
 
 async function getNavItems() {
-  const data = await getLists();
-  const lists = data?.MediaListCollection?.lists ?? [];
-  const watching = lists.find(list => list?.name === "Watching")?.entries?.length ?? 0;
-  const rewatching = lists.find(list => list?.name === "Rewatching")?.entries?.length ?? 0;
-  const paused = lists.find(list => list?.name === "Paused")?.entries?.length ?? 0;
-  const dropped = lists.find(list => list?.name === "Dropped")?.entries?.length ?? 0;
-  const planning = lists.find(list => list?.name === "Planning")?.entries?.length ?? 0;
-  const completedTV = lists.find(list => list?.name === "Completed TV")?.entries?.length ?? 0;
-  const completedMovies =
-    lists.find(list => list?.name === "Completed Movie")?.entries?.length ?? 0;
-  const completedOthers = lists
-    .filter(
-      list =>
-        list?.name?.toLowerCase().includes("completed") &&
-        !list?.name?.includes("TV") &&
-        !list?.name?.includes("Movie"),
-    )
-    .reduce((acc, list) => acc + (list?.entries?.length ?? 0), 0);
+  const lists = await getLists();
   return [
-    { content: "Watching", icon: PlayCircle, slug: "/watching", count: watching },
-    { content: "Rewatching", icon: Repeat, slug: "/rewatching", count: rewatching },
-    { content: "Completed TV", icon: Tv2, slug: "/completed/tv", count: completedTV },
-    { content: "Completed Movies", icon: Film, slug: "/completed/movies", count: completedMovies },
+    { content: "Watching", icon: PlayCircle, slug: "/watching", count: lists.watching.length },
+    { content: "Rewatching", icon: Repeat, slug: "/rewatching", count: lists.rewatching.length },
+    { content: "Completed TV", icon: Tv2, slug: "/completed/tv", count: lists.completedTV.length },
+    {
+      content: "Completed Movies",
+      icon: Film,
+      slug: "/completed/movies",
+      count: lists.completedMovies.length,
+    },
     {
       content: "Completed (others)",
       icon: CheckCircle,
       slug: "/completed/others",
-      count: completedOthers,
+      count: lists.completedOthers.length,
     },
-    { content: "Paused", icon: PauseCircle, slug: "/paused", count: paused },
-    { content: "Dropped", icon: XCircle, slug: "/dropped", count: dropped },
-    { content: "Planning", icon: Calendar, slug: "/planning", count: planning },
+    { content: "Paused", icon: PauseCircle, slug: "/paused", count: lists.paused.length },
+    { content: "Dropped", icon: XCircle, slug: "/dropped", count: lists.dropped.length },
+    { content: "Planning", icon: Calendar, slug: "/planning", count: lists.planning.length },
   ];
 }
 

@@ -5,5 +5,22 @@ import { GET_ANIME, MediaListStatus } from "~/lib/queries";
 export const getLists = cache(async (status?: MediaListStatus) => {
   const client = getClient();
   const { data } = await client.query({ query: GET_ANIME, variables: { status } });
-  return data;
+  const lists = data?.MediaListCollection?.lists ?? [];
+  return {
+    watching: lists.find(list => list?.name === "Watching")?.entries ?? [],
+    rewatching: lists.find(list => list?.name === "Rewatching")?.entries ?? [],
+    paused: lists.find(list => list?.name === "Paused")?.entries ?? [],
+    dropped: lists.find(list => list?.name === "Dropped")?.entries ?? [],
+    planning: lists.find(list => list?.name === "Planning")?.entries ?? [],
+    completedTV: lists.find(list => list?.name === "Completed TV")?.entries ?? [],
+    completedMovies: lists.find(list => list?.name === "Completed Movie")?.entries ?? [],
+    completedOthers: lists
+      .filter(
+        list =>
+          list?.name?.toLowerCase().includes("completed") &&
+          !list?.name?.includes("TV") &&
+          !list?.name?.includes("Movie"),
+      )
+      .flatMap(list => list?.entries ?? []),
+  };
 });
