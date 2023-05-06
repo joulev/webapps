@@ -24,3 +24,5 @@ export const getLists = cache(async (status?: MediaListStatus) => {
       .flatMap(list => list?.entries ?? []),
   };
 });
+
+export type Item = NonNullable<Awaited<ReturnType<typeof getLists>>["watching"][number]>;

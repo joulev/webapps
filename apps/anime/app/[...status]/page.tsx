@@ -1,4 +1,5 @@
 import { getLists } from "~/lib/get-lists";
+import Card from "~/app/[...status]/card";
 import EmptyState from "~/app/[...status]/empty-state";
 
 type Params = {
@@ -40,7 +41,7 @@ async function getList(status: Params["status"]) {
 export default async function Page({ params }: { params: Params }) {
   const list = await getList(params.status);
   if (list.length === 0) return <EmptyState />;
-  return <pre>{JSON.stringify(list, null, 2)}</pre>;
+  return list.map(item => (item ? <Card item={item} key={item.mediaId} /> : null));
 }
 
 export function generateStaticParams(): Params[] {
