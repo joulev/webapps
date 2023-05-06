@@ -1,9 +1,15 @@
+import clsx from "clsx";
 import Image from "next/image";
 
 import { Item } from "~/lib/get-lists";
 import { getTitle } from "~/lib/utils";
+import { CardVariant } from "./card";
 
-export default function Card({ item, children }: React.PropsWithChildren<{ item: Item }>) {
+export default function Base({
+  item,
+  variant,
+  children,
+}: React.PropsWithChildren<{ item: Item; variant: CardVariant }>) {
   return (
     <div className="card flex flex-col relative">
       {/* <div className="absolute top-6 right-6 flex flex-row gap-1.5">
@@ -17,7 +23,12 @@ export default function Card({ item, children }: React.PropsWithChildren<{ item:
         ) : (
           <div className="hidden sm:block w-18 min-h-[96px] rounded shrink-0 bg-daw-main-200" />
         )}
-        <div className="flex-1 flex min-w-0 flex-col justify-between gap-6 {item.score && 'sm:gap-1.5'}">
+        <div
+          className={clsx(
+            "flex-1 flex min-w-0 flex-col justify-between gap-6",
+            item.score && "sm:gap-1.5",
+          )}
+        >
           <div className="flex flex-col">
             <div className="text-lg">
               <a className="anchor" href={`https://anilist.co/anime/${item.mediaId}`}>
@@ -29,16 +40,22 @@ export default function Card({ item, children }: React.PropsWithChildren<{ item:
           {children}
         </div>
       </div>
-      {/* {#if variant !== "planning" && variant !== "completed" && variant !== "completed-others"}
-    <div
-      class="h-1 rounded-r"
-      class:bg-green={variant === "watching"}
-      class:bg-blue={variant === "rewatching"}
-      class:bg-yellow={variant === "paused"}
-      class:bg-red={variant === "dropped"}
-      style="width: {$progressPercentage}%;"
-    />
-  {/if} */}
+      {variant !== "planning" && variant !== "completed" && variant !== "completed-others" && (
+        <div
+          className={clsx(
+            "h-1 rounded-r",
+            variant === "watching" && "bg-green",
+            variant === "rewatching" && "bg-blue",
+            variant === "paused" && "bg-yellow",
+            variant === "dropped" && "bg-red",
+          )}
+          style={{
+            width: `${
+              (100 * (item.progress ?? 0)) / (item.media?.episodes ?? item.progress ?? 1)
+            }%`,
+          }}
+        />
+      )}
     </div>
   );
 }

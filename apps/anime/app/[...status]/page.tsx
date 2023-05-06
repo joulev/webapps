@@ -1,5 +1,5 @@
-import { getLists } from "~/lib/get-lists";
-import Card from "~/app/[...status]/card";
+import { Item, getLists } from "~/lib/get-lists";
+import Card, { CardVariant } from "~/app/_card/card";
 import EmptyState from "~/app/[...status]/empty-state";
 
 type Params = {
@@ -14,34 +14,36 @@ type Params = {
     | ["planning"];
 };
 
-async function getList(status: Params["status"]) {
+async function getList(status: Params["status"]): Promise<[(Item | null)[], CardVariant]> {
   const lists = await getLists();
   switch (status.join("/")) {
     case "watching":
-      return lists.watching;
+      return [lists.watching, "watching"];
     case "rewatching":
-      return lists.rewatching;
+      return [lists.rewatching, "rewatching"];
     case "completed/tv":
-      return lists.completedTV;
+      return [lists.completedTV, "completed"];
     case "completed/movies":
-      return lists.completedMovies;
+      return [lists.completedMovies, "completed"];
     case "completed/others":
-      return lists.completedOthers;
+      return [lists.completedOthers, "completed-others"];
     case "paused":
-      return lists.paused;
+      return [lists.paused, "paused"];
     case "dropped":
-      return lists.dropped;
+      return [lists.dropped, "dropped"];
     case "planning":
-      return lists.planning;
+      return [lists.planning, "planning"];
     default:
       throw new Error("invariant: getList in [...status]/page.tsx");
   }
 }
 
 export default async function Page({ params }: { params: Params }) {
-  const list = await getList(params.status);
+  const [list, variant] = await getList(params.status);
   if (list.length === 0) return <EmptyState />;
-  return list.map(item => (item ? <Card item={item} key={item.mediaId} /> : null));
+  return list.map(item =>
+    item ? <Card item={item} variant={variant} key={item.mediaId} /> : null,
+  );
 }
 
 export function generateStaticParams(): Params[] {
