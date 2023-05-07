@@ -1,11 +1,5 @@
 import { NextRequest } from "next/server";
 
-// TODO: Change the domain
-const origin =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://webapps-anime.vercel.app";
-
 function isCorrectUser(token: string) {
   // https://stackoverflow.com/a/38552302
   function parseJwt(token: string) {
@@ -25,9 +19,9 @@ export async function GET(request: NextRequest) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       grant_type: "authorization_code",
-      client_id: process.env.NODE_ENV === "development" ? 9330 : 9619,
+      client_id: process.env.CLIENT_ID,
       client_secret: process.env.CLIENT_SECRET,
-      redirect_uri: `${origin}/auth/callback`,
+      redirect_uri: `${process.env.ORIGIN}/auth/callback`,
       code,
     }),
   });
@@ -39,7 +33,7 @@ export async function GET(request: NextRequest) {
 
   return new Response(null, {
     headers: {
-      "Set-Cookie": `token=${token}; Max-Age=${expires}; Secure; HttpOnly; SameSite=Strict`,
+      "Set-Cookie": `token=${token}; Max-Age=${expires}; Secure; HttpOnly; SameSite=Strict; Path=/`,
       Location: "/watching",
     },
     status: 302,

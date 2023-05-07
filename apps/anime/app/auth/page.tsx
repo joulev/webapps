@@ -2,7 +2,8 @@ import { cookies } from "next/headers";
 
 export default function Page() {
   const token = cookies().get("token");
-  const clientId = process.env.NODE_ENV === "development" ? 9330 : 9619;
+  const clientId = process.env.CLIENT_ID;
+  const origin = process.env.ORIGIN;
   if (token) return <p>You are authenticated. Hi to myself!</p>;
   return (
     <>
@@ -17,7 +18,7 @@ export default function Page() {
         full-fledged AniList client.
       </p>
       <a
-        href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&response_type=code`}
+        href={`https://anilist.co/api/v2/oauth/authorize?client_id=${clientId}&redirect_uri=${origin}/auth/callback&response_type=code`}
         className="btn btn-primary"
       >
         Log in with AniList
