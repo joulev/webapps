@@ -1,20 +1,21 @@
+import { notFound } from "next/navigation";
+
 import { Item, getLists } from "~/lib/get-lists";
 import { getTitle } from "~/lib/utils";
 import Card, { CardVariant } from "~/app/_card/card";
 
 import EmptyState from "./empty-state";
 
-type Params = {
-  status:
-    | ["watching"]
-    | ["rewatching"]
-    | ["completed", "tv"]
-    | ["completed", "movies"]
-    | ["completed", "others"]
-    | ["paused"]
-    | ["dropped"]
-    | ["planning"];
-};
+type Params = { status: string[] };
+type AllowedStatus =
+  | "watching"
+  | "rewatching"
+  | "completed/tv"
+  | "completed/movies"
+  | "completed/others"
+  | "paused"
+  | "dropped"
+  | "planning";
 
 function sortList(list: (Item | null)[], type: "planning" | "completed" | "others") {
   if (type === "planning")
@@ -46,9 +47,9 @@ function sortList(list: (Item | null)[], type: "planning" | "completed" | "other
   return [...list].sort((a, b) => (b?.updatedAt ?? 0) - (a?.updatedAt ?? 0));
 }
 
-async function getList(status: Params["status"]): Promise<[(Item | null)[], CardVariant]> {
+async function getList(status: AllowedStatus): Promise<[(Item | null)[], CardVariant]> {
   const lists = await getLists();
-  switch (status.join("/")) {
+  switch (status) {
     case "watching":
       return [lists.watching, "watching"];
     case "rewatching":
@@ -71,25 +72,22 @@ async function getList(status: Params["status"]): Promise<[(Item | null)[], Card
 }
 
 export default async function Page({ params }: { params: Params }) {
-  const [list, variant] = await getList(params.status);
+  const status = params.status.join("/");
+  if (
+    status !== "watching" &&
+    status !== "rewatching" &&
+    status !== "completed/tv" &&
+    status !== "completed/movies" &&
+    status !== "completed/others" &&
+    status !== "paused" &&
+    status !== "dropped" &&
+    status !== "planning"
+  )
+    notFound();
+  const [list, variant] = await getList(status);
   if (list.length === 0) return <EmptyState />;
   return sortList(
     list,
     variant === "planning" ? "planning" : variant.includes("completed") ? "completed" : "others",
   ).map(item => (item ? <Card item={item} variant={variant} key={item.mediaId} /> : null));
 }
-
-export function generateStaticParams(): Params[] {
-  return [
-    { status: ["watching"] },
-    { status: ["rewatching"] },
-    { status: ["completed", "tv"] },
-    { status: ["completed", "movies"] },
-    { status: ["completed", "others"] },
-    { status: ["paused"] },
-    { status: ["dropped"] },
-    { status: ["planning"] },
-  ];
-}
-
-export const dynamicParams = false;

@@ -9,6 +9,7 @@ import {
   Calendar,
 } from "lucide-react";
 
+import { getToken } from "~/lib/auth";
 import { getLists } from "~/lib/get-lists";
 
 import NavbarLink from "./navbar-link";
@@ -40,8 +41,9 @@ async function getNavItems() {
 
 export default async function Navbar() {
   const items = await getNavItems();
+  const token = getToken();
   return (
-    <NavbarStructure>
+    <NavbarStructure isLoggedIn={!!token}>
       {items.map(({ slug, icon: Icon, content, count }) => (
         <NavbarLink key={slug} href={slug}>
           <div className="flex flex-row gap-6 items-center">

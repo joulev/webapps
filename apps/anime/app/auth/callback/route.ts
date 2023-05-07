@@ -1,16 +1,5 @@
 import { NextRequest } from "next/server";
-
-function isCorrectUser(token: string) {
-  // https://stackoverflow.com/a/38552302
-  function parseJwt(token: string) {
-    return JSON.parse(Buffer.from(token.split(".")[1], "base64").toString());
-  }
-
-  const payload = parseJwt(token);
-  const subject = Object.hasOwn(payload, "sub") ? payload.sub : "";
-  const expire = Object.hasOwn(payload, "exp") ? payload.exp : 0;
-  return subject === "858763" && expire > Date.now() / 1000;
-}
+import { isCorrectUser } from "~/lib/utils";
 
 export async function GET(request: NextRequest) {
   const code = request.nextUrl.searchParams.get("code");

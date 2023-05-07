@@ -6,7 +6,10 @@ import { useState } from "react";
 
 import Logo from "~/app/logo";
 
-export default function NavbarStructure({ children }: React.PropsWithChildren) {
+export default function NavbarStructure({
+  isLoggedIn,
+  children,
+}: React.PropsWithChildren<{ isLoggedIn: boolean }>) {
   const [isExpanded, setIsExpanded] = useState(false);
   const NavbarToggleIcon = isExpanded ? X : Menu;
   return (
@@ -40,9 +43,15 @@ export default function NavbarStructure({ children }: React.PropsWithChildren) {
         >
           <div className="overflow-hidden">
             <div className="flex flex-col gap-9 pt-9">
-              <Link className="btn btn-primary" href="/auth">
-                Log in as joulev
-              </Link>
+              {isLoggedIn ? (
+                <Link className="btn btn-secondary" href="/add">
+                  Add anime to PTW
+                </Link>
+              ) : (
+                <Link className="btn btn-primary" href="/auth">
+                  Log in as joulev
+                </Link>
+              )}
               <nav className="flex flex-col">{children}</nav>
             </div>
           </div>
