@@ -10,6 +10,36 @@ import Base from "./base";
 import { CardVariant } from "./card";
 import Score from "./score";
 
+function BottomLeftInfo({ showDetailedScore, item }: { showDetailedScore: boolean; item: Item }) {
+  if (showDetailedScore && item.score)
+    return (
+      <div className="flex flex-row help-text">
+        {Object.entries(item.advancedScores).map(([key, score]: [string, any], i) => (
+          <div key={i} className={clsx("group", i > 0 && "ml-3 border-l border-daw-main-300 pl-3")}>
+            <div title={`${key}: ${score}/10`}>
+              <span className="hidden md:inline-block lg:hidden xl:inline-block">{key}</span>
+              <span className="hidden lg:inline-block xl:hidden">{key.substring(0, 3)}</span>{" "}
+              {score}
+            </div>
+          </div>
+        ))}
+      </div>
+    );
+
+  return (
+    <div className="flex flex-row help-text">
+      <div>
+        {item.media?.season && item.media?.seasonYear
+          ? `${convertSeason(item.media.season)} ${item.media.seasonYear}`
+          : "Season N/A"}
+      </div>
+      {item.repeat ? (
+        <div className="ml-3 border-l border-daw-main-300 pl-3">&times;{item.repeat + 1}</div>
+      ) : null}
+    </div>
+  );
+}
+
 function BottomRightInfo({ item, variant }: { item: Item; variant: CardVariant }) {
   if ((variant === "watching" || variant === "rewatching") && item.progress)
     return (
@@ -48,35 +78,7 @@ export default function PublicCard({ item, variant }: { item: Item; variant: Car
         onMouseLeave={onLeave}
         onBlur={onLeave}
       >
-        {showDetailedScore && item.score ? (
-          <div className="flex flex-row help-text">
-            {Object.entries(item.advancedScores).map(([key, score]: [string, any], i) => (
-              <div
-                key={i}
-                className={clsx("group", i > 0 && "ml-3 border-l border-daw-main-300 pl-3")}
-              >
-                <div title={`${key}: ${score}/10`}>
-                  <span className="hidden md:inline-block lg:hidden xl:inline-block">{key}</span>
-                  <span className="hidden lg:inline-block xl:hidden">
-                    {key.substring(0, 3)}
-                  </span>{" "}
-                  {score}
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="flex flex-row help-text">
-            <div>
-              {item.media?.season && item.media?.seasonYear
-                ? `${convertSeason(item.media.season)} ${item.media.seasonYear}`
-                : "Season N/A"}
-            </div>
-            {item.repeat ? (
-              <div className="ml-3 border-l border-daw-main-300 pl-3">&times;{item.repeat + 1}</div>
-            ) : null}
-          </div>
-        )}
+        <BottomLeftInfo showDetailedScore={showDetailedScore} item={item} />
         <BottomRightInfo item={item} variant={variant} />
       </div>
     </Base>
