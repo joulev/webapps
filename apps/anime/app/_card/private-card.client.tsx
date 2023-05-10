@@ -29,14 +29,15 @@ const keys = ["Enjoyment", "Story", "Characters", "Animation", "Music"];
 function BottomContent({
   item,
   variant,
-  scores,
+  scoresStr,
   set,
 }: {
   item: Item;
   variant: CardVariant;
-  scores: number[];
-  set: React.Dispatch<React.SetStateAction<number[]>>;
+  scoresStr: string[];
+  set: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
+  const scores = scoresStr.map(score => constraintScore(Number(score)));
   const accumulate = getAccumulatedScore(scores);
 
   if (variant === "completed") {
@@ -52,9 +53,9 @@ function BottomContent({
                 "text-sm flex-1 outline-none bg-transparent w-full",
                 scores[i] !== Number(item.advancedScores[keys[i]]) && "font-semibold",
               )}
-              value={scores[i]}
+              value={scoresStr[i]}
               onChange={e =>
-                set([...scores.slice(0, i), Number(e.target.value), ...scores.slice(i + 1)])
+                set([...scoresStr.slice(0, i), e.target.value, ...scoresStr.slice(i + 1)])
               }
               onFocus={event => event.target.select()}
             />
@@ -94,16 +95,17 @@ function BottomContent({
 function TopRightContent({
   item,
   variant,
-  scores,
+  scoresStr,
   set,
 }: {
   item: Item;
   variant: CardVariant;
-  scores: number[];
-  set: React.Dispatch<React.SetStateAction<number[]>>;
+  scoresStr: string[];
+  set: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
   const [isPending, startTransition] = useTransition();
 
+  const scores = scoresStr.map(score => constraintScore(Number(score)));
   const accumulate = getAccumulatedScore(scores);
   const hasPendingChanges =
     scores.some((score, index) => score !== Number(item.advancedScores[keys[index]])) ||
@@ -122,12 +124,7 @@ function TopRightContent({
   };
   const remove = () => startTransition(() => removeFromList(item));
 
-  const clear = () =>
-    set(
-      keys
-        .map<string>(key => String(item.advancedScores[key]) ?? "0")
-        .map(score => constraintScore(Number(score))),
-    );
+  const clear = () => set(keys.map<string>(key => String(item.advancedScores[key]) ?? "0"));
 
   if (variant === "watching") {
     return (
@@ -218,10 +215,8 @@ function TopRightContent({
 }
 
 export default function PrivateCardClient({ item, variant }: { item: Item; variant: CardVariant }) {
-  const [detailedScores, setDetailedScores] = useState(
-    keys
-      .map<string>(key => String(item.advancedScores[key]) ?? "0")
-      .map(score => constraintScore(Number(score))),
+  const [scoresStr, setScoresStr] = useState(
+    keys.map<string>(key => String(item.advancedScores[key]) ?? "0"),
   );
 
   return (
@@ -230,22 +225,12 @@ export default function PrivateCardClient({ item, variant }: { item: Item; varia
       variant={variant}
       topRight={
         <div className="absolute top-5 right-5 flex flex-row gap-1.5 p-1 rounded bg-daw-main-100">
-          <TopRightContent
-            item={item}
-            variant={variant}
-            scores={detailedScores}
-            set={setDetailedScores}
-          />
+          <TopRightContent item={item} variant={variant} scoresStr={scoresStr} set={setScoresStr} />
         </div>
       }
     >
       <div className="flex flex-row justify-between items-center">
-        <BottomContent
-          item={item}
-          variant={variant}
-          scores={detailedScores}
-          set={setDetailedScores}
-        />
+        <BottomContent item={item} variant={variant} scoresStr={scoresStr} set={setScoresStr} />
       </div>
     </Base>
   );
