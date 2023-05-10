@@ -143,7 +143,7 @@ export default function PrivateCard({ item, variant }: { item: Item; variant: Ca
       item={item}
       variant={variant}
       topRight={
-        <div className="absolute top-6 right-6 flex flex-row gap-1.5">
+        <div className="absolute top-5 right-5 flex flex-row gap-1.5 p-1 rounded bg-daw-main-100">
           <TopRightContent item={item} variant={variant} />
         </div>
       }
