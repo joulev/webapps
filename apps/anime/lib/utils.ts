@@ -29,3 +29,10 @@ export function isCorrectUser(token: string) {
   const expire = Object.hasOwn(payload, "exp") ? payload.exp : 0;
   return subject === "858763" && expire > Date.now() / 1000;
 }
+
+const SCORE_COEF = [0.35, 0.25, 0.15, 0.1, 0.15];
+export function getAccumulatedScore(scores: number[]) {
+  return constraintScore(
+    scores.map((score, index) => score * SCORE_COEF[index]).reduce((a, b) => a + b, 0),
+  );
+}

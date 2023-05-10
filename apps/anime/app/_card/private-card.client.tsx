@@ -8,7 +8,7 @@ import {
   Music,
 } from "lucide-react";
 import { Item } from "~/lib/get-lists";
-import { constraintScore, convertSeason } from "~/lib/utils";
+import { constraintScore, convertSeason, getAccumulatedScore } from "~/lib/utils";
 
 import Base from "./base";
 import { CardVariant } from "./card";
@@ -18,7 +18,6 @@ import { incrementProgress } from "./actions";
 
 const icons = [Enjoyment, Story, Character, Animation, Music];
 const keys = ["Enjoyment", "Story", "Characters", "Animation", "Music"];
-const coef = [0.35, 0.25, 0.15, 0.1, 0.15];
 
 function BottomContent({
   item,
@@ -31,9 +30,7 @@ function BottomContent({
   scores: number[];
   set: React.Dispatch<React.SetStateAction<number[]>>;
 }) {
-  const accumulate = constraintScore(
-    scores.map((score, index) => score * coef[index]).reduce((a, b) => a + b, 0),
-  );
+  const accumulate = getAccumulatedScore(scores);
 
   if (variant === "completed") {
     return (
