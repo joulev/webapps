@@ -10,6 +10,7 @@ import Score from "~/app/_card/score";
 import EmptyState from "~/app/[...status]/empty-state";
 
 import Input from "./input";
+import AddButton from "./add-button";
 
 export default async function Page({ searchParams }: { searchParams: { s: string | undefined } }) {
   const token = getToken();
@@ -36,7 +37,7 @@ export default async function Page({ searchParams }: { searchParams: { s: string
           item ? (
             <div className="card flex flex-col relative" key={item.id}>
               <div className="absolute top-5 right-5 flex flex-row gap-1.5 p-1 rounded bg-daw-main-100">
-                <button className="btn btn-sm btn-secondary">Add to PTW</button>
+                <AddButton itemId={item.id} />
               </div>
               <div className="p-6 flex flex-row gap-6">
                 {item.coverImage?.medium ? (

@@ -1,7 +1,6 @@
 "use client";
 
 import clsx from "clsx";
-import NProgress from "nprogress";
 import {
   Smile as Enjoyment,
   AlignJustify as Story,
@@ -9,6 +8,8 @@ import {
   Move3d as Animation,
   Music,
 } from "lucide-react";
+import { useState } from "react";
+
 import { Item } from "~/lib/get-lists";
 import { MediaListStatus } from "~/lib/queries";
 import { constraintScore, convertSeason, getAccumulatedScore } from "~/lib/utils";
@@ -16,7 +17,6 @@ import { constraintScore, convertSeason, getAccumulatedScore } from "~/lib/utils
 import Base from "./base";
 import { CardVariant } from "./card";
 import Score from "./score";
-import { useEffect, useState, useTransition } from "react";
 import {
   incrementProgress,
   updateStatus,
@@ -24,6 +24,7 @@ import {
   updateScore,
   removeFromList,
 } from "./actions";
+import { useTransitionWithNProgress } from "./use-transition-nprogress";
 
 const icons = [Enjoyment, Story, Character, Animation, Music];
 const keys = ["Enjoyment", "Story", "Characters", "Animation", "Music"];
@@ -105,11 +106,7 @@ function TopRightContent({
   scoresStr: string[];
   set: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
-  const [isPending, startTransition] = useTransition();
-  useEffect(() => {
-    if (isPending) NProgress.start();
-    else NProgress.done();
-  }, [isPending]);
+  const startTransition = useTransitionWithNProgress();
 
   const scores = scoresStr.map(score => constraintScore(Number(score)));
   const accumulate = getAccumulatedScore(scores);

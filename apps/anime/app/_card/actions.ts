@@ -7,6 +7,7 @@ import { getToken } from "~/lib/auth";
 import { Item } from "~/lib/get-lists";
 import { MediaListStatus } from "~/lib/queries";
 import {
+  ADD_ANIME,
   DELETE_ANIME,
   UPDATE_PROGRESS,
   UPDATE_REPEAT,
@@ -75,5 +76,10 @@ export async function updateScore(item: Item, scores: number[]) {
 
 export async function removeFromList(item: Item) {
   await client.mutate({ mutation: DELETE_ANIME, variables: { id: item.id } });
+  revalidateEverything();
+}
+
+export async function addToPTW(itemId: number) {
+  await client.mutate({ mutation: ADD_ANIME, variables: { mediaId: itemId } });
   revalidateEverything();
 }
