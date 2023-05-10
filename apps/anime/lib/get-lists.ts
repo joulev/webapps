@@ -6,7 +6,11 @@ export type Item = NonNullable<Awaited<ReturnType<typeof getLists>>["watching"][
 
 export const getLists = cache(async (status?: MediaListStatus) => {
   const client = getClient();
-  const { data } = await client.query({ query: GET_ANIME, variables: { status } });
+  const { data } = await client.query({
+    query: GET_ANIME,
+    variables: { status },
+    context: { fetchOptions: { next: { tag: ["lists"] } } },
+  });
   const lists = data?.MediaListCollection?.lists ?? [];
   return {
     watching: lists.find(list => list?.name === "Watching")?.entries ?? [],

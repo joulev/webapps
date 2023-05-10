@@ -13,7 +13,8 @@ import { constraintScore, convertSeason } from "~/lib/utils";
 import Base from "./base";
 import { CardVariant } from "./card";
 import Score from "./score";
-import { useState } from "react";
+import { useState, useTransition } from "react";
+import { incrementProgress } from "./actions";
 
 const icons = [Enjoyment, Story, Character, Animation, Music];
 const keys = ["Enjoyment", "Story", "Characters", "Animation", "Music"];
@@ -86,12 +87,19 @@ function BottomContent({
 }
 
 function TopRightContent({ item, variant }: { item: Item; variant: CardVariant }) {
+  const [isPending, startTransition] = useTransition();
+
   if (variant === "watching") {
     return (
       <>
         <button className="btn btn-sm btn-tertiary">Drop</button>
         <button className="btn btn-sm btn-secondary">Pause</button>
-        <button className="btn btn-sm btn-primary">Next ep</button>
+        <button
+          className="btn btn-sm btn-primary"
+          onClick={() => startTransition(() => incrementProgress(item))}
+        >
+          Next ep
+        </button>
       </>
     );
   }
