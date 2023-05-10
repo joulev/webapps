@@ -8,13 +8,12 @@ import { CardVariant } from "./card";
 export default function Base({
   item,
   variant,
+  topRight,
   children,
-}: React.PropsWithChildren<{ item: Item; variant: CardVariant }>) {
+}: React.PropsWithChildren<{ item: Item; variant: CardVariant; topRight?: React.ReactNode }>) {
   return (
     <div className="card flex flex-col relative">
-      {/* <div className="absolute top-6 right-6 flex flex-row gap-1.5">
-    Top right buttons for mutations
-  </div> */}
+      {topRight}
       <div className="p-6 flex flex-row gap-6">
         {item.media?.coverImage?.medium ? (
           <div className="hidden sm:block w-18 min-h-[96px] rounded shrink-0 overflow-hidden relative">

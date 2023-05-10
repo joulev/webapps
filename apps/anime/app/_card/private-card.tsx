@@ -13,7 +13,7 @@ import { CardVariant } from "./card";
 import clsx from "clsx";
 import Score from "./score";
 
-function TBA({ item, variant }: { item: Item; variant: CardVariant }) {
+function BottomContent({ item, variant }: { item: Item; variant: CardVariant }) {
   const icons = [Enjoyment, Story, Character, Animation, Music];
   const keys = ["Enjoyment", "Story", "Characters", "Animation", "Music"];
 
@@ -72,11 +72,84 @@ function TBA({ item, variant }: { item: Item; variant: CardVariant }) {
   );
 }
 
+function TopRightContent({ item, variant }: { item: Item; variant: CardVariant }) {
+  if (variant === "watching") {
+    return (
+      <>
+        <button className="btn btn-sm btn-tertiary">Drop</button>
+        <button className="btn btn-sm btn-secondary">Pause</button>
+        <button className="btn btn-sm btn-primary">Next ep</button>
+      </>
+    );
+  }
+
+  if (variant === "rewatching") {
+    return (
+      <>
+        <button className="btn btn-sm btn-secondary">Stop rewatch</button>
+        <button className="btn btn-sm btn-primary">Next ep</button>
+      </>
+    );
+  }
+
+  if (variant === "completed") {
+    return (
+      <>
+        <button className="btn btn-sm btn-secondary">Clear</button>
+        <button className="btn btn-sm btn-primary">Save</button>
+      </>
+    );
+  }
+
+  if (variant === "completed-others") {
+    return (
+      <>
+        <button className="btn btn-sm btn-secondary">Rewatch</button>
+      </>
+    );
+  }
+
+  if (variant === "paused") {
+    return (
+      <>
+        <button className="btn btn-sm btn-secondary">Resume</button>
+      </>
+    );
+  }
+
+  if (variant === "dropped") {
+    return (
+      <>
+        <button className="btn btn-sm btn-secondary">Retry</button>
+      </>
+    );
+  }
+
+  if (variant === "planning") {
+    return (
+      <>
+        <button className="btn btn-sm btn-tertiary">Remove</button>
+        <button className="btn btn-sm btn-primary">Start</button>
+      </>
+    );
+  }
+
+  throw new Error("invariant: unreachable code in TopRightContent");
+}
+
 export default function PrivateCard({ item, variant }: { item: Item; variant: CardVariant }) {
   return (
-    <Base item={item} variant={variant}>
+    <Base
+      item={item}
+      variant={variant}
+      topRight={
+        <div className="absolute top-6 right-6 flex flex-row gap-1.5">
+          <TopRightContent item={item} variant={variant} />
+        </div>
+      }
+    >
       <div className="flex flex-row justify-between items-center">
-        <TBA item={item} variant={variant} />
+        <BottomContent item={item} variant={variant} />
       </div>
     </Base>
   );
