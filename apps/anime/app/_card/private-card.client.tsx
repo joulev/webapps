@@ -8,13 +8,20 @@ import {
   Music,
 } from "lucide-react";
 import { Item } from "~/lib/get-lists";
+import { MediaListStatus } from "~/lib/queries";
 import { constraintScore, convertSeason, getAccumulatedScore } from "~/lib/utils";
 
 import Base from "./base";
 import { CardVariant } from "./card";
 import Score from "./score";
 import { useState, useTransition } from "react";
-import { incrementProgress } from "./actions";
+import {
+  incrementProgress,
+  updateStatus,
+  cancelRewatch as _cancelRewatch,
+  updateScore,
+  removeFromList,
+} from "./actions";
 
 const icons = [Enjoyment, Story, Character, Animation, Music];
 const keys = ["Enjoyment", "Story", "Characters", "Animation", "Music"];
@@ -49,6 +56,7 @@ function BottomContent({
               onChange={e =>
                 set([...scores.slice(0, i), Number(e.target.value), ...scores.slice(i + 1)])
               }
+              onFocus={event => event.target.select()}
             />
           </div>
         ))}
@@ -83,18 +91,54 @@ function BottomContent({
   );
 }
 
-function TopRightContent({ item, variant }: { item: Item; variant: CardVariant }) {
+function TopRightContent({
+  item,
+  variant,
+  scores,
+  set,
+}: {
+  item: Item;
+  variant: CardVariant;
+  scores: number[];
+  set: React.Dispatch<React.SetStateAction<number[]>>;
+}) {
   const [isPending, startTransition] = useTransition();
+
+  const accumulate = getAccumulatedScore(scores);
+  const hasPendingChanges =
+    scores.some((score, index) => score !== Number(item.advancedScores[keys[index]])) ||
+    accumulate !== Number(item.score);
+
+  const setAsWatching = () => startTransition(() => updateStatus(item, MediaListStatus.Current));
+  const setAsRewatching = () =>
+    startTransition(() => updateStatus(item, MediaListStatus.Repeating));
+  const setAsPaused = () => startTransition(() => updateStatus(item, MediaListStatus.Paused));
+  const setAsDropped = () => startTransition(() => updateStatus(item, MediaListStatus.Dropped));
+  const increment = () => startTransition(() => incrementProgress(item));
+  const cancelRewatch = () => startTransition(() => _cancelRewatch(item));
+  const setScore = () => {
+    window.getSelection()?.removeAllRanges();
+    startTransition(() => updateScore(item, scores));
+  };
+  const remove = () => startTransition(() => removeFromList(item));
+
+  const clear = () =>
+    set(
+      keys
+        .map<string>(key => String(item.advancedScores[key]) ?? "0")
+        .map(score => constraintScore(Number(score))),
+    );
 
   if (variant === "watching") {
     return (
       <>
-        <button className="btn btn-sm btn-tertiary">Drop</button>
-        <button className="btn btn-sm btn-secondary">Pause</button>
-        <button
-          className="btn btn-sm btn-primary"
-          onClick={() => startTransition(() => incrementProgress(item))}
-        >
+        <button className="btn btn-sm btn-tertiary" onClick={setAsDropped}>
+          Drop
+        </button>
+        <button className="btn btn-sm btn-secondary" onClick={setAsPaused}>
+          Pause
+        </button>
+        <button className="btn btn-sm btn-primary" onClick={increment}>
           Next ep
         </button>
       </>
@@ -104,25 +148,35 @@ function TopRightContent({ item, variant }: { item: Item; variant: CardVariant }
   if (variant === "rewatching") {
     return (
       <>
-        <button className="btn btn-sm btn-secondary">Stop rewatch</button>
-        <button className="btn btn-sm btn-primary">Next ep</button>
+        <button className="btn btn-sm btn-secondary" onClick={cancelRewatch}>
+          Stop rewatch
+        </button>
+        <button className="btn btn-sm btn-primary" onClick={increment}>
+          Next ep
+        </button>
       </>
     );
   }
 
-  if (variant === "completed") {
+  if (variant === "completed" && hasPendingChanges) {
     return (
       <>
-        <button className="btn btn-sm btn-secondary">Clear</button>
-        <button className="btn btn-sm btn-primary">Save</button>
+        <button className="btn btn-sm btn-secondary" onClick={clear}>
+          Clear
+        </button>
+        <button className="btn btn-sm btn-primary" onClick={setScore}>
+          Save
+        </button>
       </>
     );
   }
 
-  if (variant === "completed-others") {
+  if ((variant === "completed" && !hasPendingChanges) || variant === "completed-others") {
     return (
       <>
-        <button className="btn btn-sm btn-secondary">Rewatch</button>
+        <button className="btn btn-sm btn-secondary" onClick={setAsRewatching}>
+          Rewatch
+        </button>
       </>
     );
   }
@@ -130,7 +184,9 @@ function TopRightContent({ item, variant }: { item: Item; variant: CardVariant }
   if (variant === "paused") {
     return (
       <>
-        <button className="btn btn-sm btn-secondary">Resume</button>
+        <button className="btn btn-sm btn-secondary" onClick={setAsWatching}>
+          Resume
+        </button>
       </>
     );
   }
@@ -138,7 +194,9 @@ function TopRightContent({ item, variant }: { item: Item; variant: CardVariant }
   if (variant === "dropped") {
     return (
       <>
-        <button className="btn btn-sm btn-secondary">Retry</button>
+        <button className="btn btn-sm btn-secondary" onClick={setAsWatching}>
+          Retry
+        </button>
       </>
     );
   }
@@ -146,8 +204,12 @@ function TopRightContent({ item, variant }: { item: Item; variant: CardVariant }
   if (variant === "planning") {
     return (
       <>
-        <button className="btn btn-sm btn-tertiary">Remove</button>
-        <button className="btn btn-sm btn-primary">Start</button>
+        <button className="btn btn-sm btn-tertiary" onClick={remove}>
+          Remove
+        </button>
+        <button className="btn btn-sm btn-primary" onClick={setAsWatching}>
+          Start
+        </button>
       </>
     );
   }
@@ -161,13 +223,19 @@ export default function PrivateCardClient({ item, variant }: { item: Item; varia
       .map<string>(key => String(item.advancedScores[key]) ?? "0")
       .map(score => constraintScore(Number(score))),
   );
+
   return (
     <Base
       item={item}
       variant={variant}
       topRight={
         <div className="absolute top-5 right-5 flex flex-row gap-1.5 p-1 rounded bg-daw-main-100">
-          <TopRightContent item={item} variant={variant} />
+          <TopRightContent
+            item={item}
+            variant={variant}
+            scores={detailedScores}
+            set={setDetailedScores}
+          />
         </div>
       }
     >

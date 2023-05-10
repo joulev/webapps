@@ -91,3 +91,5 @@ export default async function Page({ params }: { params: Params }) {
     variant === "planning" ? "planning" : variant.includes("completed") ? "completed" : "others",
   ).map(item => (item ? <Card item={item} variant={variant} key={item.mediaId} /> : null));
 }
+
+export const dynamic = "force-dynamic";

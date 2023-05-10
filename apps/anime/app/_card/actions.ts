@@ -1,6 +1,6 @@
 "use server";
 
-import { revalidateTag } from "next/cache";
+import { revalidatePath } from "next/cache";
 
 import { getClient as _getClient } from "~/lib/apollo";
 import { getToken } from "~/lib/auth";
@@ -23,12 +23,23 @@ function getClient() {
 
 const client = getClient();
 
+function revalidateEverything() {
+  revalidatePath("/watching");
+  revalidatePath("/rewatching");
+  revalidatePath("/completed/tv");
+  revalidatePath("/completed/movies");
+  revalidatePath("/completed/others");
+  revalidatePath("/paused");
+  revalidatePath("/dropped");
+  revalidatePath("/planning");
+}
+
 export async function incrementProgress(item: Item) {
   await client.mutate({
     mutation: UPDATE_PROGRESS,
     variables: { id: item.id, progress: (item?.progress ?? 0) + 1 },
   });
-  revalidateTag("lists");
+  revalidateEverything();
 }
 
 export async function updateStatus(item: Item, status: MediaListStatus) {
@@ -36,7 +47,7 @@ export async function updateStatus(item: Item, status: MediaListStatus) {
     mutation: UPDATE_STATUS,
     variables: { id: item.id, status },
   });
-  revalidateTag("lists");
+  revalidateEverything();
 }
 
 export async function cancelRewatch(item: Item) {
@@ -50,7 +61,7 @@ export async function cancelRewatch(item: Item) {
       variables: { id: item.id, repeat: item.repeat ?? 0, progress: item.media?.episodes ?? 0 },
     }),
   ]);
-  revalidateTag("lists");
+  revalidateEverything();
 }
 
 export async function updateScore(item: Item, scores: number[]) {
@@ -59,10 +70,10 @@ export async function updateScore(item: Item, scores: number[]) {
     mutation: UPDATE_SCORE,
     variables: { id: item.id, score: accumulate, advanced: scores },
   });
-  revalidateTag("lists");
+  revalidateEverything();
 }
 
 export async function removeFromList(item: Item) {
   await client.mutate({ mutation: DELETE_ANIME, variables: { id: item.id } });
-  revalidateTag("lists");
+  revalidateEverything();
 }

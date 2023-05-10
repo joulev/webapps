@@ -9,6 +9,7 @@ export default function NavbarLink({ href, children }: React.PropsWithChildren<{
   return (
     <Link
       href={href}
+      prefetch={false}
       className={clsx(
         "flex flex-row justify-between items-center transition py-3 hover:text-daw-main-950",
         pathname !== href && "text-daw-main-500",
