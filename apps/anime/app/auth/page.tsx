@@ -1,7 +1,7 @@
-import { cookies } from "next/headers";
+import { getToken } from "~/lib/auth";
 
 export default function Page() {
-  const token = cookies().get("token");
+  const token = getToken();
   const clientId = process.env.CLIENT_ID;
   const origin = process.env.ORIGIN;
   if (token) return <p>You are authenticated. Hi to myself!</p>;
@@ -26,3 +26,5 @@ export default function Page() {
     </>
   );
 }
+
+export const dynamic = "force-dynamic";

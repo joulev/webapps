@@ -13,6 +13,7 @@ export const getLists = cache(async (status?: MediaListStatus) => {
   });
   const lists = data?.MediaListCollection?.lists ?? [];
   return {
+    lists,
     watching: lists.find(list => list?.name === "Watching")?.entries ?? [],
     rewatching: lists.find(list => list?.name === "Rewatching")?.entries ?? [],
     paused: lists.find(list => list?.name === "Paused")?.entries ?? [],
