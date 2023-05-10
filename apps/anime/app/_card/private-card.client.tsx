@@ -1,5 +1,7 @@
 "use client";
+
 import clsx from "clsx";
+import NProgress from "nprogress";
 import {
   Smile as Enjoyment,
   AlignJustify as Story,
@@ -14,7 +16,7 @@ import { constraintScore, convertSeason, getAccumulatedScore } from "~/lib/utils
 import Base from "./base";
 import { CardVariant } from "./card";
 import Score from "./score";
-import { useState, useTransition } from "react";
+import { useEffect, useState, useTransition } from "react";
 import {
   incrementProgress,
   updateStatus,
@@ -104,6 +106,10 @@ function TopRightContent({
   set: React.Dispatch<React.SetStateAction<string[]>>;
 }) {
   const [isPending, startTransition] = useTransition();
+  useEffect(() => {
+    if (isPending) NProgress.start();
+    else NProgress.done();
+  }, [isPending]);
 
   const scores = scoresStr.map(score => constraintScore(Number(score)));
   const accumulate = getAccumulatedScore(scores);
