@@ -1,15 +1,13 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
+import { env } from "~/env.mjs";
 import { prisma } from "~/lib/db";
 import { getTweet } from "~/lib/utils";
 
+const schema = z.object({ password: z.literal(env.JOULEV_PASSWORD), url: z.string().url() });
+
 export async function POST(request: Request) {
   const e = new Error();
-  if (!process.env.JOULEV_PASSWORD) throw new Response("Server error", { status: 500 });
-  const schema = z.object({
-    password: z.literal(process.env.JOULEV_PASSWORD),
-    url: z.string().url(),
-  });
   try {
     const url = new URL(schema.parse(await request.json()).url);
     if (url.hostname !== "twitter.com") throw e;

@@ -26,9 +26,7 @@ export default async function Layout({ children }: { children: React.ReactNode }
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://anime.joulev.dev",
-  ),
+  metadataBase: new URL("https://anime.joulev.dev"),
   title: {
     template: "%s | anime at joulev.dev",
     default: "anime at joulev.dev",

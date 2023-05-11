@@ -35,9 +35,7 @@ const title = "static at joulev.dev";
 const description = "Static files used by all joulev.dev applications.";
 const url = "https://static.joulev.dev";
 export const metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://static.joulev.dev",
-  ),
+  metadataBase: new URL("https://static.joulev.dev"),
   title,
   description,
   robots: { index: false },

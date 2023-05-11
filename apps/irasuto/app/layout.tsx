@@ -20,9 +20,7 @@ const description =
   "This is where I store my collection of some of the most gorgeous illustrations related to Japanese popular culture that I've found on Twitter.";
 const url = "https://irasuto.joulev.dev";
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://irasuto.joulev.dev",
-  ),
+  metadataBase: new URL("https://irasuto.joulev.dev"),
   title,
   description,
   robots: { index: false },

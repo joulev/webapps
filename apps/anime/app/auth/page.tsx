@@ -1,10 +1,11 @@
 import { Metadata } from "next";
+import { env } from "~/env.mjs";
 import { getToken } from "~/lib/auth";
 
 export default function Page() {
   const token = getToken();
-  const clientId = process.env.CLIENT_ID;
-  const origin = process.env.ORIGIN;
+  const clientId = env.CLIENT_ID;
+  const origin = env.ORIGIN;
   if (token) return <p>You are authenticated. Hi to myself!</p>;
   return (
     <>

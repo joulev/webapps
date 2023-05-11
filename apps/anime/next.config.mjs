@@ -1,5 +1,8 @@
+// @ts-check
+import "./env.mjs";
+
 /** @type {import("next").NextConfig} */
-module.exports = {
+const nextConfig = {
   experimental: {
     serverActions: true,
   },
@@ -14,3 +17,5 @@ module.exports = {
     ],
   },
 };
+
+export default nextConfig;

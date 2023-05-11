@@ -1,3 +1,5 @@
+import "./env";
+
 export default defineNuxtConfig({
   modules: ["@nuxtjs/tailwindcss"],
   typescript: { typeCheck: "build", strict: true },

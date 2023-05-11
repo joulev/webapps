@@ -1,4 +1,5 @@
 import { NextRequest } from "next/server";
+import { env } from "~/env.mjs";
 import { isCorrectUser } from "~/lib/utils";
 
 export async function GET(request: NextRequest) {
@@ -8,9 +9,9 @@ export async function GET(request: NextRequest) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       grant_type: "authorization_code",
-      client_id: process.env.CLIENT_ID,
-      client_secret: process.env.CLIENT_SECRET,
-      redirect_uri: `${process.env.ORIGIN}/auth/callback`,
+      client_id: env.CLIENT_ID,
+      client_secret: env.CLIENT_SECRET,
+      redirect_uri: `${env.ORIGIN}/auth/callback`,
       code,
     }),
   });

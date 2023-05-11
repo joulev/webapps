@@ -1,3 +1,4 @@
+import { env } from "~/env";
 import { hash } from "~/server/lib/utils";
 
 export default defineEventHandler(async event => {
@@ -12,8 +13,8 @@ export default defineEventHandler(async event => {
   if (basicAuth) {
     const authValue = basicAuth.split(" ")[1];
     const pwd = atob(authValue).split(":")[1];
-    if (pwd === process.env.JOULEV_PASSWORD) {
-      setCookie(event, "token", hash(process.env.JOULEV_PASSWORD ?? ""), {
+    if (pwd === env.JOULEV_PASSWORD) {
+      setCookie(event, "token", hash(env.JOULEV_PASSWORD), {
         maxAge: 60 * 60 * 24 * 365,
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
