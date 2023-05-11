@@ -2,7 +2,8 @@
 
 import { X, Menu, Home, Github } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 import Logo from "~/app/logo";
 
@@ -10,8 +11,10 @@ export default function NavbarStructure({
   isLoggedIn,
   children,
 }: React.PropsWithChildren<{ isLoggedIn: boolean }>) {
+  const pathname = usePathname();
   const [isExpanded, setIsExpanded] = useState(false);
   const NavbarToggleIcon = isExpanded ? X : Menu;
+  useEffect(() => setIsExpanded(false), [pathname]);
   return (
     <header className="lg:w-72 shrink-0">
       <div className="flex flex-col sticky top-18">
