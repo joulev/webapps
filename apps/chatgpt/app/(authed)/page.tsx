@@ -84,6 +84,8 @@ export default function Page() {
       const raw = decoder.decode(value);
       content += raw;
       addAnswer(getAnswerFromStreamResponse(content));
+      // Yeah I know it's not good; but this app can only be used by me so this is "good enough"
+      window.scrollTo(0, document.body.scrollHeight);
     }
     setIsLoading(false);
   }, [prompt, messages, addAnswer]);
