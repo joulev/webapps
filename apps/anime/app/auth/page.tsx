@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { getToken } from "~/lib/auth";
 
 export default function Page() {
@@ -28,3 +29,7 @@ export default function Page() {
 }
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Log in",
+};

@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { Item, getLists } from "~/lib/get-lists";
@@ -93,3 +94,29 @@ export default async function Page({ params }: { params: Params }) {
 }
 
 export const dynamic = "force-dynamic";
+
+export function generateMetadata({ params }: { params: Params }): Metadata {
+  const status = params.status.join("/");
+  switch (status) {
+    case "watching":
+      return { title: "Watching" };
+    case "rewatching":
+      return { title: "Rewatching" };
+    case "completed/tv":
+      return { title: "Completed TV" };
+    case "completed/movies":
+      return { title: "Completed Movies" };
+    case "completed/others":
+      return { title: "Completed (others)" };
+    case "paused":
+      return { title: "Paused" };
+    case "dropped":
+      return { title: "Dropped" };
+    case "planning":
+      return { title: "Planning" };
+    default:
+      // Next.js *should* not reach this branch, but it does, so ah well...
+      // throw new Error("invariant: generateMetadata in [...status]/page.tsx");
+      return { title: "404" };
+  }
+}

@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { Metadata } from "next";
 import Image from "next/image";
 
 import { getToken } from "~/lib/auth";
@@ -90,3 +91,7 @@ export default async function Page({ searchParams }: { searchParams: { s: string
 }
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Add new",
+};
