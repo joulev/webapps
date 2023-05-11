@@ -2,14 +2,14 @@
   "name": "@joulev/apps-link",
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "build": "pnpm nuxt-prepare && nuxt build",
+    "dev": "pnpm nuxt-prepare && nuxt dev",
+    "generate": "pnpm nuxt-prepare && nuxt generate",
+    "preview": "pnpm nuxt-prepare && nuxt preview",
+    "nuxt-prepare": "nuxt prepare"
   },
   "dependencies": {
-    "@t3-oss/env-nuxt": "^0.3.1",
+    "@t3-oss/env-nuxt": "0.3.1",
     "@vercel/analytics": "1.0.1",
     "lucide-vue-next": "0.214.0",
     "mongodb": "5.4.0",
