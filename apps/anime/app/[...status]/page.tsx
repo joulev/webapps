@@ -90,7 +90,9 @@ export default async function Page({ params }: { params: Params }) {
   return sortList(
     list,
     variant === "planning" ? "planning" : variant.includes("completed") ? "completed" : "others",
-  ).map(item => (item ? <Card item={item} variant={variant} key={item.mediaId} /> : null));
+  ).map((item, index) =>
+    item ? <Card item={item} variant={variant} key={item.mediaId} aboveFold={index < 5} /> : null,
+  );
 }
 
 export const dynamic = "force-dynamic";

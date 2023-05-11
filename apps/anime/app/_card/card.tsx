@@ -12,8 +12,16 @@ export type CardVariant =
   | "dropped"
   | "planning";
 
-export default function Card({ item, variant }: { item: Item; variant: CardVariant }) {
+export default function Card({
+  item,
+  variant,
+  aboveFold,
+}: {
+  item: Item;
+  variant: CardVariant;
+  aboveFold?: boolean;
+}) {
   const token = getToken();
   const Component = token ? PrivateCard : PublicCard;
-  return <Component item={item} variant={variant} />;
+  return <Component item={item} variant={variant} aboveFold={aboveFold} />;
 }

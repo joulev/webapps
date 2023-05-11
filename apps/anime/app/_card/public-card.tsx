@@ -64,13 +64,21 @@ function BottomRightInfo({ item, variant }: { item: Item; variant: CardVariant }
   );
 }
 
-export default function PublicCard({ item, variant }: { item: Item; variant: CardVariant }) {
+export default function PublicCard({
+  item,
+  variant,
+  aboveFold,
+}: {
+  item: Item;
+  variant: CardVariant;
+  aboveFold?: boolean;
+}) {
   const [showDetailedScore, setShowDetailedScore] = useState(false);
   const onHover = () => setShowDetailedScore(true);
   const onLeave = () => setShowDetailedScore(false);
 
   return (
-    <Base item={item} variant={variant}>
+    <Base item={item} variant={variant} aboveFold={aboveFold}>
       <div
         className="flex flex-row justify-between items-end"
         onMouseOver={onHover}

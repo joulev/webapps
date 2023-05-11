@@ -217,7 +217,15 @@ function TopRightContent({
   throw new Error("invariant: unreachable code in TopRightContent");
 }
 
-export default function PrivateCard({ item, variant }: { item: Item; variant: CardVariant }) {
+export default function PrivateCard({
+  item,
+  variant,
+  aboveFold,
+}: {
+  item: Item;
+  variant: CardVariant;
+  aboveFold?: boolean;
+}) {
   const [scoresStr, setScoresStr] = useState(
     keys.map<string>(key => String(item.advancedScores[key]) ?? "0"),
   );
@@ -226,6 +234,7 @@ export default function PrivateCard({ item, variant }: { item: Item; variant: Ca
     <Base
       item={item}
       variant={variant}
+      aboveFold={aboveFold}
       topRight={
         <div className="absolute top-5 right-5 flex flex-row gap-1.5 p-1 rounded bg-daw-main-100">
           <TopRightContent item={item} variant={variant} scoresStr={scoresStr} set={setScoresStr} />

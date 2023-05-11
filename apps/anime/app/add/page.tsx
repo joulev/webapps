@@ -34,7 +34,7 @@ export default async function Page({ searchParams }: { searchParams: { s: string
     <>
       <Input query={searchParams.s} />
       <div className="flex flex-col gap-6">
-        {items.map(item =>
+        {items.map((item, index) =>
           item ? (
             <div className="card flex flex-col relative" key={item.id}>
               <div className="absolute top-5 right-5 flex flex-row gap-1.5 p-1 rounded bg-daw-main-100">
@@ -43,7 +43,14 @@ export default async function Page({ searchParams }: { searchParams: { s: string
               <div className="p-6 flex flex-row gap-6">
                 {item.coverImage?.medium ? (
                   <div className="hidden sm:block w-18 min-h-[96px] rounded shrink-0 overflow-hidden relative">
-                    <Image src={item.coverImage.medium} alt="cover" fill className="object-cover" />
+                    <Image
+                      src={item.coverImage.medium}
+                      alt="cover"
+                      fill
+                      className="object-cover"
+                      sizes="(min-width: 640px) 72px, 0px"
+                      priority={index < 5}
+                    />
                   </div>
                 ) : (
                   <div className="hidden sm:block w-18 min-h-[96px] rounded shrink-0 bg-daw-main-200" />
