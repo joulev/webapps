@@ -65,7 +65,7 @@ export default function Page() {
 
   const submit = useCallback(async () => {
     setIsLoading(true);
-    const res = await fetch("/api/chat", {
+    const res = await fetch("/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ prompt, previousMessages: messages }),
