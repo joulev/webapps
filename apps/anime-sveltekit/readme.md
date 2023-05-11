@@ -1,9 +1,11 @@
 <img src="/apps/static/public/images/gh-asset/anime/light.svg#gh-light-mode-only" alt="Logo" height="48px">
 <img src="/apps/static/public/images/gh-asset/anime/dark.svg#gh-dark-mode-only" alt="Logo" height="48px">
 
-[https://anime.joulev.dev](https://anime.joulev.dev)&emsp;•&emsp;Svelte, Svelte Kit, GraphQL
+[https://anime-sveltekit.joulev.dev](https://anime-sveltekit.joulev.dev)&emsp;•&emsp;Svelte, Svelte Kit, GraphQL
 
 ---
+
+> This app is now deprecated and kept here for historical purposes. Refer to [the newer app](/apps/anime) for the updated AniList client.
 
 My _personal_ app which will kinda substitute [AniList](https://anilist.co) as the interface for me to manage my list (only the anime part) (since after all I still prefer my own design system over AniList's). Powered by [Svelte Kit](https://kit.svelte.dev) (yes it isn't v1 yet but this is a personal app so who cares). This is also my first (relatively) serious [Svelte](https://svelte.dev) mini-project ([tategaki](https://tategaki.joulev.dev) is not svelte enough to be counted), and this framework has been absolutely incredible to me and I think it is criminally underrated.
 
