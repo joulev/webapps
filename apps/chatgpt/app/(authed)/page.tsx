@@ -7,9 +7,7 @@ type Message = {
   content: string;
 };
 
-function getTokenFromStreamedUInt8Array(value: Uint8Array) {
-  const decoder = new TextDecoder();
-  const raw = decoder.decode(value);
+function getAnswerFromStreamResponse(raw: string) {
   const messages = raw.split("\n");
   let buffer = "";
   for (const message of messages) {
@@ -50,15 +48,15 @@ export default function Page() {
   const [prompt, setPrompt] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  const addTokenFromResponse = useCallback(
-    (token: string) =>
+  const addAnswer = useCallback(
+    (answer: string) =>
       setMessages(messages => {
         const lastMessage = messages.at(-1);
         if (lastMessage && lastMessage.role === "assistant")
           return messages.map((message, i) =>
-            i === messages.length - 1 ? { ...message, content: message.content + token } : message,
+            i === messages.length - 1 ? { ...message, content: answer } : message,
           );
-        else return [...messages, { role: "assistant", content: token }];
+        else return [...messages, { role: "assistant", content: answer }];
       }),
     [setMessages],
   );
@@ -78,13 +76,17 @@ export default function Page() {
     setMessages(messages => [...messages, { role: "user", content: prompt }]);
     setPrompt("");
     const reader = res.body.getReader();
+    const decoder = new TextDecoder();
+    let content = "";
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
-      addTokenFromResponse(getTokenFromStreamedUInt8Array(value));
+      const raw = decoder.decode(value);
+      content += raw;
+      addAnswer(getAnswerFromStreamResponse(content));
     }
     setIsLoading(false);
-  }, [prompt, messages, addTokenFromResponse]);
+  }, [prompt, messages, addAnswer]);
 
   const onKeyDown = useCallback(
     async (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
