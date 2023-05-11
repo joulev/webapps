@@ -3,6 +3,8 @@ import Image from "next/image";
 
 import { Item } from "~/lib/get-lists";
 import { getTitle } from "~/lib/utils";
+
+import ProgressBar from "./progress-bar";
 import { CardVariant } from "./card";
 
 export default function Base({
@@ -40,19 +42,9 @@ export default function Base({
         </div>
       </div>
       {variant !== "planning" && variant !== "completed" && variant !== "completed-others" && (
-        <div
-          className={clsx(
-            "h-1 rounded-r",
-            variant === "watching" && "bg-green",
-            variant === "rewatching" && "bg-blue",
-            variant === "paused" && "bg-yellow",
-            variant === "dropped" && "bg-red",
-          )}
-          style={{
-            width: `${
-              (100 * (item.progress ?? 0)) / (item.media?.episodes ?? item.progress ?? 1)
-            }%`,
-          }}
+        <ProgressBar
+          variant={variant}
+          percentage={(100 * (item.progress ?? 0)) / (item.media?.episodes ?? item.progress ?? 1)}
         />
       )}
     </div>
