@@ -12,7 +12,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "lucide-vue-next@0.214.0": "patches/lucide-vue-next@0.214.0.patch"
+      "lucide-vue-next@0.216.0": "patches/lucide-vue-next.patch"
     }
   }
 }
