@@ -9,5 +9,10 @@
   "scripts": {
     "build": "turbo run build",
     "dev": "turbo run dev"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "lucide-vue-next@0.214.0": "patches/lucide-vue-next@0.214.0.patch"
+    }
   }
 }

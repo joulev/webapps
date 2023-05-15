@@ -1,5 +1,10 @@
 lockfileVersion: '6.0'
 
+patchedDependencies:
+  lucide-vue-next@0.214.0:
+    hash: 4hjpqsxegi75zhpw2kbbuw6fbi
+    path: patches/lucide-vue-next@0.214.0.patch
+
 importers:
 
   .:
@@ -379,7 +384,7 @@ importers:
         version: 1.0.1
       lucide-vue-next:
         specifier: 0.214.0
-        version: 0.214.0(vue@3.2.47)
+        version: 0.214.0(patch_hash=4hjpqsxegi75zhpw2kbbuw6fbi)(vue@3.2.47)
       mongodb:
         specifier: 5.4.0
         version: 5.4.0
@@ -431,7 +436,7 @@ importers:
     dependencies:
       lucide-vue-next:
         specifier: 0.214.0
-        version: 0.214.0(vue@3.2.47)
+        version: 0.214.0(patch_hash=4hjpqsxegi75zhpw2kbbuw6fbi)(vue@3.2.47)
     devDependencies:
       '@joulev/theme':
         specifier: workspace:*
@@ -7567,13 +7572,14 @@ packages:
       svelte: 3.59.0
     dev: false
 
-  /lucide-vue-next@0.214.0(vue@3.2.47):
+  /lucide-vue-next@0.214.0(patch_hash=4hjpqsxegi75zhpw2kbbuw6fbi)(vue@3.2.47):
     resolution: {integrity: sha512-Pd3Jf+Mgpv7UM7w+AIFJf/IB/71+z8bYIhGRg1xvLJadaIKSmGJTgqLqQZ4a2fEqX3wWwiuAlC+iar2jR07Bng==}
     peerDependencies:
       vue: '>=3.0.1'
     dependencies:
       vue: 3.2.47
     dev: false
+    patched: true
 
   /m3u8stream@0.8.6:
     resolution: {integrity: sha512-LZj8kIVf9KCphiHmH7sbFQTVe4tOemb202fWwvJwR9W5ENW/1hxJN6ksAWGhQgSBSa3jyWhnjKU1Fw1GaOdbyA==}
