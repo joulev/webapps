@@ -3,8 +3,8 @@
   "devDependencies": {
     "prettier": "2.8.8",
     "prettier-plugin-svelte": "2.10.0",
-    "svelte": "3.59.0",
-    "turbo": "1.9.3"
+    "svelte": "3.59.1",
+    "turbo": "1.9.4"
   },
   "scripts": {
     "build": "turbo run build",
