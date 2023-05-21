@@ -20,11 +20,11 @@
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@nuxtjs/tailwindcss": "6.6.8",
+    "@nuxtjs/tailwindcss": "6.7.0",
     "@types/nprogress": "0.2.0",
     "@types/validator": "13.7.17",
     "autoprefixer": "10.4.14",
-    "nuxt": "3.4.3",
+    "nuxt": "3.5.1",
     "tailwind-dark-aware": "0.3.0",
     "typescript": "5.0.4",
     "vite-plugin-checker": "0.6.0",
