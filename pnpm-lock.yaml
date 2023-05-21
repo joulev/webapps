@@ -132,8 +132,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/theme
       '@sveltejs/adapter-vercel':
-        specifier: 2.4.3
-        version: 2.4.3(@sveltejs/kit@1.16.3)
+        specifier: 3.0.0
+        version: 3.0.0(@sveltejs/kit@1.16.3)
       '@sveltejs/kit':
         specifier: 1.16.3
         version: 1.16.3(svelte@3.59.1)(vite@4.3.5)
@@ -516,8 +516,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/theme
       '@sveltejs/adapter-vercel':
-        specifier: 2.4.3
-        version: 2.4.3(@sveltejs/kit@1.16.3)
+        specifier: 3.0.0
+        version: 3.0.0(@sveltejs/kit@1.16.3)
       '@sveltejs/kit':
         specifier: 1.16.3
         version: 1.16.3(svelte@3.59.1)(vite@4.3.5)
@@ -2941,8 +2941,8 @@ packages:
     resolution: {integrity: sha512-+9jVqKhRSpsc591z5vX+X5Yyw+he/HCB4iQ/RYxw35CEPaY1gnsNE43nf9n9AaYjAQrTiI/mOwKUKdUs9vf7Xg==}
     dev: true
 
-  /@sveltejs/adapter-vercel@2.4.3(@sveltejs/kit@1.16.3):
-    resolution: {integrity: sha512-3k/3udwaioFYdKDAgQcWSByB+KCbtjX+ARonYGCtYE0iuxWLStrESxy3SaU+17XD5Frh8w7tfY8ft4TV3ej3Dg==}
+  /@sveltejs/adapter-vercel@3.0.0(@sveltejs/kit@1.16.3):
+    resolution: {integrity: sha512-XHbgdYtEDM70tRAN3AV5mQAis/9yLka7mLEWjzuhMwo377U1jfwxBzq2YYZdL4OF3rQnegR3yf92fTWnkEILPQ==}
     peerDependencies:
       '@sveltejs/kit': ^1.5.0
     dependencies:
