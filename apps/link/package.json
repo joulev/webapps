@@ -11,7 +11,7 @@
   "dependencies": {
     "@t3-oss/env-nuxt": "0.3.1",
     "@vercel/analytics": "1.0.1",
-    "lucide-vue-next": "0.216.0",
+    "lucide-vue-next": "0.223.0",
     "mongodb": "5.5.0",
     "nanoid": "4.0.2",
     "nprogress": "0.2.0",

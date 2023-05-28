@@ -9,7 +9,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "lucide-vue-next": "0.216.0"
+    "lucide-vue-next": "0.223.0"
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
