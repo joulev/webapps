@@ -9,9 +9,9 @@
     "nuxt-prepare": "nuxt prepare"
   },
   "dependencies": {
-    "@t3-oss/env-nuxt": "0.3.1",
+    "@t3-oss/env-nuxt": "0.4.0",
     "@vercel/analytics": "1.0.1",
-    "lucide-vue-next": "0.223.0",
+    "lucide-vue-next": "0.224.0",
     "mongodb": "5.5.0",
     "nanoid": "4.0.2",
     "nprogress": "0.2.0",
@@ -24,7 +24,7 @@
     "@types/nprogress": "0.2.0",
     "@types/validator": "13.7.17",
     "autoprefixer": "10.4.14",
-    "nuxt": "3.5.1",
+    "nuxt": "3.5.2",
     "tailwind-dark-aware": "0.3.0",
     "typescript": "5.0.4",
     "vite-plugin-checker": "0.6.0",
