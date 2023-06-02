@@ -10,7 +10,6 @@ export default async function Layout({ children }: { children: React.ReactNode }
     <html lang="en">
       <body>
         <div className="container flex flex-col lg:flex-row gap-x-18 gap-y-12 pb-18 pt-6 lg:pt-18">
-          {/* @ts-expect-error */}
           <Navbar />
           <div className="flex-1">
             <main className="flex flex-col gap-6">
