@@ -12,10 +12,8 @@
   h1,
   h2,
   h3,
-  strong {
+  strong,
+  a {
     @apply text-daw-main-950;
-  }
-  h2 {
-    @apply text-2xl font-semibold mb-12;
   }
 }

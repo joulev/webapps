@@ -1,11 +1,11 @@
 import { PlayCircle, MapPin } from "lucide-react";
 import MusicData from "~/components/music-data";
 import LastUpdated from "~/components/last-updated";
-import Motion from "~/components/motion";
 
-export default function Footer({ updated }: { updated: Date }) {
+export default function Footer() {
+  const updated = new Date();
   return (
-    <Motion as="footer" className="flex flex-col text-sm border-t border-daw-main-300 py-9 gap-3">
+    <footer className="flex flex-col text-sm border-t border-daw-main-300 py-9 gap-3">
       <div className="flex flex-row items-baseline gap-3">
         <div className="relative w-6 shrink-0 pointer-events-none">
           &#x200B; {/* zero width space, to force the container to have same line height as text */}
@@ -24,6 +24,6 @@ export default function Footer({ updated }: { updated: Date }) {
         </div>
         <LastUpdated updated={updated.toISOString()} />
       </div>
-    </Motion>
+    </footer>
   );
 }

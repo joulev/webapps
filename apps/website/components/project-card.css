@@ -1,0 +1,17 @@
+.project-card-bg {
+  background-image: radial-gradient(
+    900px circle at var(--left) var(--top),
+    theme(colors.main.700),
+    transparent 30%
+  );
+}
+
+@media (prefers-color-scheme: dark) {
+  .project-card-bg {
+    background-image: radial-gradient(
+      900px circle at var(--left) var(--top),
+      theme(colors.main.300),
+      transparent 30%
+    );
+  }
+}

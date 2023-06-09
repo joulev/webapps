@@ -1,20 +1,13 @@
-import Footer from "~/app/footer";
-import Header from "~/app/header";
-import Now from "~/app/now";
-import Projects from "~/app/projects";
-import Skills from "~/app/skills";
+import Projects from "./projects";
+import Header from "./header";
+import Footer from "./footer";
 
-export default function Home() {
+export default function Page() {
   return (
-    <div>
-      <main className="mb-24 mt-36 flex flex-col gap-24">
-        <Header />
-        <Skills />
-        <Projects />
-        <Now />
-      </main>
-      <Footer updated={new Date()} />
-      <div className="fixed top-0 inset-x-0 h-36 bg-gradient-to-b from-daw-main-50 to-transparent backdrop-blur-sm mask pointer-events-none z-20" />
+    <div className="container max-w-screen-md pt-36 flex flex-col gap-36">
+      <Header />
+      <Projects />
+      <Footer />
     </div>
   );
 }

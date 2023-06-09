@@ -1,49 +1,51 @@
-import { Mail, Github } from "lucide-react";
-import Image from "next/image";
-import Button from "~/components/button";
-import me from "~/assets/joulev.png";
-import Motion from "~/components/motion";
+import Link from "~/components/link";
+import Logo from "./logo";
+import Section from "./section";
+import { Github, LucideIcon, Mail } from "lucide-react";
+
+function SocialLink({ href, icon: Icon }: { href: string; icon: LucideIcon }) {
+  return (
+    <Link
+      href={href}
+      className="w-12 h-9 rounded-full grid place-items-center text-daw-main-500 hover:text-daw-main-950 transition"
+    >
+      <Icon strokeWidth={1.5} />
+    </Link>
+  );
+}
 
 export default function Header() {
   return (
-    <div className="flex flex-col gap-9">
-      <Motion
-        as="header"
-        className="flex flex-col-reverse sm:flex-row justify-between items-start sm:items-end gap-6 mb-3 opacity-50"
-      >
-        <div className="flex flex-col gap-3">
-          <h1 className="text-3xl sm:text-4xl font-medium">Vu Van Dung</h1>
-          <p className="text-lg md:text-xl">Full-stack Web Developer</p>
+    <Section
+      left={
+        <div className="flex flex-col gap-6">
+          <Logo className="mt-2 mb-3 ml-1.5" />
+          <SocialLink href="https://github.com/joulev" icon={Github} />
+          <SocialLink href="mailto:me@joulev.dev" icon={Mail} />
         </div>
-        <div className="card rounded-full">
-          <Image
-            src={me}
-            alt="Vu Van Dung"
-            className="saturate-50 brightness-100 dark:brightness-90"
-            width={144}
-            height={144}
-            priority
-          />
-        </div>
-      </Motion>
-      <Motion as="p" className="text-lg">
-        <strong className="font-medium">
-          Burning enthusiasm for web development and web design.
-        </strong>{" "}
-        Crafting interfaces and applications with highest focus on user experience and artistic
-        beauty. A fast-learner passionate in cutting-edge technologies.
-      </Motion>
-      <Motion as="div" className="flex flex-row gap-3">
-        <Button href="/cv" primary isExternal disablePrefetch>
-          View résumé
-        </Button>
-        <Button href="mailto:me@joulev.dev" className="btn-nopadding p-1.5">
-          <Mail size={24} width={24} strokeWidth={1} />
-        </Button>
-        <Button href="https://github.com/joulev" className="btn-nopadding p-1.5">
-          <Github size={24} width={24} strokeWidth={1} />
-        </Button>
-      </Motion>
-    </div>
+      }
+    >
+      <div className="flex flex-col">
+        <h1 className="text-3xl sm:text-4xl font-medium">Vu Van Dung</h1>
+        <p>@joulev</p>
+      </div>
+      <hr className="border-daw-main-300 my-9" />
+      <div className="flex flex-col gap-6">
+        <p>I am a software developer.</p>
+        <p>
+          In free time, I usually either work on side projects or learn about new stuff related to
+          web development. Or just randomly walk around in a quiet park, because Singapore has a lot
+          of them and I find them very peaceful.
+        </p>
+        <p>
+          I almost always listen to music whenever I can. My taste ranges from beautiful classical
+          masterpieces or movie soundtracks to catchy Japanese popular music.
+        </p>
+        <p>
+          I am also active on Discord and you can find me as a moderator on the{" "}
+          <Link href="https://nextjs.org/discord">official Next.js Discord server</Link>.
+        </p>
+      </div>
+    </Section>
   );
 }
