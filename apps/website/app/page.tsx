@@ -1,14 +1,17 @@
 import Projects from "./projects";
 import Header from "./header";
 import Footer from "./footer";
+import ClientWrapper from "./client-wrapper";
 
 export default function Page() {
   return (
-    <div className="container max-w-screen-md pt-36 flex flex-col gap-36">
-      <Header />
-      <Projects />
-      <Footer />
-    </div>
+    <ClientWrapper>
+      <div className="container max-w-screen-md pt-36 flex flex-col gap-36">
+        <Header />
+        <Projects />
+        <Footer />
+      </div>
+    </ClientWrapper>
   );
 }
 

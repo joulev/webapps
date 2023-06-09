@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { AppWindow, Star } from "lucide-react";
 import ProjectCard from "~/components/project-card";
 import Section from "./section";
+import Motion from "~/components/motion";
 
 type CardProps = React.PropsWithChildren<{
   featured?: boolean;
@@ -28,21 +29,21 @@ export default function Projects() {
   return (
     <Section
       left={
-        <div className="flex flex-col w-12 items-center gap-6">
+        <Motion as="div" delay={0.25} className="flex flex-col w-12 items-center gap-6">
           <div className="bg-daw-main-200 w-12 h-12 rounded-full grid place-items-center">
             <AppWindow strokeWidth={1.5} />
           </div>
           <h2 style={{ writingMode: "vertical-rl" }} className="text-2xl font-thin tracking-wider">
             Projects
           </h2>
-        </div>
+        </Motion>
       }
     >
-      <p className="mb-6">
+      <Motion as="p" className="mb-6" delay={0.25}>
         Here are some of the projects I have worked on, most of which won&apos;t be updated for a
         while if ever, as I am relatively busy now.
-      </p>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+      </Motion>
+      <Motion as="div" delay={0.3} className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <Card featured title="ezkomment" href="https://ezkomment.joulev.dev">
           A simple but fully-featured and fully-customisable comment service for the web.
         </Card>
@@ -68,7 +69,7 @@ export default function Projects() {
         {/* <div className="hidden sm:grid rounded border border-daw-main-100 place-items-center text-daw-main-400">
           and more to come &hellip;
         </div> */}
-      </div>
+      </Motion>
     </Section>
   );
 }

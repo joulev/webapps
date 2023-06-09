@@ -1,16 +1,19 @@
+import { Github, LucideIcon, Mail } from "lucide-react";
 import Link from "~/components/link";
+import Motion from "~/components/motion";
 import Logo from "./logo";
 import Section from "./section";
-import { Github, LucideIcon, Mail } from "lucide-react";
 
 function SocialLink({ href, icon: Icon }: { href: string; icon: LucideIcon }) {
   return (
-    <Link
-      href={href}
-      className="w-12 h-9 rounded-full grid place-items-center text-daw-main-500 hover:text-daw-main-950 transition"
-    >
-      <Icon strokeWidth={1.5} />
-    </Link>
+    <Motion as="div" delay={0.1}>
+      <Link
+        href={href}
+        className="w-12 h-9 rounded-full grid place-items-center text-daw-main-500 hover:text-daw-main-950 transition"
+      >
+        <Icon strokeWidth={1.5} />
+      </Link>
+    </Motion>
   );
 }
 
@@ -25,26 +28,28 @@ export default function Header() {
         </div>
       }
     >
-      <div className="flex flex-col">
+      <Motion as="div" className="flex flex-col">
         <h1 className="text-3xl sm:text-4xl font-medium">Vu Van Dung</h1>
         <p>@joulev</p>
-      </div>
-      <hr className="border-daw-main-300 my-9" />
+      </Motion>
+      <Motion as="hr" delay={0.1} className="border-daw-main-300 my-9" />
       <div className="flex flex-col gap-6">
-        <p>I am a software developer.</p>
-        <p>
+        <Motion as="p" delay={0.1}>
+          I am a software developer.
+        </Motion>
+        <Motion as="p" delay={0.15}>
           In free time, I usually either work on side projects or learn about new stuff related to
           web development. Or just randomly walk around in a quiet park, because Singapore has a lot
           of them and I find them very peaceful.
-        </p>
-        <p>
+        </Motion>
+        <Motion as="p" delay={0.2}>
           I almost always listen to music whenever I can. My taste ranges from beautiful classical
           masterpieces or movie soundtracks to catchy Japanese popular music.
-        </p>
-        <p>
+        </Motion>
+        <Motion as="p" delay={0.25}>
           I am also active on Discord and you can find me as a moderator on the{" "}
           <Link href="https://nextjs.org/discord">official Next.js Discord server</Link>.
-        </p>
+        </Motion>
       </div>
     </Section>
   );
