@@ -16,10 +16,7 @@ export default function Page() {
 }
 
 const title = "Vu Van Dung";
-const description =
-  "Burning enthusiasm for web development and web design. " +
-  "Crafting interfaces and applications with highest focus on user experience and artistic beauty. " +
-  "A fast-learner passionate in cutting-edge technologies.";
+const description = "Software developer. I build things for the web.";
 const url = "https://joulev.dev";
 export const metadata = {
   metadataBase: new URL("https://joulev.dev"),
@@ -34,7 +31,7 @@ export const metadata = {
     siteName: title,
     images: [
       {
-        url: "https://static.joulev.dev/og?title=Vu+Van+Dung&subtitle=Full+stack+developer",
+        url: "https://static.joulev.dev/og?title=Vu+Van+Dung&subtitle=Software+developer",
         alt: title,
         width: 1200,
         height: 630,

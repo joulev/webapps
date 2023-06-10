@@ -35,7 +35,8 @@ export default function Header() {
       <Motion as="hr" delay={0.1} className="border-daw-main-300 my-9" />
       <div className="flex flex-col gap-6">
         <Motion as="p" delay={0.1}>
-          I am a software developer.
+          I am a software developer. I build things for the web, mostly using{" "}
+          <Link href="https://nextjs.org">Next.js</Link>.
         </Motion>
         <Motion as="p" delay={0.15}>
           In free time, I usually either work on side projects or learn about new stuff related to
