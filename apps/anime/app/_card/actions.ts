@@ -25,14 +25,7 @@ function getClient() {
 const client = getClient();
 
 function revalidateEverything() {
-  revalidatePath("/watching");
-  revalidatePath("/rewatching");
-  revalidatePath("/completed/tv");
-  revalidatePath("/completed/movies");
-  revalidatePath("/completed/others");
-  revalidatePath("/paused");
-  revalidatePath("/dropped");
-  revalidatePath("/planning");
+  revalidatePath("/[...status]");
 }
 
 export async function incrementProgress(item: Item) {
