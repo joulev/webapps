@@ -224,8 +224,8 @@ importers:
         specifier: 13.4.4
         version: 13.4.4(@babel/core@7.21.3)(react-dom@18.2.0)(react@18.2.0)
       openai-edge:
-        specifier: 0.6.1
-        version: 0.6.1
+        specifier: 1.0.0
+        version: 1.0.0
       postcss:
         specifier: 8.4.24
         version: 8.4.24
@@ -8868,8 +8868,8 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
-  /openai-edge@0.6.1:
-    resolution: {integrity: sha512-CyKxNH245kslVbm5/r8iFJT2mMpKLR/KKfr2K4qTe1RNO6ajKnDnYWePBCbuedR7MbGeBtb05KTGhZq6sg2jhg==}
+  /openai-edge@1.0.0:
+    resolution: {integrity: sha512-psrC4fxpP87tWIUaALkqn9cW/8WxvAUOuHG93iXDzXaGsxba/+0QD1RJu2KBiwVTyB6/9q/JxIPRmrCQXD/59Q==}
     engines: {node: '>=12'}
     dev: false
 
