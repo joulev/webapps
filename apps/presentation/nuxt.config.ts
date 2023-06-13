@@ -30,6 +30,15 @@ export default defineNuxtConfig({
           sizes: "180x180",
         },
         {
+          rel: "dns-prefetch",
+          href: "https://static.joulev.dev",
+        },
+        {
+          rel: "preconnect",
+          href: "https://static.joulev.dev",
+          crossorigin: "anonymous",
+        },
+        {
           rel: "preload",
           href: "https://static.joulev.dev/fonts/Synonym-Variable.woff2",
           as: "font",
