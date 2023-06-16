@@ -50,8 +50,8 @@ export default function Page() {
   );
 
   return (
-    <div className="container max-w-screen-md py-12">
-      <div className="flex flex-col gap-6">
+    <div className="h-screen py-12 overflow-y-auto flex flex-col-reverse">
+      <div className="flex flex-col gap-6 max-w-screen-md container">
         {messages.map((message, i) =>
           message.role === "user" ? (
             <UserMessage key={i} content={message.content} />
