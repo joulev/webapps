@@ -10,6 +10,7 @@
   "dependencies": {
     "@joulev/theme": "workspace:*",
     "@t3-oss/env-nextjs": "0.4.0",
+    "@tailwindcss/typography": "0.5.9",
     "@types/node": "18.16.17",
     "@types/react": "18.2.11",
     "@types/react-dom": "18.2.4",
@@ -21,9 +22,14 @@
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "rehype-stringify": "9.0.3",
+    "remark-gfm": "3.0.1",
+    "remark-parse": "10.0.2",
+    "remark-rehype": "10.1.0",
     "tailwind-dark-aware": "0.3.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3",
+    "unified": "10.1.2",
     "zod": "3.21.4"
   }
 }

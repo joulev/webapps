@@ -1,27 +1,9 @@
 "use client";
 
 import { useChat } from "ai/react";
+import clsx from "clsx";
 import { useCallback, useState } from "react";
-
-function UserMessage({ content }: { content: string }) {
-  return (
-    <div className="flex flex-row justify-end">
-      <pre className="bg-daw-main-200 px-4 py-2 rounded max-w-[85%] sm:max-w-[75%] whitespace-pre-wrap">
-        {content}
-      </pre>
-    </div>
-  );
-}
-
-function ResponseMessage({ content }: { content: string }) {
-  return (
-    <div className="flex flex-row justify-start">
-      <pre className="border border-daw-main-300 px-4 py-2 rounded max-w-[85%] sm:max-w-[75%] whitespace-pre-wrap">
-        {content}
-      </pre>
-    </div>
-  );
-}
+import Markdown from "./markdown";
 
 export default function Page() {
   const { messages, append } = useChat({ api: "/chat" });
@@ -52,13 +34,23 @@ export default function Page() {
   return (
     <div className="h-screen py-12 overflow-y-auto flex flex-col-reverse">
       <div className="flex flex-col gap-6 max-w-screen-md container">
-        {messages.map((message, i) =>
-          message.role === "user" ? (
-            <UserMessage key={i} content={message.content} />
-          ) : (
-            <ResponseMessage key={i} content={message.content} />
-          ),
-        )}
+        {messages.map((message, i) => (
+          <div
+            className={clsx(
+              "flex flex-row",
+              message.role === "user" ? "justify-end" : "justify-start",
+            )}
+            key={i}
+          >
+            <Markdown
+              className={clsx(
+                "px-4 py-2 rounded max-w-[85%] sm:max-w-[75%] prose dark:prose-invert prose-zinc",
+                message.role === "user" ? "bg-daw-main-200" : "border border-daw-main-300",
+              )}
+              content={message.content}
+            />
+          </div>
+        ))}
         <div className="flex flex-col gap-3">
           <textarea
             className="w-full input h-24"
