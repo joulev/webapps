@@ -1,1 +1,1 @@
-ytmusicapi==1.0.2
+ytmusicapi==1.1.0
