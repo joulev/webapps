@@ -10,6 +10,8 @@
     "db:push": "prisma db push"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "3.363.0",
+    "@aws-sdk/s3-request-presigner": "3.363.0",
     "@prisma/client": "4.16.1",
     "@t3-oss/env-nextjs": "0.6.0",
     "clsx": "1.2.1",
