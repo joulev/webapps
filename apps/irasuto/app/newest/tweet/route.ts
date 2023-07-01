@@ -2,11 +2,11 @@ import { NextResponse } from "next/server";
 import { prisma } from "~/lib/db";
 
 export async function GET() {
-  const { tweetId } = await prisma.illustration.findFirstOrThrow({
+  const { tweetUrl } = await prisma.photo.findFirstOrThrow({
     orderBy: { id: "desc" },
-    select: { tweetId: true },
+    select: { tweetUrl: true },
   });
-  return NextResponse.redirect(`https://static-tweet.vercel.app/${tweetId}`);
+  return NextResponse.redirect(tweetUrl);
 }
 
 export const dynamic = "force-dynamic";

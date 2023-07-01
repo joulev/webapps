@@ -1,19 +1,5 @@
-import { Tweet } from "next-tweet/api/index";
+import { Photo as _Photo } from "@prisma/client";
 
-export type TweetWithPhoto = Tweet & {
-  photos: NonNullable<Tweet["photos"]>;
-  addedDate: Date;
-};
-
-export type Photo = {
-  url: string;
-  width: number;
-  height: number;
-  tweetUrl: string;
-  author: {
-    name: string;
-    handle: string;
-  };
-  addedDate: Date;
+export type Photo = Omit<_Photo, "date"> & {
   dateAgo: string;
 };

@@ -1,9 +1,10 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { Photo } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { getTweet as _getTweet } from "next-tweet/api";
 import { z } from "zod";
 import { env } from "~/env.mjs";
 import { prisma } from "~/lib/db";
-import { convertUrlToPhotoId, getTweet } from "~/lib/utils";
 
 const schema = z.object({ password: z.literal(env.JOULEV_PASSWORD), url: z.string().url() });
 
@@ -12,6 +13,10 @@ const S3 = new S3Client({
   endpoint: `https://${env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
   credentials: { accessKeyId: env.R2_ACCESS_KEY, secretAccessKey: env.R2_SECRET_ACCESS_KEY },
 });
+
+function convertUrlToPhotoId(url: string) {
+  return url.replace("https://pbs.twimg.com/media/", "");
+}
 
 async function uploadPhoto(url: string, tweetUrl: string) {
   const id = convertUrlToPhotoId(url);
@@ -34,6 +39,20 @@ async function uploadPhoto(url: string, tweetUrl: string) {
     throw new Error(`Failed to upload photo for id=${id} (${tweetUrl})`);
 }
 
+async function getPhotos(id: string): Promise<Omit<Photo, "id">[] | null> {
+  const tweet = await _getTweet(id);
+  if (!tweet || !tweet.photos) return null;
+  return tweet.photos.map(photo => ({
+    url: photo.url,
+    width: photo.width,
+    height: photo.height,
+    tweetUrl: `https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`,
+    authorName: tweet.user.name,
+    authorHandle: tweet.user.screen_name,
+    date: new Date(tweet.created_at),
+  }));
+}
+
 export async function POST(request: Request) {
   const e = new Error();
   try {
@@ -43,18 +62,24 @@ export async function POST(request: Request) {
     const id = url.pathname.split("/").at(-1);
     if (!id) throw e;
 
-    const tweetInfo = await getTweet({ id: "", tweetId: id });
-    if (!tweetInfo) throw new Error();
+    const photos = await getPhotos(id);
+    if (!photos) throw new Error();
 
-    const tweetUrl = `https://twitter.com/${tweetInfo.user.screen_name}/status/${tweetInfo.id_str}`;
-    await Promise.all(tweetInfo.photos.map(photo => uploadPhoto(photo.url, tweetUrl)));
-
-    await prisma.illustration.create({ data: { tweetId: id } });
+    await Promise.all(
+      photos.map(async photo => {
+        await uploadPhoto(photo.url, photo.tweetUrl);
+        // We don't parallelise this because we don't want to have db items without photos
+        await prisma.photo.create({
+          data: {
+            ...photo,
+            url: `https://r2.irasuto.joulev.dev/irasuto/${convertUrlToPhotoId(photo.url)}`,
+          },
+        });
+      }),
+    );
 
     revalidatePath("/");
-    fetch("https://irasuto.joulev.dev");
     revalidatePath("/newest");
-    fetch("https://irasuto.joulev.dev/newest");
 
     return new Response("Ok!");
   } catch (e) {

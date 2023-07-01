@@ -7,7 +7,13 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model Illustration {
-  id      String @id @default(auto()) @map("_id") @db.ObjectId
-  tweetId String @unique
+model Photo {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  url          String
+  width        Int
+  height       Int
+  tweetUrl     String
+  authorName   String
+  authorHandle String
+  date         DateTime
 }
