@@ -18,3 +18,7 @@ export async function getTweet(illustration: Illustration): Promise<TweetWithPho
     addedDate: getTimestampOfObjectId(illustration.id),
   } satisfies TweetWithPhoto;
 }
+
+export function convertUrlToPhotoId(url: string) {
+  return url.replace("https://pbs.twimg.com/media/", "");
+}
