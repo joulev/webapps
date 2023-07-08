@@ -3,5 +3,5 @@ import getPhotos from "~/app/get-photos";
 
 export default async function Page() {
   const photos = await getPhotos({ randomised: false });
-  return <Collage photos={photos} />;
+  return <Collage photos={photos} buildTime={new Date().toISOString()} />;
 }

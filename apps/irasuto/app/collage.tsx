@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useState, useEffect as useEffectOriginal, useLayoutEffect, useMemo } from "react";
 import TweetPhoto from "~/app/tweet-photo";
 import { Photo } from "~/types";
+import ShowTime from "./show-time";
 
 const useEffect = typeof window === "undefined" ? useEffectOriginal : useLayoutEffect;
 
@@ -41,7 +42,7 @@ function useOrganisedPhotos(photos: Photo[], columnCount: number | null) {
   return organisedPhotos;
 }
 
-export default function Collage({ photos }: { photos: Photo[] }) {
+export default function Collage({ photos, buildTime }: { photos: Photo[]; buildTime: string }) {
   const count = useColumnCount();
   const columns = useOrganisedPhotos(photos, count);
   return (
@@ -58,6 +59,7 @@ export default function Collage({ photos }: { photos: Photo[] }) {
           ))}
         </div>
       ))}
+      <ShowTime buildTime={buildTime} />
     </div>
   );
 }
