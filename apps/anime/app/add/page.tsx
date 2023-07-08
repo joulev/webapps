@@ -8,7 +8,7 @@ import { SEARCH_ANIME } from "~/lib/queries";
 import { getLists } from "~/lib/get-lists";
 import { convertSeason, getTitle } from "~/lib/utils";
 import Score from "~/app/_card/score";
-import EmptyState from "~/app/[...status]/empty-state";
+import EmptyState from "~/app/(main)/[...status]/empty-state";
 
 import Input from "./input";
 import AddButton from "./add-button";

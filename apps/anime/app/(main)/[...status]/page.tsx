@@ -6,6 +6,7 @@ import { getTitle } from "~/lib/utils";
 import Card, { CardVariant } from "~/app/_card/card";
 
 import EmptyState from "./empty-state";
+import { AnimatePresence, CardWrapper } from "./motion-wrapper";
 
 type Params = { status: string[] };
 type AllowedStatus =
@@ -87,11 +88,20 @@ export default async function Page({ params }: { params: Params }) {
     notFound();
   const [list, variant] = await getList(status);
   if (list.length === 0) return <EmptyState />;
-  return sortList(
+
+  const sortedList = sortList(
     list,
     variant === "planning" ? "planning" : variant.includes("completed") ? "completed" : "others",
-  ).map((item, index) =>
-    item ? <Card item={item} variant={variant} key={item.mediaId} aboveFold={index < 5} /> : null,
+  ).filter((item): item is NonNullable<(typeof list)[number]> => item !== null);
+
+  return (
+    <AnimatePresence>
+      {sortedList.map((item, index) => (
+        <CardWrapper index={index} aboveFold={index < 5} key={item.mediaId}>
+          <Card item={item} variant={variant} aboveFold={index < 5} />
+        </CardWrapper>
+      ))}
+    </AnimatePresence>
   );
 }
 
