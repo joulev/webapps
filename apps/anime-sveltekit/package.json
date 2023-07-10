@@ -13,10 +13,10 @@
     "postinstall": "svelte-kit sync && graphql-codegen --config codegen.yml"
   },
   "dependencies": {
-    "@apollo/client": "3.7.16",
+    "@apollo/client": "3.7.17",
     "@vercel/analytics": "1.0.1",
     "graphql": "16.7.1",
-    "lucide-svelte": "0.258.0",
+    "lucide-svelte": "0.259.0",
     "nprogress": "0.2.0"
   },
   "devDependencies": {
@@ -25,26 +25,26 @@
     "@graphql-typed-document-node/core": "3.2.0",
     "@joulev/theme": "workspace:*",
     "@sveltejs/adapter-vercel": "3.0.1",
-    "@sveltejs/kit": "1.21.0",
+    "@sveltejs/kit": "1.22.1",
     "@types/node": "18.16.19",
     "@types/nprogress": "0.2.0",
-    "@typescript-eslint/eslint-plugin": "5.60.1",
-    "@typescript-eslint/parser": "5.60.1",
+    "@typescript-eslint/eslint-plugin": "5.61.0",
+    "@typescript-eslint/parser": "5.61.0",
     "autoprefixer": "10.4.14",
     "eslint": "8.44.0",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-svelte3": "4.0.0",
-    "postcss": "8.4.24",
+    "postcss": "8.4.25",
     "postcss-load-config": "4.0.1",
-    "svelte": "4.0.1",
+    "svelte": "4.0.5",
     "svelte-apollo": "0.5.0",
-    "svelte-check": "3.4.4",
+    "svelte-check": "3.4.5",
     "svelte-preprocess": "5.0.4",
     "tailwind-dark-aware": "0.3.0",
     "tailwindcss": "3.3.2",
     "ts-node": "10.9.1",
     "tslib": "2.6.0",
     "typescript": "5.1.6",
-    "vite": "4.3.9"
+    "vite": "4.4.2"
   }
 }
