@@ -11,7 +11,7 @@
   "dependencies": {
     "@apollo/client": "3.7.17",
     "@t3-oss/env-nextjs": "0.6.0",
-    "clsx": "1.2.1",
+    "clsx": "2.0.0",
     "framer-motion": "10.12.18",
     "graphql": "16.7.1",
     "lucide-react": "0.259.0",
