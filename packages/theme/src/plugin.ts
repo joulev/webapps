@@ -99,6 +99,14 @@ export const plugin = internal.withOptions<Partial<Option>>(
             colour.contrast("color"),
             themedStyle(mode, "color", [main![600], main![400]], "&:hover"),
           ),
+
+          "&:disabled": mergedStyles(
+            colour.muted("color"),
+            colour.reduced("backgroundColor"),
+            themedStyle(mode, "color", [main![500], main![500]], "&:hover"),
+            themedStyle(mode, "backgroundColor", [main![300], main![700]], "&:hover"),
+            { cursor: "not-allowed" },
+          ),
         }),
       });
 
