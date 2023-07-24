@@ -11,7 +11,7 @@
   "dependencies": {
     "@t3-oss/env-nuxt": "0.6.0",
     "@vercel/analytics": "1.0.1",
-    "lucide-vue-next": "0.260.0",
+    "lucide-vue-next": "0.263.0",
     "mongodb": "5.7.0",
     "nanoid": "4.0.2",
     "nprogress": "0.2.0",
@@ -24,10 +24,10 @@
     "@types/nprogress": "0.2.0",
     "@types/validator": "13.7.17",
     "autoprefixer": "10.4.14",
-    "nuxt": "3.6.3",
+    "nuxt": "3.6.5",
     "tailwind-dark-aware": "0.3.0",
     "typescript": "5.1.6",
     "vite-plugin-checker": "0.6.1",
-    "vue-tsc": "1.8.5"
+    "vue-tsc": "1.8.6"
   }
 }
