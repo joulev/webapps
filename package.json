@@ -2,7 +2,7 @@
   "name": "webapps",
   "devDependencies": {
     "prettier": "3.0.0",
-    "prettier-plugin-svelte": "2.10.1",
+    "prettier-plugin-svelte": "3.0.0",
     "svelte": "4.0.5",
     "turbo": "1.10.7"
   },
