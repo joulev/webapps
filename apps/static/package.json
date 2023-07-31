@@ -8,7 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "lucide-react": "0.263.0",
+    "lucide-react": "0.263.1",
     "next": "13.4.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -16,8 +16,8 @@
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@types/node": "18.17.0",
-    "@types/react": "18.2.15",
+    "@types/node": "18.17.1",
+    "@types/react": "18.2.17",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
     "postcss": "8.4.27",
