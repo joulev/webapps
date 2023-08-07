@@ -11,18 +11,18 @@
   "dependencies": {
     "@t3-oss/env-nuxt": "0.6.0",
     "@vercel/analytics": "1.0.1",
-    "lucide-vue-next": "0.263.0",
+    "lucide-vue-next": "0.264.0",
     "mongodb": "5.7.0",
     "nanoid": "4.0.2",
     "nprogress": "0.2.0",
-    "validator": "13.9.0",
+    "validator": "13.11.0",
     "zod": "3.21.4"
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
     "@nuxtjs/tailwindcss": "6.8.0",
     "@types/nprogress": "0.2.0",
-    "@types/validator": "13.7.17",
+    "@types/validator": "13.9.0",
     "autoprefixer": "10.4.14",
     "nuxt": "3.6.5",
     "tailwind-dark-aware": "0.3.0",
