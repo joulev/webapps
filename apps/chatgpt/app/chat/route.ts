@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
   try {
     const response = await openai.createChatCompletion({
-      model: "gpt-3.5-turbo",
+      model: "gpt-4",
       messages: [{ role: "system", content: initialPrompt }, ...messages],
       temperature: 0.2,
       stream: true,
