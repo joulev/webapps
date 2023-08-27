@@ -2,7 +2,7 @@
   "name": "@joulev/apps-irasuto",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "pnpm db:generate && next dev",
     "build": "pnpm db:generate && next build",
     "start": "next start",
     "lint": "next lint",
@@ -18,10 +18,10 @@
     "date-fns": "2.30.0",
     "lucide-react": "0.264.0",
     "next": "13.4.12",
-    "next-tweet": "0.8.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-intersection-observer": "9.5.2",
+    "react-tweet": "3.1.1",
     "zod": "3.21.4"
   },
   "devDependencies": {

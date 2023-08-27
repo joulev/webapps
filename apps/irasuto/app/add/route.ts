@@ -1,7 +1,7 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { Photo } from "@prisma/client";
 import { revalidatePath } from "next/cache";
-import { getTweet as _getTweet } from "next-tweet/api";
+import { getTweet as _getTweet } from "react-tweet/api";
 import { z } from "zod";
 import { env } from "~/env.mjs";
 import { prisma } from "~/lib/db";
