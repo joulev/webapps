@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "3.385.0",
     "@aws-sdk/s3-request-presigner": "3.385.0",
+    "@discordjs/builders": "1.6.5",
     "@prisma/client": "5.1.1",
     "@t3-oss/env-nextjs": "0.6.0",
     "clsx": "2.0.0",
@@ -30,6 +31,7 @@
     "@types/react": "18.2.18",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "discord-api-types": "0.37.56",
     "eslint": "8.46.0",
     "eslint-config-next": "13.4.12",
     "postcss": "8.4.27",

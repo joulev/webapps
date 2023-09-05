@@ -1,5 +1,8 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { EmbedBuilder } from "@discordjs/builders";
 import { Photo } from "@prisma/client";
+import { format } from "date-fns";
+import { RESTPostAPIWebhookWithTokenJSONBody } from "discord-api-types/v10";
 import { revalidatePath } from "next/cache";
 import { getTweet as _getTweet } from "react-tweet/api";
 import { z } from "zod";
@@ -53,6 +56,40 @@ async function getPhotos(id: string): Promise<Omit<Photo, "id">[] | null> {
   }));
 }
 
+function buildEmbedFromPhoto(
+  photo: Omit<Photo, "id">,
+  totalCount: number,
+): RESTPostAPIWebhookWithTokenJSONBody {
+  return {
+    embeds: [
+      new EmbedBuilder()
+        // .setTitle(`${photo.authorName} @${photo.authorHandle}`)
+        .setURL(photo.tweetUrl)
+        .setFields([
+          {
+            name: "Author",
+            value: `[@${photo.authorHandle}](<https://twitter.com/${photo.authorHandle}>)`,
+            inline: true,
+          },
+          {
+            name: "Source",
+            value: `[Click here](<${photo.tweetUrl}>)`,
+            inline: true,
+          },
+          {
+            name: "Posted",
+            value: format(photo.date, "d MMM yyyy 'at' HH:mm 'UTC'"),
+            inline: true,
+          },
+        ])
+        .setImage(photo.url)
+        .setFooter({ text: `Total: ${totalCount}` })
+        .setColor(0x8ec8f6)
+        .toJSON(),
+    ],
+  };
+}
+
 export async function POST(request: Request) {
   const e = new Error();
   try {
@@ -68,13 +105,19 @@ export async function POST(request: Request) {
     await Promise.all(
       photos.map(async photo => {
         await uploadPhoto(photo.url, photo.tweetUrl);
+        photo.url = `https://r2.irasuto.joulev.dev/irasuto/${convertUrlToPhotoId(photo.url)}`;
+
         // We don't parallelise this because we don't want to have db items without photos
-        await prisma.photo.create({
-          data: {
-            ...photo,
-            url: `https://r2.irasuto.joulev.dev/irasuto/${convertUrlToPhotoId(photo.url)}`,
-          },
-        });
+        await prisma.photo.create({ data: photo });
+
+        if (env.DISCORD_WEBHOOK) {
+          const count = await prisma.photo.count();
+          fetch(env.DISCORD_WEBHOOK, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(buildEmbedFromPhoto(photo, count)),
+          });
+        }
       }),
     );
 
