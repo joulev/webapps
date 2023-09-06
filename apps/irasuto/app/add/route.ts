@@ -93,7 +93,9 @@ export async function POST(request: Request) {
   const e = new Error();
   try {
     const url = new URL(schema.parse(await request.json()).url);
-    if (url.hostname !== "twitter.com") throw e;
+    if (url.hostname !== "twitter.com" && url.hostname !== "x.com") throw e;
+
+    if (url.hostname === "x.com") url.hostname = "twitter.com";
 
     const id = url.pathname.split("/").at(-1);
     if (!id) throw e;
