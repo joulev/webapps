@@ -8,7 +8,7 @@ export default {
   presets: [preset],
   theme: {
     fontFamily: {
-      sans: defaultTheme.fontFamily.serif, // I choose violence today
+      sans: ['"Noto Serif JP"', ...defaultTheme.fontFamily.serif], // I choose violence today
     },
     extend: {
       fontSize: {
