@@ -9,7 +9,7 @@ generator client {
 
 model Photo {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  url          String
+  url          String   @unique
   width        Int
   height       Int
   tweetUrl     String
