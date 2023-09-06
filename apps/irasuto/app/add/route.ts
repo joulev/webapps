@@ -63,7 +63,6 @@ function buildEmbedFromPhoto(
   return {
     embeds: [
       new EmbedBuilder()
-        // .setTitle(`${photo.authorName} @${photo.authorHandle}`)
         .setURL(photo.tweetUrl)
         .setFields([
           {
@@ -78,7 +77,7 @@ function buildEmbedFromPhoto(
           },
           {
             name: "Posted",
-            value: format(photo.date, "d MMM yyyy 'at' HH:mm 'UTC'"),
+            value: `<t:${Math.round(photo.date.valueOf() / 1000)}:R>`,
             inline: true,
           },
         ])
