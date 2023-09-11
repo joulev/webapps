@@ -12,7 +12,7 @@ const getPhotos = unstable_cache(
     }));
   },
   [],
-  { tags: ["photos"] },
+  { tags: ["photos"], revalidate: 86400 }, // 1 day
 );
 
 export default getPhotos;
