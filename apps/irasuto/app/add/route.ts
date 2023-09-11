@@ -1,9 +1,8 @@
 import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
 import { EmbedBuilder } from "@discordjs/builders";
 import { Photo } from "@prisma/client";
-import { format } from "date-fns";
 import { RESTPostAPIWebhookWithTokenJSONBody } from "discord-api-types/v10";
-import { revalidatePath } from "next/cache";
+import { revalidateTag } from "next/cache";
 import { getTweet as _getTweet } from "react-tweet/api";
 import { z } from "zod";
 import { env } from "~/env.mjs";
@@ -90,18 +89,19 @@ function buildEmbedFromPhoto(
 }
 
 export async function POST(request: Request) {
-  const e = new Error();
+  const e = (msg: string) => new Error(msg);
   try {
     const url = new URL(schema.parse(await request.json()).url);
-    if (url.hostname !== "twitter.com" && url.hostname !== "x.com") throw e;
+    if (url.hostname !== "twitter.com" && url.hostname !== "x.com")
+      throw e(`Invalid hostname: ${url.hostname}`);
 
     if (url.hostname === "x.com") url.hostname = "twitter.com";
 
     const id = url.pathname.split("/").at(-1);
-    if (!id) throw e;
+    if (!id) throw e(`Invalid pathname: ${url.pathname}`);
 
     const photos = await getPhotos(id);
-    if (!photos) throw new Error();
+    if (!photos) throw e(`No photos found for id=${id} (${url.href})`);
 
     await Promise.all(
       photos.map(async photo => {
@@ -122,8 +122,7 @@ export async function POST(request: Request) {
       }),
     );
 
-    revalidatePath("/");
-    revalidatePath("/newest");
+    revalidateTag("photos");
 
     return new Response("Ok!");
   } catch (e) {
