@@ -15,7 +15,7 @@
   "dependencies": {
     "@apollo/client": "3.8.3",
     "@vercel/analytics": "1.0.2",
-    "graphql": "16.8.0",
+    "graphql": "16.8.1",
     "lucide-svelte": "0.276.0",
     "nprogress": "0.2.0"
   },
