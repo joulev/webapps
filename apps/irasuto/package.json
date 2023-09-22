@@ -5,7 +5,6 @@
     "dev": "pnpm db:generate && next dev",
     "build": "pnpm db:generate && next build",
     "start": "next start",
-    "lint": "next lint",
     "db:generate": "prisma generate --schema=./prisma/schema.prisma",
     "db:push": "prisma db push"
   },
@@ -32,8 +31,6 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.16",
     "discord-api-types": "0.37.57",
-    "eslint": "8.49.0",
-    "eslint-config-next": "13.5.2",
     "postcss": "8.4.30",
     "prisma": "5.3.1",
     "tailwind-dark-aware": "0.3.0",
