@@ -13,4 +13,4 @@ Without authentication, it is possible to view all public info in my list i.e. m
 
 With authentication (only I can do so), it can do all what I need a media management system to do, no more, no less. Examples: Moving entries between list categories, adding new entries, removing entries, a not-so-trivial scoring system, "rewatching", etc.
 
-There is a previous version of this app, written in SvelteKit, at the time not yet at v1. You can see it [here](/apps/anime-sveltekit).
+There is a previous version of this app, written in SvelteKit, at the time not yet at v1. You can see it [here](https://github.com/joulev/webapps/tree/e0fb9424df8fec94020eebd17a88139d616b703d/apps/anime-sveltekit).
