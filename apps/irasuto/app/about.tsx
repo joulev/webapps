@@ -10,7 +10,7 @@ import Logo from "~/app/logo";
 
 export default function About() {
   const pathname = usePathname();
-  const isRandomised = pathname === "/";
+  const isNewest = pathname === "/";
   const [expanded, setExpanded] = useState(false);
   return (
     <div className="w-screen max-w-md fixed bottom-0 left-1/2 -translate-x-1/2 p-3">
@@ -54,8 +54,8 @@ export default function About() {
               click on the GitHub icon above to see the source code, including how the illustrations
               are rendered and how I can add new illustrations from my phone.
             </p>
-            <Link href={isRandomised ? "/newest" : "/"} className="btn btn-secondary w-full mb-6">
-              {isRandomised ? "See newest first" : "See randomised"}
+            <Link href={isNewest ? "/random" : "/"} className="btn btn-secondary w-full mb-6">
+              {isNewest ? "See randomised" : "See newest first"}
             </Link>
           </div>
         </div>
