@@ -13,7 +13,7 @@
     "@vercel/analytics": "1.0.2",
     "lucide-vue-next": "0.279.0",
     "mongodb": "6.1.0",
-    "nanoid": "4.0.2",
+    "nanoid": "5.0.1",
     "nprogress": "0.2.0",
     "validator": "13.11.0",
     "zod": "3.22.2"
