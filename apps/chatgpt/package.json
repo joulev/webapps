@@ -11,7 +11,7 @@
     "@joulev/theme": "workspace:*",
     "@t3-oss/env-nextjs": "0.6.1",
     "@tailwindcss/typography": "0.5.10",
-    "@types/node": "18.17.18",
+    "@types/node": "20.6.3",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "ai": "2.2.13",
@@ -22,14 +22,14 @@
     "postcss": "8.4.30",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "rehype-stringify": "9.0.4",
-    "remark-gfm": "3.0.1",
-    "remark-parse": "10.0.2",
-    "remark-rehype": "10.1.0",
+    "rehype-stringify": "10.0.0",
+    "remark-gfm": "4.0.0",
+    "remark-parse": "11.0.0",
+    "remark-rehype": "11.0.0",
     "tailwind-dark-aware": "0.3.0",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2",
-    "unified": "10.1.2",
+    "unified": "11.0.3",
     "zod": "3.22.2"
   }
 }
