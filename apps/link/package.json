@@ -2,10 +2,10 @@
   "name": "@joulev/apps-link",
   "private": true,
   "scripts": {
-    "build": "pnpm nuxt-prepare && nuxt build",
-    "dev": "pnpm nuxt-prepare && nuxt dev",
-    "generate": "pnpm nuxt-prepare && nuxt generate",
-    "preview": "pnpm nuxt-prepare && nuxt preview",
+    "build": "bun run nuxt-prepare && nuxt build",
+    "dev": "bun run nuxt-prepare && nuxt dev",
+    "generate": "bun run nuxt-prepare && nuxt generate",
+    "preview": "bun run nuxt-prepare && nuxt preview",
     "nuxt-prepare": "nuxt prepare"
   },
   "dependencies": {

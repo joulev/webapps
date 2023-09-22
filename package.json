@@ -1,5 +1,10 @@
 {
   "name": "webapps",
+  "packageManager": "bun@1.0.2",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
   "devDependencies": {
     "prettier": "3.0.3",
     "prettier-plugin-svelte": "3.0.3",

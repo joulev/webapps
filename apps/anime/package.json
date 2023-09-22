@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "codegen": "graphql-codegen --config codegen.ts",
-    "dev": "concurrently \"pnpm codegen --watch\" \"next dev\"",
-    "build": "pnpm codegen && next build",
+    "dev": "concurrently \"bun run codegen --watch\" \"next dev\"",
+    "build": "bun run codegen && next build",
     "start": "next start"
   },
   "dependencies": {

@@ -2,8 +2,8 @@
   "name": "@joulev/apps-irasuto",
   "private": true,
   "scripts": {
-    "dev": "pnpm db:generate && next dev",
-    "build": "pnpm db:generate && next build",
+    "dev": "bun run db:generate && next dev",
+    "build": "bun run db:generate && next build",
     "start": "next start",
     "db:generate": "prisma generate --schema=./prisma/schema.prisma",
     "db:push": "prisma db push"
