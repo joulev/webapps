@@ -172,51 +172,6 @@ importers:
         specifier: 3.22.2
         version: 3.22.2
 
-  apps/cuid2:
-    dependencies:
-      '@joulev/theme':
-        specifier: workspace:*
-        version: link:../../packages/theme
-      '@paralleldrive/cuid2':
-        specifier: 2.2.2
-        version: 2.2.2
-      '@types/node':
-        specifier: 20.6.3
-        version: 20.6.3
-      '@types/react':
-        specifier: 18.2.22
-        version: 18.2.22
-      '@types/react-dom':
-        specifier: 18.2.7
-        version: 18.2.7
-      autoprefixer:
-        specifier: 10.4.16
-        version: 10.4.16(postcss@8.4.30)
-      next:
-        specifier: 13.5.2
-        version: 13.5.2(@babel/core@7.22.17)(react-dom@18.2.0)(react@18.2.0)
-      postcss:
-        specifier: 8.4.30
-        version: 8.4.30
-      react:
-        specifier: 18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: 18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-wrap-balancer:
-        specifier: 1.1.0
-        version: 1.1.0(react@18.2.0)
-      tailwind-dark-aware:
-        specifier: 0.3.0
-        version: 0.3.0(tailwindcss@3.3.3)
-      tailwindcss:
-        specifier: 3.3.3
-        version: 3.3.3
-      typescript:
-        specifier: 5.2.2
-        version: 5.2.2
-
   apps/irasuto:
     dependencies:
       '@aws-sdk/client-s3':
