@@ -9,8 +9,8 @@
     "db:push": "prisma db push"
   },
   "dependencies": {
-    "@aws-sdk/client-s3": "3.417.0",
-    "@aws-sdk/s3-request-presigner": "3.417.0",
+    "@aws-sdk/client-s3": "3.418.0",
+    "@aws-sdk/s3-request-presigner": "3.418.0",
     "@discordjs/builders": "1.6.5",
     "@prisma/client": "5.3.1",
     "@t3-oss/env-nextjs": "0.6.1",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
-    "@types/node": "20.6.3",
+    "@types/node": "20.6.5",
     "@types/react": "18.2.22",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.16",
