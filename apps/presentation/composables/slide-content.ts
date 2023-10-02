@@ -8,7 +8,7 @@ export const useSlideContent = async (path: string) => {
     slideTitles: string[] = [];
   for (const child of body.children) {
     if (child.tag === "h1") {
-      slideTitles.push(child.children[0].value);
+      slideTitles.push(child.children?.[0]?.value || "");
       continue;
     }
     if (child.tag === "break") {
