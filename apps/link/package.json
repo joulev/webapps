@@ -16,7 +16,7 @@
     "nanoid": "5.0.1",
     "nprogress": "0.2.0",
     "validator": "13.11.0",
-    "zod": "3.22.2"
+    "zod": "3.22.3"
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
