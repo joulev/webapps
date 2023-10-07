@@ -1,6 +1,6 @@
 {
   "name": "webapps",
-  "packageManager": "bun@1.0.2",
+  "packageManager": "bun@1.0.4",
   "workspaces": [
     "packages/*",
     "apps/*"
