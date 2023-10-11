@@ -9,14 +9,14 @@
     "nuxt-prepare": "nuxt prepare"
   },
   "dependencies": {
-    "@t3-oss/env-nuxt": "0.6.1",
-    "@vercel/analytics": "1.0.2",
-    "lucide-vue-next": "0.279.0",
+    "@t3-oss/env-nuxt": "0.7.0",
+    "@vercel/analytics": "1.1.0",
+    "lucide-vue-next": "0.285.0",
     "mongodb": "6.1.0",
     "nanoid": "5.0.1",
     "nprogress": "0.2.0",
     "validator": "13.11.0",
-    "zod": "3.22.3"
+    "zod": "3.22.4"
   },
   "devDependencies": {
     "@joulev/theme": "workspace:*",
@@ -28,6 +28,6 @@
     "tailwind-dark-aware": "0.3.0",
     "typescript": "5.2.2",
     "vite-plugin-checker": "0.6.2",
-    "vue-tsc": "1.8.15"
+    "vue-tsc": "1.8.19"
   }
 }
